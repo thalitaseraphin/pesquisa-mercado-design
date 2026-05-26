@@ -435,6 +435,263 @@ Dados de mercado que sustentam essa posição:
 
 ---
 
+## PARTE 8 — MODELOS DE NEGÓCIO: EXPLORADOS, EM EXPANSÃO E SUBEXPLORADOS
+
+> **Metodologia desta seção:** classificação baseada em adoção real do mercado. Cada modelo foi pesquisado com fontes primárias. Modelos sem fonte direta são marcados com 💡.
+
+---
+
+### 8.1 Mapa de saturação dos modelos
+
+```
+🔴 MUITO EXPLORADO / SATURADO
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Freela por projeto tradicional
+Pacotes de social media
+Cursos gravados genéricos
+Freelancing em plataforma (Upwork, 99freelas)
+
+🟡 EM EXPANSÃO / SENDO DESCOBERTO
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Serviços productizados (pacote fixo, escopo definido)
+Retainer de gestão de marca
+Eventos ao vivo / workshops
+White label para agências de marketing
+Comunidade paga
+
+🟢 SUBEXPLORADO / QUASE NINGUÉM FAZENDO
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Licenciamento de assets (fontes, templates, ilustrações)
+Design + no-code entregue (Webflow/Framer)
+Design + copy integrado
+Equity partnership com startups
+Revenue share criativo
+Auditoria de marca como produto standalone
+Afiliação de ferramentas / comissão
+Nicho vertical com especialização premium
+Micro-SaaS para designers
+```
+
+---
+
+### 8.2 Modelos em expansão — dados validados
+
+#### 🟡 White label para agências de marketing
+
+✅ **Mercado:**
+- Mercado global de web design: **USD 61,23 bilhões (2025)** → USD 92,06B (2030)
+- **73% das agências** já usam algum modelo de white label *(Amra & Elma 2025)*
+- Agências que terceirizam 40–60% da entrega crescem **2,3x mais rápido** e têm **20% maior margem de lucro**
+- Retenção de clientes: **42% maior** que modelo totalmente in-house
+
+✅ **Margem do modelo:**
+- Margem bruta benchmark: **40–60%** sobre custo de parceiro
+- Markup inicial comum: **1,5x** sobre custo, escalando para 50–70% de gross margin
+
+💡 **Por que ainda subexplorado por designers autônomos:** a maioria das agências contrata o white label internamente ou via grandes fornecedores — o slot para estúdios/designers especializados em nicho ainda está aberto.
+
+**Fontes:**
+- [Amra & Elma — Top 20 White Label Marketing Statistics 2025](https://www.amraandelma.com/white-label-marketing-statistics/)
+- [ALM Corp — How to Build a 7-Figure White Label Agency](https://almcorp.com/blog/how-to-build-7-figure-white-label-digital-agency/)
+
+---
+
+#### 🟡 Serviços productizados (fixed scope, fixed price)
+
+✅ **Como funciona:** serviço transformado em produto — escopo fixo, prazo fixo, preço fixo. Elimina negociação e cria previsibilidade de receita.
+
+✅ **Exemplos reais de preço no mercado:**
+- Auditoria de marca para pequenas empresas: **USD 7.500–15.000**
+- Auditoria para empresas médias: **a partir de USD 25.000**
+- Auditorias complexas: **USD 40.000–50.000+** *(Brand Auditors)*
+
+💡 **Vantagem estratégica com IA:** o mesmo processo que levaria 3 semanas pode ser entregado em 5 dias usando IA. A margem aumenta sem reduzir o preço para o cliente.
+
+**Fontes:**
+- [Brand Auditors — Brand Audit Services](https://brandauditors.com/)
+- [Wayfront — 13 Productized Service Examples with Real Pricing](https://wayfront.com/blog/productized-services-examples)
+- [Assembly — The Complete Guide to Productized Services 2025](https://assembly.com/blog/productized-services)
+
+---
+
+### 8.3 Modelos subexplorados — dados validados
+
+#### 🟢 Licenciamento de assets: fontes, templates e ilustrações
+
+✅ **Tamanho do mercado (plataformas):**
+- **Creative Market:** 9 milhões de usuários na comunidade; criadores ganham **50% do preço de venda**
+- **Envato:** pagou mais de **USD 1 bilhão em earnings cumulativos** para ~81.000 criadores (2020)
+- **Envato Elements:** 50% do net revenue de assinatura distribuído entre autores
+- Plataformas como MyFonts, Creative Market e Envato tomam **30–50% de comissão**
+
+✅ **Potencial de receita:**
+- Iniciantes: **USD 50–200/mês** nos primeiros meses
+- Designers estabelecidos com boa estratégia: **USD 1.000–10.000+/mês** *(Figuree Studio, 2025)*
+- Top criadores de templates Framer: **USD 4.000–7.000/mês** em vendas de templates
+- Templates são vendidos repetidamente sem custo de produção adicional — **renda passiva real**
+
+✅ **Modelo de assinatura para compradores:**
+- Creative Market oferece planos de **USD 19,95–99,95/mês** para compradores
+- Creative Fabrica, Envato e similares criaram ecossistema de assinatura que gera fluxo previsível para criadores
+
+💡 **Por que é subexplorado no Brasil:** a maioria dos designers brasileiros não vende internacionalmente. Plataformas como Creative Market são 100% em inglês e com pagamento em dólar — barreira de entrada mas também oportunidade real de receita em moeda forte.
+
+**Fontes:**
+- [Creative Market — Font Licensing](https://creativemarket.com/blog/licensing-fonts)
+- [Figuree Studio — How to Make Money from Fonts in Your Sleep](https://figureestudio.com/2025/06/17/how-to-make-money-from-fonts-in-your-sleep-passive-income-guide/)
+- [WP Tavern — Envato passes $1 billion in community earnings](https://wptavern.com/envato-passes-1-billion-in-community-earnings-while-continuing-to-aggressively-market-its-elements-subscription-against-marketplace-authors)
+- [Segment UI — How Much Can Framer and Web Designers Make](https://segmentui.com/learn/how-much-can-framer-and-web-designers-make-in-2024)
+
+---
+
+#### 🟢 Design + no-code entregue (Webflow / Framer)
+
+✅ **Plataformas em números:**
+- **Webflow:** USD 280M de receita (2024); USD 200M ARR (2023), crescendo 48% a.a.; 200.000+ negócios ativos *(Sacra)*
+- **Framer:** USD 2 bilhões de valuation (agosto 2025); 500.000+ usuários ativos mensais; USD 100M levantados em Series D *(Sacra / Crunchbase)*
+- **3,8 milhões de designers** no mundo já usam visual website builders *(dados agregados de mercado)*
+
+✅ **Quanto ganha quem combina design + no-code:**
+- Taxa/hora freelancer Webflow: **USD 30–200/hora** (média: USD 60–100 para perfil sênior)
+- Salário CLT (EUA): mediana de **USD 92.000/ano** (2026), crescimento de ~6% vs. 2024
+- Freelancers Webflow ganham **40% mais por projeto** que designers tradicionais (WordPress)
+- Projeto mínimo de site de qualidade: **USD 3.000+** · Projetos sênior: USD 20.000+
+- Combinando freela + templates + afiliação: **USD 109.000–144.000+/ano** é possível *(Segment UI)*
+
+💡 **Por que é oportunidade:** o designer que entrega o site pronto (não só o layout) elimina um intermediário (dev) e captura mais valor. A especialização em Webflow ou Framer é ainda rara — especialmente combinada com identidade visual.
+
+**Fontes:**
+- [Sacra — Webflow Revenue & Valuation](https://sacra.com/c/webflow/)
+- [Segment UI — How Much Can Framer and Web Designers Make](https://segmentui.com/learn/how-much-can-framer-and-web-designers-make-in-2024)
+- [Ballistic Media — How Much Do Webflow Developers Make in 2024](https://www.ballistic.media/blog/how-much-do-webflow-developers-make-in-2024-prospects-for-2025-and-tips-to-maximize-earnings)
+- [Webflow Jobs — Webflow Developer Salary Guide 2026](https://www.webflow.jobs/resources/webflow-developer-salary-guide-2026)
+
+---
+
+#### 🟢 Afiliação de ferramentas de design / comissão
+
+✅ **Programas reais com dados de comissão:**
+
+| Ferramenta | Comissão | Detalhes |
+|-----------|----------|---------|
+| **Adobe** | 85% do 1º mês de assinatura | Válido por 30 dias após clique |
+| **Figma** | 30% da 1ª compra do plano Professional | Ou USD 3 por novo signup |
+| **Untitled UI** | 30% recorrente | Até USD 749,70 por venda (UI Kit Figma) |
+| **ProtoPie** | 40% do 1º pagamento | Plano Basic e Pro |
+| **Framer** | USD 200–700/mês (estimado) | Programa de parceiro/afiliado |
+
+💡 **Modelo de receita passiva real:** designers que produzem conteúdo (YouTube, Instagram, newsletter) podem gerar USD 500–2.000/mês em afiliação com audiência de nicho — sem criar produto próprio.
+
+💡 **Por que é subexplorado:** a maioria dos designers não percebe que usa essas ferramentas diariamente e poderia estar ganhando comissão ao recomendar. Baixa barreira de entrada.
+
+**Fontes:**
+- [Adobe — Affiliate Marketing Program](https://www.adobe.com/affiliates.html)
+- [ProtoPie — Best Affiliate Programs for Designers](https://www.protopie.io/blog/affiliate-programs-for-designers)
+- [Affiliate Yoco — Figma Affiliate Program 2025](https://affiliateyoco.com/affiliate-program/figma-affiliate-program)
+- [Untitled UI — Become an Affiliate](https://www.untitledui.com/affiliates)
+
+---
+
+#### 🟢 Equity partnership com startups
+
+✅ **Como funciona:**
+- Designer reduz honorários em **25–50%** em troca de participação societária *(Startups.com)*
+- Modelo: agência faz serviço + vira parceira estratégica com interesse no longo prazo do cliente
+
+✅ **Benchmarks de equity para designers:**
+- Co-fundador de design (pré-seed): **1–8% do equity** da empresa *(Quora / Medium)*
+- Modelo híbrido: parte cash + parte equity com vesting de 2–4 anos
+- Early employees recebem equity para compensar salário abaixo do mercado e criar comprometimento de longo prazo
+
+💡 **Risco real:** a maioria das startups não chega a Series A. Equity sem vesting pode não valer nada. Funciona melhor para designers com visão de investidor — capazes de avaliar o potencial do negócio antes de aceitar o deal.
+
+💡 **Por que é subexplorado:** requer mentalidade de sócio, não de prestador de serviço. Poucos designers têm frameworks para avaliar equity. Educação sobre valuation e cap table é rara nessa comunidade.
+
+**Fontes:**
+- [Medium — The Designers Guide to Startup Equity](https://medium.com/@robjbye/the-designers-guide-to-startup-equity-86351062700e)
+- [Medium — What Designers Should Know About Startup Equity](https://medium.com/swlh/what-designers-should-know-about-startup-equity-aa09de0dc120)
+- [Cake Equity — Sweat Equity: How it Works](https://www.cakeequity.com/guides/sweat-equity)
+- [Design Museum Foundation — From Equity-for-Service to Collective Partnership](https://designmuseumfoundation.org/from-equity-for-service-to-collective-partnership/)
+
+---
+
+#### 🟢 Especialização vertical com premium pricing
+
+✅ **Dados validados:**
+- **Especialistas ganham 40–60% mais** que generalistas *(Toptal via Colorlib — já na Parte 3)*
+- Especialização em nicho permite precificação premium — clientes de nicho são **menos sensíveis a preço** e reconhecem valor específico
+
+✅ **Exemplos de nichos com premium comprovado:**
+- Design para setor farmacêutico/medical: compliance + regulação = alto ticket
+- Design para luxury brands: requer sensibilidade estética específica, USD 25.000–100.000+/projeto
+- Design para apps de saúde ou fintech: combinação UI/UX + regulação
+- Design para SaaS B2B: design system + produto → contratos de retainer longos
+
+✅ **Contexto de mercado:**
+- Vertical SaaS crescendo como abordagem dominante (vs. horizontal) em 2024–2025 *(O'Castle Insights)*
+- Micro-branding: marcas que ganham em 2025 são as que **narrowam o foco**, não as que atendem todo mundo *(Aybben, 2025)*
+
+💡 **Por que é subexplorado:** ir para nicho parece "limitar clientes" — mas na prática aumenta conversão, facilita marketing e eleva ticket. Medo de nichos é o erro mais comum de designers que querem crescer.
+
+**Fontes:**
+- [Colorlib — Graphic Design Statistics 2026](https://colorlib.com/wp/graphic-design-statistics/)
+- [O'Castle — Vertical SaaS Strategy 2024](https://ocastle.com/navigating-niche-markets-the-vertical-saas-strategy-for-business-growth-in-2024/)
+- [Aybben — The Rise of Micro-Branding 2025](https://aybben.com/micro-branding-2025/)
+- [Schweitser Designs — Luxury Brand Identity Design 2024](https://www.schweitzerdesigns.com/post/luxury-brand-identity-design-2024-guide)
+
+---
+
+#### 🟢 Micro-SaaS para designers
+
+✅ **Mercado:**
+- Micro-SaaS global: **USD 15,70 bilhões (2024)** → USD 59,60B (2030), crescimento ~30%/ano *(IdeaProof)*
+- **44% dos SaaS lucrativos** hoje são rodados por fundadores solos *(IdeaProof / IndieHackers)*
+
+✅ **Exemplos reais de ferramentas de design como micro-SaaS:**
+| Produto | Modelo | Receita |
+|---------|--------|---------|
+| **Snappa** (design gráfico simplificado) | SaaS — planos mensais | USD 3,2M ARR (2024) |
+| **Bannerbear** (geração automatizada de imagens) | API + planos | USD 52.500 MRR (USD 630K ARR) |
+| **Tailwind UI** (componentes de design) | Produto único USD 149–249 | USD 4M+ em <2 anos |
+
+✅ **Perfil de receita para solopreneurs de design:**
+- Solo founders rotineiramente chegam a **USD 5.000–50.000+ MRR** ao focar em nicho específico *(IndieHackers)*
+- IA reduziu custo de desenvolvimento: designer com noção de prompting pode construir produto sem dev full-time
+
+💡 **Por que é a maior oportunidade de 2025–2027:** IA lowcode/nocode (Cursor, Lovable, Bolt) permite que designers construam produtos sem saber programar de verdade. Um designer que entende o problema melhor que qualquer dev tem vantagem estrutural para criar ferramentas de design.
+
+💡 **Exemplos de lacunas ainda abertas no Brasil:** ferramenta de briefing estruturado, gerador de guidelines de marca com IA, painel de aprovação de criativos para clientes, calculadora de precificação por valor para designers.
+
+**Fontes:**
+- [IdeaProof — 50 Micro SaaS Ideas 2026 (Real Revenue Data)](https://ideaproof.io/lists/micro-saas-ideas)
+- [Superframeworks — Best Micro SaaS Ideas 2026](https://superframeworks.com/articles/best-micro-saas-ideas-solopreneurs)
+- [Market Clarity — Top 30 Most Profitable Indie SaaS](https://mktclarity.com/blogs/news/indie-saas-top)
+- [Appkodes — One-Person Indie SaaS Projects Built Using AI](https://appkodes.com/blog/one-person-indie-saas-projects-built-using-ai/)
+
+---
+
+### 8.4 Resumo estratégico — onde apostar
+
+> 💡 Análise estratégica baseada nos dados validados acima.
+
+| Modelo | Potencial de receita | Barreira de entrada | Fit com IA | Prazo para resultado |
+|--------|---------------------|--------------------|-----------|--------------------|
+| White label para agências | Alto | Média | Alto | 3–6 meses |
+| Serviços productizados | Médio-alto | Baixa | Alto | 1–3 meses |
+| Design + no-code (Webflow/Framer) | Alto | Média | Médio | 3–6 meses |
+| Licenciamento de assets (templates) | Médio (passivo) | Baixa-média | Alto | 6–12 meses |
+| Afiliação de ferramentas | Baixo-médio | Muito baixa | Baixo | 1–3 meses |
+| Especialização vertical | Alto | Baixa (reposicionamento) | Alto | 6–12 meses |
+| Equity com startups | Muito alto (risco alto) | Alta | Médio | 24–48 meses |
+| Micro-SaaS | Muito alto (risco médio) | Média (com IA lowcode) | Muito alto | 12–24 meses |
+
+**Leitura do mapa:**
+- **Curto prazo:** Afiliação (começa amanhã) + Productized services (1 mês para estruturar)
+- **Médio prazo:** Design + no-code + Especialização vertical (posicionamento + habilidade nova)
+- **Longo prazo:** Licenciamento de assets + Micro-SaaS (construção de ativo, não de serviço)
+
+---
+
 ## REFERÊNCIAS CONSOLIDADAS
 
 | # | Fonte | URL | Tipo |
@@ -458,6 +715,25 @@ Dados de mercado que sustentam essa posição:
 | 17 | Ruzuku — State of Online Courses 2026 | [link](https://www.ruzuku.com/learn/articles/state-of-online-courses-2026) | Dados de mercado |
 | 18 | Gazeta de Pinheiros — Mercado Comunicação Visual | [link](https://gazetadepinheiros.com.br/noticia/14099/mercado-de-comunicacao-visual-deve-alcancar-us-6-7-bilhoes-ate-2031-segundo-estudo-internacional) | Notícia |
 | 19 | eDesignify — Freelance Design Rates 2025 | [link](https://edesignify.com/blogs/freelance-design-rates-in-2025-how-much-should-you-charge) | Dados de mercado |
+| 20 | Amra & Elma — Top 20 White Label Marketing Statistics 2025 | [link](https://www.amraandelma.com/white-label-marketing-statistics/) | Research / benchmark |
+| 21 | ALM Corp — How to Build a 7-Figure White Label Agency | [link](https://almcorp.com/blog/how-to-build-7-figure-white-label-digital-agency/) | Guia de mercado |
+| 22 | Brand Auditors — Brand Audit Services & Pricing | [link](https://brandauditors.com/) | Referência de preço |
+| 23 | Wayfront — 13 Productized Service Examples with Real Pricing | [link](https://wayfront.com/blog/productized-services-examples) | Exemplos de mercado |
+| 24 | WP Tavern — Envato passes $1B in community earnings | [link](https://wptavern.com/envato-passes-1-billion-in-community-earnings-while-continuing-to-aggressively-market-its-elements-subscription-against-marketplace-authors) | Notícia / dado financeiro |
+| 25 | Figuree Studio — How to Make Money from Fonts in Your Sleep | [link](https://figureestudio.com/2025/06/17/how-to-make-money-from-fonts-in-your-sleep-passive-income-guide/) | Guia prático |
+| 26 | Segment UI — How Much Can Framer and Web Designers Make | [link](https://segmentui.com/learn/how-much-can-framer-and-web-designers-make-in-2024) | Dados de receita |
+| 27 | Sacra — Webflow Revenue & Valuation | [link](https://sacra.com/c/webflow/) | Análise financeira |
+| 28 | Webflow Jobs — Webflow Developer Salary Guide 2026 | [link](https://www.webflow.jobs/resources/webflow-developer-salary-guide-2026) | Dados de salário |
+| 29 | Adobe — Affiliate Marketing Program | [link](https://www.adobe.com/affiliates.html) | Programa oficial |
+| 30 | ProtoPie — Best Affiliate Programs for Designers | [link](https://www.protopie.io/blog/affiliate-programs-for-designers) | Guia de afiliação |
+| 31 | Affiliate Yoco — Figma Affiliate Program 2025 | [link](https://affiliateyoco.com/affiliate-program/figma-affiliate-program) | Programa oficial |
+| 32 | Untitled UI — Become an Affiliate | [link](https://www.untitledui.com/affiliates) | Programa oficial |
+| 33 | Medium (Robert Bye) — The Designers Guide to Startup Equity | [link](https://medium.com/@robjbye/the-designers-guide-to-startup-equity-86351062700e) | Análise / guia |
+| 34 | Cake Equity — Sweat Equity Guide | [link](https://www.cakeequity.com/guides/sweat-equity) | Guia financeiro |
+| 35 | O'Castle — Vertical SaaS Strategy 2024 | [link](https://ocastle.com/navigating-niche-markets-the-vertical-saas-strategy-for-business-growth-in-2024/) | Análise estratégica |
+| 36 | Aybben — The Rise of Micro-Branding 2025 | [link](https://aybben.com/micro-branding-2025/) | Tendência de mercado |
+| 37 | IdeaProof — 50 Micro SaaS Ideas 2026 (Real Revenue Data) | [link](https://ideaproof.io/lists/micro-saas-ideas) | Dados de receita |
+| 38 | Market Clarity — Top 30 Most Profitable Indie SaaS | [link](https://mktclarity.com/blogs/news/indie-saas-top) | Dados de receita |
 
 ---
 

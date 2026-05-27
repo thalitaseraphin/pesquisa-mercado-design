@@ -252,6 +252,173 @@ Artes avulsas                        R$80–300/peça
 
 ---
 
+### 4.2 O dado que ninguém fala: taxa de conclusão de cursos
+
+> ⚠️ Este é o dado mais importante e mais ignorado do mercado de educação online.
+
+✅ **Taxas de conclusão por formato:**
+
+| Formato | Taxa de conclusão | Observação |
+|---------|------------------|------------|
+| **Curso gravado auto-dirigido** | **5–15%** | Padrão da indústria |
+| **MOOC (Coursera, edX, Udemy)** | **6,5%** | Harvard/MIT research |
+| **Com coaching ou accountability** | **70%+** | Com suporte estruturado |
+| **Cohort-based (ao vivo com turma)** | **70–95%** | Maior taxa do mercado |
+| **Ao vivo com feedback personalizado** | **+37% de persistência** vs. sem feedback | — |
+
+✅ **O dado brutal:** plataformas como Udemy reportam até **97% de taxa de abandono** em cursos gravados. Apenas 3% terminam.
+
+✅ **Quando o abandono acontece:**
+- A maioria do dropout ocorre nas **primeiras 1–2 semanas**
+- Esse é o período mais crítico de qualquer produto de educação
+
+✅ **Por que as pessoas abandonam:**
+1. **Expectativa vs. realidade:** marketing promete transformação, curso entrega conteúdo
+2. **Falta de interação com o instrutor** — sensação de abandono
+3. **Carga de trabalho percebida como excessiva** — perda de motivação
+4. **Sem accountability** — sem prazo, sem pressão social, sem razão para continuar
+5. **Conteúdo irrelevante ou entediante** — não conecta com o problema real do aluno
+6. **Isolamento** — aprendizado solitário é desmotivante
+
+💡 **Implicação estratégica direta para o IA LAB:** formato ao vivo de 2 dias com instrutor presente é o modelo com maior taxa de conclusão do mercado. Não é acidente — é estrutura. A promessa precisa ser honesta com o que acontece em 2 dias, não o que acontece em meses.
+
+**Fontes:**
+- [LearnStream — Average Online Course Completion Rate](https://learnstream.io/blog/what-is-the-average-online-course-completion-rate-and-why-does-it-matter/)
+- [Matsh.co — Dropout Rates in Online Training Programs](https://www.matsh.co/en/dropout-rates-in-online-training-programs-stats-and-insights/)
+- [DigitalDefynd — Why People Don't Finish Online Courses 2026](https://digitaldefynd.com/IQ/why-people-not-finish-online-courses/)
+- [Entrepreneurshq — Online Learning Statistics 2026](https://entrepreneurshq.com/online-learning-statistics/)
+
+---
+
+### 4.3 Formato ao vivo vs. gravado — a diferença que muda tudo
+
+✅ **Comparativo direto:**
+
+| Dimensão | Auto-dirigido (gravado) | Cohort / Ao vivo |
+|----------|------------------------|------------------|
+| Taxa de conclusão | 5–15% | 70–95% |
+| Accountability | Nenhuma | Alta (turma + prazo) |
+| Senso de comunidade | Baixo | Alto |
+| Interação com instrutor | Nenhuma ou mínima | Alta |
+| Aplicação do conteúdo | Baixa (sem pressão) | Alta (entrega junto com a turma) |
+| Ticket médio | Baixo (R$97–497) | Alto (R$500–2.000+) |
+| Percepção de valor | Commodity | Premium |
+
+✅ **Por que cohort funciona:** deadlines + pressão de pares + live sessions criam **momentum** que o curso gravado nunca consegue replicar.
+
+**Fontes:**
+- [DigitalDefynd — Cohorts vs Self-Paced Learning 2025](https://digitaldefynd.com/IQ/cohorts-vs-self-paced-learning/)
+- [Kajabi — Self-Paced vs. Cohort-Based Courses](https://www.kajabi.com/blog/self-paced-vs-cohort-based-courses)
+- [Xperiencify — Cohort-Based Courses 2024](https://xperiencify.com/cohort-based-courses/)
+
+---
+
+### 4.4 Hábitos de consumo de conteúdo educacional
+
+✅ **Duração ideal de vídeo — o que a pesquisa mostra:**
+
+| Duração | Engajamento | Referência |
+|---------|-------------|------------|
+| **Menos de 6 minutos** | Mais alto | MIT — análise de 6,9 milhões de vídeos |
+| **3–6 minutos** | Preferido por 30%+ | TechSmith Video Viewer Trends 2024 |
+| **6–12 minutos** | Bom desempenho | Múltiplas pesquisas |
+| **12–15 minutos** | Limite para maioria dos alunos | Univ. Wisconsin-Stout |
+| **Acima de 20 minutos** | Queda significativa de retenção | — |
+
+✅ **Dado central (MIT):** vídeos abaixo de **6 minutos** têm engajamento significativamente maior. A partir de **12–15 minutos** começa a queda. **Qualidade do conteúdo importa mais que a duração** — conteúdo relevante prende independente do comprimento.
+
+✅ **Dispositivo de consumo:**
+- **57% preferem mobile** para consumo de conteúdo educacional
+- 72% do tempo online global é em mobile vs. 28% desktop
+- 38% dos alunos valorizam app mobile como feature de plataforma de aprendizado
+- Implicação: qualquer material de suporte (PDFs, resumos, replay) precisa funcionar bem no celular
+
+✅ **Modelo híbrido é o preferido:**
+- 55% dos adultos que estudam online preferem **híbrido** (online + presencial ou live + async)
+- Preferências de elementos virtuais: aulas gravadas para revisar + acesso fácil aos materiais + flexibilidade
+
+💡 **Padrão de consumo observado (qualitativo):**
+- **Modo exploração** (antes de comprar): Instagram, YouTube, TikTok — consumo passivo, vídeos curtos
+- **Modo aquisição de skill** (após comprar): YouTube longform, cursos gravados — consumo ativo
+- **Modo validação social**: comunidades, Discord, grupos do WhatsApp — antes E depois da compra
+- **Modo aprendizado de negócios**: podcasts (consumo no deslocamento, em segundo plano)
+
+**Fontes:**
+- [MIT / Quality Matters — Video Length Research](https://www.qualitymatters.org/qa-resources/resource-center/articles-resources/research-video-length)
+- [TechSmith — Video Length 2024](https://www.techsmith.com/blog/video-length/)
+- [Boclips — Optimum Length for Instructional Video](https://www.boclips.com/blog/whats-the-optimum-length-for-an-instructional-video-and-why-does-it-matter)
+- [Research.com — Mobile vs Desktop Usage 2026](https://research.com/software/guides/mobile-vs-desktop-usage)
+- [Skillademia — Online Learning Statistics 2025](https://www.skillademia.com/statistics/online-learning-statistics/)
+
+---
+
+### 4.5 O que quem tem bacharelado em design faz depois
+
+✅ **Caminhos mais comuns após a graduação:**
+
+| Caminho | Observação |
+|---------|------------|
+| **Agência de publicidade / design studio** | Ponto de entrada mais comum — aprende o mercado, ganha portfólio da agência |
+| **In-house (empresa com equipe interna)** | Estabilidade CLT, cresce devagar, menos exposição a projetos variados |
+| **Freelance imediato** | Minoria — requer portfólio e rede antes de se formar |
+| **Migração para UI/UX** | Crescente — salário muito maior, mais vagas, mais estruturado |
+| **Pós-graduação / especialização** | Comum para quem quer UX/UI ou direção criativa sem experiência |
+| **Abandona o design** | Subnotificado mas real — parte vai para marketing, comunicação, educação |
+
+✅ **Dado crítico de empregabilidade:**
+- **Estágio é o maior preditor de sucesso** após a formatura — mais do que nota, projeto de conclusão ou referências de professores *(pesquisa CUNY sobre primeiros 2 anos pós-graduação)*
+- Graduados sem estágio têm significativamente mais dificuldade de entrar no mercado
+- Salário de entrada EUA: **USD 36.000/ano** (muito abaixo da mediana de USD 61.300)
+
+✅ **A migração para UI/UX:**
+- Demanda por UX/UI designers crescendo **37,8% ao ano** vs. 3% para design gráfico geral
+- Designers gráficos formados estão se recapacitando para UI/UX porque:
+  - Salário 40–79% maior
+  - Mais vagas, menos concorrência
+  - Crescimento do mercado de produtos digitais
+
+✅ **O fenômeno não documentado — designers que viram infoprodutores:**
+- Número crescente de designers que, após 3–7 anos de mercado, transitam para educação online
+- Cursos de design são consistentemente um dos nichos de maior conversão em plataformas como Hotmart
+- A combinação de autoridade técnica + audiência no Instagram/YouTube + conhecimento de produto cria o perfil mais bem-sucedido
+
+💡 **Pergunta que você não fez mas precisa responder:** qual % dos alunos do IA LAB volta a comprar outro produto? Essa é a métrica mais importante de produto educacional — e raramente é medida.
+
+**Fontes:**
+- [BLS — Graphic Designers Occupational Outlook 2024](https://www.bls.gov/ooh/arts-and-design/graphic-designers.htm)
+- [Research.com — What Can You Do With a Graphic Design Degree 2026](https://research.com/careers/what-can-you-do-with-a-graphic-design-degree)
+- [NHCC — Graphic Design Careers 2025](https://www.nhcc.edu/news/graphic-design-careers-salary-education-and-job-paths-2025-guide)
+
+---
+
+### 4.6 As perguntas que você não sabia que precisava fazer
+
+> 💡 Estas são as questões que pesquisadores de comportamento de consumidor educacional fazem — e que revelam mais do que qualquer dado de mercado.
+
+**Sobre comportamento de compra:**
+- ❓ Qual é o momento de vida que dispara a busca por um curso? (crise, demissão, platô de renda, comparação com um par que está indo melhor?)
+- ❓ Quanto tempo passa entre a primeira vez que vê o produto e a compra? (dias, semanas, meses?)
+- ❓ Quantas vezes o aluno voltou na página antes de comprar?
+- ❓ Comprou por indicação de alguém ou por conteúdo orgânico?
+
+**Sobre comportamento de consumo:**
+- ❓ Qual % do conteúdo do evento o aluno realmente assiste/participa?
+- ❓ Qual a atividade mais valiosa do evento na percepção do aluno (não na sua)?
+- ❓ Onde ele para de assistir? (qual módulo / qual hora do dia?)
+- ❓ Assiste no mobile ou desktop? Manhã, tarde ou noite?
+
+**Sobre resultado e recompra:**
+- ❓ Quantos aplicaram algo do IA LAB dentro de 30 dias após o evento?
+- ❓ Quantos voltariam a comprar outro produto do Kimura?
+- ❓ O que impediu quem não aplicou de aplicar?
+- ❓ Qual foi a transformação real percebida — não a que você prometeu, mas a que eles relatam?
+
+**Por que essas perguntas importam:** as respostas determinam copy, formato de produto, timing de oferta, estrutura do evento e estratégia de upsell. Sem elas, você está voando cego em decisões que afetam diretamente a receita.
+
+> 📌 **Próximo passo recomendado:** pesquisa com 8–12 alunos de edições anteriores do IA LAB. 30 minutos de conversa cada. Esse é o insumo para a análise de sinais invisíveis que deixamos marcada para depois.
+
+---
+
 ## PARTE 5 — MAPA DE PERSONAS
 
 > 💡 **Nota metodológica:** As personas abaixo são sínteses qualitativas baseadas em padrões de mercado, dados validados acima e observação do comportamento do público. **Não têm fonte primária única** — representam arquétipos construídos a partir de múltiplos sinais. Recomenda-se validação com entrevistas de 5–8 pessoas de cada perfil.

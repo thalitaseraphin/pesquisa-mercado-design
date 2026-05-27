@@ -978,6 +978,235 @@ GERAL                   │                        DESIGN
 
 ---
 
+## PARTE 12 — RADAR DE INOVAÇÃO: FERRAMENTAS EMERGENTES 2025–2026
+
+> **Objetivo:** mapear o que está mudando o workflow de design agora — antes de virar óbvio. Dado essencial para quem ensina método, não ferramenta.
+
+---
+
+### 12.1 A ferramenta central: Figma domina, mas está se transformando
+
+✅ **Figma em números (2025–2026):**
+- **Receita:** USD 1,056 bilhão (2025), crescimento de 41% vs. USD 749M (2024)
+- **IPO:** julho de 2025 — ações subiram 158% na estreia, valuation atingiu **USD 45 bilhões**
+- **Usuários:** 13 milhões de MAU (março 2025), crescimento de 159% ao ano desde 2022
+- **Market share:** 40,65% do mercado de design tools geral; **80–90% em UI/UX design**
+- **Penetração empresarial:** 99% das organizações com software de design usam Figma *(6sense)*
+
+✅ **Figma AI — o que mudou no workflow:**
+- 73% dos times de design já integraram features de IA na rotina semanal *(Figma Community Report)*
+- 85% dos designers dizem que aprender a trabalhar com IA será essencial para o futuro *(Figma AI Report 2025)*
+- Features lançadas: Replace content, Make an image, First Draft, Vectorize, Remove Background, Expand Image — elimina troca de ferramentas
+- **Figma Sites:** construtor de site no-code integrado, compete diretamente com Webflow e Framer
+- **Figma MCP Server:** conecta Figma ao Cursor, Windsurf e Claude — fluxo design → código sem fricção
+
+💡 **Implicação para designers:** Figma está deixando de ser só uma ferramenta de design para ser uma **plataforma de produto completa** — protótipo → site publicado → handoff de código, tudo dentro de um ecossistema. Designer que entende esse fluxo entrega mais valor, mais rápido.
+
+**Fontes:**
+- [Programming Helper — Figma 2026: 41% Market Share, 13M MAU, IPO to $45B](https://www.programming-helper.com/tech/figma-2026-40-market-share-13m-mau-ipo-python)
+- [Sacra — Figma Revenue & Valuation](https://sacra.com/c/figma/)
+- [Figma — AI in Design](https://www.figma.com/ai/)
+- [LogRocket — Figma AI in 2026: Everything it can do](https://blog.logrocket.com/ux-design/figma-ai-2026-quick-overview/)
+
+---
+
+### 12.2 Ferramentas de geração de imagem e vídeo
+
+✅ **O estado atual das ferramentas de imagem:**
+
+| Ferramenta | Posição em 2026 | Melhor para |
+|-----------|----------------|------------|
+| **Midjourney** | Benchmark de qualidade artística | Moodboard, conceito, direção criativa |
+| **Adobe Firefly** | Profissional e comercialmente seguro | Produção integrada ao Creative Cloud |
+| **Runway (Gen-4.5)** | Líder em vídeo e motion com IA | Vídeo, animação, lookbook digital |
+| **FLUX.2 (Black Forest Labs)** | Alta fidelidade, integrado ao Firefly | Imagem publicitária realista |
+| **Canva AI 2.0** | Para uso rápido e equipes não-técnicas | Social media, materiais com template |
+
+✅ **Fluxo emergente (o que os melhores times usam em 2026):**
+```
+Midjourney / FLUX
+    ↓ (conceito e direção artística)
+Adobe Firefly / Photoshop AI
+    ↓ (produção comercialmente segura)
+Runway
+    ↓ (animação / vídeo)
+Figma / Webflow
+    ↓ (entrega final)
+```
+
+✅ **Adobe + Runway:** parceria anunciada em dezembro 2025 — Runway Gen-4.5 integrado diretamente ao Adobe Firefly para geração de vídeo dentro do ecossistema Adobe.
+
+✅ **Mercado de IA generativa em design:**
+- USD 4,06 bilhões (2025) → USD 5,38 bilhões (2026), CAGR **32,3%**
+- Designer que usa IA ganha em média **34% mais** do que quem não usa *(McKinsey 2025)*
+
+**Fontes:**
+- [ELVTR — A Designer's Guide to 2025's AI Tools](https://uk.elvtr.com/blog/a-designers-guide-to-2025s-ai-tools)
+- [Flatline Agency — AI Design Tools for Brands 2026](https://www.flatlineagency.com/blog/ai-design-tools-for-brands-2026/)
+- [Adobe Newsroom — New Creative Agent and Firefly Innovations](https://news.adobe.com/news/2026/04/adobe-new-creative-agent)
+- [NoGood — AI Design Strategy: The Future of Design 2026](https://nogood.io/blog/future-of-design-strategy/)
+
+---
+
+### 12.3 A revolução do vibe coding — o que muda para designers
+
+✅ **O que é:** ferramentas que permitem criar aplicativos funcionais descrevendo em linguagem natural — sem escrever código. Designers estão usando para prototipar, validar e entregar produtos finais.
+
+✅ **Números que mostram a velocidade do movimento:**
+
+| Plataforma | ARR | Usuários | Crescimento |
+|-----------|-----|----------|-------------|
+| **Cursor** | USD 1 bilhão+ | 1M+ usuários diários | 0 → $1B ARR em 24 meses (recorde B2B) |
+| **Lovable** | USD 206 milhões (nov/2025) | 8 milhões | $7M → $206M ARR em 1 ano = **+2.800% YoY** |
+| **Bolt (StackBlitz)** | USD 40 milhões | 5 milhões | $0 → $40M ARR em 5 meses |
+| **GitHub Copilot** | — | 4,7M pagantes | +75% YoY; 90% do Fortune 100 usa |
+
+*(Fontes: Mocha — AI App Builder Statistics 2026; GetPanto — Bolt Statistics 2026)*
+
+✅ **Por que isso importa para designers:**
+- Lovable lançou **Visual Editor** em 2025 — modo Figma-like para editar apps gerados por IA clicando nos elementos
+- Lovable gera **100.000 produtos/dia** — o volume de produtos que precisam de design explodin
+- Designer que sabe usar Cursor + Lovable + Figma entrega **protótipo funcional** no lugar de wireframe estático
+- Clientes pagam mais por entregável funcional do que por mockup
+
+✅ **Mercado de AI code tools:**
+- USD 4,86 bilhões (2023) → USD 26,03 bilhões (2030), CAGR **27,1%**
+
+💡 **Interpretação estratégica:** o "vibe coding" não substitui o designer — mas o designer que não souber usar vai perder projetos para quem sabe. A barreira entre design e desenvolvimento está desaparecendo. Designer com processo + ferramentas de AI coding captura toda a cadeia de valor — desde a identidade até o produto publicado.
+
+**Fontes:**
+- [Mocha — AI App Builder Statistics 2026](https://getmocha.com/blog/ai-app-builder-statistics)
+- [GetPanto — Bolt.new Statistics 2026](https://www.getpanto.ai/blog/bolt-new-statistics)
+- [SideTool — Cursor, Bolt, and Lovable AI Compared](https://www.sidetool.co/post/cursor-bolt-and-lovable-ai-compared-find-your-perfect-development-tool/)
+
+---
+
+### 12.4 Síntese: o stack de ferramentas do designer avançado em 2026
+
+```
+ESTRATÉGIA E MÉTODO
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Briefing → pesquisa → direção criativa (processo humano)
+
+CONCEITO COM IA
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Midjourney / FLUX.2 → moodboard e exploração visual rápida
+
+PRODUÇÃO
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Figma (design system, UI, identidade)
+Adobe Firefly (assets comercialmente seguros)
+Runway (vídeo, motion, animação)
+
+ENTREGA
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Figma Sites / Webflow / Framer → site publicado
+Lovable / Bolt / Cursor → produto digital funcional
+
+ACELERAÇÃO TRANSVERSAL
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Claude / ChatGPT / Gemini → copy, briefing, documentação, estratégia
+```
+
+> 💡 O diferencial não é saber todas as ferramentas. É ter **processo** para decidir qual usar em cada fase — e entregar o resultado para o cliente sem expor a mecânica.
+
+---
+
+## PARTE 13 — INOVAÇÃO DE CARREIRA: DESIGNER BRASILEIRO PARA O MERCADO INTERNACIONAL
+
+> **Por que isso importa:** o designer brasileiro tem vantagem competitiva real no mercado global que a maioria não explorou. Isso é oportunidade de educação (ensinar como entrar), produto (comunidade, mentoria, cursos) e posicionamento.
+
+---
+
+### 13.1 A posição do Brasil no mercado global de talento remoto
+
+✅ **Brasil no ranking global:**
+- **5º lugar** no ranking de países que mais produzem talento freelance para o mercado internacional (2024) *(Grey.co)*
+- 25 milhões de profissionais autônomos e freelancers no Brasil
+- Brasil figura entre os **top 10 países** produtores de novo talento freelance global em 2024
+
+✅ **Por que empresas internacionais contratam designers brasileiros:**
+
+| Vantagem | Detalhe |
+|----------|---------|
+| **Custo-qualidade** | Entregas de nível sênior a custo competitivo vs. EUA/Europa |
+| **Fuso horário** | Sobreposição com toda a América do Norte e parcial com Europa |
+| **Colaboração assíncrona** | Times brasileiros reconhecidos por documentação clara e flexibilidade |
+| **Criatividade** | Culturalmente reconhecidos como "collaborative, feedback-friendly, and creative" *(Grey.co)* |
+| **Proficiência em inglês** | Crescente entre profissionais de tech e design |
+
+---
+
+### 13.2 Quanto ganha o designer brasileiro trabalhando para o exterior
+
+✅ **Faixas salariais em dólar (remoto internacional):**
+
+| Cargo | Salário anual (USD) | Equivalente mensal (R$)* |
+|-------|---------------------|--------------------------|
+| Designer gráfico (geral) | USD 32.000–88.000 | R$16k–44k |
+| UX/UI Designer sênior | USD 85.000–110.000 | R$42k–55k |
+| Product Designer sênior | USD 92.000+ | R$46k+ |
+| Game Designer sênior | USD 100.000+ | R$50k+ |
+
+*Conversão estimada a R$5,00/USD — referência de ordem de grandeza
+
+✅ **Melhores mercados para designers brasileiros:**
+- EUA · Suíça · Canadá · Irlanda · Singapura · Alemanha · Holanda
+- Suíça: CHF 75.000/ano (~R$435k/ano) para designer gráfico
+
+✅ **Plataformas de entrada (da mais acessível à mais exclusiva):**
+
+| Plataforma | Perfil | Ticket/hora | Observações |
+|-----------|--------|-------------|-------------|
+| **Workana / 99freelas** | Iniciante-intermediário | USD 5–30 | Mercado latino, competição por preço |
+| **Upwork** | Intermediário-sênior | USD 25–100 | Maior plataforma global, curva de reputação |
+| **Dribbble / Behance** | Qualquer nível | — | Portfólio + vagas diretas, essencial para design |
+| **LinkedIn** | Sênior | — | Melhor para vagas CLT-remote (não freela) |
+| **We Work Remotely** | Sênior | USD 50–150 | Vagas full-time remoto empresas EUA/UK |
+| **Toptal** | Top 3% do mercado | USD 60–150/hora | Seleção rigorosa, clientes Fortune 500, pagamento em USD |
+
+✅ **Toptal em detalhe:**
+- Aceita apenas **3% dos candidatos** que se inscrevem
+- Projetos com clientes Fortune 500
+- Pagamento: USD 60–150/hora via PayPal, transferência bancária ou ACH
+- Sem taxas para o freelancer
+
+---
+
+### 13.3 O que ainda impede a maioria de entrar
+
+> 💡 Barreiras reais, não percebidas:
+
+| Barreira | Realidade |
+|----------|-----------|
+| **"Preciso de inglês fluente"** | Nível B2 é suficiente para a maioria dos projetos assíncronos. Designers entregam mais do que falam. |
+| **"Meu portfólio não é bom o bastante"** | O critério é resolver problema, não ter 50 peças. 3 cases bem documentados superam 20 imagens bonitas. |
+| **"Não sei precificar em dólar"** | A maioria cobra muito barato por medo — designers BR sênior no Toptal ganham mais que a média do mercado americano. |
+| **"Não sei como receber em dólar"** | Wise, Payoneer e Remessa Online resolvem isso com taxas competitivas. |
+| **"Não conheço as plataformas"** | Barreira real — e oportunidade de educação específica. |
+
+---
+
+### 13.4 Oportunidade de produto identificada
+
+💡 **Gap no mercado educacional:** nenhum player brasileiro encontrado com produto específico para **"designer que quer entrar no mercado internacional"** — combinando portfólio estratégico + precificação em dólar + posicionamento + plataformas de entrada.
+
+| Produto potencial | Formato | Ticket estimado |
+|------------------|---------|----------------|
+| Mini-curso: como montar portfólio para o mercado internacional | Gravado | R$197–497 |
+| Mentoria: posicionamento + entrada em plataformas | Live 4–8 semanas | R$1.500–3.000 |
+| Comunidade: designers BR no mercado global | Assinatura | R$50–150/mês |
+| Workshop ao vivo: do briefing ao case documentado em inglês | 1 dia | R$500–1.000 |
+
+**Fontes:**
+- [Grey.co — The Rise of Brazilian Talent in the Global Economy](https://grey.co/blog/the-rise-of-brazilian-talent-in-the-global-economy-data-trends-and-opportunities)
+- [Blog Inter — Quanto ganha um designer no exterior](https://blog.inter.co/quanto-ganha-um-designer-no-exterior-e-como-encontrar-vagas/)
+- [NomadGlobal — Designer gráfico no exterior](https://www.nomadglobal.com/conteudos/quanto-ganha-um-designer-grafico-no-exterior)
+- [Arc.dev — Latin American Developers 2.2X Income via Remote Work](https://arc.dev/talent-blog/remote-software-developer-salary-report-latin-america-2022/)
+- [Toptal — Plataforma de freelancers](https://www.toptal.com/)
+
+---
+
 ## REFERÊNCIAS CONSOLIDADAS
 
 | # | Fonte | URL | Tipo |
@@ -1038,6 +1267,21 @@ GERAL                   │                        DESIGN
 | 54 | EBAC Online — Sobre a escola | [link](https://ebaconline.com.br/about-us) | Concorrente direto |
 | 55 | Alura — Empresa mais transformadora 2024 (GSV) | [link](https://www.alura.com.br/artigos/alura-empresa-educacao-mais-transformadora-mundo-gsv-edtech-150) | Referência de mercado |
 | 56 | Distrito — EdTech Report 2025 | [link](https://materiais.distrito.me/edtech-report-2025) | Relatório setorial |
+| 57 | Programming Helper — Figma 2026: 41% Market Share, 13M MAU, $45B IPO | [link](https://www.programming-helper.com/tech/figma-2026-40-market-share-13m-mau-ipo-python) | Dados de mercado |
+| 58 | Sacra — Figma Revenue & Valuation | [link](https://sacra.com/c/figma/) | Análise financeira |
+| 59 | Figma — AI in Design (página oficial) | [link](https://www.figma.com/ai/) | Produto oficial |
+| 60 | LogRocket — Figma AI in 2026: What it can and can't do | [link](https://blog.logrocket.com/ux-design/figma-ai-2026-quick-overview/) | Análise técnica |
+| 61 | ELVTR — A Designer's Guide to 2025's AI Tools | [link](https://uk.elvtr.com/blog/a-designers-guide-to-2025s-ai-tools) | Guia de ferramentas |
+| 62 | Flatline Agency — AI Design Tools for Brands 2026 | [link](https://www.flatlineagency.com/blog/ai-design-tools-for-brands-2026/) | Análise de ferramentas |
+| 63 | Adobe Newsroom — New Creative Agent & Firefly AI Innovations | [link](https://news.adobe.com/news/2026/04/adobe-new-creative-agent) | Comunicado oficial |
+| 64 | NoGood — AI Design Strategy: Future of Design 2026 | [link](https://nogood.io/blog/future-of-design-strategy/) | Análise estratégica |
+| 65 | Mocha — AI App Builder Statistics 2026 | [link](https://getmocha.com/blog/ai-app-builder-statistics) | Dados de mercado |
+| 66 | GetPanto — Bolt.new Statistics 2026 | [link](https://www.getpanto.ai/blog/bolt-new-statistics) | Dados de mercado |
+| 67 | SideTool — Cursor, Bolt, and Lovable AI Compared | [link](https://www.sidetool.co/post/cursor-bolt-and-lovable-ai-compared-find-your-perfect-development-tool/) | Comparativo |
+| 68 | Grey.co — The Rise of Brazilian Talent in the Global Economy | [link](https://grey.co/blog/the-rise-of-brazilian-talent-in-the-global-economy-data-trends-and-opportunities) | Pesquisa de mercado |
+| 69 | Blog Inter — Quanto ganha um designer no exterior | [link](https://blog.inter.co/quanto-ganha-um-designer-no-exterior-e-como-encontrar-vagas/) | Guia de carreira |
+| 70 | NomadGlobal — Designer gráfico no exterior: salários e oportunidades | [link](https://www.nomadglobal.com/conteudos/quanto-ganha-um-designer-grafico-no-exterior) | Dados de carreira |
+| 71 | Arc.dev — Latin American Developers 2.2X Income via Remote Work | [link](https://arc.dev/talent-blog/remote-software-developer-salary-report-latin-america-2022/) | Pesquisa de salários |
 
 ---
 

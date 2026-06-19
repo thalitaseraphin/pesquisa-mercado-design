@@ -1,0 +1,2151 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mapa de Mercado — Design 2026</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <style>
+    :root {
+      --bg: #EEF1F6;
+      --bg-card: #FFFFFF;
+      --bg-soft: #F6F8FB;
+      --bg-sidebar: #161A22;
+      --border: #E2E7EF;
+      --border-mid: #D2D9E4;
+      --border-strong: #1A1D24;
+      --accent: #2563EB;
+      --accent-ink: #1E40AF;
+      --accent-soft: #E9F0FE;
+      --accent-2: #0F766E;
+      --warn: #B45309;
+      --danger: #B91C1C;
+      --text: #1A1D24;
+      --text-2: #434A57;
+      --text-3: #6B7480;
+      --sidebar-w: 272px;
+    }
+    *,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.65; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+
+    /* ── SIDEBAR (dark, alto contraste) ── */
+    .sidebar {
+      position: fixed; top: 0; left: 0; width: var(--sidebar-w); height: 100vh;
+      background: var(--bg-sidebar); border-right: 1px solid #000;
+      overflow-y: auto; z-index: 100; display: flex; flex-direction: column;
+    }
+    .sidebar::-webkit-scrollbar { width: 3px; }
+    .sidebar::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.18); border-radius: 2px; }
+    .sidebar-logo { padding: 24px 22px 20px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .sidebar-logo .brand { font-size: 15px; font-weight: 800; color: #fff; letter-spacing: -0.4px; }
+    .sidebar-logo .tagline { font-size: 11px; color: rgba(255,255,255,0.5); margin-top: 4px; }
+    .sidebar-logo .update { font-size: 10px; color: #0A0A0A; margin-top: 10px; background: #fff; padding: 3px 10px; border-radius: 10px; display: inline-block; font-weight: 700; }
+    .nav-group-label { font-size: 10px; font-weight: 700; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 1.3px; padding: 18px 22px 6px; }
+    .sidebar nav a {
+      display: flex; align-items: center; gap: 10px; padding: 8px 22px;
+      font-size: 13px; color: rgba(255,255,255,0.72); text-decoration: none;
+      border-left: 3px solid transparent; transition: all 0.15s; white-space: nowrap; overflow: hidden;
+    }
+    .sidebar nav a:hover { color: #fff; background: rgba(255,255,255,0.06); }
+    .sidebar nav a.active { color: #fff; border-left-color: #fff; background: rgba(255,255,255,0.1); font-weight: 700; }
+    .sidebar nav a .icon { font-size: 13px; width: 16px; flex-shrink: 0; }
+    .sources-link { padding: 16px 22px; border-top: 1px solid rgba(255,255,255,0.1); }
+    .sources-link a { font-size: 11px; color: rgba(255,255,255,0.55); text-decoration: none; font-weight: 600; }
+    .sources-link a:hover { color: #fff; }
+
+    /* ── TIMELINE / LINHA DO TEMPO (sidebar) ── */
+    .changelog { margin-top: auto; border-top: 1px solid rgba(255,255,255,0.1); padding: 18px 22px 20px; }
+    .changelog-title { font-size: 10px; font-weight: 800; letter-spacing: 0.8px; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 14px; display: flex; align-items: center; gap: 6px; }
+    .changelog-list { display: flex; flex-direction: column; gap: 0; max-height: 260px; overflow-y: auto; position: relative; }
+    .changelog-list::-webkit-scrollbar { width: 3px; }
+    .changelog-list::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.18); border-radius: 2px; }
+    .cl-item { position: relative; padding: 0 0 16px 18px; border-left: 1px solid rgba(255,255,255,0.18); margin-left: 3px; }
+    .cl-item:last-child { border-left: 1px solid transparent; padding-bottom: 2px; }
+    .cl-item::before { content: ""; position: absolute; left: -4px; top: 3px; width: 8px; height: 8px; border-radius: 50%; background: #fff; }
+    .cl-item.old::before { background: var(--bg-sidebar); border: 1.5px solid rgba(255,255,255,0.5); }
+    .cl-date { font-size: 11px; font-weight: 800; color: #fff; letter-spacing: 0.2px; }
+    .cl-text { font-size: 10.5px; line-height: 1.5; color: rgba(255,255,255,0.62); margin-top: 4px; }
+
+    /* ── MAIN ── */
+    .main { margin-left: var(--sidebar-w); min-height: 100vh; }
+    .topbar {
+      position: sticky; top: 0; background: rgba(238,241,246,0.85); backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border); padding: 14px 44px;
+      display: flex; align-items: center; justify-content: space-between; z-index: 50;
+    }
+    .topbar-left { font-size: 13px; color: var(--text); font-weight: 700; letter-spacing: -0.2px; }
+    .topbar-badges { display: flex; gap: 8px; align-items: center; }
+    .chip { font-size: 11px; padding: 4px 11px; border-radius: 20px; border: 1px solid var(--border); font-weight: 600; color: var(--text-2); background: var(--bg-card); }
+    .chip-purple { background: var(--accent); color: #fff; border-color: var(--accent); }
+    .chip-green { background: var(--accent-soft); color: var(--accent-ink); border-color: #C9DBFB; }
+    .menu-btn { display: none; background: none; border: 1px solid var(--border); color: var(--text-2); padding: 5px 10px; border-radius: 7px; cursor: pointer; font-size: 16px; }
+    .content { padding: 56px 44px; max-width: 1080px; }
+
+    /* ── HERO ── */
+    .hero { margin-bottom: 52px; }
+    .hero-eyebrow { font-size: 11px; font-weight: 700; color: var(--text-2); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 16px; }
+    .hero h1 { font-size: 44px; font-weight: 800; letter-spacing: -1.8px; line-height: 1.05; color: var(--text); margin-bottom: 16px; }
+    .hero h1 .grad { color: var(--accent); border-bottom: 4px solid var(--accent); }
+    .hero-desc { font-size: 16px; color: var(--text-2); max-width: 580px; line-height: 1.7; }
+    .hero-meta { display: flex; gap: 22px; margin-top: 20px; flex-wrap: wrap; }
+    .hero-meta span { font-size: 12px; color: var(--text-3); }
+    .hero-meta span strong { color: var(--text); font-weight: 700; }
+
+    /* ── KPI STRIP ── */
+    .kpi-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 68px; }
+    .kpi-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px; padding: 22px; box-shadow: 0 1px 2px rgba(16,24,40,0.04); transition: box-shadow 0.2s, transform 0.2s; position: relative; overflow: hidden; }
+    .kpi-card::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 3px; background: var(--accent); opacity: 0; transition: opacity 0.2s; }
+    .kpi-card:hover { box-shadow: 0 10px 26px rgba(16,24,40,0.10); transform: translateY(-3px); }
+    .kpi-card:hover::before { opacity: 1; }
+    .kpi-icon { font-size: 17px; margin-bottom: 10px; }
+    .kpi-value { font-size: 30px; font-weight: 800; letter-spacing: -1.2px; color: var(--accent); line-height: 1; margin-bottom: 7px; }
+    .kpi-label { font-size: 12px; color: var(--text-2); margin-bottom: 8px; line-height: 1.4; font-weight: 500; }
+    .kpi-change { font-size: 11px; color: var(--text-3); display: flex; align-items: center; gap: 3px; font-weight: 600; }
+    .kpi-change.warn { color: var(--warn); }
+
+    /* ── SECTIONS ── */
+    .section { margin-bottom: 84px; scroll-margin-top: 74px; }
+    .section-hd { display: flex; align-items: flex-start; gap: 15px; margin-bottom: 30px; padding-bottom: 18px; border-bottom: 1px solid var(--border-mid); }
+    .section-ico { width: 42px; height: 42px; border-radius: 11px; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; background: var(--accent-soft); border: 1px solid #D3E0FB; }
+    .section-hd-text .part { font-size: 10px; font-weight: 800; color: var(--accent); text-transform: uppercase; letter-spacing: 1.4px; margin-bottom: 4px; }
+    .section-hd-text h2 { font-size: 22px; font-weight: 800; letter-spacing: -0.6px; color: var(--text); }
+    .section-hd-text p { font-size: 13.5px; color: var(--text-2); margin-top: 5px; }
+
+    /* ── CARDS ── */
+    .g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+    .g3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+    .g4 { display: grid; grid-template-columns: repeat(4,1fr); gap: 14px; margin-bottom: 14px; }
+    .card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 22px; margin-bottom: 14px; box-shadow: 0 1px 2px rgba(16,24,40,0.04); }
+    .card:last-child { margin-bottom: 0; }
+    .card h3 { font-size: 13px; font-weight: 700; color: var(--text-2); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 14px; }
+    .stat-big { font-size: 33px; font-weight: 800; letter-spacing: -1px; color: var(--text); line-height: 1; }
+    .stat-sub { font-size: 12px; color: var(--text-2); margin-top: 6px; }
+
+    /* ── CHART WRAPPER ── */
+    .chart-box { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin-bottom: 14px; }
+    .chart-box .chart-title { font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+    .chart-box .chart-sub { font-size: 12px; color: var(--text-2); margin-bottom: 20px; }
+
+    /* ── TABLE ── */
+    .tbl-wrap { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; margin-bottom: 14px; }
+    .tbl-wrap .tbl-head { padding: 14px 20px; border-bottom: 1px solid var(--border); font-size: 13px; font-weight: 700; color: var(--text); }
+    table { width: 100%; border-collapse: collapse; }
+    th { font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-3); padding: 11px 18px; text-align: left; border-bottom: 1px solid var(--border); background: #FAFAFA; }
+    td { padding: 12px 18px; font-size: 13px; color: var(--text-2); border-bottom: 1px solid var(--border); }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #FAFAFA; }
+    td strong, td b { color: var(--text); }
+
+    /* ── BADGES ── */
+    .badge { display: inline-flex; align-items: center; padding: 2px 9px; border-radius: 20px; font-size: 11px; font-weight: 600; white-space: nowrap; }
+    .b-red { background: #FEF2F2; color: #B91C1C; border: 1px solid #FAD1D1; }
+    .b-yellow { background: #FFF7ED; color: #9A3412; border: 1px solid #F5DCBE; }
+    .b-green { background: #ECFDF5; color: #066E4C; border: 1px solid #BBE9D2; }
+    .b-blue { background: var(--accent-soft); color: var(--accent-ink); border: 1px solid #CFE0FB; }
+    .b-gray { background: var(--bg-soft); color: var(--text-3); border: 1px solid var(--border); }
+
+    /* ── CALLOUTS ── */
+    .callout { background: var(--accent-soft); border: 1px solid #D3E0FB; border-left: 3px solid var(--accent); border-radius: 10px; padding: 15px 18px; font-size: 13.5px; color: var(--text-2); margin-bottom: 14px; line-height: 1.65; }
+    .callout strong { color: var(--text); }
+    .callout-green { background: #ECFDF5; border-color: #BBE9D2; border-left-color: var(--accent-2); }
+    .callout-green strong { color: var(--text); }
+    .callout-yellow { background: #FFF7ED; border-color: #F5DCBE; border-left-color: var(--warn); }
+    .callout-yellow strong { color: var(--text); }
+
+    /* ── PROGRESS BAR ── */
+    .prog-item { margin-bottom: 14px; }
+    .prog-label { display: flex; justify-content: space-between; font-size: 12px; color: var(--text-2); margin-bottom: 5px; }
+    .prog-label .val { color: var(--text); font-weight: 700; }
+    .prog-track { height: 7px; background: var(--bg); border-radius: 4px; overflow: hidden; }
+    .prog-fill { height: 100%; border-radius: 4px; background: var(--accent); }
+    .prog-fill.green { background: var(--accent-2); }
+    .prog-fill.yellow { background: var(--warn); }
+
+    /* ── FILTER BAR ── */
+    .filter-bar { display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; }
+    .fbtn { padding: 6px 15px; border-radius: 20px; font-size: 12px; font-weight: 600; cursor: pointer; border: 1px solid var(--border-mid); background: var(--bg-card); color: var(--text-2); transition: all 0.15s; font-family: inherit; }
+    .fbtn.all.active, .fbtn:hover { border-color: var(--accent); background: var(--accent); color: #fff; }
+    .fbtn.r.active { border-color: var(--accent); background: var(--accent); color: #fff; }
+    .fbtn.y.active { border-color: var(--accent); background: var(--accent-soft); color: var(--accent-ink); }
+    .fbtn.g.active { border-color: var(--accent); background: var(--accent-soft); color: var(--accent-ink); }
+
+    /* ── BUSINESS MODEL ROWS ── */
+    .bm-list { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+    .bm-row { display: flex; align-items: center; gap: 12px; padding: 13px 20px; border-bottom: 1px solid var(--border); transition: background 0.1s; }
+    .bm-row:last-child { border-bottom: none; }
+    .bm-row:hover { background: #FAFAFA; }
+    .bm-dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; box-shadow: inset 0 0 0 1px rgba(0,0,0,0.15); }
+    .bm-name { font-size: 13px; font-weight: 600; color: var(--text); flex: 1; }
+    .bm-revenue { font-size: 12px; color: var(--text-2); width: 150px; }
+    .bm-barrier { font-size: 11px; color: var(--text-3); width: 100px; }
+    .bm-fit { font-size: 12px; color: var(--text); font-weight: 600; width: 80px; text-align: right; }
+
+    /* ── PERSONAS ── */
+    .persona-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .p-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; cursor: pointer; transition: border-color 0.15s; }
+    .p-card:hover { border-color: var(--border-mid); box-shadow: 0 6px 18px rgba(16,24,40,0.07); }
+    .p-card.open { border-color: var(--accent); }
+    .p-head { padding: 16px 18px; display: flex; align-items: center; justify-content: space-between; }
+    .p-name { font-size: 14px; font-weight: 700; color: var(--text); }
+    .p-role { font-size: 11px; color: var(--text-2); margin-top: 2px; }
+    .p-arrow { color: var(--text-3); font-size: 14px; transition: transform 0.2s; }
+    .p-card.open .p-arrow { transform: rotate(90deg); color: var(--text); }
+    .p-body { display: none; padding: 0 18px 16px; }
+    .p-card.open .p-body { display: block; }
+    .p-divider { height: 1px; background: var(--border); margin-bottom: 14px; }
+    .p-tag { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: var(--text-3); margin-bottom: 5px; margin-top: 10px; }
+    .p-text { font-size: 12px; color: var(--text-2); line-height: 1.6; }
+    .p-channel { display: inline-flex; align-items: center; gap: 4px; font-size: 11px; color: var(--text); background: #F2F2F2; padding: 2px 8px; border-radius: 10px; margin-right: 4px; margin-top: 4px; }
+
+    /* ── FUNNEL ── */
+    .funnel { display: flex; flex-direction: column; gap: 8px; }
+    .funnel-step { background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; padding: 14px 20px; display: flex; align-items: center; justify-content: space-between; }
+    .f-label { font-size: 13px; color: var(--text-2); }
+    .f-rate { font-size: 20px; font-weight: 800; letter-spacing: -0.5px; color: var(--text); }
+    .f-note { font-size: 11px; color: var(--text-3); margin-top: 1px; }
+    .funnel-arrow { text-align: center; color: var(--text-3); font-size: 14px; margin: -2px 0; }
+
+    /* ── TOOL CARDS ── */
+    .tool-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; }
+    .t-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 18px; }
+    .t-name { font-size: 12px; font-weight: 700; color: var(--text-2); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; }
+    .t-val { font-size: 25px; font-weight: 800; letter-spacing: -0.8px; color: var(--text); line-height: 1; margin-bottom: 4px; }
+    .t-desc { font-size: 12px; color: var(--text-2); }
+    .t-tag { margin-top: 8px; }
+
+    /* ── MATRIX ── */
+    .matrix-grid {
+      display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr;
+      gap: 1px; background: var(--border); border-radius: 12px; overflow: hidden; height: 340px;
+    }
+    .m-quad { padding: 20px; display: flex; flex-direction: column; justify-content: flex-end; background: #fff; }
+    .m-quad-tl { background: var(--bg-soft); }
+    .m-quad-tr { background: var(--accent-soft); border: 2px solid var(--accent); }
+    .m-quad-bl { background: var(--bg-soft); }
+    .m-quad-br { background: #F0F3F8; }
+    .m-quad .q-label { font-size: 10px; font-weight: 700; color: var(--text-3); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+    .m-quad .q-items { font-size: 12px; color: var(--text-2); line-height: 1.7; }
+    .m-quad.highlighted .q-items { color: var(--text); }
+    .m-axes { position: relative; }
+    .m-axis-x { position: absolute; bottom: -20px; left: 0; right: 0; display: flex; justify-content: space-between; font-size: 10px; color: var(--text-3); }
+    .m-axis-y { position: absolute; top: 0; bottom: 0; left: -24px; display: flex; flex-direction: column; justify-content: space-between; font-size: 10px; color: var(--text-3); }
+    .gap-star { background: var(--accent-soft); border: 1px solid #CFE0FB; border-left: 3px solid var(--accent); border-radius: 12px; padding: 18px 22px; }
+    .gap-star h4 { font-size: 14px; font-weight: 800; color: var(--text); margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+    .gap-star p { font-size: 13px; color: var(--text-2); line-height: 1.6; }
+
+    /* ── NOVIDADES / NOTÍCIAS ── */
+    .news-list { display: flex; flex-direction: column; gap: 12px; }
+    .news-item { display: block; background: var(--bg-card); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: 12px; padding: 18px 20px; text-decoration: none; box-shadow: 0 1px 2px rgba(16,24,40,0.04); transition: box-shadow 0.18s ease, transform 0.18s ease; }
+    .news-item:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(16,24,40,0.12); }
+    .news-top { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; flex-wrap: wrap; }
+    .news-tag { font-size: 9.5px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.8px; padding: 3px 9px; border-radius: 6px; background: var(--accent); color: #fff; }
+    .news-tag.brand { background: var(--accent-soft); color: var(--accent-ink); }
+    .news-tag.tool { background: var(--bg-soft); color: var(--text-2); border: 1px solid var(--border-mid); }
+    .news-date { font-size: 11px; color: var(--text-3); font-weight: 600; }
+    .news-title { font-size: 15.5px; font-weight: 700; color: var(--text); line-height: 1.4; margin-bottom: 5px; }
+    .news-desc { font-size: 13.5px; color: var(--text-2); line-height: 1.6; }
+    .news-source { font-size: 11.5px; color: var(--accent); font-weight: 600; margin-top: 11px; display: inline-flex; align-items: center; gap: 5px; }
+    .news-source::after { content: "↗"; font-size: 11px; }
+
+    /* ── INSIGHTS / PONTOS DE ATENÇÃO ── */
+    .insight-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .ins-card { background: var(--bg-card); border: 1px solid var(--border); border-top: 3px solid var(--accent); border-radius: 12px; padding: 22px; box-shadow: 0 1px 2px rgba(16,24,40,0.04); transition: box-shadow 0.18s, transform 0.18s; }
+    .ins-card:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(16,24,40,0.10); }
+    .ins-card.attention { border: 1px solid #F3D9B8; border-top: 3px solid var(--warn); background: #FFFaf2; }
+    .ins-num { font-size: 10.5px; font-weight: 800; color: var(--accent); letter-spacing: 1px; margin-bottom: 8px; }
+    .ins-card.attention .ins-num { color: var(--warn); }
+    .ins-title { font-size: 15.5px; font-weight: 700; color: var(--text); margin-bottom: 7px; line-height: 1.4; }
+    .ins-text { font-size: 13.5px; color: var(--text-2); line-height: 1.65; }
+    .ins-text strong { color: var(--text); }
+
+    /* ── TAREFAS ── */
+    .task-list { display: flex; flex-direction: column; gap: 12px; }
+    .task-item { display: flex; gap: 14px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 18px; align-items: flex-start; box-shadow: 0 1px 2px rgba(16,24,40,0.04); transition: box-shadow 0.18s, transform 0.18s; }
+    .task-item:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(16,24,40,0.10); }
+    .task-check { width: 22px; height: 22px; border: 2px solid var(--accent); border-radius: 7px; flex-shrink: 0; margin-top: 1px; position: relative; }
+    .task-check::after { content: "✓"; position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; color: var(--accent); font-size: 13px; font-weight: 800; opacity: 0.25; }
+    .task-body { flex: 1; }
+    .task-title { font-size: 14.5px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+    .task-desc { font-size: 13px; color: var(--text-2); line-height: 1.6; }
+    .task-meta { display: flex; gap: 8px; margin-top: 11px; flex-wrap: wrap; }
+    .task-prio { font-size: 9.5px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.6px; padding: 3px 9px; border-radius: 6px; }
+    .task-prio.alta { background: var(--accent); color: #fff; }
+    .task-prio.media { background: var(--accent-soft); color: var(--accent-ink); }
+    .task-prio.baixa { background: var(--bg-soft); color: var(--text-3); border: 1px solid var(--border-mid); }
+    .task-horizon { font-size: 9.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; padding: 3px 9px; border-radius: 6px; background: var(--bg-soft); color: var(--text-3); border: 1px solid var(--border); }
+
+    /* ── FÓRUNS / HOT TOPICS (clicável) ── */
+    .hot-card { display: block; background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; text-decoration: none; box-shadow: 0 1px 2px rgba(16,24,40,0.04); transition: box-shadow 0.18s, transform 0.18s; }
+    .hot-card:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(16,24,40,0.12); }
+    .hot-top { display: flex; align-items: center; gap: 8px; margin-bottom: 9px; flex-wrap: wrap; }
+    .hot-src { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.6px; padding: 3px 9px; border-radius: 6px; background: var(--accent); color: #fff; }
+    .hot-heat { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.6px; padding: 3px 9px; border-radius: 6px; border: 1px solid var(--border-mid); color: var(--text-2); }
+    .hot-title { font-size: 15.5px; font-weight: 800; color: var(--text); margin-bottom: 6px; line-height: 1.35; }
+    .hot-text { font-size: 13.5px; color: var(--text-2); line-height: 1.65; }
+    .hot-go { font-size: 11.5px; color: var(--accent); font-weight: 700; margin-top: 11px; display: inline-flex; align-items: center; gap: 5px; }
+    .hot-go::after { content: "↗"; }
+    .trend-tags { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 4px; }
+    .tg { font-size: 12.5px; font-weight: 600; padding: 7px 14px; border: 1px solid var(--border-mid); border-radius: 24px; color: var(--text-2); background: var(--bg-soft); }
+    .tg.solid { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+    /* ── CRIATIVOS EM ALTA ── */
+    .creator-card { background: var(--bg-card); border: 1px solid var(--border); border-top: 4px solid var(--accent); border-radius: 12px; padding: 22px; display: flex; flex-direction: column; box-shadow: 0 1px 2px rgba(16,24,40,0.04); transition: box-shadow 0.18s, transform 0.18s; }
+    .creator-card:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(16,24,40,0.10); }
+    .creator-name { font-size: 17px; font-weight: 800; color: var(--text); letter-spacing: -0.3px; }
+    .creator-role { font-size: 11.5px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.6px; margin-top: 3px; margin-bottom: 10px; }
+    .creator-text { font-size: 13.5px; color: var(--text-2); line-height: 1.65; flex: 1; }
+    .creator-link { font-size: 11.5px; font-weight: 700; color: var(--accent); text-decoration: none; margin-top: 14px; align-self: flex-start; }
+    .creator-link:hover { color: var(--accent-ink); }
+
+    /* ── DIVIDER ── */
+    hr { border: none; border-top: 1px solid var(--border); margin: 28px 0; }
+
+    /* ── SOURCE ── */
+    .src { font-size: 11px; color: var(--text-3); padding-top: 10px; border-top: 1px solid var(--border); margin-top: 14px; }
+    .src a { color: var(--text-3); text-decoration: none; }
+    .src a:hover { color: var(--accent); }
+
+    /* ── SCROLLBAR ── */
+    ::-webkit-scrollbar { width: 7px; height: 7px; }
+    ::-webkit-scrollbar-thumb { background: var(--border-mid); border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--text-3); }
+
+    /* ── MOTION (revelar ao rolar) ── */
+    .reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.55s ease, transform 0.55s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1 !important; transform: none !important; transition: none; } }
+
+    @media (max-width: 1024px) {
+      .kpi-strip { grid-template-columns: repeat(2,1fr); }
+      .kpi-card:nth-child(2) { border-right: none; }
+      .g3 { grid-template-columns: 1fr 1fr; }
+      .g4 { grid-template-columns: repeat(2,1fr); }
+      .insight-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 768px) {
+      .sidebar { transform: translateX(-100%); transition: transform 0.28s cubic-bezier(.4,0,.2,1); }
+      .sidebar.open { transform: translateX(0); box-shadow: 0 0 60px rgba(0,0,0,0.25); }
+      .main { margin-left: 0 !important; }
+      .content { padding: 32px 20px; }
+      .topbar { padding: 12px 20px; }
+      .menu-btn { display: block; }
+      .kpi-strip { grid-template-columns: 1fr 1fr; }
+      .kpi-card { border-right: none; border-bottom: 1px solid var(--border); }
+      .g2, .persona-grid, .tool-grid { grid-template-columns: 1fr; }
+      .g3 { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 32px; }
+      .matrix-grid { height: auto; grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- SIDEBAR -->
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-logo">
+    <div class="brand">Mapa de Mercado</div>
+    <div class="tagline">Mercado de Design · 2026</div>
+    <div class="update">Atualizado: 19/06/2026</div>
+  </div>
+
+  <div class="nav-group-label">Leitura</div>
+  <nav>
+    <a href="#novidades"><span class="icon">📰</span> Novidades & Notícias</a>
+    <a href="#identidade"><span class="icon">🎨</span> Identidade Visual & IA</a>
+    <a href="#forum"><span class="icon">🔥</span> Em Alta nos Fóruns</a>
+    <a href="#anuncios"><span class="icon">📣</span> Anúncios em Alta</a>
+    <a href="#insights"><span class="icon">💡</span> Insights & Atenção</a>
+    <a href="#tarefas"><span class="icon">✅</span> Tarefas — Aplicar Agora</a>
+  </nav>
+
+  <div class="nav-group-label">Panorama</div>
+  <nav>
+    <a href="#panorama" class="active"><span class="icon">🌍</span> Panorama Global</a>
+    <a href="#brasil"><span class="icon">🇧🇷</span> Mercado Brasileiro</a>
+    <a href="#remuneracao"><span class="icon">💰</span> Remuneração</a>
+    <a href="#aprendizado"><span class="icon">📚</span> Como Estudam</a>
+  </nav>
+
+  <div class="nav-group-label">Estratégia</div>
+  <nav>
+    <a href="#personas"><span class="icon">👥</span> Personas</a>
+    <a href="#oportunidades"><span class="icon">🎯</span> Oportunidades</a>
+    <a href="#modelos"><span class="icon">💼</span> Modelos de Negócio</a>
+  </nav>
+
+  <div class="nav-group-label">Growth</div>
+  <nav>
+    <a href="#canais"><span class="icon">📢</span> Canais de Aquisição</a>
+    <a href="#compra"><span class="icon">🛒</span> Comportamento de Compra</a>
+    <a href="#competitivo"><span class="icon">⚔️</span> Cenário Competitivo</a>
+  </nav>
+
+  <div class="nav-group-label">Inovação</div>
+  <nav>
+    <a href="#ferramentas"><span class="icon">🔧</span> Radar de Ferramentas</a>
+    <a href="#internacional"><span class="icon">🌐</span> Mercado Internacional</a>
+  </nav>
+
+  <div class="changelog">
+    <div class="changelog-title">🕓 Linha do Tempo</div>
+    <div class="changelog-list">
+      <div class="cl-item">
+        <div class="cl-date">19/06/2026</div>
+        <div class="cl-text">Anúncios & Campanhas em Alta com exemplos ao vivo por mercado (BR, EUA, ES, MX), formatos, hooks de abertura e influencers. Paleta legível + motion; fóruns clicáveis.</div>
+      </div>
+      <div class="cl-item old">
+        <div class="cl-date">Maio 2026</div>
+        <div class="cl-text">Versão base do Mapa de Mercado — 13 seções, 71 fontes validadas.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sources-link">
+    <a href="#fontes">📋 Ver 71 fontes →</a>
+  </div>
+</aside>
+
+<!-- MAIN -->
+<div class="main" id="main">
+  <div class="topbar">
+    <div class="topbar-left">Pesquisa de Mercado · Design</div>
+    <div class="topbar-badges">
+      <span class="chip chip-purple">71 fontes validadas</span>
+      <span class="chip chip-green">19 seções</span>
+      <button class="menu-btn" onclick="toggleSidebar()">☰</button>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <!-- HERO -->
+    <div class="hero">
+      <div class="hero-eyebrow">Estudo de Mercado · Design + IA</div>
+      <h1>O mercado de design<br>em <span class="grad">2026</span></h1>
+      <p class="hero-desc">Mapeamento global do mercado de design com dados validados, fontes primárias e análise estratégica — atualizado diariamente com novidades de IA, branding e tendências.</p>
+      <div class="hero-meta">
+        <span><strong>71</strong> fontes com URL</span>
+        <span><strong>19</strong> seções de análise</span>
+        <span><strong>6</strong> personas mapeadas</span>
+        <span><strong>19/06/2026</strong></span>
+      </div>
+    </div>
+
+    <!-- KPIs -->
+    <div class="kpi-strip">
+      <div class="kpi-card">
+        <div class="kpi-icon">🌍</div>
+        <div class="kpi-value">USD 59,3B</div>
+        <div class="kpi-label">Mercado global de design gráfico (2026)</div>
+        <div class="kpi-change">↑ CAGR 7,6% → USD 85,5B em 2031</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-icon">🤖</div>
+        <div class="kpi-value">91%</div>
+        <div class="kpi-label">Designers usando IA semanalmente (2026)</div>
+        <div class="kpi-change">↑ era 35% em 2023</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-icon">🇧🇷</div>
+        <div class="kpi-value">250mil</div>
+        <div class="kpi-label">Profissionais de design no Brasil</div>
+        <div class="kpi-change">↑ maior crescimento da economia criativa</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-icon">📈</div>
+        <div class="kpi-value">+144%</div>
+        <div class="kpi-label">Crescimento a/a de vagas exigindo skill de IA</div>
+        <div class="kpi-change warn">abr/2026 · UX Design em USD 13,06B</div>
+      </div>
+    </div>
+
+    <!-- ── NOVIDADES & NOTÍCIAS ── -->
+    <section class="section" id="novidades">
+      <div class="section-hd">
+        <div class="section-ico">📰</div>
+        <div class="section-hd-text">
+          <div class="part">Leitura · atualizado 19/06/2026</div>
+          <h2>Novidades & Notícias</h2>
+          <p>IA no design gráfico, branding e ferramentas — para ler e acompanhar</p>
+        </div>
+      </div>
+
+      <div class="news-list">
+        <a class="news-item" href="https://designerfund.com/blog/ai-in-design-2026" target="_blank">
+          <div class="news-top"><span class="news-tag">IA · Design</span><span class="news-date">Jun 2026</span></div>
+          <div class="news-title">91% dos designers já usam IA toda semana — e o toolstack dobrou</div>
+          <div class="news-desc">Metade já entregou código gerado por IA; 89% trabalham mais rápido. O foco migra de execução para direção criativa e curadoria. A "inflexão" da IA no design chegou.</div>
+          <span class="news-source">Designer Fund — AI in Design 2026</span>
+        </a>
+        <a class="news-item" href="https://www.successful-blog.com/1/how-ai-is-changing-branding/" target="_blank">
+          <div class="news-top"><span class="news-tag brand">Branding</span><span class="news-date">2026</span></div>
+          <div class="news-title">Identidades "vivas": logos que mudam por contexto, hora e emoção</div>
+          <div class="news-desc">Marcas trocam o logo estático por sistemas kinéticos e motion-first. IA gera milhares de variações em minutos — o trabalho humano vira refino e coerência emocional.</div>
+          <span class="news-source">Successful Blog — How AI is Changing Branding</span>
+        </a>
+        <a class="news-item" href="https://www.threerooms.com/blog/8-design-trends-shaping-brand-identity-in-2026" target="_blank">
+          <div class="news-top"><span class="news-tag brand">Brand Identity</span><span class="news-date">2026</span></div>
+          <div class="news-title">8 tendências de identidade de marca em 2026</div>
+          <div class="news-desc">"Hybrid Intelligence humanizada", agentes de IA como novos gatekeepers da escolha do consumidor, e paletas minimalistas (preto, branco, azul) que projetam confiança e clareza.</div>
+          <span class="news-source">Three Rooms — Brand Identity Trends 2026</span>
+        </a>
+        <a class="news-item" href="https://news.adobe.com/news/2026/04/adobe-new-creative-agent" target="_blank">
+          <div class="news-top"><span class="news-tag tool">Ferramenta</span><span class="news-date">Abr 2026</span></div>
+          <div class="news-title">Adobe lança Creative Agent e novas IAs do Firefly</div>
+          <div class="news-desc">Agentes autônomos que executam pipelines criativos multi-etapa a partir de um único brief, mantendo parâmetros de marca em lotes de output. O "vibe design" entra na suíte.</div>
+          <span class="news-source">Adobe Newsroom</span>
+        </a>
+        <a class="news-item" href="https://www.kittl.com/blogs/graphic-design-trends-2026/" target="_blank">
+          <div class="news-top"><span class="news-tag">Design Gráfico</span><span class="news-date">2026</span></div>
+          <div class="news-title">10 tendências de design gráfico para 2026 (Kittl)</div>
+          <div class="news-desc">"Design como conhecimento executável": regras de marca e lógica de layout armazenadas em formatos que máquinas seguem. Estética nostálgica-futurista, handcrafted + IA.</div>
+          <span class="news-source">Kittl Blog — Graphic Design Trends 2026</span>
+        </a>
+        <a class="news-item" href="https://www.superside.com/blog/ai-design-agencies" target="_blank">
+          <div class="news-top"><span class="news-tag brand">Agências</span><span class="news-date">2026</span></div>
+          <div class="news-title">As agências de design AI-native que estão definindo o padrão</div>
+          <div class="news-desc">79% das empresas já saíram da avaliação para a implementação ativa de agentes de IA no início de 2026 — fluxos agênticos viraram padrão competitivo, não experimento.</div>
+          <span class="news-source">Superside — Top AI Design Agencies 2026</span>
+        </a>
+      </div>
+      <div class="src">Curadoria atualizada automaticamente. Fontes: Designer Fund, Successful Blog, Three Rooms, Adobe, Kittl, Superside, Gloat, GSDC.</div>
+    </section>
+
+    <!-- ── IDENTIDADE VISUAL & IA ── -->
+    <section class="section" id="identidade">
+      <div class="section-hd">
+        <div class="section-ico">🎨</div>
+        <div class="section-hd-text">
+          <div class="part">Mercado · foco do negócio</div>
+          <h2>Identidade Visual & IA</h2>
+          <p>O recorte mais estratégico para a agência: dados, tendências e direção criativa de marca com IA</p>
+        </div>
+      </div>
+
+      <div class="g3">
+        <div class="card">
+          <h3>IA generativa no design</h3>
+          <div class="stat-big">USD 1,11B → 4,54B</div>
+          <div class="stat-sub">Mercado de IA generativa em design: de 2025 a 2030, a um <strong>CAGR de 31,4%</strong>.</div>
+        </div>
+        <div class="card">
+          <h3>Serviços de brand identity com IA</h3>
+          <div class="stat-big">+340%</div>
+          <div class="stat-sub">Crescimento do mercado global de serviços de identidade de marca com IA <strong>desde 2023</strong>.</div>
+        </div>
+        <div class="card">
+          <h3>Padrão de entrega</h3>
+          <div class="stat-big">Sistema &gt; logo</div>
+          <div class="stat-sub">Marcas migram de "um logo" para <strong>sistemas de identidade flexíveis</strong>, responsivos e motion-first.</div>
+        </div>
+      </div>
+
+      <div class="callout"><strong>Por que isso importa para a agência:</strong> a IA comoditizou a peça gráfica isolada, mas valorizou o <strong>sistema de identidade</strong> — regras de marca, variações responsivas, logo cinético e governança visual. É exatamente aí que a margem e o diferencial estão em 2026.</div>
+
+      <div class="card">
+        <h3>Tendências de identidade visual + IA · 2026</h3>
+        <div class="trend-tags">
+          <span class="tg solid">Logos dinâmicos / responsivos</span>
+          <span class="tg solid">Motion-first & kinético</span>
+          <span class="tg">Cor reativa (muda por contexto/mood)</span>
+          <span class="tg">Gradientes em camadas & duotones</span>
+          <span class="tg">GANs gerando elementos originais</span>
+          <span class="tg">Autenticidade &gt; perfeição</span>
+          <span class="tg">Tipos customizados</span>
+          <span class="tg">Colaboração humano-IA com curadoria</span>
+        </div>
+        <div class="src">Fontes: Evalueserve, MarketInc AI, Three Rooms, AI Logo Creator, Logomaker, Similarweb (Gen AI Brand Visibility Index 2026).</div>
+      </div>
+
+      <div class="callout callout-green" style="margin-top:6px"><strong>Como vender isso na prática:</strong> os formatos, hooks de abertura e ângulos de anúncio que mais convertem para serviços de identidade visual estão na seção <a href="#anuncios" style="color:var(--accent);font-weight:700">Anúncios &amp; Campanhas em Alta ↓</a> — transformação (antes/depois de marca), prova social com número específico e bastidor do processo com IA.</div>
+    </section>
+
+    <!-- ── EM ALTA NOS FÓRUNS & TENDÊNCIAS ── -->
+    <section class="section" id="forum">
+      <div class="section-hd">
+        <div class="section-ico">🔥</div>
+        <div class="section-hd-text">
+          <div class="part">Comunidades · atualizado 19/06/2026</div>
+          <h2>Em Alta nos Fóruns & Tendências</h2>
+          <p>O que está bombando nas comunidades de design (Reddit, Adobe, Figma, DEV) e as tendências do mercado</p>
+        </div>
+      </div>
+
+      <div class="insight-grid" style="margin-bottom:22px">
+        <a class="hot-card" href="https://www.reddit.com/r/graphic_design/search/?q=AI%20replace&restrict_sr=1&sort=top" target="_blank" rel="noopener">
+          <div class="hot-top"><span class="hot-src">r/graphic_design</span><span class="hot-heat">🔥 Polêmico</span></div>
+          <div class="hot-title">"A IA vai acabar com a produção gráfica manual até 2030?"</div>
+          <div class="hot-text">Debate quente: <strong>49% dos profissionais</strong> (UK/US/FR/DE) acham que a produção manual fica obsoleta em 5 anos. Muitos relatam medo da viabilidade da profissão após GPT-4o e Gemini.</div>
+          <span class="hot-go">Abrir discussão no Reddit</span>
+        </a>
+        <a class="hot-card" href="https://www.reddit.com/r/graphic_design/search/?q=anti%20AI&restrict_sr=1&sort=top" target="_blank" rel="noopener">
+          <div class="hot-top"><span class="hot-src">r/graphic_design</span><span class="hot-heat">📈 Crescendo</span></div>
+          <div class="hot-title">Movimento "Anti-IA": o charme da imperfeição</div>
+          <div class="hot-text">Grãos texturizados, lettering orgânico, hand-drawn e "scrapbooking" viram rebeldia contra a estética limpa e sem alma da IA. <strong>Maximalismo</strong> em alta para "forçar o olhar a desacelerar".</div>
+          <span class="hot-go">Ver threads anti-IA</span>
+        </a>
+        <a class="hot-card" href="https://dev.to/emma_schmidt_/how-are-you-adapting-your-design-process-for-ai-in-2026-whats-your-plan-32lp" target="_blank" rel="noopener">
+          <div class="hot-top"><span class="hot-src">DEV Community</span><span class="hot-heat">💬 Muito comentado</span></div>
+          <div class="hot-title">"Como você está adaptando seu processo para IA em 2026?"</div>
+          <div class="hot-text">Thread cheia de designers trocando workflows: <strong>48% dizem que as ferramentas novas aumentaram a carga</strong> em vez de aliviar. Burnout e "falta de tempo para criar" dominam o desabafo.</div>
+          <span class="hot-go">Ler a conversa no DEV</span>
+        </a>
+        <a class="hot-card" href="https://www.reddit.com/r/graphic_design/search/?q=AI%20copyright&restrict_sr=1&sort=top" target="_blank" rel="noopener">
+          <div class="hot-top"><span class="hot-src">r/graphic_design</span><span class="hot-heat">⚖️ Ético</span></div>
+          <div class="hot-title">Direitos autorais, dados e "o maior roubo de IP da história"</div>
+          <div class="hot-text">Preocupação ética forte: treino de modelos com obras sem consentimento, consumo de energia e falta de transparência ("black box"). Tema recorrente nas discussões de profissionais.</div>
+          <span class="hot-go">Ver debate sobre direitos autorais</span>
+        </a>
+      </div>
+
+      <div class="card">
+        <h3>Tendências de mercado em alta · 2026</h3>
+        <div class="trend-tags">
+          <span class="tg solid">Identidades "vivas" / motion-first</span>
+          <span class="tg solid">Tipografia expressiva & kinética</span>
+          <span class="tg">Monospaced no branding</span>
+          <span class="tg">Neo-minimalismo com textura</span>
+          <span class="tg">Maximalismo anti-IA</span>
+          <span class="tg">Future Medieval</span>
+          <span class="tg solid">Design como conhecimento executável</span>
+          <span class="tg">Mixed-media & 3D</span>
+          <span class="tg">Ícones customizados</span>
+          <span class="tg">Serifas elegantes + animação IA</span>
+        </div>
+        <div class="src">Fontes: Creative Boom, Envato Elements, G2, Kittl, Jukebox, TechRadar, Adobe/DEV/Figma communities (jun/2026).</div>
+      </div>
+    </section>
+
+    <!-- ── ANÚNCIOS & CAMPANHAS EM ALTA ── -->
+    <section class="section" id="anuncios">
+      <div class="section-hd">
+        <div class="section-ico">📣</div>
+        <div class="section-hd-text">
+          <div class="part">Performance · o que está convertendo</div>
+          <h2>Anúncios & Campanhas em Alta</h2>
+          <p>Formatos, hooks de abertura, influencers e campanhas de marca que mais performam no nicho de design, identidade e IA</p>
+        </div>
+      </div>
+
+      <!-- Formatos de criativo -->
+      <div class="section-hd-text" style="margin-bottom:14px"><div class="part" style="color:var(--accent)">Formatos de anúncio</div><h2 style="font-size:17px">O que mais performa em 2026</h2></div>
+      <div class="insight-grid" style="margin-bottom:22px">
+        <div class="ins-card">
+          <div class="ins-num">FORMATO 01</div>
+          <div class="ins-title">UGC em vídeo curto (15–30s)</div>
+          <div class="ins-text">Virou o <strong>padrão dos anúncios de alta performance</strong>. Parece conteúdo nativo, não anúncio — gera ~<strong>4x mais CTR e 50% menor CPA</strong> em prospecção. Vertical, sem produção "polida demais".</div>
+        </div>
+        <div class="ins-card">
+          <div class="ins-num">FORMATO 02</div>
+          <div class="ins-title">Antes / Depois (transformação)</div>
+          <div class="ins-text">Mostra o "antes" feio e o "depois" da marca/peça em segundos. Perfeito para identidade visual: <strong>rebrand, logo refeito, antes vs. depois de IA</strong>. Transformação visível = parada de scroll.</div>
+        </div>
+        <div class="ins-card">
+          <div class="ins-num">FORMATO 03</div>
+          <div class="ins-title">Carrossel educativo</div>
+          <div class="ins-text">Forte retorno no e-commerce e em serviço: ensina algo (ex: "5 erros de identidade visual") e entrega valor antes de vender. Salva e compartilha — alcance orgânico + remarketing.</div>
+        </div>
+        <div class="ins-card">
+          <div class="ins-num">FORMATO 04</div>
+          <div class="ins-title">Criativos gerados por IA (teste em escala)</div>
+          <div class="ins-text">Em 2026 a IA cruzou o limiar de qualidade: anúncios curtos feitos por IA já performam perto de creators humanos. Usar para <strong>testar muitos ângulos barato</strong> e escalar o vencedor.</div>
+        </div>
+      </div>
+
+      <div class="callout"><strong>Ver os formatos rodando ao vivo:</strong> as bibliotecas abaixo mostram anúncios reais (ativos e pausados) que dá para filtrar por país, formato e palavra-chave — ótimo para "espionar" o que concorrentes e marcas estão fazendo agora.
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:11px">
+          <a href="https://www.facebook.com/ads/library/?active_status=all&amp;ad_type=all&amp;country=ALL&amp;q=identidade%20visual&amp;media_type=all" target="_blank" rel="noopener" style="font-size:11.5px;font-weight:700;color:var(--accent);background:var(--accent-soft);border:1px solid #CFE0FB;padding:6px 11px;border-radius:8px;text-decoration:none">Meta Ad Library ↗</a>
+          <a href="https://ads.tiktok.com/business/creativecenter/inspiration/topads/pc/en" target="_blank" rel="noopener" style="font-size:11.5px;font-weight:700;color:var(--accent);background:var(--accent-soft);border:1px solid #CFE0FB;padding:6px 11px;border-radius:8px;text-decoration:none">TikTok Top Ads ↗</a>
+        </div>
+      </div>
+
+      <!-- Exemplos por mercado -->
+      <div class="section-hd-text" style="margin:24px 0 14px"><div class="part" style="color:var(--accent)">Exemplos por mercado</div><h2 style="font-size:17px">Anúncios reais em Brasil, EUA, Espanha e México</h2></div>
+      <div class="insight-grid" style="margin-bottom:8px">
+        <div class="card">
+          <h3>🇧🇷 Brasil</h3>
+          <div style="font-size:13.5px;color:var(--text-2);line-height:1.65"><strong>2º maior mercado de influenciadores do mundo</strong> (4,4M criadores no Instagram). 69% dos consumidores já compraram por indicação de criador e UGC gera até <strong>+28% de engajamento</strong>. Aposte em micro-influenciadores, autenticidade e antes/depois.</div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:13px">
+            <a href="https://www.facebook.com/ads/library/?active_status=all&amp;ad_type=all&amp;country=BR&amp;q=identidade%20visual&amp;media_type=all" target="_blank" rel="noopener" style="font-size:11.5px;font-weight:700;color:var(--accent);background:var(--accent-soft);border:1px solid #CFE0FB;padding:6px 11px;border-radius:8px;text-decoration:none">Meta Ad Library · BR ↗</a>
+            <a href="https://ads.tiktok.com/business/creativecenter/inspiration/topads/pc/en?region=BR" target="_blank" rel="noopener" style="font-size:11.5px;font-weight:700;color:var(--accent);background:var(--accent-soft);border:1px solid #CFE0FB;padding:6px 11px;border-radius:8px;text-decoration:none">TikTok Top Ads · BR ↗</a>
+          </div>
+        </div>
+        <div class="card">
+          <h3>🇺🇸 Estados Unidos</h3>
+          <div style="font-size:13.5px;color:var(--text-2);line-height:1.65">Mercado mais maduro e <strong>orientado a performance</strong>: social commerce e <strong>TikTok Shop</strong>, micro/nano com até 11,9% de engajamento e creator economy de US$33B. Caminho de compra direto no criativo é o de maior ROI.</div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:13px">
+            <a href="https://www.facebook.com/ads/library/?active_status=all&amp;ad_type=all&amp;country=US&amp;q=brand%20identity&amp;media_type=all" target="_blank" rel="noopener" style="font-size:11.5px;font-weight:700;color:var(--accent);background:var(--accent-soft);border:1px solid #CFE0FB;padding:6px 11px;border-radius:8px;text-decoration:none">Meta Ad Library · US ↗</a>
+            <a href="https://ads.tiktok.com/business/creativecenter/inspiration/topads/pc/en?region=US" target="_blank" rel="noopener" style="font-size:11.5px;font-weight:700;color:var(--accent);background:var(--accent-soft);border:1px solid #CFE0FB;padding:6px 11px;border-radius:8px;text-decoration:none">TikTok Top Ads · US ↗</a>
+          </div>
+        </div>
+        <div class="card">
+          <h3>🇪🇸 Espanha</h3>
+          <div style="font-size:13.5px;color:var(--text-2);line-height:1.65">Mercado em virada para <strong>autenticidade</strong>: UGC superando influencer pago (92% confiam mais em recomendação de pares). Cresce o branding "menos ruído" e experiências <strong>multissensoriais</strong> (motion + som).</div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:13px">
+            <a href="https://www.facebook.com/ads/library/?active_status=all&amp;ad_type=all&amp;country=ES&amp;q=identidad%20visual&amp;media_type=all" target="_blank" rel="noopener" style="font-size:11.5px;font-weight:700;color:var(--accent);background:var(--accent-soft);border:1px solid #CFE0FB;padding:6px 11px;border-radius:8px;text-decoration:none">Meta Ad Library · ES ↗</a>
+            <a href="https://ads.tiktok.com/business/creativecenter/inspiration/topads/pc/en?region=ES" target="_blank" rel="noopener" style="font-size:11.5px;font-weight:700;color:var(--accent);background:var(--accent-soft);border:1px solid #CFE0FB;padding:6px 11px;border-radius:8px;text-decoration:none">TikTok Top Ads · ES ↗</a>
+          </div>
+        </div>
+        <div class="card">
+          <h3>🇲🇽 México</h3>
+          <div style="font-size:13.5px;color:var(--text-2);line-height:1.65">Crescimento forte de creator economy na América Latina: <strong>social commerce</strong> e UGC com IA em alta, com autenticidade virando critério de escolha de creator. Ótimo terreno para ângulos de transformação e prova social.</div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:13px">
+            <a href="https://www.facebook.com/ads/library/?active_status=all&amp;ad_type=all&amp;country=MX&amp;q=dise%C3%B1o%20de%20marca&amp;media_type=all" target="_blank" rel="noopener" style="font-size:11.5px;font-weight:700;color:var(--accent);background:var(--accent-soft);border:1px solid #CFE0FB;padding:6px 11px;border-radius:8px;text-decoration:none">Meta Ad Library · MX ↗</a>
+            <a href="https://ads.tiktok.com/business/creativecenter/inspiration/topads/pc/en?region=MX" target="_blank" rel="noopener" style="font-size:11.5px;font-weight:700;color:var(--accent);background:var(--accent-soft);border:1px solid #CFE0FB;padding:6px 11px;border-radius:8px;text-decoration:none">TikTok Top Ads · MX ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="src">Exemplos ao vivo via Meta Ad Library e TikTok Creative Center (Top Ads). Notas de mercado: HypeAuditor, Meio &amp; Mensagem, ipMark, PuroMarketing, Merca2.0, CreatorIQ, Visla (2026).</div>
+
+      <!-- HOOKS de abertura -->
+      <div class="section-hd-text" style="margin:6px 0 14px"><div class="part" style="color:var(--accent)">Hooks de abertura</div><h2 style="font-size:17px">Como abrir o vídeo nos primeiros 3 segundos</h2></div>
+      <div class="card">
+        <h3>Ganham ou perdem a atenção em 3 segundos</h3>
+        <div class="news-list">
+          <div class="news-item" style="border-left-color:var(--accent)">
+            <div class="news-top"><span class="news-tag">Transformação</span></div>
+            <div class="news-title">"Essa marca faturava pouco até mudar UMA coisa no visual…"</div>
+            <div class="news-desc">Hook de antes/depois: promete a virada e mostra o contraste. Funciona para rebrand, página de vendas, social kit.</div>
+          </div>
+          <div class="news-item" style="border-left-color:var(--accent)">
+            <div class="news-top"><span class="news-tag brand">Prova social</span></div>
+            <div class="news-title">"Já refiz a identidade de +120 marcas — esses 3 erros se repetem em todas"</div>
+            <div class="news-desc">Número específico + resultado específico = credibilidade imediata. O hook de prova social que mais para o scroll.</div>
+          </div>
+          <div class="news-item" style="border-left-color:var(--accent)">
+            <div class="news-top"><span class="news-tag tool">Problema-Agitação</span></div>
+            <div class="news-title">"Seu logo tá te fazendo perder cliente e você nem sabe"</div>
+            <div class="news-desc">Framework Problema → Agitação → Solução. Abre na dor, agita a frustração, entrega a solução no fim.</div>
+          </div>
+          <div class="news-item" style="border-left-color:var(--accent)">
+            <div class="news-top"><span class="news-tag">Visual / Padrão quebrado</span></div>
+            <div class="news-title">"Pare de usar Canva pra isso." (corte seco + tela cheia)</div>
+            <div class="news-desc">Hook visual com movimento/expressão que quebra o feed. Frase curta e polêmica + gancho que obriga a continuar.</div>
+          </div>
+          <div class="news-item" style="border-left-color:var(--accent)">
+            <div class="news-top"><span class="news-tag brand">Emocional / POV</span></div>
+            <div class="news-title">"POV: você é dono de marca e abriu o Instagram do concorrente…"</div>
+            <div class="news-desc">Hook emocional que tira do espectador uma reação (inveja saudável, FOMO). Conecta antes de vender.</div>
+          </div>
+          <div class="news-item" style="border-left-color:var(--accent)">
+            <div class="news-top"><span class="news-tag tool">Bastidor / Processo</span></div>
+            <div class="news-title">"Veja eu transformar essa marca genérica em 60 segundos"</div>
+            <div class="news-desc">Mostra o processo com IA em tempo real. Combina autoridade + entretenimento — alto tempo de retenção.</div>
+          </div>
+        </div>
+        <div class="src">Estrutura: hook nos 3s, 6–15s para feed, ângulo &gt; produção. Fontes: GetHookd, Segwise, Balistro, Adligator, Influee (120 UGC hooks).</div>
+      </div>
+
+      <!-- Influencers + Marcas -->
+      <div class="section-hd-text" style="margin:22px 0 14px"><div class="part" style="color:var(--accent)">Influencers & marcas</div><h2 style="font-size:17px">Quem e o que está distribuindo</h2></div>
+      <div class="g2">
+        <a class="news-item" href="https://www.creatoriq.com/blog/influencer-marketing-trends-2026" target="_blank" rel="noopener">
+          <div class="news-top"><span class="news-tag">Influencers</span><span class="news-date">Creator economy · USD 33B</span></div>
+          <div class="news-title">Micro e nano influencers dominam o nicho</div>
+          <div class="news-desc">Até <strong>11,9% de engajamento no TikTok</strong> (vs &lt;1% de macro), a um custo de US$100–1.000/post. Nichados convertem mais porque a confiança é maior. Modelo migra para <strong>pagamento por performance</strong> e parcerias longas.</div>
+          <span class="news-source">Ver tendências de influencer 2026</span>
+        </a>
+        <a class="news-item" href="https://www.visla.us/blog/listicles/video-marketing-trends-for-2026/" target="_blank" rel="noopener">
+          <div class="news-top"><span class="news-tag brand">Marcas correlatas</span><span class="news-date">Canva · Adobe · Figma</span></div>
+          <div class="news-title">Marcas de ferramentas e educação indo de creator-led</div>
+          <div class="news-desc">Campanhas das big tools de design e escolas migram para <strong>UGC e social commerce</strong> (TikTok Shop, caminho de compra direto). Conteúdo de creator com checkout no app é o canal de maior ROI.</div>
+          <span class="news-source">Ver tendências de vídeo & UGC 2026</span>
+        </a>
+      </div>
+
+      <div class="card" style="margin-top:14px">
+        <h3>Ângulos correlatos que estão em alta</h3>
+        <div class="trend-tags">
+          <span class="tg solid">Antes/Depois de marca</span>
+          <span class="tg solid">Bastidor com IA em tempo real</span>
+          <span class="tg">"3 erros de identidade visual"</span>
+          <span class="tg">Prova social com número específico</span>
+          <span class="tg">POV de dono de marca</span>
+          <span class="tg">Faceless / voz + tela</span>
+          <span class="tg">Tutorial rápido (valor antes da venda)</span>
+          <span class="tg">Reação a rebrands famosos</span>
+        </div>
+        <div class="src">Fontes: CreatorIQ, Impact.com, eMarketer, House of Marketers, Stackmatix, Adstellar (jun/2026).</div>
+      </div>
+    </section>
+
+    <!-- ── INSIGHTS & PONTOS DE ATENÇÃO ── -->
+    <section class="section" id="insights">
+      <div class="section-hd">
+        <div class="section-ico">💡</div>
+        <div class="section-hd-text">
+          <div class="part">Síntese estratégica</div>
+          <h2>Insights & Pontos de Atenção</h2>
+          <p>O que realmente importa para o mercado agora — leitura rápida</p>
+        </div>
+      </div>
+
+      <div class="insight-grid">
+        <div class="ins-card">
+          <div class="ins-num">INSIGHT 01</div>
+          <div class="ins-title">A IA virou pré-requisito, não diferencial</div>
+          <div class="ins-text">Com <strong>91% dos designers usando IA semanalmente</strong> e vagas com skill de IA crescendo <strong>+144% a/a</strong>, dominar IA deixou de ser vantagem e passou a ser linha de base. O diferencial agora é direção criativa e pensamento sistêmico.</div>
+        </div>
+        <div class="ins-card">
+          <div class="ins-num">INSIGHT 02</div>
+          <div class="ins-title">Branding migra para identidades vivas</div>
+          <div class="ins-text">Sistemas <strong>motion-first e adaptativos</strong> substituem logos estáticos. Quem vende identidade visual precisa entregar sistemas dinâmicos e regras de marca "legíveis por máquina", não só um logo final.</div>
+        </div>
+        <div class="ins-card">
+          <div class="ins-num">INSIGHT 03</div>
+          <div class="ins-title">Mercado cresce, mas o valor migra</div>
+          <div class="ins-text">Design gráfico vai a <strong>USD 59,3B (CAGR 7,6%)</strong> e UX a USD 13,06B, porém o valor desloca-se de execução para <strong>estratégia, sistemas e curadoria</strong>. Preço por "arte" cai; preço por direção sobe.</div>
+        </div>
+        <div class="ins-card">
+          <div class="ins-num">INSIGHT 04</div>
+          <div class="ins-title">Agentes de IA como novo gatekeeper</div>
+          <div class="ins-text">79% das empresas já implementam agentes de IA. Eles passam a <strong>influenciar quais marcas são vistas e recomendadas</strong> — posicionamento e dados de marca viram ativo competitivo.</div>
+        </div>
+        <div class="ins-card attention">
+          <div class="ins-num">⚠ PONTO DE ATENÇÃO 01</div>
+          <div class="ins-title">Comoditização da execução</div>
+          <div class="ins-text">Tarefas repetitivas de design estão sendo automatizadas. Quem vende só "fazer a arte" perde margem. <strong>Reposicionar a oferta para estratégia e sistema</strong> é urgente.</div>
+        </div>
+        <div class="ins-card attention">
+          <div class="ins-num">⚠ PONTO DE ATENÇÃO 02</div>
+          <div class="ins-title">Gap de fluência em IA na contratação</div>
+          <div class="ins-text">50% dos líderes priorizam fluência em IA ao contratar. Sem prova concreta de workflow com IA, a agência/profissional fica de fora das melhores oportunidades.</div>
+        </div>
+      </div>
+      <div class="src">Síntese a partir dos dados das seções deste estudo e das fontes de novidades (jun/2026).</div>
+    </section>
+
+    <!-- ── TAREFAS — APLICAR AGORA ── -->
+    <section class="section" id="tarefas">
+      <div class="section-hd">
+        <div class="section-ico">✅</div>
+        <div class="section-hd-text">
+          <div class="part">Plano de ação</div>
+          <h2>Tarefas — O que Aplicar Agora no Meu Mercado</h2>
+          <p>Ações concretas derivadas dos insights, priorizadas por impacto e prazo</p>
+        </div>
+      </div>
+
+      <div class="task-list">
+        <div class="task-item">
+          <div class="task-check"></div>
+          <div class="task-body">
+            <div class="task-title">Reposicionar a oferta de "arte" para "sistema de marca + IA"</div>
+            <div class="task-desc">Reescrever portfólio e proposta para vender direção criativa, sistemas de identidade adaptativos e workflows com IA — não entregáveis avulsos. Atualizar página de serviços e pitch.</div>
+            <div class="task-meta"><span class="task-prio alta">Prioridade alta</span><span class="task-horizon">Esta semana</span></div>
+          </div>
+        </div>
+        <div class="task-item">
+          <div class="task-check"></div>
+          <div class="task-body">
+            <div class="task-title">Montar uma biblioteca de prompts e contexto de marca</div>
+            <div class="task-desc">Criar um "asset institucional" de prompts por cliente/uso e documentos de contexto de marca (tom, regras, paleta) que a IA possa seguir. Cada hora investida em refinar prompt compõe valor.</div>
+            <div class="task-meta"><span class="task-prio alta">Prioridade alta</span><span class="task-horizon">30 dias</span></div>
+          </div>
+        </div>
+        <div class="task-item">
+          <div class="task-check"></div>
+          <div class="task-body">
+            <div class="task-title">Adotar 1 agente de IA de ponta a ponta num fluxo real</div>
+            <div class="task-desc">Escolher um pipeline (ex: variações de identidade, social kit) e rodar com agente de IA dentro da ferramenta que o time já usa diariamente — integração é o que cria hábito sustentável.</div>
+            <div class="task-meta"><span class="task-prio media">Prioridade média</span><span class="task-horizon">30–60 dias</span></div>
+          </div>
+        </div>
+        <div class="task-item">
+          <div class="task-check"></div>
+          <div class="task-body">
+            <div class="task-title">Criar oferta de "identidade viva" (motion-first)</div>
+            <div class="task-desc">Empacotar um serviço de sistema de marca dinâmico/kinético como produto, surfando a tendência 2026. Diferencia da concorrência ainda presa a logo estático.</div>
+            <div class="task-meta"><span class="task-prio media">Prioridade média</span><span class="task-horizon">Trimestre</span></div>
+          </div>
+        </div>
+        <div class="task-item">
+          <div class="task-check"></div>
+          <div class="task-body">
+            <div class="task-title">Provar fluência em IA publicamente (conteúdo + cases)</div>
+            <div class="task-desc">Publicar bastidores de workflow com IA (LinkedIn, Instagram) para sinalizar fluência — o critério nº1 de contratação em 2026. Transformar processo em prova social.</div>
+            <div class="task-meta"><span class="task-prio media">Prioridade média</span><span class="task-horizon">Contínuo</span></div>
+          </div>
+        </div>
+        <div class="task-item">
+          <div class="task-check"></div>
+          <div class="task-body">
+            <div class="task-title">Otimizar presença para "ser recomendado por IA"</div>
+            <div class="task-desc">Garantir dados de marca consistentes e descritivos (site, perfis, descrições) para que agentes de IA recomendem você. Posicionamento legível por máquina vira aquisição.</div>
+            <div class="task-meta"><span class="task-prio baixa">Prioridade baixa</span><span class="task-horizon">Trimestre</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="src">Tarefas derivadas dos insights acima e das recomendações de implementação 2026 (UX Tigers, Tommaso Ricci, Cflow). Revisadas a cada atualização.</div>
+    </section>
+
+    <!-- ── PARTE 1: PANORAMA GLOBAL ── -->
+    <section class="section" id="panorama">
+      <div class="section-hd">
+        <div class="section-ico">🌍</div>
+        <div class="section-hd-text">
+          <div class="part">Parte 1</div>
+          <h2>Panorama Global do Mercado</h2>
+          <p>Tamanho, crescimento e forças que moldam o mercado de design globalmente</p>
+        </div>
+      </div>
+
+      <div class="g2">
+        <div class="chart-box">
+          <div class="chart-title">Tamanho dos mercados de design (USD bilhões)</div>
+          <div class="chart-sub">Comparativo entre segmentos — 2024–2025</div>
+          <canvas id="chartMarkets" height="240"></canvas>
+        </div>
+        <div class="chart-box">
+          <div class="chart-title">Adoção de IA por designers</div>
+          <div class="chart-sub">% de designers usando ferramentas de IA</div>
+          <canvas id="chartAI" height="240"></canvas>
+        </div>
+      </div>
+
+      <div class="g3">
+        <div class="card">
+          <h3>IA Generativa em Design</h3>
+          <div class="stat-big">USD 5,4B</div>
+          <div class="stat-sub">2026 · CAGR 32,3%</div>
+          <div class="src">Fonte: NoGood / ResearchGate</div>
+        </div>
+        <div class="card">
+          <h3>Designers usando IA diariamente</h3>
+          <div class="stat-big">86%</div>
+          <div class="stat-sub">Criadores globais usam IA generativa</div>
+          <div class="src">Fonte: Figma Design Statistics 2026</div>
+        </div>
+        <div class="card">
+          <h3>Premium por uso de IA</h3>
+          <div class="stat-big">+34%</div>
+          <div class="stat-sub">Designer com IA ganha mais que sem IA</div>
+          <div class="src">Fonte: McKinsey 2025</div>
+        </div>
+      </div>
+
+      <div class="callout">
+        <strong>O efeito Canva:</strong> USD 48,7B de valuation, 220M usuários, 38,5M designs/dia. Canva democratizou execução básica — e isso é irreversível. O efeito colateral positivo para designers profissionais: libera espaço para estratégia, método e direção criativa.
+      </div>
+
+      <div class="callout callout-yellow">
+        <strong>Risco mapeado:</strong> 36% das empresas já substituíram ao menos uma tarefa de design por IA. Design gráfico está entre as profissões mais ameaçadas por IA em execução repetitiva — especialmente logo barato e arte avulsa.
+      </div>
+    </section>
+
+    <!-- ── PARTE 2: BRASIL ── -->
+    <section class="section" id="brasil">
+      <div class="section-hd">
+        <div class="section-ico">🇧🇷</div>
+        <div class="section-hd-text">
+          <div class="part">Parte 2</div>
+          <h2>Mercado Brasileiro de Design</h2>
+          <p>Estrutura, volume e impacto da IA no mercado nacional</p>
+        </div>
+      </div>
+
+      <div class="g2">
+        <div class="card">
+          <h3>Profissionais de design no Brasil</h3>
+          <div class="stat-big">250.000</div>
+          <div class="stat-sub">Fonte: Ministério da Cultura (MICBR) · 2024</div>
+          <hr>
+          <div class="prog-item" style="margin-top:14px">
+            <div class="prog-label"><span>Trabalhadores formais</span><span class="val">59,3%</span></div>
+            <div class="prog-track"><div class="prog-fill" style="width:59.3%"></div></div>
+          </div>
+          <div class="prog-item">
+            <div class="prog-label"><span>Trabalhadores informais</span><span class="val">40,7%</span></div>
+            <div class="prog-track"><div class="prog-fill yellow" style="width:40.7%"></div></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>EdTech Brasil — crescimento</h3>
+          <canvas id="chartEdtech" height="180"></canvas>
+          <div class="src">Fonte: IMARC Group 2025 · CAGR 11,12%</div>
+        </div>
+      </div>
+
+      <div class="callout callout-yellow">
+        <strong>Dado preocupante (CELACC/USP 2026):</strong> Designers gráficos e multimídia (186,9 mil profissionais) sofreram queda de dois dígitos na demanda por serviços desde a proliferação de IA generativa. A IA está criando uma bifurcação clara no mercado.
+      </div>
+
+      <div class="tbl-wrap">
+        <div class="tbl-head">Remuneração média por cargo — Brasil vs. Internacional</div>
+        <table>
+          <thead><tr><th>Cargo</th><th>Brasil (estimativa)</th><th>EUA (USD/ano)</th><th>Remoto Internacional</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Designer Gráfico</strong></td><td>R$3.700/mês</td><td>USD 61.300</td><td>USD 32k–88k</td></tr>
+            <tr><td><strong>UX/UI Designer Sênior</strong></td><td>R$6k–18k/mês</td><td>USD 85k–110k</td><td>USD 85k–110k</td></tr>
+            <tr><td><strong>Diretor Criativo</strong></td><td>R$12k–25k/mês</td><td>USD 138.000</td><td>—</td></tr>
+            <tr><td><strong>Product Designer Sênior</strong></td><td>R$8k–20k/mês</td><td>USD 92.000+</td><td>USD 92k+</td></tr>
+            <tr><td><strong>Freela Generalista</strong></td><td>R$45–75/hora</td><td>USD 45–75/hora</td><td>USD 25–100/hora</td></tr>
+            <tr><td><strong>Freela Especialista</strong></td><td>R$100–250/hora</td><td>USD 100–150+/hora</td><td>USD 60–150/hora</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ── PARTE 3: REMUNERAÇÃO ── -->
+    <section class="section" id="remuneracao">
+      <div class="section-hd">
+        <div class="section-ico">💰</div>
+        <div class="section-hd-text">
+          <div class="part">Parte 3</div>
+          <h2>Modelos de Receita no Design</h2>
+          <p>Como designers geram renda — do ticket baixo ao premium</p>
+        </div>
+      </div>
+
+      <div class="callout callout-green">
+        <strong>Dado validado (Toptal via Colorlib):</strong> Especialistas ganham <strong>40–60% mais</strong> que generalistas. Taxa mediana de freela: USD 92,75/hora · 83% dos freelas preferem o modelo por flexibilidade e maior renda.
+      </div>
+
+      <div class="tbl-wrap">
+        <div class="tbl-head">Espectro de receita por modelo de trabalho</div>
+        <table>
+          <thead><tr><th>Segmento</th><th>Modelo</th><th>Ticket típico (BR)</th><th>Observação</th></tr></thead>
+          <tbody>
+            <tr><td><span class="badge b-blue">Alto ticket</span></td><td><strong>Consultoria estratégica de marca</strong></td><td>R$20k–100k/projeto</td><td>Baixo volume, alta margem</td></tr>
+            <tr><td><span class="badge b-blue">Alto ticket</span></td><td><strong>Design System (empresa tech)</strong></td><td>R$30k–120k/projeto</td><td>Especialização UI/UX</td></tr>
+            <tr><td><span class="badge b-green">Ticket médio</span></td><td><strong>Identidade visual PME</strong></td><td>R$3k–12k/projeto</td><td>Volume médio</td></tr>
+            <tr><td><span class="badge b-green">Ticket médio</span></td><td><strong>Retainer mensal (guardião de marca)</strong></td><td>R$2k–6k/mês</td><td>Recorrência</td></tr>
+            <tr><td><span class="badge b-yellow">Baixo ticket</span></td><td><strong>Social media pacote mensal</strong></td><td>R$800–2.500/mês</td><td>Commoditizado, alto volume</td></tr>
+            <tr><td><span class="badge b-red">Commodity</span></td><td><strong>Logo simples / arte avulsa</strong></td><td>R$300–1.500</td><td>Ameaçado pela IA</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ── PARTE 4: APRENDIZADO ── -->
+    <section class="section" id="aprendizado">
+      <div class="section-hd">
+        <div class="section-ico">📚</div>
+        <div class="section-hd-text">
+          <div class="part">Parte 4</div>
+          <h2>Como o Designer Estuda</h2>
+          <p>Caminhos de aprendizado validados com dados</p>
+        </div>
+      </div>
+
+      <div class="g2">
+        <div class="card">
+          <h3>Formação acadêmica</h3>
+          <div class="prog-item">
+            <div class="prog-label"><span>Com bacharelado</span><span class="val">65%</span></div>
+            <div class="prog-track"><div class="prog-fill" style="width:65%"></div></div>
+          </div>
+          <div class="prog-item">
+            <div class="prog-label"><span>Autodidatas</span><span class="val">15%</span></div>
+            <div class="prog-track"><div class="prog-fill green" style="width:15%"></div></div>
+          </div>
+          <div class="prog-item">
+            <div class="prog-label"><span>Vagas de UI/UX mencionam Figma</span><span class="val">67%</span></div>
+            <div class="prog-track"><div class="prog-fill" style="width:67%"></div></div>
+          </div>
+          <div class="src">Fonte: Colorlib / Figma Design Statistics 2026</div>
+        </div>
+        <div class="card">
+          <h3>Fontes de aprendizado preferidas</h3>
+          <canvas id="chartLearning" height="200"></canvas>
+          <div class="src">Fonte: Colorlib — Graphic Design Statistics 2026</div>
+        </div>
+      </div>
+
+      <div class="callout">
+        <strong>43%</strong> dos designers aprendem a maior parte das habilidades pelo <strong>YouTube e recursos gratuitos</strong>. O Google UX Certificate já tem mais de <strong>1 milhão de conclusões</strong> globalmente.
+      </div>
+
+      <!-- TAXA DE CONCLUSÃO -->
+      <div class="callout callout-yellow" style="margin-top:14px">
+        <strong>O dado que ninguém fala:</strong> cursos gravados têm taxa de conclusão de apenas <strong>5–15%</strong>. Plataformas como Udemy reportam até <strong>97% de abandono</strong>. O IA LAB (ao vivo, 2 dias) opera no modelo com maior taxa de conclusão do mercado.
+      </div>
+
+      <div class="chart-box">
+        <div class="chart-title">Taxa de conclusão por formato de curso</div>
+        <div class="chart-sub">Comparativo — formato gravado vs. ao vivo / com accountability</div>
+        <canvas id="chartCompletion" height="180"></canvas>
+        <div class="src">Fontes: Harvard/MIT MOOC research · LearnStream · Xperiencify · DigitalDefynd 2025</div>
+      </div>
+
+      <div class="g2">
+        <div class="card">
+          <h3>Quando o abandono acontece</h3>
+          <div style="display:flex;flex-direction:column;gap:10px;margin-top:4px">
+            <div style="display:flex;gap:10px;align-items:flex-start">
+              <span style="font-size:18px;flex-shrink:0">⚠️</span>
+              <div><div style="font-size:13px;font-weight:600;color:var(--danger)">Semanas 1–2</div><div style="font-size:12px;color:var(--text-2)">Maior pico de dropout — expectativa vs. realidade</div></div>
+            </div>
+            <div style="display:flex;gap:10px;align-items:flex-start">
+              <span style="font-size:18px;flex-shrink:0">📉</span>
+              <div><div style="font-size:13px;font-weight:600;color:var(--warn)">Módulo 2–3</div><div style="font-size:12px;color:var(--text-2)">Queda de engajamento quando o conteúdo fica difícil</div></div>
+            </div>
+            <div style="display:flex;gap:10px;align-items:flex-start">
+              <span style="font-size:18px;flex-shrink:0">👻</span>
+              <div><div style="font-size:13px;font-weight:600;color:var(--text-2)">Silêncio total</div><div style="font-size:12px;color:var(--text-2)">Aluno para de abrir, não cancela — "ghost completion"</div></div>
+            </div>
+          </div>
+          <div class="src">Fonte: DigitalDefynd · Opigno · PMC Research 2024</div>
+        </div>
+
+        <div class="card">
+          <h3>Por que abandonam — ranking de causas</h3>
+          <div style="display:flex;flex-direction:column;gap:8px;margin-top:4px">
+            <div style="font-size:12px;color:var(--text-2);display:flex;gap:8px"><span style="color:var(--danger);font-weight:600">1.</span> Marketing ≠ realidade do curso (expectativa frustrada)</div>
+            <div style="font-size:12px;color:var(--text-2);display:flex;gap:8px"><span style="color:var(--danger);font-weight:600">2.</span> Sem interação com instrutor (sensação de abandono)</div>
+            <div style="font-size:12px;color:var(--text-2);display:flex;gap:8px"><span style="color:var(--warn);font-weight:600">3.</span> Carga percebida como excessiva</div>
+            <div style="font-size:12px;color:var(--text-2);display:flex;gap:8px"><span style="color:var(--warn);font-weight:600">4.</span> Sem accountability — sem prazo, sem pressão</div>
+            <div style="font-size:12px;color:var(--text-2);display:flex;gap:8px"><span style="color:var(--text-3);font-weight:600">5.</span> Conteúdo irrelevante ou entediante</div>
+            <div style="font-size:12px;color:var(--text-2);display:flex;gap:8px"><span style="color:var(--text-3);font-weight:600">6.</span> Isolamento — aprendizado solitário desmotiva</div>
+          </div>
+          <div class="src">Fonte: DigitalDefynd · MasterTeachingOnline · PMC 2024</div>
+        </div>
+      </div>
+
+      <!-- DURAÇÃO DE VÍDEO -->
+      <div class="chart-box">
+        <div class="chart-title">Duração ideal de vídeo educacional vs. retenção</div>
+        <div class="chart-sub">Índice de engajamento relativo por duração — pesquisa MIT com 6,9 milhões de vídeos</div>
+        <canvas id="chartVideoLength" height="160"></canvas>
+        <div class="src">Fontes: MIT research · TechSmith Video Viewer Trends 2024 · Quality Matters · Univ. Wisconsin-Stout</div>
+      </div>
+
+      <div class="g3">
+        <div class="card">
+          <h3>Preferência por dispositivo</h3>
+          <div class="stat-big" style="color:var(--accent)">57%</div>
+          <div class="stat-sub">preferem mobile para conteúdo educacional</div>
+          <hr style="margin:12px 0">
+          <div style="font-size:12px;color:var(--text-2)">72% do tempo online global é no celular · 38% dos alunos valorizam app mobile como feature</div>
+          <div class="src">Fonte: Research.com · Skillademia 2025</div>
+        </div>
+        <div class="card">
+          <h3>Modelo preferido de aprendizado</h3>
+          <div class="stat-big" style="color:var(--accent-2)">55%</div>
+          <div class="stat-sub">preferem modelo híbrido (live + gravado)</div>
+          <hr style="margin:12px 0">
+          <div style="font-size:12px;color:var(--text-2)">Live sessions + replay + material de apoio acessível = formato ideal percebido pelos alunos</div>
+          <div class="src">Fonte: Skillademia · DigitalDefynd 2025</div>
+        </div>
+        <div class="card">
+          <h3>Estágio e carreira</h3>
+          <div class="stat-big" style="color:var(--warn)">≠</div>
+          <div class="stat-sub">Estágio é o maior preditor de sucesso — não a nota</div>
+          <hr style="margin:12px 0">
+          <div style="font-size:12px;color:var(--text-2)">Graduados sem estágio têm muito mais dificuldade de entrar no mercado. Salário de entrada: USD 36k vs. mediana de USD 61k</div>
+          <div class="src">Fonte: BLS · Research.com 2026</div>
+        </div>
+      </div>
+
+      <!-- O QUE FAZ QUEM TEM BACHARELADO -->
+      <div class="tbl-wrap">
+        <div class="tbl-head">O que quem tem bacharelado em design faz depois</div>
+        <table>
+          <thead><tr><th>Caminho</th><th>Perfil típico</th><th>Desafio principal</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Agência / Design Studio</strong></td><td>Portfólio da agência, aprende rápido</td><td>Portfólio não é autoral — dificulta saída</td></tr>
+            <tr><td><strong>In-house (empresa)</strong></td><td>Estabilidade CLT, crescimento lento</td><td>Pouca variedade de projetos</td></tr>
+            <tr><td><strong>Migração para UI/UX</strong></td><td>Salário 40–79% maior que design gráfico</td><td>Requer capacitação adicional</td></tr>
+            <tr><td><strong>Freelance imediato</strong></td><td>Minoria — exige rede e portfólio antes de se formar</td><td>Instabilidade de renda no início</td></tr>
+            <tr><td><strong>Pós-graduação / especialização</strong></td><td>Quer UX/UI ou direção criativa sem experiência</td><td>Custo + tempo sem renda</td></tr>
+            <tr><td><strong>Abandona o design</strong></td><td>Vai para marketing, comunicação, educação</td><td>Subnotificado — dado não oficial</td></tr>
+            <tr><td><strong>Vira infoprodutor/educador</strong></td><td>3–7 anos de mercado + audiência digital</td><td>Requer autoridade + produto + distribuição</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- PERGUNTAS QUE VOCÊ NÃO FEZ -->
+      <div class="gap-star" style="margin-top:14px">
+        <h4>🔍 As perguntas que você não sabia que precisava fazer</h4>
+        <p style="margin-bottom:12px">Estas revelam mais do que qualquer dado de mercado. São as que definem copy, formato de produto, timing de oferta e estratégia de upsell.</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+          <div style="background:rgba(0,0,0,0.2);border-radius:8px;padding:12px">
+            <div style="font-size:11px;font-weight:600;color:var(--accent);margin-bottom:6px;text-transform:uppercase;letter-spacing:0.5px">Comportamento de compra</div>
+            <div style="font-size:12px;color:var(--text-2);line-height:1.7">❓ Qual momento de vida dispara a busca por um curso?<br>❓ Quanto tempo entre ver e comprar?<br>❓ Comprou por indicação ou conteúdo?<br>❓ Quantas vezes voltou na página antes de comprar?</div>
+          </div>
+          <div style="background:rgba(0,0,0,0.2);border-radius:8px;padding:12px">
+            <div style="font-size:11px;font-weight:600;color:var(--accent-2);margin-bottom:6px;text-transform:uppercase;letter-spacing:0.5px">Resultado e recompra</div>
+            <div style="font-size:12px;color:var(--text-2);line-height:1.7">❓ Quantos aplicaram algo em até 30 dias?<br>❓ Qual % voltaria a comprar outro produto?<br>❓ O que impediu quem não aplicou?<br>❓ Qual transformação real eles relatam — não a prometida?</div>
+          </div>
+        </div>
+        <div style="font-size:12px;color:var(--text-2);margin-top:12px">📌 <strong style="color:var(--text)">Próximo passo:</strong> pesquisa com 8–12 alunos de edições anteriores do IA LAB. 30 minutos cada. Esse é o insumo para a análise de sinais invisíveis.</div>
+      </div>
+    </section>
+
+    <!-- ── PARTE 5: PERSONAS ── -->
+    <section class="section" id="personas">
+      <div class="section-hd">
+        <div class="section-ico">👥</div>
+        <div class="section-hd-text">
+          <div class="part">Parte 5</div>
+          <h2>Mapa de Personas</h2>
+          <p>6 perfis com dores, jornada e canais de comunicação. Clique para expandir.</p>
+        </div>
+      </div>
+
+      <div class="persona-grid">
+        <div class="p-card" onclick="togglePersona(this)">
+          <div class="p-head">
+            <div><div class="p-name">🌱 Freela em Formação</div><div class="p-role">18–26 anos · Iniciante</div></div>
+            <span class="p-arrow">›</span>
+          </div>
+          <div class="p-body">
+            <div class="p-divider"></div>
+            <div class="p-tag">Dores principais</div>
+            <div class="p-text">Revisão ilimitada por medo de perder cliente. Não sabe precificar — cobra por peça, não por valor. Fatura mal apesar de bastante volume de trabalho.</div>
+            <div class="p-tag">Cenário ideal</div>
+            <div class="p-text">R$5k–10k/mês estável com 3–5 clientes. Escopo definido. Portfólio de nicho.</div>
+            <div class="p-tag">Canal de alcance</div>
+            <span class="p-channel">Instagram</span><span class="p-channel">YouTube</span><span class="p-channel">Indicação</span>
+          </div>
+        </div>
+
+        <div class="p-card" onclick="togglePersona(this)">
+          <div class="p-head">
+            <div><div class="p-name">🚀 Freela Especializado</div><div class="p-role">3–6 anos de mercado</div></div>
+            <span class="p-arrow">›</span>
+          </div>
+          <div class="p-body">
+            <div class="p-divider"></div>
+            <div class="p-tag">Dores principais</div>
+            <div class="p-text">Teto de horas — para crescer precisa cobrar mais ou atender mais. Ansiedade entre projetos (sem recorrência). Não sabe como escalar sem contratar.</div>
+            <div class="p-tag">Cenário ideal</div>
+            <div class="p-text">Serviços productizados. Ticket de R$8k→R$20k+. Recorrência. Produto próprio (template, curso, mentoria).</div>
+            <div class="p-tag">Canal de alcance</div>
+            <span class="p-channel">LinkedIn</span><span class="p-channel">Portfolio</span><span class="p-channel">Indicação</span>
+          </div>
+        </div>
+
+        <div class="p-card" onclick="togglePersona(this)">
+          <div class="p-head">
+            <div><div class="p-name">🏢 Designer de Agência</div><div class="p-role">24–32 anos · Quer sair</div></div>
+            <span class="p-arrow">›</span>
+          </div>
+          <div class="p-body">
+            <div class="p-divider"></div>
+            <div class="p-tag">Dores principais</div>
+            <div class="p-text">Medo de sair sem renda fixa garantida. Portfólio é da agência, não autoral. Aprende pouco — repete as mesmas demandas.</div>
+            <div class="p-tag">Cenário ideal</div>
+            <div class="p-text">Freela paralelo até igualar 60–70% do salário. Portfólio autoral. 3–5 clientes fixos no 1º ano.</div>
+            <div class="p-tag">Canal de alcance</div>
+            <span class="p-channel">LinkedIn</span><span class="p-channel">Instagram</span><span class="p-channel">Conteúdo CLT→freela</span>
+          </div>
+        </div>
+
+        <div class="p-card" onclick="togglePersona(this)">
+          <div class="p-head">
+            <div><div class="p-name">🏗️ Dono de Estúdio</div><div class="p-role">30–45 anos · 2–8 pessoas</div></div>
+            <span class="p-arrow">›</span>
+          </div>
+          <div class="p-body">
+            <div class="p-divider"></div>
+            <div class="p-tag">Dores principais</div>
+            <div class="p-text">Negócio depende dele para vender e entregar. Não consegue tirar férias sem o estúdio travar. Quer crescer mas crescer = gestão de pessoas.</div>
+            <div class="p-tag">Cenário ideal</div>
+            <div class="p-text">Processos documentados. Designer sênior para operacional. Posição como diretor criativo / estrategista. Ticket médio maior.</div>
+            <div class="p-tag">Canal de alcance</div>
+            <span class="p-channel">Networking</span><span class="p-channel">LinkedIn</span><span class="p-channel">Podcast</span>
+          </div>
+        </div>
+
+        <div class="p-card" onclick="togglePersona(this)">
+          <div class="p-head">
+            <div><div class="p-name">💻 UI/UX de Produto</div><div class="p-role">25–35 anos · Startup/Tech</div></div>
+            <span class="p-arrow">›</span>
+          </div>
+          <div class="p-body">
+            <div class="p-divider"></div>
+            <div class="p-tag">Dores principais</div>
+            <div class="p-text">Dificuldade de mostrar impacto do design em métricas de negócio. Quer trabalhar para empresas internacionais. IA vai automatizar partes do trabalho.</div>
+            <div class="p-tag">Dado validado</div>
+            <div class="p-text">Mediana de USD 85k–110k/ano nos EUA (Colorlib 2026).</div>
+            <div class="p-tag">Canal de alcance</div>
+            <span class="p-channel">LinkedIn</span><span class="p-channel">Discord/Slack</span><span class="p-channel">Dribbble</span>
+          </div>
+        </div>
+
+        <div class="p-card" onclick="togglePersona(this)">
+          <div class="p-head">
+            <div><div class="p-name">⚡ Early Adopter de IA</div><div class="p-role">22–35 anos · Qualquer especialidade</div></div>
+            <span class="p-arrow">›</span>
+          </div>
+          <div class="p-body">
+            <div class="p-divider"></div>
+            <div class="p-tag">Dores principais</div>
+            <div class="p-text">"Uso IA mas não sei como isso muda minha precificação." "Clientes desvalorizam quando sabem que usei IA." "Tenho muito conhecimento mas não sei transformar em produto."</div>
+            <div class="p-tag">Contexto</div>
+            <div class="p-text">75% dos designers usam IA (2025) vs. 35% em 2023 — essa persona é a que mais cresce e tem maior potencial de monetização imediata.</div>
+            <div class="p-tag">Canal de alcance</div>
+            <span class="p-channel">Twitter/X</span><span class="p-channel">LinkedIn</span><span class="p-channel">YouTube</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── PARTE 6: OPORTUNIDADES ── -->
+    <section class="section" id="oportunidades">
+      <div class="section-hd">
+        <div class="section-ico">🎯</div>
+        <div class="section-hd-text">
+          <div class="part">Partes 6 e 7</div>
+          <h2>Mapa de Oportunidades</h2>
+          <p>O que está encolhendo, o que está crescendo e os white spaces identificados</p>
+        </div>
+      </div>
+
+      <div class="tbl-wrap" style="margin-bottom:14px">
+        <div class="tbl-head">O que a IA está deslocando</div>
+        <table>
+          <thead><tr><th>O que está encolhendo</th><th>O que está crescendo</th><th>Evidência</th></tr></thead>
+          <tbody>
+            <tr><td>Logo comoditizado (R$300–500)</td><td><strong>Identidade completa com processo e IA</strong></td><td><span class="badge b-yellow">CELACC/USP 2026</span></td></tr>
+            <tr><td>Execução mecânica de social media</td><td><strong>Estratégia + direção de arte</strong></td><td><span class="badge b-gray">Análise de mercado</span></td></tr>
+            <tr><td>Banco de imagens pago</td><td><strong>Imagem gerada sob direção criativa</strong></td><td><span class="badge b-blue">AI image market USD 13,9B</span></td></tr>
+            <tr><td>Designer gráfico generalista</td><td><strong>Especialista com método + IA</strong></td><td><span class="badge b-green">+75% adoção de IA (AIGA)</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="gap-star">
+        <h4>⭐ White space principal — já ocupado pelo IA LAB</h4>
+        <p>Método de IA para design ensinado por quem usa em projeto real. Mercado de IA crescendo 32,3%/ano; nenhum player brasileiro encontrado com credibilidade de prática + ensino ao vivo. Posição difícil de replicar.</p>
+      </div>
+
+      <div class="g2" style="margin-top:14px">
+        <div class="card">
+          <h3>White spaces identificados</h3>
+          <div class="bm-row" style="padding:10px 0;border-bottom:1px solid var(--border)">
+            <div class="bm-name" style="font-size:12px">UI/UX para SaaS e produtos nacionais de PME</div>
+            <span class="badge b-green">⭐⭐⭐⭐</span>
+          </div>
+          <div class="bm-row" style="padding:10px 0;border-bottom:1px solid var(--border)">
+            <div class="bm-name" style="font-size:12px">Identidade visual productizada com IA (preço fixo)</div>
+            <span class="badge b-green">⭐⭐⭐⭐</span>
+          </div>
+          <div class="bm-row" style="padding:10px 0;border-bottom:1px solid var(--border)">
+            <div class="bm-name" style="font-size:12px">Comunidade de designers com curadoria real</div>
+            <span class="badge b-blue">⭐⭐⭐</span>
+          </div>
+          <div class="bm-row" style="padding:10px 0">
+            <div class="bm-name" style="font-size:12px">Certificação em design com IA</div>
+            <span class="badge b-blue">⭐⭐⭐</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Roadmap de novos negócios</h3>
+          <div class="p-tag" style="margin-top:0">0–6 meses</div>
+          <div class="p-text">IA LAB recorrente · Comunidade pós-evento · Audit de identidade (produto de entrada)</div>
+          <div class="p-tag">6–18 meses</div>
+          <div class="p-text">Formação longa com IA · Productized service · UI/UX para SaaS nacionais</div>
+          <div class="p-tag">18–36 meses</div>
+          <div class="p-text">Plataforma/SaaS para designers · Certificação em IA · White label para agências</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── PARTE 8: MODELOS DE NEGÓCIO ── -->
+    <section class="section" id="modelos">
+      <div class="section-hd">
+        <div class="section-ico">💼</div>
+        <div class="section-hd-text">
+          <div class="part">Parte 8</div>
+          <h2>Modelos de Negócio</h2>
+          <p>Do saturado ao subexplorado — com dados de mercado validados</p>
+        </div>
+      </div>
+
+      <div class="filter-bar">
+        <button class="fbtn all active" onclick="filterBM('all', this)">Todos</button>
+        <button class="fbtn r" onclick="filterBM('red', this)">🔴 Saturados</button>
+        <button class="fbtn y" onclick="filterBM('yellow', this)">🟡 Em expansão</button>
+        <button class="fbtn g" onclick="filterBM('green', this)">🟢 Subexplorados</button>
+      </div>
+
+      <div class="bm-list" id="bmList">
+        <!-- RED -->
+        <div class="bm-row" data-cat="red">
+          <div class="bm-dot" style="background:#111111"></div>
+          <div class="bm-name">Freela por projeto tradicional</div>
+          <div class="bm-revenue">Variável · commodity</div>
+          <div class="bm-barrier">Barreira: baixa</div>
+          <div class="bm-fit"><span class="badge b-red">Saturado</span></div>
+        </div>
+        <div class="bm-row" data-cat="red">
+          <div class="bm-dot" style="background:#111111"></div>
+          <div class="bm-name">Pacotes de social media</div>
+          <div class="bm-revenue">R$800–2.500/mês</div>
+          <div class="bm-barrier">Barreira: baixa</div>
+          <div class="bm-fit"><span class="badge b-red">Saturado</span></div>
+        </div>
+        <div class="bm-row" data-cat="red">
+          <div class="bm-dot" style="background:#111111"></div>
+          <div class="bm-name">Cursos gravados genéricos</div>
+          <div class="bm-revenue">R$97–497</div>
+          <div class="bm-barrier">Barreira: baixa</div>
+          <div class="bm-fit"><span class="badge b-red">Saturado</span></div>
+        </div>
+        <div class="bm-row" data-cat="red">
+          <div class="bm-dot" style="background:#111111"></div>
+          <div class="bm-name">Plataformas de freela (Upwork, 99freelas)</div>
+          <div class="bm-revenue">Competição por preço</div>
+          <div class="bm-barrier">Barreira: baixa</div>
+          <div class="bm-fit"><span class="badge b-red">Saturado</span></div>
+        </div>
+        <!-- YELLOW -->
+        <div class="bm-row" data-cat="yellow">
+          <div class="bm-dot" style="background:#888888"></div>
+          <div class="bm-name">Serviços productizados (escopo fixo)</div>
+          <div class="bm-revenue">R$3.500–15.000/projeto</div>
+          <div class="bm-barrier">Barreira: média</div>
+          <div class="bm-fit"><span class="badge b-yellow">Em expansão</span></div>
+        </div>
+        <div class="bm-row" data-cat="yellow">
+          <div class="bm-dot" style="background:#888888"></div>
+          <div class="bm-name">Retainer de gestão de marca</div>
+          <div class="bm-revenue">R$2k–6k/mês recorrente</div>
+          <div class="bm-barrier">Barreira: média</div>
+          <div class="bm-fit"><span class="badge b-yellow">Em expansão</span></div>
+        </div>
+        <div class="bm-row" data-cat="yellow">
+          <div class="bm-dot" style="background:#888888"></div>
+          <div class="bm-name">Eventos ao vivo / workshops</div>
+          <div class="bm-revenue">R$500–2.000/ingresso</div>
+          <div class="bm-barrier">Barreira: média</div>
+          <div class="bm-fit"><span class="badge b-yellow">Em expansão</span></div>
+        </div>
+        <div class="bm-row" data-cat="yellow">
+          <div class="bm-dot" style="background:#888888"></div>
+          <div class="bm-name">White label para agências</div>
+          <div class="bm-revenue">Margem 40–60%</div>
+          <div class="bm-barrier">Barreira: média</div>
+          <div class="bm-fit"><span class="badge b-yellow">Em expansão</span></div>
+        </div>
+        <div class="bm-row" data-cat="yellow">
+          <div class="bm-dot" style="background:#888888"></div>
+          <div class="bm-name">Comunidade paga (Discord/Slack)</div>
+          <div class="bm-revenue">R$50–150/mês × membros</div>
+          <div class="bm-barrier">Barreira: média</div>
+          <div class="bm-fit"><span class="badge b-yellow">Em expansão</span></div>
+        </div>
+        <!-- GREEN -->
+        <div class="bm-row" data-cat="green">
+          <div class="bm-dot" style="background:#CFCFCF"></div>
+          <div class="bm-name">Licenciamento de assets (fontes/templates)</div>
+          <div class="bm-revenue">USD 1k–10k+/mês passivo</div>
+          <div class="bm-barrier">Barreira: baixa-média</div>
+          <div class="bm-fit"><span class="badge b-green">Subexplorado</span></div>
+        </div>
+        <div class="bm-row" data-cat="green">
+          <div class="bm-dot" style="background:#CFCFCF"></div>
+          <div class="bm-name">Design + no-code entregue (Webflow/Framer)</div>
+          <div class="bm-revenue">+40% por projeto</div>
+          <div class="bm-barrier">Barreira: média</div>
+          <div class="bm-fit"><span class="badge b-green">Subexplorado</span></div>
+        </div>
+        <div class="bm-row" data-cat="green">
+          <div class="bm-dot" style="background:#CFCFCF"></div>
+          <div class="bm-name">Afiliação de ferramentas (Adobe, Figma...)</div>
+          <div class="bm-revenue">USD 500–2k/mês passivo</div>
+          <div class="bm-barrier">Barreira: muito baixa</div>
+          <div class="bm-fit"><span class="badge b-green">Subexplorado</span></div>
+        </div>
+        <div class="bm-row" data-cat="green">
+          <div class="bm-dot" style="background:#CFCFCF"></div>
+          <div class="bm-name">Especialização vertical premium</div>
+          <div class="bm-revenue">+40–60% vs. generalista</div>
+          <div class="bm-barrier">Barreira: baixa</div>
+          <div class="bm-fit"><span class="badge b-green">Subexplorado</span></div>
+        </div>
+        <div class="bm-row" data-cat="green">
+          <div class="bm-dot" style="background:#CFCFCF"></div>
+          <div class="bm-name">Equity partnership com startups</div>
+          <div class="bm-revenue">1–8% equity (pré-seed)</div>
+          <div class="bm-barrier">Barreira: alta</div>
+          <div class="bm-fit"><span class="badge b-green">Subexplorado</span></div>
+        </div>
+        <div class="bm-row" data-cat="green">
+          <div class="bm-dot" style="background:#CFCFCF"></div>
+          <div class="bm-name">Micro-SaaS para designers</div>
+          <div class="bm-revenue">USD 5k–50k+ MRR</div>
+          <div class="bm-barrier">Barreira: média (com IA)</div>
+          <div class="bm-fit"><span class="badge b-green">Subexplorado</span></div>
+        </div>
+      </div>
+
+      <div class="src" style="margin-top:12px">Fontes: Creative Market · Envato · Sacra · Colorlib · IdeaProof · Startups.com · Amra & Elma · ProtoPie · Adobe</div>
+    </section>
+
+    <!-- ── PARTE 9: CANAIS ── -->
+    <section class="section" id="canais">
+      <div class="section-hd">
+        <div class="section-ico">📢</div>
+        <div class="section-hd-text">
+          <div class="part">Parte 9</div>
+          <h2>Canais de Aquisição</h2>
+          <p>Como designers encontram clientes e como produtos de educação encontram alunos</p>
+        </div>
+      </div>
+
+      <div class="g2">
+        <div class="card">
+          <h3>Como freelas encontram clientes</h3>
+          <div class="prog-item">
+            <div class="prog-label"><span>Indicação / boca a boca</span><span class="val">42%</span></div>
+            <div class="prog-track"><div class="prog-fill" style="width:42%"></div></div>
+          </div>
+          <div class="prog-item">
+            <div class="prog-label"><span>Rede pessoal (contatos diretos)</span><span class="val">29%</span></div>
+            <div class="prog-track"><div class="prog-fill" style="width:29%"></div></div>
+          </div>
+          <div class="prog-item">
+            <div class="prog-label"><span>Portfolio website</span><span class="val">18%</span></div>
+            <div class="prog-track"><div class="prog-fill green" style="width:18%"></div></div>
+          </div>
+          <div class="prog-item">
+            <div class="prog-label"><span>Plataformas (Upwork, 99freelas)</span><span class="val">&lt;11%</span></div>
+            <div class="prog-track"><div class="prog-fill yellow" style="width:11%"></div></div>
+          </div>
+          <div class="src">Fonte: Colorlib — Freelance Statistics 2026</div>
+        </div>
+
+        <div class="chart-box" style="margin-bottom:0">
+          <div class="chart-title">Conversão por canal — cursos online</div>
+          <div class="chart-sub">Visitante → lead (média dos canais)</div>
+          <canvas id="chartChannels" height="230"></canvas>
+          <div class="src">Fonte: Acceleroi — Online Course Conversion Rates 2026</div>
+        </div>
+      </div>
+
+      <div class="callout callout-green">
+        <strong>Email é 5–10x mais poderoso que redes sociais.</strong> Lista própria converte 15–25% de visitante → lead, enquanto Instagram/Facebook Ads converte 2–4%. Freelas com portfólio próprio ganham 35% mais que os dependentes de plataformas.
+      </div>
+
+      <div class="tbl-wrap">
+        <div class="tbl-head">Canal de aquisição por persona</div>
+        <table>
+          <thead><tr><th>Persona</th><th>Canal #1</th><th>Canal #2</th><th>Evitar</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Freela em Formação</strong></td><td>Instagram</td><td>Indicação de amigos</td><td>LinkedIn (sem rede)</td></tr>
+            <tr><td><strong>Freela Especializado</strong></td><td>Indicação de clientes</td><td>LinkedIn (ticket alto)</td><td>Plataformas (ticket baixo)</td></tr>
+            <tr><td><strong>Designer de Agência</strong></td><td>LinkedIn</td><td>Instagram (autoridade)</td><td>Cold outreach sem portfólio</td></tr>
+            <tr><td><strong>Dono de Estúdio</strong></td><td>Indicação de parceiros</td><td>Networking</td><td>Freela platform</td></tr>
+            <tr><td><strong>UI/UX de Produto</strong></td><td>LinkedIn</td><td>Comunidades Slack/Discord</td><td>Instagram (nicho errado)</td></tr>
+            <tr><td><strong>Early Adopter de IA</strong></td><td>Twitter/X + LinkedIn</td><td>YouTube (conteúdo técnico)</td><td>Qualquer canal sem conteúdo</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ── PARTE 10: COMPORTAMENTO DE COMPRA ── -->
+    <section class="section" id="compra">
+      <div class="section-hd">
+        <div class="section-ico">🛒</div>
+        <div class="section-hd-text">
+          <div class="part">Parte 10</div>
+          <h2>Comportamento de Compra</h2>
+          <p>Gatilhos psicológicos, funil de conversão e benchmarks de lançamento</p>
+        </div>
+      </div>
+
+      <div class="g2">
+        <div class="card">
+          <h3>5 gatilhos de compra validados</h3>
+          <div style="display:flex;flex-direction:column;gap:10px;margin-top:4px">
+            <div style="display:flex;gap:10px;align-items:flex-start">
+              <span style="font-size:18px">⏱️</span>
+              <div><div style="font-size:13px;font-weight:600;color:var(--text)">Urgência / lotes</div><div style="font-size:12px;color:var(--text-2)">Countdown timer = +8,6% em conversão</div></div>
+            </div>
+            <div style="display:flex;gap:10px;align-items:flex-start">
+              <span style="font-size:18px">😰</span>
+              <div><div style="font-size:13px;font-weight:600;color:var(--text)">FOMO</div><div style="font-size:12px;color:var(--text-2)">60% dos millennials compram em 24h após FOMO</div></div>
+            </div>
+            <div style="display:flex;gap:10px;align-items:flex-start">
+              <span style="font-size:18px">⭐</span>
+              <div><div style="font-size:13px;font-weight:600;color:var(--text)">Prova social</div><div style="font-size:12px;color:var(--text-2)">Resultados concretos de pares superam qualquer argumento</div></div>
+            </div>
+            <div style="display:flex;gap:10px;align-items:flex-start">
+              <span style="font-size:18px">🎯</span>
+              <div><div style="font-size:13px;font-weight:600;color:var(--text)">Autoridade prática</div><div style="font-size:12px;color:var(--text-2)">Quem usa em projeto real > quem ensina teoria</div></div>
+            </div>
+            <div style="display:flex;gap:10px;align-items:flex-start">
+              <span style="font-size:18px">✨</span>
+              <div><div style="font-size:13px;font-weight:600;color:var(--text)">Transformação específica</div><div style="font-size:12px;color:var(--text-2)">Compram "cobrar diferente", não "curso de IA"</div></div>
+            </div>
+          </div>
+          <div class="src">Fontes: OptinMonster · ResearchGate · LearnStream · CourseAI</div>
+        </div>
+
+        <div class="card">
+          <h3>Funil de evento ao vivo (webinar)</h3>
+          <div class="funnel">
+            <div class="funnel-step">
+              <div><div class="f-label">Landing page → Registro</div><div class="f-note">média do mercado</div></div>
+              <div class="f-rate" style="color:var(--accent)">até 51%</div>
+            </div>
+            <div class="funnel-arrow">↓</div>
+            <div class="funnel-step">
+              <div><div class="f-label">Registro → Presença</div><div class="f-note">média</div></div>
+              <div class="f-rate">40–50%</div>
+            </div>
+            <div class="funnel-arrow">↓</div>
+            <div class="funnel-step">
+              <div><div class="f-label">Presença → Comprador</div><div class="f-note">durante o evento</div></div>
+              <div class="f-rate" style="color:var(--accent-2)">5–20%</div>
+            </div>
+            <div class="funnel-arrow">↓</div>
+            <div class="funnel-step">
+              <div><div class="f-label">Follow-up email pós-evento</div><div class="f-note">do total de vendas</div></div>
+              <div class="f-rate">25%</div>
+            </div>
+          </div>
+          <div class="src">Fontes: Entrepreneurshq · ON24 Webinar Benchmarks 2025</div>
+        </div>
+      </div>
+
+      <div class="chart-box">
+        <div class="chart-title">Conversão de sales page por faixa de ticket</div>
+        <div class="chart-sub">% de visitantes que compram — média do mercado de cursos online</div>
+        <canvas id="chartTicket" height="180"></canvas>
+        <div class="src">Fonte: Acceleroi — Average Conversion Rate for Online Courses 2026</div>
+      </div>
+
+      <div class="callout callout-yellow">
+        <strong>Regra prática para lançamentos:</strong> benchmark de 1–2% de conversão da lista de email para vendas. Para vender 30 ingressos → lista de ~1.500–3.000 contatos qualificados. Lista pequena e qualificada converte muito acima da média.
+      </div>
+    </section>
+
+    <!-- ── PARTE 11: COMPETITIVO ── -->
+    <section class="section" id="competitivo">
+      <div class="section-hd">
+        <div class="section-ico">⚔️</div>
+        <div class="section-hd-text">
+          <div class="part">Parte 11</div>
+          <h2>Cenário Competitivo — Brasil</h2>
+          <p>Quem está no mercado de educação em design e onde está o vazio</p>
+        </div>
+      </div>
+
+      <div class="g2" style="margin-bottom:14px">
+        <div class="card">
+          <h3>EdTech Brasil em números</h3>
+          <div class="stat-big">USD 6B</div>
+          <div class="stat-sub">2025 → USD 15,6B em 2034 · CAGR 11,12%</div>
+          <hr>
+          <div class="p-text" style="margin-top:8px">Brasil tem <strong style="color:var(--text)">47%</strong> das edtechs da América Latina — maior hub regional do continente.</div>
+          <div class="src">Fonte: IMARC Group — Brazil EdTech Market 2025</div>
+        </div>
+        <div class="card">
+          <h3>Domestika (player global em design)</h3>
+          <div class="stat-big">USD 76,5M</div>
+          <div class="stat-sub">Receita 2026 · Valuation USD 1,3B · 8M+ usuários</div>
+          <hr>
+          <div class="p-text" style="margin-top:8px"><strong style="color:var(--text)">3.500+ cursos criativos</strong>. Plataforma global em português. Sem live, sem comunidade, sem profundidade.</div>
+          <div class="src">Fonte: Growjo · TechCrunch 2022</div>
+        </div>
+      </div>
+
+      <div class="tbl-wrap">
+        <div class="tbl-head">Mapa de players — educação em design no Brasil</div>
+        <table>
+          <thead><tr><th>Player</th><th>Foco</th><th>Tamanho</th><th>Gap principal</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Origamid</strong></td><td>Web Design, UI/UX, Front-end</td><td>Pequeno / nichado · 27k+ alunos</td><td>Sem branding/identidade. Sem IA como método.</td></tr>
+            <tr><td><strong>EBAC Online</strong></td><td>Design, Marketing, Games, Moda</td><td>Grande · 150+ cursos · Top-100 EdTech LatAm</td><td>Amplo demais. Sem IA como método central.</td></tr>
+            <tr><td><strong>Domestika</strong></td><td>Cursos criativos gerais</td><td>Global · 8M usuários · USD 76,5M receita</td><td>Sem live, sem comunidade, sem profundidade.</td></tr>
+            <tr><td><strong>Udemy BR</strong></td><td>Cursos técnicos gerais</td><td>Global / marketplace</td><td>Sem curadoria, sem comunidade, sem live.</td></tr>
+            <tr><td><strong>Alura</strong></td><td>Tecnologia e dados</td><td>600k+ alunos · 5k empresas</td><td>Foco em tech/dados, não em design criativo.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="gap-star" style="margin-top:14px">
+        <h4>🔍 Gap confirmado: nenhum player com esse posicionamento</h4>
+        <p style="margin-bottom:10px">Combinação <strong>IA + Design + Método + Ao vivo + Instrutor que usa em projetos reais</strong> não foi encontrada em nenhum player brasileiro. Este é o posicionamento único do IA LAB.</p>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <span class="badge b-blue">Escola da IA → geral, não design</span>
+          <span class="badge b-gray">EBAC → design mas sem método de IA</span>
+          <span class="badge b-gray">Origamid → sem branding, sem IA</span>
+          <span class="badge b-gray">Domestika → sem live</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── PARTE 12: FERRAMENTAS ── -->
+    <section class="section" id="ferramentas">
+      <div class="section-hd">
+        <div class="section-ico">🔧</div>
+        <div class="section-hd-text">
+          <div class="part">Parte 12</div>
+          <h2>Radar de Ferramentas Emergentes</h2>
+          <p>O que está mudando o workflow de design agora — antes de virar óbvio</p>
+        </div>
+      </div>
+
+      <div class="tool-grid">
+        <div class="t-card">
+          <div class="t-name">Figma · Receita 2025</div>
+          <div class="t-val">USD 1,056B</div>
+          <div class="t-desc">41% de crescimento YoY · IPO a USD 45B em julho/2025 · 13M MAU</div>
+          <div class="t-tag"><span class="badge b-blue">80–90% market share em UI/UX</span></div>
+        </div>
+        <div class="t-card">
+          <div class="t-name">Webflow · Receita 2024</div>
+          <div class="t-val">USD 280M</div>
+          <div class="t-desc">ARR USD 200M (2023) · 48% crescimento YoY · 200k negócios ativos</div>
+          <div class="t-tag"><span class="badge b-green">Design + no-code</span></div>
+        </div>
+        <div class="t-card">
+          <div class="t-name">Lovable · ARR</div>
+          <div class="t-val">USD 206M</div>
+          <div class="t-desc">$7M → $206M em 1 ano (+2.800% YoY) · 8M usuários · 100k produtos/dia</div>
+          <div class="t-tag"><span class="badge b-yellow">Vibe coding emergindo</span></div>
+        </div>
+        <div class="t-card">
+          <div class="t-name">Cursor · ARR</div>
+          <div class="t-val">USD 1B+</div>
+          <div class="t-desc">0 → $1B ARR em 24 meses (recorde B2B) · 1M+ usuários diários</div>
+          <div class="t-tag"><span class="badge b-yellow">Vibe coding</span></div>
+        </div>
+        <div class="t-card">
+          <div class="t-name">Bolt · ARR</div>
+          <div class="t-val">USD 40M</div>
+          <div class="t-desc">$0 → $40M ARR em apenas 5 meses · 5M usuários</div>
+          <div class="t-tag"><span class="badge b-yellow">Crescimento explosivo</span></div>
+        </div>
+        <div class="t-card">
+          <div class="t-name">Canva · Receita 2024</div>
+          <div class="t-val">USD 2,5B</div>
+          <div class="t-desc">Crescimento 44% a.a. · 220M usuários · Valuation USD 48,7B</div>
+          <div class="t-tag"><span class="badge b-red">Comoditizou design básico</span></div>
+        </div>
+      </div>
+
+      <div class="callout callout-green" style="margin-top:14px">
+        <strong>O stack do designer avançado em 2026:</strong> Midjourney/FLUX (conceito) → Adobe Firefly + Runway (produção e vídeo) → Figma (design system e UI) → Figma Sites / Webflow / Framer (site publicado) → Lovable / Bolt (produto funcional) → Claude / ChatGPT (copy, briefing, estratégia). O diferencial não é saber todas as ferramentas — é ter processo para decidir qual usar em cada fase.
+      </div>
+
+      <div class="chart-box">
+        <div class="chart-title">Mercado de AI Code Tools (USD bilhões)</div>
+        <div class="chart-sub">Crescimento projetado 2023–2030 · CAGR 27,1%</div>
+        <canvas id="chartVibeCoding" height="160"></canvas>
+        <div class="src">Fonte: Mocha — AI App Builder Statistics 2026</div>
+      </div>
+    </section>
+
+    <!-- ── PARTE 13: INTERNACIONAL ── -->
+    <section class="section" id="internacional">
+      <div class="section-hd">
+        <div class="section-ico">🌐</div>
+        <div class="section-hd-text">
+          <div class="part">Parte 13</div>
+          <h2>Designer Brasileiro para o Mercado Internacional</h2>
+          <p>Oportunidade de carreira e produto — o mercado que poucos exploraram</p>
+        </div>
+      </div>
+
+      <div class="g2">
+        <div class="card">
+          <h3>Posição do Brasil no mercado global</h3>
+          <div class="stat-big">5º lugar</div>
+          <div class="stat-sub">Ranking global de talento freelance remoto · 2024</div>
+          <hr>
+          <div class="p-text" style="margin-top:10px">25 milhões de autônomos e freelancers no Brasil. País figura entre os top 10 em produção de novo talento freelance global.</div>
+          <div class="src">Fonte: Grey.co — Rise of Brazilian Talent 2024</div>
+        </div>
+
+        <div class="card">
+          <h3>Salário remoto internacional (USD/ano)</h3>
+          <div class="prog-item">
+            <div class="prog-label"><span>Designer Gráfico geral</span><span class="val">USD 32k–88k</span></div>
+            <div class="prog-track"><div class="prog-fill" style="width:55%"></div></div>
+          </div>
+          <div class="prog-item">
+            <div class="prog-label"><span>UX/UI Designer Sênior</span><span class="val">USD 85k–110k</span></div>
+            <div class="prog-track"><div class="prog-fill" style="width:80%"></div></div>
+          </div>
+          <div class="prog-item">
+            <div class="prog-label"><span>Product Designer Sênior</span><span class="val">USD 92k+</span></div>
+            <div class="prog-track"><div class="prog-fill green" style="width:90%"></div></div>
+          </div>
+          <div class="prog-item">
+            <div class="prog-label"><span>Toptal — freela hora</span><span class="val">USD 60–150/h</span></div>
+            <div class="prog-track"><div class="prog-fill yellow" style="width:75%"></div></div>
+          </div>
+          <div class="src">Fontes: Blog Inter · NomadGlobal · Toptal</div>
+        </div>
+      </div>
+
+      <div class="tbl-wrap">
+        <div class="tbl-head">Plataformas de entrada — do mais acessível ao mais exclusivo</div>
+        <table>
+          <thead><tr><th>Plataforma</th><th>Perfil</th><th>Ticket/hora</th><th>Diferencial</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Workana / 99freelas</strong></td><td>Iniciante-intermediário</td><td>USD 5–30</td><td>Mercado latino, competição por preço</td></tr>
+            <tr><td><strong>Upwork</strong></td><td>Intermediário-sênior</td><td>USD 25–100</td><td>Maior plataforma global, curva de reputação</td></tr>
+            <tr><td><strong>Dribbble / Behance</strong></td><td>Qualquer nível</td><td>—</td><td>Portfólio + vagas diretas, essencial para designers</td></tr>
+            <tr><td><strong>LinkedIn</strong></td><td>Sênior</td><td>—</td><td>Melhor para vagas full-time remote (não freela)</td></tr>
+            <tr><td><strong>We Work Remotely</strong></td><td>Sênior</td><td>USD 50–150</td><td>Vagas full-time em empresas EUA/UK</td></tr>
+            <tr><td><strong>Toptal</strong></td><td>Top 3% do mercado</td><td>USD 60–150/h</td><td>Seleção rigorosa · clientes Fortune 500 · pago em USD</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="gap-star" style="margin-top:14px">
+        <h4>💡 Gap de produto identificado</h4>
+        <p>Nenhum player brasileiro encontrado com produto específico para "designer que quer entrar no mercado internacional" — combinando portfólio estratégico + precificação em dólar + plataformas de entrada. Oportunidade de produto: mini-curso (R$197–497), mentoria 4–8 semanas (R$1.500–3.000), comunidade de designers BR no mercado global (R$50–150/mês).</p>
+      </div>
+    </section>
+
+    <!-- ── FONTES ── -->
+    <section class="section" id="fontes">
+      <div class="section-hd">
+        <div class="section-ico">📋</div>
+        <div class="section-hd-text">
+          <div class="part">Referências</div>
+          <h2>71 Fontes Validadas</h2>
+          <p>Todas as fontes utilizadas neste estudo, com URL direta</p>
+        </div>
+      </div>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>#</th><th>Fonte</th><th>Tipo</th></tr></thead>
+          <tbody id="sourcesTable"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <div style="padding: 24px 0 48px; font-size: 12px; color: var(--text-3); border-top: 1px solid var(--border);">
+      Documento para uso estratégico interno · IA LAB · Atualizar a cada 6 meses · Próxima revisão: Novembro 2026
+    </div>
+
+  </div><!-- /content -->
+</div><!-- /main -->
+
+<script>
+// ── SIDEBAR TOGGLE (mobile) ──
+function toggleSidebar() {
+  document.getElementById('sidebar').classList.toggle('open');
+}
+document.getElementById('main').addEventListener('click', function(e) {
+  if (window.innerWidth <= 768) document.getElementById('sidebar').classList.remove('open');
+});
+
+// ── ACTIVE NAV ON SCROLL ──
+const sections = document.querySelectorAll('.section');
+const navLinks = document.querySelectorAll('.sidebar nav a');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      navLinks.forEach(a => {
+        a.classList.toggle('active', a.getAttribute('href') === '#' + entry.target.id);
+      });
+    }
+  });
+}, { rootMargin: '-20% 0px -70% 0px' });
+sections.forEach(s => observer.observe(s));
+
+// ── MOTION: revelar seções ao rolar ──
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if (!reduceMotion) {
+  sections.forEach(s => s.classList.add('reveal'));
+  const revealObs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) { entry.target.classList.add('visible'); revealObs.unobserve(entry.target); }
+    });
+  }, { rootMargin: '0px 0px -12% 0px', threshold: 0.06 });
+  sections.forEach(s => revealObs.observe(s));
+  // garante que a primeira dobra apareça mesmo sem rolar
+  setTimeout(() => sections.forEach(s => { const r = s.getBoundingClientRect(); if (r.top < window.innerHeight) s.classList.add('visible'); }), 60);
+}
+
+// ── PERSONAS ──
+function togglePersona(el) {
+  el.classList.toggle('open');
+}
+
+// ── BUSINESS MODEL FILTER ──
+function filterBM(cat, btn) {
+  document.querySelectorAll('.fbtn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.bm-row').forEach(row => {
+    row.style.display = (cat === 'all' || row.dataset.cat === cat) ? 'flex' : 'none';
+  });
+}
+
+// ── SOURCES TABLE ──
+const sources = [
+  [1,'Figma — 79+ Design Statistics 2026','https://www.figma.com/resource-library/design-statistics/','Dados de mercado'],
+  [2,'Colorlib — 85+ Graphic Design Statistics 2026','https://colorlib.com/wp/graphic-design-statistics/','Dados de mercado'],
+  [3,'Autodesk — 2025 AI Jobs Report','https://adsknews.autodesk.com/en/news/ai-jobs-report/','Relatório setorial'],
+  [4,'Cognitive Market Research — Graphic Design 2024','https://www.cognitivemarketresearch.com/graphic-design-market-report','Research house'],
+  [5,'NextMSC — Global Graphic Design Market to $70.53B','https://www.nextmsc.com/news/graphic-design-market','Research house'],
+  [6,'Fortune Business Insights — UX Services Market','https://www.fortunebusinessinsights.com/ux-services-market-108780','Research house'],
+  [7,'Mordor Intelligence — UI/UX Market','https://www.mordorintelligence.com/industry-reports/ui-ux-market','Research house'],
+  [8,'Global Growth Insights — UI/UX Software Market','https://www.globalgrowthinsights.com/market-reports/ui-and-ux-design-software-market-102183','Research house'],
+  [9,'Ministério da Cultura — Design emprega 250 mil no Brasil','https://www.gov.br/cultura/pt-br/assuntos/noticias/setores-do-micbr-design-emprega-cerca-de-250-mil-pessoas','Governo brasileiro'],
+  [10,'CELACC/USP — Setor Cultural Brasileiro 2014–2024 e IA','https://celacc.eca.usp.br/pt-br/news/2026-04/ocupacao-no-setor-cultural-brasileiro-analise-2014-2024-e-os-possiveis-impactos-da','Pesquisa acadêmica'],
+  [11,'Grand View Research — Creator Economy Market','https://www.grandviewresearch.com/industry-analysis/creator-economy-market-report','Research house'],
+  [12,'Zamora Design — Canva $40B Empire','https://zamora.design/canvas-strategic-narrative-how-design-democratization-created-a-40-billion-empire/','Análise de mercado'],
+  [13,'Design Week — Graphic design at-risk from AI','https://www.designweek.co.uk/graphic-design-among-most-at-risk-jobs-from-ai-report/','Publicação setorial'],
+  [14,'Upwork — Will AI Replace Graphic Designers 2026','https://www.upwork.com/resources/will-ai-replace-graphic-designers','Plataforma'],
+  [15,'Cropink — 50+ Graphic Design Statistics 2025','https://cropink.com/graphic-design-statistics','Compilação'],
+  [16,'Learning Revolution — 49+ eLearning Statistics','https://www.learningrevolution.net/elearning-statistics/','Dados de mercado'],
+  [17,'Ruzuku — State of Online Courses 2026','https://www.ruzuku.com/learn/articles/state-of-online-courses-2026','Dados de mercado'],
+  [18,'Gazeta de Pinheiros — Mercado Comunicação Visual','https://gazetadepinheiros.com.br/noticia/14099/mercado-de-comunicacao-visual-deve-alcancar-us-6-7-bilhoes-ate-2031-segundo-estudo-internacional','Notícia'],
+  [19,'eDesignify — Freelance Design Rates 2025','https://edesignify.com/blogs/freelance-design-rates-in-2025-how-much-should-you-charge','Dados de mercado'],
+  [20,'Amra & Elma — Top 20 White Label Marketing Statistics 2025','https://www.amraandelma.com/white-label-marketing-statistics/','Research / benchmark'],
+  [21,'ALM Corp — How to Build a 7-Figure White Label Agency','https://almcorp.com/blog/how-to-build-7-figure-white-label-digital-agency/','Guia de mercado'],
+  [22,'Brand Auditors — Brand Audit Services & Pricing','https://brandauditors.com/','Referência de preço'],
+  [23,'Wayfront — 13 Productized Service Examples','https://wayfront.com/blog/productized-services-examples','Exemplos de mercado'],
+  [24,'WP Tavern — Envato passes $1B in community earnings','https://wptavern.com/envato-passes-1-billion-in-community-earnings-while-continuing-to-aggressively-market-its-elements-subscription-against-marketplace-authors','Dado financeiro'],
+  [25,'Figuree Studio — How to Make Money from Fonts in Your Sleep','https://figureestudio.com/2025/06/17/how-to-make-money-from-fonts-in-your-sleep-passive-income-guide/','Guia prático'],
+  [26,'Segment UI — How Much Can Framer and Web Designers Make','https://segmentui.com/learn/how-much-can-framer-and-web-designers-make-in-2024','Dados de receita'],
+  [27,'Sacra — Webflow Revenue & Valuation','https://sacra.com/c/webflow/','Análise financeira'],
+  [28,'Webflow Jobs — Webflow Developer Salary Guide 2026','https://www.webflow.jobs/resources/webflow-developer-salary-guide-2026','Dados de salário'],
+  [29,'Adobe — Affiliate Marketing Program','https://www.adobe.com/affiliates.html','Programa oficial'],
+  [30,'ProtoPie — Best Affiliate Programs for Designers','https://www.protopie.io/blog/affiliate-programs-for-designers','Guia de afiliação'],
+  [31,'Affiliate Yoco — Figma Affiliate Program 2025','https://affiliateyoco.com/affiliate-program/figma-affiliate-program','Programa oficial'],
+  [32,'Untitled UI — Become an Affiliate','https://www.untitledui.com/affiliates','Programa oficial'],
+  [33,'Medium — The Designers Guide to Startup Equity','https://medium.com/@robjbye/the-designers-guide-to-startup-equity-86351062700e','Análise / guia'],
+  [34,'Cake Equity — Sweat Equity Guide','https://www.cakeequity.com/guides/sweat-equity','Guia financeiro'],
+  [35,"O'Castle — Vertical SaaS Strategy 2024",'https://ocastle.com/navigating-niche-markets-the-vertical-saas-strategy-for-business-growth-in-2024/','Análise estratégica'],
+  [36,'Aybben — The Rise of Micro-Branding 2025','https://aybben.com/micro-branding-2025/','Tendência de mercado'],
+  [37,'IdeaProof — 50 Micro SaaS Ideas 2026','https://ideaproof.io/lists/micro-saas-ideas','Dados de receita'],
+  [38,'Market Clarity — Top 30 Most Profitable Indie SaaS','https://mktclarity.com/blogs/news/indie-saas-top','Dados de receita'],
+  [39,'Colorlib — 50+ Freelance Statistics 2026','https://colorlib.com/wp/freelance-statistics/','Dados de mercado'],
+  [40,'PropelloCloud — Top 13 Referral Marketing Statistics','https://blog.propellocloud.com/referral-marketing-statistics','Dados de marketing'],
+  [41,'GigRadar — Get Web Design Clients in 2025','https://gigradar.io/blog/how-to-get-web-design-clients','Guia prático'],
+  [42,'Acceleroi — Average Conversion Rate for Online Courses 2026','https://www.acceleroi.com/blog/unlocking-success-exploring-the-average-conversion-rate-for-online-courses','Benchmark de conversão'],
+  [43,'Entrepreneurshq — 159 Webinar Statistics 2026','https://entrepreneurshq.com/webinar-statistics/','Dados de conversão'],
+  [44,'ON24 — Webinar Benchmarks Report 2025','https://www.on24.com/blog/key-takeaways-from-the-2025-webinar-benchmarks-report/','Benchmark'],
+  [45,'Paige Brunton — Email List Size for Online Course Launch','https://www.paigebrunton.com/blog/email-list-size-online-course','Dado de lançamento'],
+  [46,'OptinMonster — 25+ FOMO Statistics 2025','https://optinmonster.com/fomo-statistics/','Comportamento de compra'],
+  [47,'ResearchGate — Psychological Triggers in Online Shopping','https://www.researchgate.net/publication/390706587_Psychological_Triggers_in_Online_Shopping_The_Influence_of_Scarcity_Urgency_and_Personalization_on_Consumer_Buying_Behavior','Pesquisa acadêmica'],
+  [48,'LearnStream — Social Proof for Online Courses','https://learnstream.io/blog/why-social-proof-matters-for-selling-online-courses-and-how-to-use-it/','Marketing de cursos'],
+  [49,'CourseAI — Psychology Behind Selling Online Courses','https://courseai.com/the-psychology-behind-selling-online-courses-what-makes-people-buy/','Comportamento de compra'],
+  [50,'IMARC Group — Brazil EdTech Market 2025','https://www.imarcgroup.com/brazil-edtech-market','Research house'],
+  [51,'TechCrunch — Domestika raises $110M on $1.3B valuation','https://techcrunch.com/2022/01/27/domestika-raises-110m-on-a-1-3b-valuation-to-expand-its-learning-community-for-creative-types/','Notícia financeira'],
+  [52,'Growjo — Domestika Revenue & Stats','https://growjo.com/company/Domestika','Dados financeiros'],
+  [53,'Origamid — Plataforma de cursos de design','https://www.origamid.com/','Concorrente direto'],
+  [54,'EBAC Online — Sobre a escola','https://ebaconline.com.br/about-us','Concorrente direto'],
+  [55,'Alura — Empresa mais transformadora 2024 (GSV)','https://www.alura.com.br/artigos/alura-empresa-educacao-mais-transformadora-mundo-gsv-edtech-150','Referência de mercado'],
+  [56,'Distrito — EdTech Report 2025','https://materiais.distrito.me/edtech-report-2025','Relatório setorial'],
+  [57,'Programming Helper — Figma 2026: Market Share, MAU, IPO','https://www.programming-helper.com/tech/figma-2026-40-market-share-13m-mau-ipo-python','Dados de mercado'],
+  [58,'Sacra — Figma Revenue & Valuation','https://sacra.com/c/figma/','Análise financeira'],
+  [59,'Figma — AI in Design','https://www.figma.com/ai/','Produto oficial'],
+  [60,'LogRocket — Figma AI in 2026','https://blog.logrocket.com/ux-design/figma-ai-2026-quick-overview/','Análise técnica'],
+  [61,'ELVTR — A Designer Guide to 2025 AI Tools','https://uk.elvtr.com/blog/a-designers-guide-to-2025s-ai-tools','Guia de ferramentas'],
+  [62,'Flatline Agency — AI Design Tools for Brands 2026','https://www.flatlineagency.com/blog/ai-design-tools-for-brands-2026/','Análise de ferramentas'],
+  [63,'Adobe Newsroom — New Creative Agent & Firefly AI','https://news.adobe.com/news/2026/04/adobe-new-creative-agent','Comunicado oficial'],
+  [64,'NoGood — AI Design Strategy: Future of Design 2026','https://nogood.io/blog/future-of-design-strategy/','Análise estratégica'],
+  [65,'Mocha — AI App Builder Statistics 2026','https://getmocha.com/blog/ai-app-builder-statistics','Dados de mercado'],
+  [66,'GetPanto — Bolt.new Statistics 2026','https://www.getpanto.ai/blog/bolt-new-statistics','Dados de mercado'],
+  [67,'SideTool — Cursor, Bolt, and Lovable AI Compared','https://www.sidetool.co/post/cursor-bolt-and-lovable-ai-compared-find-your-perfect-development-tool/','Comparativo'],
+  [68,'Grey.co — The Rise of Brazilian Talent in the Global Economy','https://grey.co/blog/the-rise-of-brazilian-talent-in-the-global-economy-data-trends-and-opportunities','Pesquisa de mercado'],
+  [69,'Blog Inter — Quanto ganha um designer no exterior','https://blog.inter.co/quanto-ganha-um-designer-no-exterior-e-como-encontrar-vagas/','Guia de carreira'],
+  [70,'NomadGlobal — Designer gráfico no exterior','https://www.nomadglobal.com/conteudos/quanto-ganha-um-designer-grafico-no-exterior','Dados de carreira'],
+  [71,'Arc.dev — Latin American Developers 2.2X Income via Remote Work','https://arc.dev/talent-blog/remote-software-developer-salary-report-latin-america-2022/','Pesquisa de salários'],
+];
+
+const tbody = document.getElementById('sourcesTable');
+sources.forEach(([n, name, url, type]) => {
+  tbody.innerHTML += `<tr><td style="color:var(--text-3);width:32px">${n}</td><td><a href="${url}" target="_blank" style="color:var(--accent);text-decoration:none;font-size:13px">${name}</a></td><td><span class="badge b-gray">${type}</span></td></tr>`;
+});
+
+// ── CHARTS ──
+Chart.defaults.color = '#434A57';
+Chart.defaults.borderColor = 'rgba(20,24,31,0.10)';
+Chart.defaults.font.family = 'Inter, sans-serif';
+
+// Chart 1: Market sizes
+new Chart(document.getElementById('chartMarkets'), {
+  type: 'bar',
+  data: {
+    labels: ['Design Gráfico\nGlobal', 'UX Services\n(2030)', 'Creator\nEconomy', 'EdTech\nBrasil (2034)', 'IA Generativa\nDesign (2026)'],
+    datasets: [{
+      label: 'USD bilhões',
+      data: [49.1, 32.95, 205.25, 15.6, 5.38],
+      backgroundColor: ['#2563EB','#F59E0B','#0F766E','#60A5FA','#94A3B8'],
+      borderRadius: 6, borderSkipped: false,
+    }]
+  },
+  options: {
+    responsive: true, plugins: { legend: { display: false } },
+    scales: {
+      x: { grid: { display: false }, ticks: { font: { size: 10 } } },
+      y: { grid: { color: 'rgba(20,24,31,0.07)' }, ticks: { callback: v => 'USD '+v+'B' } }
+    }
+  }
+});
+
+// Chart 2: AI adoption line
+new Chart(document.getElementById('chartAI'), {
+  type: 'line',
+  data: {
+    labels: ['2023','2024','2025','2026 (proj.)','2027 (proj.)'],
+    datasets: [{
+      label: '% usando IA',
+      data: [35, 57, 75, 84, 91],
+      borderColor: '#2563EB', backgroundColor: 'rgba(37,99,235,0.12)', borderWidth: 3,
+      fill: true, tension: 0.4, pointBackgroundColor: '#2563EB', pointRadius: 4,
+    }]
+  },
+  options: {
+    responsive: true, plugins: { legend: { display: false } },
+    scales: {
+      x: { grid: { display: false } },
+      y: { min: 0, max: 100, grid: { color: 'rgba(20,24,31,0.07)' }, ticks: { callback: v => v+'%' } }
+    }
+  }
+});
+
+// Chart 3: EdTech Brazil
+new Chart(document.getElementById('chartEdtech'), {
+  type: 'bar',
+  data: {
+    labels: ['2025','2027','2029','2031','2034'],
+    datasets: [{
+      label: 'USD bilhões',
+      data: [6.0, 7.7, 9.9, 12.1, 15.6],
+      backgroundColor: '#2563EB',
+      borderRadius: 5, borderSkipped: false,
+    }]
+  },
+  options: {
+    responsive: true, plugins: { legend: { display: false } },
+    scales: {
+      x: { grid: { display: false } },
+      y: { grid: { color: 'rgba(20,24,31,0.07)' }, ticks: { callback: v => 'USD '+v+'B' } }
+    }
+  }
+});
+
+// Chart: Completion rates
+new Chart(document.getElementById('chartCompletion'), {
+  type: 'bar',
+  data: {
+    labels: ['MOOC\n(Coursera/edX)', 'Curso gravado\nauto-dirigido', 'Gravado com\ncoaching', 'Cohort-based\n(ao vivo + turma)', 'Ao vivo com\nfeedback personalizado'],
+    datasets: [{
+      label: '% de conclusão',
+      data: [6.5, 12, 70, 82, 90],
+      backgroundColor: ['#94A3B8','#60A5FA','#3B82F6','#1E40AF','#2563EB'],
+      borderRadius: 6, borderSkipped: false,
+    }]
+  },
+  options: {
+    responsive: true, plugins: { legend: { display: false } },
+    scales: {
+      x: { grid: { display: false }, ticks: { font: { size: 10 } } },
+      y: { min: 0, max: 100, grid: { color: 'rgba(20,24,31,0.07)' }, ticks: { callback: v => v+'%' } }
+    }
+  }
+});
+
+// Chart: Video length vs engagement
+new Chart(document.getElementById('chartVideoLength'), {
+  type: 'line',
+  data: {
+    labels: ['0–3 min', '3–6 min', '6–9 min', '9–12 min', '12–15 min', '15–20 min', '20+ min'],
+    datasets: [{
+      label: 'Índice de engajamento',
+      data: [78, 100, 88, 75, 60, 42, 25],
+      borderColor: '#2563EB', backgroundColor: 'rgba(37,99,235,0.12)', borderWidth: 3,
+      fill: true, tension: 0.4, pointBackgroundColor: '#2563EB', pointRadius: 5,
+      pointHoverRadius: 7,
+    }]
+  },
+  options: {
+    responsive: true, plugins: { legend: { display: false },
+      tooltip: { callbacks: { label: ctx => 'Engajamento relativo: ' + ctx.raw + '/100' } }
+    },
+    scales: {
+      x: { grid: { display: false } },
+      y: { min: 0, max: 110, grid: { color: 'rgba(20,24,31,0.07)' },
+        ticks: { callback: v => v === 100 ? '🏆 100' : v } }
+    }
+  }
+});
+
+// Chart 4: Learning sources (doughnut)
+new Chart(document.getElementById('chartLearning'), {
+  type: 'doughnut',
+  data: {
+    labels: ['YouTube / Gratuito', 'Cursos online pagos', 'Graduação', 'Autodidatas', 'Outros'],
+    datasets: [{
+      data: [43, 22, 20, 10, 5],
+      backgroundColor: ['#1E3A8A','#2563EB','#60A5FA','#93C5FD','#DBEAFE'],
+      borderWidth: 2, borderColor: '#FFFFFF',
+    }]
+  },
+  options: {
+    responsive: true, cutout: '65%',
+    plugins: { legend: { position: 'bottom', labels: { font: { size: 11 }, padding: 10 } } }
+  }
+});
+
+// Chart 5: Conversion by channel (horizontal bar)
+new Chart(document.getElementById('chartChannels'), {
+  type: 'bar',
+  data: {
+    labels: ['Email (lista própria)', 'Google Ads', 'Referral/Afiliados', 'YouTube / Orgânico', 'SEO Orgânico', 'Paid Social (Insta/FB)'],
+    datasets: [
+      { label: 'Média', data: [20, 6.5, 5.5, 4.5, 4, 3], backgroundColor: '#2563EB', borderRadius: 4, borderSkipped: false },
+      { label: 'Top performers', data: [35, 15, 12, 11, 10, 8], backgroundColor: '#F59E0B', borderRadius: 4, borderSkipped: false }
+    ]
+  },
+  options: {
+    indexAxis: 'y', responsive: true,
+    plugins: { legend: { position: 'top', labels: { font: { size: 11 } } } },
+    scales: {
+      x: { grid: { color: 'rgba(20,24,31,0.07)' }, ticks: { callback: v => v+'%' } },
+      y: { grid: { display: false }, ticks: { font: { size: 11 } } }
+    }
+  }
+});
+
+// Chart 6: Ticket conversion
+new Chart(document.getElementById('chartTicket'), {
+  type: 'bar',
+  data: {
+    labels: ['Até R$250', 'R$250–1k', 'R$1k–2,5k', 'R$2,5k–5k', 'R$5k–10k', 'Acima R$10k'],
+    datasets: [
+      { label: 'Conversão média', data: [4, 3, 2, 1.25, 0.65, 0.3], backgroundColor: '#2563EB', borderRadius: 5, borderSkipped: false },
+      { label: 'Top performers', data: [10, 6.5, 4.5, 3, 2, 1.25], backgroundColor: '#F59E0B', borderRadius: 5, borderSkipped: false }
+    ]
+  },
+  options: {
+    responsive: true,
+    plugins: { legend: { position: 'top', labels: { font: { size: 11 } } } },
+    scales: {
+      x: { grid: { display: false } },
+      y: { grid: { color: 'rgba(20,24,31,0.07)' }, ticks: { callback: v => v+'%' } }
+    }
+  }
+});
+
+// Chart 7: Vibe coding market
+new Chart(document.getElementById('chartVibeCoding'), {
+  type: 'line',
+  data: {
+    labels: ['2023','2024','2025','2026','2027','2028','2029','2030'],
+    datasets: [{
+      label: 'AI Code Tools (USD B)',
+      data: [4.86, 6.18, 7.84, 9.96, 12.65, 16.07, 20.41, 26.03],
+      borderColor: '#2563EB', backgroundColor: 'rgba(37,99,235,0.12)', borderWidth: 3,
+      fill: true, tension: 0.4, pointBackgroundColor: '#2563EB', pointRadius: 3,
+    }]
+  },
+  options: {
+    responsive: true, plugins: { legend: { display: false } },
+    scales: {
+      x: { grid: { display: false } },
+      y: { grid: { color: 'rgba(20,24,31,0.07)' }, ticks: { callback: v => 'USD '+v+'B' } }
+    }
+  }
+});
+</script>
+</body>
+</html>

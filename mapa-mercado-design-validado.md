@@ -2,8 +2,10 @@
 ## Estudo Estratégico com Referencial Teórico e Fontes Validadas
 
 **Propósito:** Inovação e novos negócios · Agência com especialistas em UI/UX e Identidade Visual com IA
-**Última atualização:** Maio 2026
+**Última atualização:** 19/06/2026
 **Metodologia:** Dados de mercado validados com fontes primárias + análise estratégica qualitativa
+
+> 🆕 **O que mudou hoje (19/06/2026):** Atualizados os números do mercado global de design gráfico (USD 59,29B em 2026, CAGR 7,6% até 2031) e de UI/UX (UX Design em USD 13,06B em 2026). Adicionados dados de 2026 sobre adoção de IA por designers (91% usam IA semanalmente) e demanda por skills de IA (+144% a/a nas vagas). Detalhes na seção "Histórico de Atualizações" ao final.
 
 > ⚠️ **Legenda de confiabilidade:**
 > - ✅ Dado validado com fonte primária
@@ -1454,3 +1456,35 @@ Claude / ChatGPT / Gemini → copy, briefing, documentação, estratégia
 
 *Documento para uso estratégico interno · Atualizar a cada 6 meses*
 *Próxima revisão recomendada: Novembro 2026*
+
+---
+
+## HISTÓRICO DE ATUALIZAÇÕES
+
+### Atualização — 19/06/2026
+
+🔶 **Mercado global de design gráfico (revisão 2026):** estimado em **USD 59,29 bilhões em 2026** (vs. USD 55,1B em 2025), com projeção de **USD 85,53B em 2031** a um **CAGR de 7,6%** (2026–2031). América do Norte liderou com 39,1% de share em 2025; Ásia-Pacífico cresce a 11,1% a.a. *(Mordor Intelligence)*. Estimativas entre research houses variam de ~USD 55,7B a 59,29B, com CAGR de 3,5% a 7,6% conforme o escopo.
+
+✅ **Mercado de UI/UX (revisão 2026):**
+- UX Design Market: **USD 13,06B em 2026** (de USD 11,41B em 2025), projeção de **USD 25,69B em 2031** — CAGR 14,49% *(Mordor Intelligence)*.
+- UI/UX Design Services: USD 2,32B em 2026, CAGR 5,12% até 2032 *(Research and Markets / 360iResearch)*.
+- UI/UX Design Software: USD 2,62B em 2026 → USD 15,99B em 2035, CAGR 22,25% *(Business Research Insights)*.
+- UI Design Market: USD 3,21B em 2026 → USD 11,31B em 2035, CAGR 15,01% *(Business Research Insights)*.
+
+✅ **IA no design — adoção e skills (dados 2026):**
+- **91% dos designers** já usam IA semanalmente; ~50% já entregaram código gerado por IA; 89% trabalham mais rápido com IA no fluxo e 25% relatam maior satisfação no trabalho *(State of AI Design 2026 / Designer Fund)*.
+- **50% dos líderes** priorizam fluência em IA na contratação, seguido de pensamento sistêmico e skills estratégicas — menos foco em especialização estreita.
+- Vagas que exigem skills de IA cresceram **+144% a/a** (abril/2026); skills de funções expostas a IA evoluem 66% mais rápido *(Gloat / GSDC)*.
+- Funções que usam IA generativa exigem **36% mais skills cognitivas**, além de inteligência emocional, criatividade e raciocínio ético *(Research.com)*.
+
+**Fontes (19/06/2026):**
+- [Mordor Intelligence — Graphic Design Market](https://www.mordorintelligence.com/industry-reports/graphic-design-market)
+- [Mordor Intelligence — UX Design Market](https://www.mordorintelligence.com/industry-reports/ux-design-market)
+- [Business Research Insights — UI and UX Design Software Market](https://www.businessresearchinsights.com/market-reports/ui-and-ux-design-software-market-104925)
+- [Business Research Insights — UI Design Market](https://www.businessresearchinsights.com/market-reports/user-interface-ui-design-market-102500)
+- [Research and Markets — UI/UX Design Services Market Forecast 2026-2032](https://www.researchandmarkets.com/reports/6121592/uiux-design-services-market-global-forecast)
+- [Designer Fund — AI in Design 2026](https://designerfund.com/blog/ai-in-design-2026)
+- [State of AI Design — AI in Design Report 2026](https://stateofaidesign.com/)
+- [Gloat — AI Workforce Trends 2026](https://gloat.com/blog/ai-workforce-trends/)
+- [GSDC — AI's Impact on Jobs in 2026](https://www.gsdcouncil.org/blogs/ai-impact-on-jobs-real-trends)
+- [Research.com — AI, Automation and the Future of Graphic Design Careers](https://research.com/advice/ai-automation-and-the-future-of-graphic-design-degree-careers)

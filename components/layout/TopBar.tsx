@@ -13,7 +13,7 @@ export default function TopBar({ onMenuClick }: TopBarProps) {
           71 fontes validadas
         </span>
         <span className="text-[11px] px-[11px] py-1 rounded-full bg-[#E9F0FE] text-[#1E40AF] border border-[#C9DBFB] font-semibold">
-          19 seções
+          23 seções
         </span>
         <button
           className="md:hidden border border-[#E2E7EF] text-[#434A57] px-2.5 py-1 rounded-md text-[16px] bg-white cursor-pointer"

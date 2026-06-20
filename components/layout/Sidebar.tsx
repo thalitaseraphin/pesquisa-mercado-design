@@ -45,6 +45,13 @@ const navGroups = [
     links: [
       { href: "#ferramentas", icon: "🔧", label: "Radar de Ferramentas" },
       { href: "#internacional", icon: "🌐", label: "Mercado Internacional" },
+      { href: "#emergentes", icon: "🌱", label: "Mercados Emergentes" },
+    ],
+  },
+  {
+    label: "Pesquisa",
+    links: [
+      { href: "#estudos", icon: "🔬", label: "Estudos & Sinais" },
     ],
   },
 ];
@@ -52,8 +59,13 @@ const navGroups = [
 const changelog = [
   {
     date: "19/06/2026",
-    text: "Anúncios & Campanhas em Alta com exemplos ao vivo por mercado (BR, EUA, ES, MX), formatos, hooks e influencers.",
+    text: "Estudos & Sinais Estratégicos (Sequoia, WGSN, McKinsey) + Mercados Emergentes globais. Hooks com links de vídeo. Insights com fontes. Histórico de fóruns.",
     isNew: true,
+  },
+  {
+    date: "19/06/2026",
+    text: "Migração para Next.js + shadcn/ui. Anúncios com Meta/TikTok library cards interativos e busca por mercado.",
+    isNew: false,
   },
   {
     date: "Maio 2026",

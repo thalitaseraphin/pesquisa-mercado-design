@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { useReportDate } from "@/context/ReportDateContext";
 
 const navGroups = [
   {
@@ -52,25 +53,24 @@ const navGroups = [
     label: "Pesquisa",
     links: [
       { href: "#estudos", icon: "🔬", label: "Estudos & Sinais" },
+      { href: "#fontes", icon: "📋", label: "71 Fontes Validadas" },
     ],
   },
 ];
 
-const changelog = [
+// Relatórios disponíveis — cada entrada representa um dia de pesquisa
+const reports = [
   {
     date: "19/06/2026",
-    text: "Estudos & Sinais Estratégicos (Sequoia, WGSN, McKinsey) + Mercados Emergentes globais. Hooks com links de vídeo. Insights com fontes. Histórico de fóruns.",
-    isNew: true,
+    label: "19 Jun 2026",
+    summary: "23 seções · Estudos Sequoia/WGSN · Mercados Emergentes · Hooks com vídeos",
+    isLatest: true,
   },
   {
-    date: "19/06/2026",
-    text: "Migração para Next.js + shadcn/ui. Anúncios com Meta/TikTok library cards interativos e busca por mercado.",
-    isNew: false,
-  },
-  {
-    date: "Maio 2026",
-    text: "Versão base do Mapa de Mercado — 13 seções, 71 fontes validadas.",
-    isNew: false,
+    date: "01/05/2026",
+    label: "Mai 2026",
+    summary: "Versão base · 13 seções · 71 fontes validadas",
+    isLatest: false,
   },
 ];
 
@@ -82,18 +82,15 @@ interface SidebarProps {
 export default function Sidebar({ mobileOpen, onClose }: SidebarProps) {
   const [activeId, setActiveId] = useState("panorama");
   const observerRef = useRef<IntersectionObserver | null>(null);
+  const { selectedDate, setSelectedDate } = useReportDate();
 
   useEffect(() => {
-    const allIds = navGroups.flatMap((g) =>
-      g.links.map((l) => l.href.slice(1))
-    );
+    const allIds = navGroups.flatMap((g) => g.links.map((l) => l.href.slice(1)));
 
     observerRef.current = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveId(entry.target.id);
-          }
+          if (entry.isIntersecting) setActiveId(entry.target.id);
         });
       },
       { rootMargin: "-20% 0px -70% 0px" }
@@ -107,14 +104,14 @@ export default function Sidebar({ mobileOpen, onClose }: SidebarProps) {
     return () => observerRef.current?.disconnect();
   }, []);
 
+  const toggleDate = (date: string) => {
+    setSelectedDate(selectedDate === date ? "" : date);
+  };
+
   return (
     <>
-      {/* Mobile overlay */}
       {mobileOpen && (
-        <div
-          className="fixed inset-0 z-40 bg-black/40 md:hidden"
-          onClick={onClose}
-        />
+        <div className="fixed inset-0 z-40 bg-black/40 md:hidden" onClick={onClose} />
       )}
 
       <aside
@@ -133,12 +130,23 @@ export default function Sidebar({ mobileOpen, onClose }: SidebarProps) {
           <div className="text-[11px] text-white/50 mt-1">
             Mercado de Design · 2026
           </div>
-          <div className="mt-2.5 inline-block text-[10px] font-bold text-black bg-white px-2.5 py-0.5 rounded-full">
-            Atualizado: 19/06/2026
+          <div className="flex items-center gap-2 mt-2.5 flex-wrap">
+            <span className="text-[10px] font-bold text-black bg-white px-2.5 py-0.5 rounded-full">
+              Atualizado: 19/06/2026
+            </span>
+            {selectedDate && (
+              <span className="text-[10px] font-bold text-[#2563EB] bg-[#E9F0FE] border border-[#CFE0FB] px-2 py-0.5 rounded-full flex items-center gap-1">
+                📅 {selectedDate}
+                <button
+                  onClick={() => setSelectedDate("")}
+                  className="ml-0.5 text-[#6B7480] hover:text-[#1A1D24] font-extrabold leading-none"
+                  title="Limpar filtro"
+                >×</button>
+              </span>
+            )}
           </div>
         </div>
 
-        {/* Nav */}
         <ScrollArea className="flex-1">
           <div className="pb-4">
             {navGroups.map((group) => (
@@ -154,10 +162,7 @@ export default function Sidebar({ mobileOpen, onClose }: SidebarProps) {
                       <a
                         key={link.href}
                         href={link.href}
-                        onClick={() => {
-                          setActiveId(id);
-                          onClose();
-                        }}
+                        onClick={() => { setActiveId(id); onClose(); }}
                         className={[
                           "flex items-center gap-2.5 px-[22px] py-2 text-[13px] no-underline",
                           "border-l-[3px] transition-all duration-150 whitespace-nowrap overflow-hidden",
@@ -166,9 +171,7 @@ export default function Sidebar({ mobileOpen, onClose }: SidebarProps) {
                             : "text-white/72 border-transparent hover:text-white hover:bg-white/6",
                         ].join(" ")}
                       >
-                        <span className="text-[13px] w-4 flex-shrink-0">
-                          {link.icon}
-                        </span>
+                        <span className="text-[13px] w-4 flex-shrink-0">{link.icon}</span>
                         {link.label}
                       </a>
                     );
@@ -178,52 +181,73 @@ export default function Sidebar({ mobileOpen, onClose }: SidebarProps) {
             ))}
           </div>
 
-          {/* Changelog */}
-          <div className="mt-auto border-t border-white/10 px-[22px] pt-[18px] pb-5">
-            <div className="text-[10px] font-extrabold tracking-[0.8px] uppercase text-white/50 mb-3.5 flex items-center gap-1.5">
-              🕓 Linha do Tempo
-            </div>
-            <div className="flex flex-col gap-0 max-h-[260px] overflow-y-auto">
-              {changelog.map((item, i) => (
-                <div
-                  key={i}
-                  className={[
-                    "relative pl-[18px] border-l pb-4",
-                    item.isNew
-                      ? "border-white/18"
-                      : "border-transparent pb-0.5",
-                  ].join(" ")}
+          {/* Relatórios por data — seletor */}
+          <div className="border-t border-white/10 px-[22px] pt-[18px] pb-5">
+            <div className="flex items-center justify-between mb-3">
+              <div className="text-[10px] font-extrabold tracking-[0.8px] uppercase text-white/50">
+                📅 Relatórios por data
+              </div>
+              {selectedDate && (
+                <button
+                  onClick={() => setSelectedDate("")}
+                  className="text-[10px] font-bold text-white/40 hover:text-white transition-colors"
                 >
-                  <div
+                  ver todos
+                </button>
+              )}
+            </div>
+
+            <div className="flex flex-col gap-0">
+              {reports.map((r) => {
+                const isSelected = selectedDate === r.date;
+                return (
+                  <button
+                    key={r.date}
+                    onClick={() => toggleDate(r.date)}
                     className={[
-                      "absolute left-[-4px] top-[3px] w-2 h-2 rounded-full",
-                      item.isNew
-                        ? "bg-white"
-                        : "bg-[#161A22] border-[1.5px] border-white/50",
+                      "relative pl-[18px] border-l pb-4 text-left w-full transition-colors group",
+                      isSelected ? "border-white" : "border-white/20 hover:border-white/40",
                     ].join(" ")}
-                  />
-                  <div className="text-[11px] font-extrabold text-white">
-                    {item.date}
-                  </div>
-                  <div className="text-[10.5px] leading-[1.5] text-white/62 mt-1">
-                    {item.text}
-                  </div>
-                </div>
-              ))}
+                  >
+                    {/* Timeline dot */}
+                    <div className={[
+                      "absolute left-[-5px] top-[3px] w-2.5 h-2.5 rounded-full border-2 transition-colors",
+                      isSelected
+                        ? "bg-white border-white"
+                        : r.isLatest
+                          ? "bg-white/60 border-white/60 group-hover:bg-white group-hover:border-white"
+                          : "bg-[#161A22] border-white/40 group-hover:border-white/70",
+                    ].join(" ")} />
+
+                    <div className={[
+                      "text-[11px] font-extrabold transition-colors flex items-center gap-1.5",
+                      isSelected ? "text-white" : "text-white/70 group-hover:text-white",
+                    ].join(" ")}>
+                      {r.label}
+                      {r.isLatest && (
+                        <span className="text-[9px] font-extrabold text-black bg-white px-1.5 py-0.5 rounded-full">
+                          ATUAL
+                        </span>
+                      )}
+                    </div>
+                    <div className={[
+                      "text-[10.5px] leading-[1.5] mt-0.5 transition-colors",
+                      isSelected ? "text-white/80" : "text-white/40 group-hover:text-white/60",
+                    ].join(" ")}>
+                      {r.summary}
+                    </div>
+
+                    {isSelected && (
+                      <div className="mt-1.5 text-[9.5px] font-bold text-[#60A5FA]">
+                        ✓ Filtrando por esta data
+                      </div>
+                    )}
+                  </button>
+                );
+              })}
             </div>
           </div>
         </ScrollArea>
-
-        {/* Sources link */}
-        <div className="px-[22px] py-4 border-t border-white/10 flex-shrink-0">
-          <a
-            href="#fontes"
-            className="text-[11px] text-white/55 no-underline font-semibold hover:text-white transition-colors"
-            onClick={onClose}
-          >
-            📋 Ver 71 fontes →
-          </a>
-        </div>
       </aside>
     </>
   );

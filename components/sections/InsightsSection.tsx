@@ -1,3 +1,6 @@
+"use client";
+
+import { useReportDate } from "@/context/ReportDateContext";
 import SectionHeader from "./SectionHeader";
 
 const insights = [
@@ -8,6 +11,7 @@ const insights = [
     source: "Designer Fund — AI in Design 2026",
     sourceUrl: "https://designerfund.com/blog/ai-in-design-2026",
     updated: "Jun 2026",
+    reportDate: "19/06/2026",
     attention: false,
   },
   {
@@ -17,6 +21,7 @@ const insights = [
     source: "Three Rooms — Brand Identity Trends 2026",
     sourceUrl: "https://www.threerooms.com/blog/8-design-trends-shaping-brand-identity-in-2026",
     updated: "Jun 2026",
+    reportDate: "19/06/2026",
     attention: false,
   },
   {
@@ -26,6 +31,7 @@ const insights = [
     source: "Mordor Intelligence + Fortune Business Insights 2026",
     sourceUrl: "https://www.mordorintelligence.com/industry-reports/ui-ux-market",
     updated: "Jun 2026",
+    reportDate: "19/06/2026",
     attention: false,
   },
   {
@@ -35,6 +41,7 @@ const insights = [
     source: "Superside — Top AI Design Agencies 2026",
     sourceUrl: "https://www.superside.com/blog/ai-design-agencies",
     updated: "Jun 2026",
+    reportDate: "19/06/2026",
     attention: false,
   },
   {
@@ -44,6 +51,7 @@ const insights = [
     source: "Autodesk AI Jobs Report 2025 + Design Week 2026",
     sourceUrl: "https://www.designweek.co.uk/graphic-design-among-most-at-risk-jobs-from-ai-report/",
     updated: "Jun 2026",
+    reportDate: "19/06/2026",
     attention: true,
   },
   {
@@ -53,11 +61,15 @@ const insights = [
     source: "Figma Design Statistics 2026",
     sourceUrl: "https://www.figma.com/resource-library/design-statistics/",
     updated: "Jun 2026",
+    reportDate: "19/06/2026",
     attention: true,
   },
 ];
 
 export default function InsightsSection() {
+  const { selectedDate, setSelectedDate } = useReportDate();
+  const filtered = selectedDate ? insights.filter((ins) => ins.reportDate === selectedDate) : insights;
+
   return (
     <section id="insights" className="mb-[84px] scroll-mt-[74px]">
       <SectionHeader
@@ -66,41 +78,62 @@ export default function InsightsSection() {
         title="Insights & Pontos de Atenção"
         description="O que realmente importa para o mercado agora — cada insight com fonte verificada"
       />
-      <div className="grid grid-cols-2 gap-4 max-md:grid-cols-1">
-        {insights.map((ins) => (
-          <div
-            key={ins.num}
-            className={[
-              "rounded-xl p-[22px] shadow-[0_1px_2px_rgba(16,24,40,0.04)] transition-all duration-[180ms] hover:-translate-y-[3px] hover:shadow-[0_12px_28px_rgba(16,24,40,0.10)] flex flex-col",
-              ins.attention
-                ? "bg-[#FFFaf2] border border-[#F3D9B8] border-t-[3px] border-t-[#B45309]"
-                : "bg-white border border-[#E2E7EF] border-t-[3px] border-t-[#2563EB]",
-            ].join(" ")}
-          >
-            <div className="flex items-center justify-between mb-2 flex-wrap gap-1">
-              <div className={`text-[10.5px] font-extrabold tracking-[1px] ${ins.attention ? "text-[#B45309]" : "text-[#2563EB]"}`}>
-                {ins.num}
+
+      {selectedDate && (
+        <div className="flex items-center gap-2 mb-4 text-[12px]">
+          <span className="text-[#2563EB] font-bold">📅 Filtrando: {selectedDate}</span>
+          <button onClick={() => setSelectedDate("")} className="text-[11px] text-[#6B7480] hover:text-[#1A1D24] underline">
+            ver todos
+          </button>
+        </div>
+      )}
+
+      {filtered.length === 0 ? (
+        <div className="bg-[#F6F8FB] border border-[#E2E7EF] rounded-xl px-6 py-10 text-center">
+          <div className="text-[32px] mb-3">📭</div>
+          <div className="text-[14px] font-bold text-[#1A1D24] mb-1">Nenhum insight registrado em {selectedDate}</div>
+          <div className="text-[13px] text-[#6B7480] mb-4">Os insights atuais foram capturados em 19/06/2026.</div>
+          <button onClick={() => setSelectedDate("")} className="text-[12px] font-bold text-[#2563EB] hover:underline">
+            Ver todos os insights →
+          </button>
+        </div>
+      ) : (
+        <div className="grid grid-cols-2 gap-4 max-md:grid-cols-1">
+          {filtered.map((ins) => (
+            <div
+              key={ins.num}
+              className={[
+                "rounded-xl p-[22px] shadow-[0_1px_2px_rgba(16,24,40,0.04)] transition-all duration-[180ms] hover:-translate-y-[3px] hover:shadow-[0_12px_28px_rgba(16,24,40,0.10)] flex flex-col",
+                ins.attention
+                  ? "bg-[#FFFaf2] border border-[#F3D9B8] border-t-[3px] border-t-[#B45309]"
+                  : "bg-white border border-[#E2E7EF] border-t-[3px] border-t-[#2563EB]",
+              ].join(" ")}
+            >
+              <div className="flex items-center justify-between mb-2 flex-wrap gap-1">
+                <div className={`text-[10.5px] font-extrabold tracking-[1px] ${ins.attention ? "text-[#B45309]" : "text-[#2563EB]"}`}>
+                  {ins.num}
+                </div>
+                <span className="text-[9.5px] font-bold text-[#6B7480] bg-[#F6F8FB] border border-[#E2E7EF] px-2 py-0.5 rounded-full">
+                  {ins.updated}
+                </span>
               </div>
-              <span className="text-[9.5px] font-bold text-[#6B7480] bg-[#F6F8FB] border border-[#E2E7EF] px-2 py-0.5 rounded-full">
-                {ins.updated}
-              </span>
+              <div className="text-[15.5px] font-bold text-[#1A1D24] mb-[7px] leading-[1.4]">{ins.title}</div>
+              <div className="text-[13.5px] text-[#434A57] leading-[1.65] flex-1" dangerouslySetInnerHTML={{ __html: ins.text }} />
+              <div className="mt-3 pt-3 border-t border-[#E2E7EF]">
+                <a
+                  href={ins.sourceUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-[11px] font-semibold text-[#6B7480] hover:text-[#2563EB] no-underline transition-colors"
+                >
+                  <span className="w-3.5 h-3.5 rounded-sm bg-[#E9F0FE] flex items-center justify-center text-[8px]">↗</span>
+                  {ins.source}
+                </a>
+              </div>
             </div>
-            <div className="text-[15.5px] font-bold text-[#1A1D24] mb-[7px] leading-[1.4]">{ins.title}</div>
-            <div className="text-[13.5px] text-[#434A57] leading-[1.65] flex-1" dangerouslySetInnerHTML={{ __html: ins.text }} />
-            <div className="mt-3 pt-3 border-t border-[#E2E7EF]">
-              <a
-                href={ins.sourceUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-[11px] font-semibold text-[#6B7480] hover:text-[#2563EB] no-underline transition-colors"
-              >
-                <span className="w-3.5 h-3.5 rounded-sm bg-[#E9F0FE] flex items-center justify-center text-[8px]">↗</span>
-                {ins.source}
-              </a>
-            </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      )}
     </section>
   );
 }

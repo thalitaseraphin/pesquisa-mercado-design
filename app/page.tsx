@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { ReportDateProvider } from "@/context/ReportDateContext";
 import Sidebar from "@/components/layout/Sidebar";
 import TopBar from "@/components/layout/TopBar";
 import HeroSection from "@/components/sections/HeroSection";
@@ -31,6 +32,7 @@ export default function Home() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
+    <ReportDateProvider>
     <div className="flex min-h-screen">
       <Sidebar mobileOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
 
@@ -68,5 +70,6 @@ export default function Home() {
         </main>
       </div>
     </div>
+    </ReportDateProvider>
   );
 }

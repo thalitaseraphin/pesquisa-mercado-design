@@ -2,7 +2,6 @@
 
 import { useReportDate } from "@/context/ReportDateContext";
 import { reportChanges } from "@/data/reportChanges";
-import { ScrollArea } from "@/components/ui/scroll-area";
 
 export default function HistoryPanel() {
   const { historyOpen, setHistoryOpen, selectedDate, setSelectedDate } = useReportDate();
@@ -68,7 +67,7 @@ export default function HistoryPanel() {
           )}
         </div>
 
-        <ScrollArea className="flex-1">
+        <div className="flex-1 overflow-y-auto [&::-webkit-scrollbar]:w-[3px] [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-[#D1D8E2] [&::-webkit-scrollbar-thumb]:rounded-full hover:[&::-webkit-scrollbar-thumb]:bg-[#B0B8C6]">
           <div className="px-5 py-5 flex flex-col">
             {reportChanges.map((report, i) => {
               const isSelected = selectedDate === report.date;
@@ -189,7 +188,7 @@ export default function HistoryPanel() {
               </div>
             </div>
           </div>
-        </ScrollArea>
+        </div>
       </aside>
     </>
   );

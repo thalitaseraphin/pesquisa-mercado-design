@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { ScrollArea } from "@/components/ui/scroll-area";
 import { useReportDate } from "@/context/ReportDateContext";
 import { getNewCountBySectionForDate } from "@/data/reportChanges";
 
@@ -131,7 +130,7 @@ export default function Sidebar({ mobileOpen, onClose }: SidebarProps) {
           </div>
         </div>
 
-        <ScrollArea className="flex-1">
+        <div className="flex-1 overflow-y-auto [&::-webkit-scrollbar]:w-[3px] [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-white/25 [&::-webkit-scrollbar-thumb]:rounded-full hover:[&::-webkit-scrollbar-thumb]:bg-white/40">
           <div className="py-2">
             {navGroups.map((group) => (
               <div key={group.label}>
@@ -171,7 +170,7 @@ export default function Sidebar({ mobileOpen, onClose }: SidebarProps) {
             ))}
             <div className="h-4" />
           </div>
-        </ScrollArea>
+        </div>
       </aside>
     </>
   );

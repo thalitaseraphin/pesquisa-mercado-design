@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useReportDate } from "@/context/ReportDateContext";
 
 interface TopBarProps {
@@ -16,11 +17,15 @@ export default function TopBar({ onMenuClick }: TopBarProps) {
       </div>
       <div className="flex items-center gap-2">
         <span className="text-[11px] px-[11px] py-1 rounded-full border border-[#E2E7EF] font-semibold text-[#434A57] bg-white max-sm:hidden">
-          71 fontes validadas
+          71 fontes
         </span>
-        <span className="text-[11px] px-[11px] py-1 rounded-full bg-[#E9F0FE] text-[#1E40AF] border border-[#C9DBFB] font-semibold max-sm:hidden">
-          23 seções
-        </span>
+        <Link
+          href="/paper"
+          className="flex items-center gap-1.5 text-[11px] font-semibold px-[11px] py-1 rounded-full border border-[#E2E7EF] bg-white text-[#434A57] hover:bg-[#1A1D24] hover:text-white hover:border-[#1A1D24] transition-all no-underline max-sm:hidden"
+          title="Ver briefing diário para compartilhar com o time"
+        >
+          📄 Briefing
+        </Link>
 
         {/* History toggle */}
         <button

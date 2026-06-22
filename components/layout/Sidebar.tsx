@@ -59,28 +59,6 @@ const navGroups = [
   },
 ];
 
-// Relatórios disponíveis — cada entrada representa um dia de pesquisa
-const reports = [
-  {
-    date: "22/06/2026",
-    label: "22 Jun 2026",
-    summary: "Figma Aleph 2.0 no Weave · Canva + Claude Design · colapso do freelance mid-level · Figma Config 2026",
-    isLatest: true,
-  },
-  {
-    date: "19/06/2026",
-    label: "19 Jun 2026",
-    summary: "23 seções · Estudos Sequoia/WGSN · Mercados Emergentes · Hooks com vídeos",
-    isLatest: false,
-  },
-  {
-    date: "01/05/2026",
-    label: "Mai 2026",
-    summary: "Versão base · 13 seções · 71 fontes validadas",
-    isLatest: false,
-  },
-];
-
 interface SidebarProps {
   mobileOpen: boolean;
   onClose: () => void;
@@ -111,13 +89,8 @@ export default function Sidebar({ mobileOpen, onClose }: SidebarProps) {
     return () => observerRef.current?.disconnect();
   }, []);
 
-  const toggleDate = (date: string) => {
-    setSelectedDate(selectedDate === date ? "" : date);
-  };
-
-  // Badges: novidades da data mais recente (22/06/2026) sempre visíveis
-  const latestDate = "22/06/2026";
-  const newCounts = getNewCountBySectionForDate(latestDate);
+  // Badges: novidades da data mais recente (22/06/2026)
+  const newCounts = getNewCountBySectionForDate("22/06/2026");
 
   return (
     <>
@@ -150,7 +123,7 @@ export default function Sidebar({ mobileOpen, onClose }: SidebarProps) {
                 📅 {selectedDate}
                 <button
                   onClick={() => setSelectedDate("")}
-                  className="ml-0.5 text-[#6B7480] hover:text-[#1A1D24] font-extrabold leading-none"
+                  className="ml-0.5 text-[#6B7480] hover:text-white font-extrabold leading-none cursor-pointer"
                   title="Limpar filtro"
                 >×</button>
               </span>
@@ -159,7 +132,7 @@ export default function Sidebar({ mobileOpen, onClose }: SidebarProps) {
         </div>
 
         <ScrollArea className="flex-1">
-          <div className="pb-4">
+          <div className="py-2">
             {navGroups.map((group) => (
               <div key={group.label}>
                 <div className="text-[10px] font-bold text-white/40 uppercase tracking-[1.3px] px-[22px] pt-[18px] pb-1.5">
@@ -169,6 +142,7 @@ export default function Sidebar({ mobileOpen, onClose }: SidebarProps) {
                   {group.links.map((link) => {
                     const id = link.href.slice(1);
                     const isActive = activeId === id;
+                    const count = newCounts[id];
                     return (
                       <a
                         key={link.href}
@@ -176,92 +150,26 @@ export default function Sidebar({ mobileOpen, onClose }: SidebarProps) {
                         onClick={() => { setActiveId(id); onClose(); }}
                         className={[
                           "flex items-center gap-2.5 px-[22px] py-2 text-[13px] no-underline",
-                          "border-l-[3px] transition-all duration-150 whitespace-nowrap overflow-hidden",
+                          "border-l-[3px] transition-all duration-150",
                           isActive
                             ? "text-white border-white bg-white/10 font-bold"
-                            : "text-white/72 border-transparent hover:text-white hover:bg-white/6",
+                            : "text-white/70 border-transparent hover:text-white hover:bg-white/6",
                         ].join(" ")}
                       >
-                        <span className="text-[13px] w-4 flex-shrink-0">{link.icon}</span>
-                        <span className="flex-1 truncate">{link.label}</span>
-                        {newCounts[id] && (
-                          <span className="ml-auto text-[9px] font-bold text-[#1E40AF] bg-[#DBEAFE] px-1.5 py-px rounded-full flex-shrink-0">
-                            +{newCounts[id]}
+                        <span className="text-[13px] w-4 flex-shrink-0 leading-none">{link.icon}</span>
+                        <span className="flex-1 truncate min-w-0">{link.label}</span>
+                        {count ? (
+                          <span className="flex-shrink-0 text-[9px] font-bold text-[#1E40AF] bg-[#DBEAFE] px-1.5 py-px rounded-full">
+                            +{count}
                           </span>
-                        )}
+                        ) : null}
                       </a>
                     );
                   })}
                 </nav>
               </div>
             ))}
-          </div>
-
-          {/* Relatórios por data — seletor */}
-          <div className="border-t border-white/10 px-[22px] pt-[18px] pb-5">
-            <div className="flex items-center justify-between mb-3">
-              <div className="text-[10px] font-extrabold tracking-[0.8px] uppercase text-white/50">
-                📅 Relatórios por data
-              </div>
-              {selectedDate && (
-                <button
-                  onClick={() => setSelectedDate("")}
-                  className="text-[10px] font-bold text-white/40 hover:text-white transition-colors"
-                >
-                  ver todos
-                </button>
-              )}
-            </div>
-
-            <div className="flex flex-col gap-0">
-              {reports.map((r) => {
-                const isSelected = selectedDate === r.date;
-                return (
-                  <button
-                    key={r.date}
-                    onClick={() => toggleDate(r.date)}
-                    className={[
-                      "relative pl-[18px] border-l pb-4 text-left w-full transition-colors group",
-                      isSelected ? "border-white" : "border-white/20 hover:border-white/40",
-                    ].join(" ")}
-                  >
-                    {/* Timeline dot */}
-                    <div className={[
-                      "absolute left-[-5px] top-[3px] w-2.5 h-2.5 rounded-full border-2 transition-colors",
-                      isSelected
-                        ? "bg-white border-white"
-                        : r.isLatest
-                          ? "bg-white/60 border-white/60 group-hover:bg-white group-hover:border-white"
-                          : "bg-[#161A22] border-white/40 group-hover:border-white/70",
-                    ].join(" ")} />
-
-                    <div className={[
-                      "text-[11px] font-extrabold transition-colors flex items-center gap-1.5",
-                      isSelected ? "text-white" : "text-white/70 group-hover:text-white",
-                    ].join(" ")}>
-                      {r.label}
-                      {r.isLatest && (
-                        <span className="text-[9px] font-extrabold text-black bg-white px-1.5 py-0.5 rounded-full">
-                          ATUAL
-                        </span>
-                      )}
-                    </div>
-                    <div className={[
-                      "text-[10.5px] leading-[1.5] mt-0.5 transition-colors",
-                      isSelected ? "text-white/80" : "text-white/40 group-hover:text-white/60",
-                    ].join(" ")}>
-                      {r.summary}
-                    </div>
-
-                    {isSelected && (
-                      <div className="mt-1.5 text-[9.5px] font-bold text-[#60A5FA]">
-                        ✓ Filtrando por esta data
-                      </div>
-                    )}
-                  </button>
-                );
-              })}
-            </div>
+            <div className="h-4" />
           </div>
         </ScrollArea>
       </aside>

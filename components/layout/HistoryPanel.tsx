@@ -13,60 +13,80 @@ export default function HistoryPanel() {
 
   return (
     <>
-      {/* Backdrop mobile */}
+      {/* Backdrop — só em mobile quando aberto manualmente */}
       {historyOpen && (
         <div
-          className="fixed inset-0 z-40 bg-black/30 lg:hidden"
+          className="fixed inset-0 z-40 bg-black/30 xl:hidden"
           onClick={() => setHistoryOpen(false)}
         />
       )}
 
       <aside
         className={[
-          "fixed top-0 right-0 w-[272px] h-screen z-50 flex flex-col",
-          "bg-white border-l border-[#E2E7EF]",
+          "fixed top-0 right-0 w-[260px] h-screen z-50 flex flex-col",
+          "bg-[#FAFBFC] border-l border-[#E2E7EF]",
           "transition-transform duration-300 ease-in-out",
-          historyOpen ? "translate-x-0" : "translate-x-full",
+          // Desktop xl+: sempre visível. Mobile/tablet: segue historyOpen
+          historyOpen ? "translate-x-0" : "translate-x-full xl:translate-x-0",
         ].join(" ")}
       >
         {/* Header */}
-        <div className="px-5 pt-5 pb-4 border-b border-[#E2E7EF] flex-shrink-0 flex items-start justify-between">
-          <div>
-            <div className="text-[14px] font-extrabold text-[#1A1D24] tracking-[-0.3px]">
-              Histórico
+        <div className="px-5 pt-5 pb-4 border-b border-[#E2E7EF] flex-shrink-0">
+          <div className="flex items-center justify-between">
+            <div>
+              <div className="text-[13px] font-extrabold text-[#1A1D24] tracking-[-0.3px]">
+                Histórico de Relatórios
+              </div>
+              <div className="text-[10.5px] text-[#6B7480] mt-0.5">
+                Clique numa data para filtrar
+              </div>
             </div>
-            <div className="text-[11px] text-[#6B7480] mt-0.5">
-              Novidades por relatório
-            </div>
+            {/* Fechar — só aparece em mobile */}
+            <button
+              onClick={() => setHistoryOpen(false)}
+              className="xl:hidden text-[#6B7480] hover:text-[#1A1D24] transition-colors text-[20px] leading-none"
+              aria-label="Fechar histórico"
+            >
+              ×
+            </button>
           </div>
-          <button
-            onClick={() => setHistoryOpen(false)}
-            className="text-[#6B7480] hover:text-[#1A1D24] transition-colors text-[18px] leading-none mt-0.5"
-            aria-label="Fechar histórico"
-          >
-            ×
-          </button>
+
+          {/* Filtro ativo */}
+          {selectedDate && (
+            <div className="mt-3 flex items-center justify-between bg-[#E9F0FE] border border-[#C9DBFB] rounded-lg px-3 py-2">
+              <span className="text-[10.5px] font-bold text-[#1E40AF]">
+                📅 Filtrando: {selectedDate}
+              </span>
+              <button
+                onClick={() => setSelectedDate("")}
+                className="text-[#6B7480] hover:text-[#1A1D24] text-[13px] font-bold leading-none ml-2"
+                title="Limpar filtro"
+              >
+                ×
+              </button>
+            </div>
+          )}
         </div>
 
         <ScrollArea className="flex-1">
-          <div className="px-5 py-4 flex flex-col gap-0">
+          <div className="px-5 py-5 flex flex-col">
             {reportChanges.map((report, i) => {
               const isSelected = selectedDate === report.date;
               const isLast = i === reportChanges.length - 1;
 
               return (
                 <div key={report.date} className="relative">
-                  {/* Timeline line */}
+                  {/* Linha da timeline */}
                   {!isLast && (
-                    <div className="absolute left-[7px] top-[20px] bottom-0 w-px bg-[#E2E7EF]" />
+                    <div className="absolute left-[6px] top-[18px] bottom-0 w-px bg-[#E2E7EF]" />
                   )}
 
-                  <div className="flex gap-3">
-                    {/* Timeline dot */}
+                  <div className="flex gap-3 mb-5">
+                    {/* Dot */}
                     <button
                       onClick={() => selectDate(report.date)}
                       className={[
-                        "mt-1 w-3.5 h-3.5 rounded-full border-2 flex-shrink-0 transition-all",
+                        "mt-[3px] w-3 h-3 rounded-full border-2 flex-shrink-0 transition-all cursor-pointer",
                         isSelected
                           ? "bg-[#2563EB] border-[#2563EB]"
                           : report.isLatest
@@ -75,16 +95,18 @@ export default function HistoryPanel() {
                       ].join(" ")}
                     />
 
-                    <div className="pb-6 flex-1 min-w-0">
-                      {/* Date + badge */}
+                    <div className="flex-1 min-w-0">
+                      {/* Cabeçalho da data */}
                       <button
                         onClick={() => selectDate(report.date)}
-                        className="text-left w-full group"
+                        className="text-left w-full group cursor-pointer"
                       >
-                        <div className="flex items-center gap-1.5 mb-0.5">
+                        <div className="flex items-center gap-1.5 mb-0.5 flex-wrap">
                           <span className={[
                             "text-[12px] font-extrabold transition-colors",
-                            isSelected ? "text-[#2563EB]" : "text-[#1A1D24] group-hover:text-[#2563EB]",
+                            isSelected
+                              ? "text-[#2563EB]"
+                              : "text-[#1A1D24] group-hover:text-[#2563EB]",
                           ].join(" ")}>
                             {report.label}
                           </span>
@@ -94,7 +116,7 @@ export default function HistoryPanel() {
                             </span>
                           )}
                           {isSelected && (
-                            <span className="text-[9px] font-bold text-[#2563EB] bg-[#E9F0FE] px-1.5 py-0.5 rounded-full">
+                            <span className="text-[9px] font-bold text-[#2563EB] bg-[#DBEAFE] px-1.5 py-0.5 rounded-full">
                               ativo
                             </span>
                           )}
@@ -104,14 +126,16 @@ export default function HistoryPanel() {
                         </div>
                       </button>
 
-                      {/* Section changes */}
-                      <div className="mt-2.5 flex flex-col gap-1.5">
+                      {/* Seções com novidades */}
+                      <div className="mt-2.5 flex flex-col gap-2">
                         {report.changes.map((section) => (
-                          <div key={section.id} className="group/section">
+                          <div key={section.id}>
                             <div className="flex items-start gap-1.5">
-                              <span className="text-[11px] flex-shrink-0 mt-px">{section.icon}</span>
-                              <div className="min-w-0">
-                                <div className="flex items-center gap-1.5">
+                              <span className="text-[11px] flex-shrink-0 mt-px leading-none">
+                                {section.icon}
+                              </span>
+                              <div className="min-w-0 flex-1">
+                                <div className="flex items-center gap-1.5 mb-1">
                                   <a
                                     href={`#${section.id}`}
                                     className="text-[11px] font-semibold text-[#434A57] hover:text-[#2563EB] transition-colors no-underline"
@@ -119,17 +143,17 @@ export default function HistoryPanel() {
                                   >
                                     {section.label}
                                   </a>
-                                  <span className="text-[9px] font-bold text-[#2563EB] bg-[#E9F0FE] px-1.5 py-px rounded-full">
+                                  <span className="text-[9px] font-bold text-[#2563EB] bg-[#DBEAFE] px-1.5 py-px rounded-full flex-shrink-0">
                                     +{section.newCount}
                                   </span>
                                 </div>
-                                <ul className="mt-0.5 flex flex-col gap-px">
+                                <ul className="flex flex-col gap-0.5">
                                   {section.highlights.map((h, j) => (
                                     <li
                                       key={j}
-                                      className="text-[10px] text-[#6B7480] leading-[1.4] flex gap-1 items-start"
+                                      className="text-[10px] text-[#6B7480] leading-[1.4] flex gap-1.5 items-start"
                                     >
-                                      <span className="mt-[3px] flex-shrink-0 w-1 h-1 rounded-full bg-[#C4CAD5]" />
+                                      <span className="mt-[4px] flex-shrink-0 w-[5px] h-[5px] rounded-full bg-[#D1D8E2]" />
                                       {h}
                                     </li>
                                   ))}
@@ -143,7 +167,7 @@ export default function HistoryPanel() {
                       {isSelected && (
                         <button
                           onClick={() => setSelectedDate("")}
-                          className="mt-2 text-[10px] font-semibold text-[#6B7480] hover:text-[#1A1D24] transition-colors"
+                          className="mt-2 text-[10px] font-semibold text-[#6B7480] hover:text-[#434A57] transition-colors cursor-pointer"
                         >
                           limpar filtro ×
                         </button>
@@ -154,25 +178,18 @@ export default function HistoryPanel() {
               );
             })}
 
-            {/* Base report */}
-            <div className="relative flex gap-3">
-              <div className="mt-1 w-3.5 h-3.5 rounded-full border-2 border-[#E2E7EF] bg-white flex-shrink-0" />
-              <div className="pb-2">
+            {/* Entrada base */}
+            <div className="flex gap-3">
+              <div className="mt-[3px] w-3 h-3 rounded-full border-2 border-[#E2E7EF] bg-white flex-shrink-0" />
+              <div>
                 <div className="text-[12px] font-extrabold text-[#1A1D24]">Mai 2026</div>
-                <div className="text-[10.5px] text-[#6B7480] leading-[1.45]">
+                <div className="text-[10.5px] text-[#6B7480] leading-[1.45] mt-0.5">
                   Versão base · 13 seções · 71 fontes validadas
                 </div>
               </div>
             </div>
           </div>
         </ScrollArea>
-
-        {/* Footer hint */}
-        <div className="px-5 py-3 border-t border-[#E2E7EF] flex-shrink-0">
-          <div className="text-[10px] text-[#6B7480] leading-[1.4]">
-            Clique numa data para filtrar o conteúdo por aquele relatório.
-          </div>
-        </div>
       </aside>
     </>
   );

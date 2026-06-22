@@ -37,7 +37,8 @@ export default function Home() {
       <div className="flex min-h-screen">
         <Sidebar mobileOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
 
-        <div className="flex-1 md:ml-[272px] min-h-screen">
+        {/* Conteúdo principal: margem esquerda para sidebar, margem direita para history panel em xl+ */}
+        <div className="flex-1 md:ml-[272px] xl:mr-[260px] min-h-screen">
           <TopBar onMenuClick={() => setSidebarOpen(true)} />
 
           <main className="px-11 py-14 max-w-[1080px] max-md:px-5 max-md:py-8">

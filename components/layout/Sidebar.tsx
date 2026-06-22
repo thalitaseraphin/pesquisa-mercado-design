@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { useReportDate } from "@/context/ReportDateContext";
+import { getNewCountBySectionForDate } from "@/data/reportChanges";
 
 const navGroups = [
   {
@@ -114,6 +115,10 @@ export default function Sidebar({ mobileOpen, onClose }: SidebarProps) {
     setSelectedDate(selectedDate === date ? "" : date);
   };
 
+  // Badges: novidades da data mais recente (22/06/2026) sempre visíveis
+  const latestDate = "22/06/2026";
+  const newCounts = getNewCountBySectionForDate(latestDate);
+
   return (
     <>
       {mobileOpen && (
@@ -178,7 +183,12 @@ export default function Sidebar({ mobileOpen, onClose }: SidebarProps) {
                         ].join(" ")}
                       >
                         <span className="text-[13px] w-4 flex-shrink-0">{link.icon}</span>
-                        {link.label}
+                        <span className="flex-1 truncate">{link.label}</span>
+                        {newCounts[id] && (
+                          <span className="ml-auto text-[9px] font-bold text-[#1E40AF] bg-[#DBEAFE] px-1.5 py-px rounded-full flex-shrink-0">
+                            +{newCounts[id]}
+                          </span>
+                        )}
                       </a>
                     );
                   })}

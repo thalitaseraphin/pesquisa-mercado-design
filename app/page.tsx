@@ -4,6 +4,7 @@ import { useState } from "react";
 import { ReportDateProvider } from "@/context/ReportDateContext";
 import Sidebar from "@/components/layout/Sidebar";
 import TopBar from "@/components/layout/TopBar";
+import HistoryPanel from "@/components/layout/HistoryPanel";
 import HeroSection from "@/components/sections/HeroSection";
 import KpiStrip from "@/components/sections/KpiStrip";
 import NovidadesSection from "@/components/sections/NovidadesSection";
@@ -33,43 +34,45 @@ export default function Home() {
 
   return (
     <ReportDateProvider>
-    <div className="flex min-h-screen">
-      <Sidebar mobileOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
+      <div className="flex min-h-screen">
+        <Sidebar mobileOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
 
-      <div className="flex-1 md:ml-[272px] min-h-screen">
-        <TopBar onMenuClick={() => setSidebarOpen(true)} />
+        <div className="flex-1 md:ml-[272px] min-h-screen">
+          <TopBar onMenuClick={() => setSidebarOpen(true)} />
 
-        <main className="px-11 py-14 max-w-[1080px] max-md:px-5 max-md:py-8">
-          <HeroSection />
-          <KpiStrip />
-          <NovidadesSection />
-          <IdentidadeSection />
-          <ForumSection />
-          <AnunciosSection />
-          <InsightsSection />
-          <TarefasSection />
-          <PanoramaSection />
-          <BrasilSection />
-          <RemuneracaoSection />
-          <AprendizadoSection />
-          <PersonasSection />
-          <OportunidadesSection />
-          <ModelosSection />
-          <CanaisSection />
-          <CompraSection />
-          <CompetitivoSection />
-          <FerramentasSection />
-          <InternacionalSection />
-          <MercadosEmergentesSection />
-          <EstudosMercadoSection />
-          <FontesSection />
+          <main className="px-11 py-14 max-w-[1080px] max-md:px-5 max-md:py-8">
+            <HeroSection />
+            <KpiStrip />
+            <NovidadesSection />
+            <IdentidadeSection />
+            <ForumSection />
+            <AnunciosSection />
+            <InsightsSection />
+            <TarefasSection />
+            <PanoramaSection />
+            <BrasilSection />
+            <RemuneracaoSection />
+            <AprendizadoSection />
+            <PersonasSection />
+            <OportunidadesSection />
+            <ModelosSection />
+            <CanaisSection />
+            <CompraSection />
+            <CompetitivoSection />
+            <FerramentasSection />
+            <InternacionalSection />
+            <MercadosEmergentesSection />
+            <EstudosMercadoSection />
+            <FontesSection />
 
-          <div className="py-6 text-[12px] text-[#6B7480] border-t border-[#E2E7EF]">
-            Documento para uso estratégico interno · IA LAB · Atualizar a cada 6 meses · Próxima revisão: Novembro 2026
-          </div>
-        </main>
+            <div className="py-6 text-[12px] text-[#6B7480] border-t border-[#E2E7EF]">
+              Documento para uso estratégico interno · IA LAB · Atualizar a cada 6 meses · Próxima revisão: Novembro 2026
+            </div>
+          </main>
+        </div>
+
+        <HistoryPanel />
       </div>
-    </div>
     </ReportDateProvider>
   );
 }

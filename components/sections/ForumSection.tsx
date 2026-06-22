@@ -5,44 +5,44 @@ import SectionHeader from "./SectionHeader";
 
 const hotCards = [
   {
-    href: "https://www.reddit.com/r/graphic_design/search/?q=AI%20replace&restrict_sr=1&sort=top",
-    src: "r/graphic_design",
+    href: "https://config.figma.com/",
+    src: "Figma Config",
+    heat: "🗓️ Esta semana",
+    updated: "22 Jun 2026",
+    reportDate: "22/06/2026",
+    title: "Figma Config 2026 (23–25/06): o que esperar de IA no canvas",
+    text: 'Comunidade em contagem regressiva para a conferência em SF. Apostas em <strong>agentes de IA agênticos no canvas</strong> e mais integrações de motion após o Aleph 2.0. Designers planejam ajustar workflow conforme os anúncios.',
+    go: "Ver agenda do Config 2026",
+  },
+  {
+    href: "https://weandthecolor.com/freelance-designers-cant-compete-with-a-20-month-ai-subscription-heres-what-actually-works-now/209620",
+    src: "WeAndTheColor",
     heat: "🔥 Polêmico",
-    updated: "Jun 2026",
-    reportDate: "19/06/2026",
-    title: '"A IA vai acabar com a produção gráfica manual até 2030?"',
-    text: 'Debate quente: <strong>49% dos profissionais</strong> (UK/US/FR/DE) acham que a produção manual fica obsoleta em 5 anos. Muitos relatam medo da viabilidade da profissão após GPT-4o e Gemini.',
-    go: "Abrir discussão no Reddit",
+    updated: "22 Jun 2026",
+    reportDate: "22/06/2026",
+    title: 'O colapso do freelance mid-level: "competir com assinatura de US$20/mês"',
+    text: 'Designers relatam clientes pedindo só para "ajustar o output da IA" por US$50. Dado Ramp: gasto com freelance caiu de <strong>0,66% para 0,14%</strong> dos orçamentos. Saída apontada: originalidade, narrativa e alinhamento de marca.',
+    go: "Ler análise do mercado",
   },
   {
-    href: "https://www.reddit.com/r/graphic_design/search/?q=anti%20AI&restrict_sr=1&sort=top",
-    src: "r/graphic_design",
-    heat: "📈 Crescendo",
-    updated: "Jun 2026",
-    reportDate: "19/06/2026",
-    title: 'Movimento "Anti-IA": o charme da imperfeição',
-    text: 'Grãos texturizados, lettering orgânico, hand-drawn e "scrapbooking" viram rebeldia contra a estética limpa e sem alma da IA. <strong>Maximalismo</strong> em alta para "forçar o olhar a desacelerar".',
-    go: "Ver threads anti-IA",
-  },
-  {
-    href: "https://dev.to/emma_schmidt_/how-are-you-adapting-your-design-process-for-ai-in-2026-whats-your-plan-32lp",
-    src: "DEV Community",
+    href: "https://www.fastcompany.com/91538439/design-enters-its-frenemies-era",
+    src: "Fast Company",
     heat: "💬 Muito comentado",
-    updated: "Jun 2026",
-    reportDate: "19/06/2026",
-    title: '"Como você está adaptando seu processo para IA em 2026?"',
-    text: 'Thread cheia de designers trocando workflows: <strong>48% dizem que as ferramentas novas aumentaram a carga</strong> em vez de aliviar. Burnout e "falta de tempo para criar" dominam o desabafo.',
-    go: "Ler a conversa no DEV",
+    updated: "22 Jun 2026",
+    reportDate: "22/06/2026",
+    title: 'Claude Design vs. Adobe, Canva e Figma: a "era frenemies" do design',
+    text: 'Com Canva afirmando ter co-desenvolvido o <strong>Claude Design</strong> e todos lançando agentes, a discussão é sobre lock-in, interoperabilidade e quem controla o fluxo de marca de ponta a ponta.',
+    go: "Ler o debate",
   },
   {
-    href: "https://www.reddit.com/r/graphic_design/search/?q=AI%20copyright&restrict_sr=1&sort=top",
-    src: "r/graphic_design",
-    heat: "⚖️ Ético",
-    updated: "Jun 2026",
-    reportDate: "19/06/2026",
-    title: 'Direitos autorais, dados e "o maior roubo de IP da história"',
-    text: 'Preocupação ética forte: treino de modelos com obras sem consentimento, consumo de energia e falta de transparência ("black box"). Tema recorrente nas discussões de profissionais.',
-    go: "Ver debate sobre direitos autorais",
+    href: "https://www.itsnicethat.com/features/forward-thinking-graphic-trends-2026-graphic-design-120126",
+    src: "It's Nice That",
+    heat: "📈 Crescendo",
+    updated: "22 Jun 2026",
+    reportDate: "22/06/2026",
+    title: "Reação humana à IA: grão, colagem, zine e imperfeição em alta",
+    text: 'Contraponto à precisão da IA: <strong>texturas, scans, colagem e estética DIY</strong> voltam com força. "Imperfeito = humano" vira posicionamento de valor contra o output genérico.',
+    go: "Ver as tendências",
   },
 ];
 
@@ -61,7 +61,7 @@ const trends = [
 
 const history = [
   {
-    date: "Jun 2026",
+    date: "19 Jun 2026",
     reportDate: "19/06/2026",
     snapshot: [
       { src: "r/graphic_design", heat: "🔥 Polêmico", title: '"A IA vai acabar com a produção gráfica manual até 2030?"' },
@@ -87,18 +87,18 @@ const history = [
 export default function ForumSection() {
   const { selectedDate, setSelectedDate } = useReportDate();
 
-  const showCurrent = !selectedDate || selectedDate === "19/06/2026";
+  const showCurrent = !selectedDate || selectedDate === "22/06/2026";
   const filteredHistory = selectedDate
     ? history.filter((h) => h.reportDate === selectedDate)
     : history;
 
-  const isHistoryOnlyView = selectedDate === "01/05/2026";
+  const isHistoryOnlyView = !!selectedDate && selectedDate !== "22/06/2026";
 
   return (
     <section id="forum" className="mb-[84px] scroll-mt-[74px]">
       <SectionHeader
         icon="🔥"
-        part="Comunidades · atualizado 19/06/2026"
+        part="Comunidades · atualizado 22/06/2026"
         title="Em Alta nos Fóruns & Tendências"
         description="O que está bombando nas comunidades de design (Reddit, Adobe, Figma, DEV) e as tendências do mercado"
       />
@@ -159,7 +159,7 @@ export default function ForumSection() {
           </div>
 
           <div className="bg-white border border-[#E2E7EF] rounded-xl p-[22px] mb-3.5">
-            <h3 className="text-[13px] font-bold text-[#434A57] uppercase tracking-[0.5px] mb-3.5">Tendências de mercado em alta · Jun 2026</h3>
+            <h3 className="text-[13px] font-bold text-[#434A57] uppercase tracking-[0.5px] mb-3.5">Tendências de mercado em alta · 22/06/2026</h3>
             <div className="flex flex-wrap gap-2.5">
               {trends.map((t) => (
                 <span key={t.label} className={`text-[12.5px] font-semibold px-3.5 py-1.5 border rounded-[24px] ${t.solid ? "bg-[#2563EB] text-white border-[#2563EB]" : "bg-[#F6F8FB] text-[#434A57] border-[#D2D9E4]"}`}>{t.label}</span>

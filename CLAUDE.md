@@ -101,3 +101,48 @@ formatter={(v) => [`${Number(v)}%`, "Label"]}
 4. If it needs a chart, import via `dynamic(() => import("@/components/charts/XChart"), { ssr: false })`
 5. Register in `app/page.tsx` (import + add to JSX)
 6. Add nav link to `Sidebar.tsx` `navGroups` array
+
+## Sistema RAG de Atualização Diária
+
+Existe um projeto Python separado que alimenta esta pesquisa com análises geradas por IA:
+
+```
+../rag-production/          ← diretório irmão deste projeto
+  config.py                 — modelos, preços, budgets
+  cost_tracker.py           — controle de custo por token (request/session/dia)
+  circuit_breaker.py        — fallback automático entre modelos
+  vector_store.py           — ChromaDB + sentence-transformers
+  agents.py                 — RetrieverAgent, SynthesizerAgent, OrchestratorAgent
+  rag_system.py             — façade pública
+  update_daily.py           — rotina diária com otimização de tokens
+  knowledge_base.json       — documentos de pesquisa para ingestão (criar/manter)
+  reports/YYYY-MM-DD.md     — relatórios gerados automaticamente
+  .env                      — ANTHROPIC_API_KEY (não commitar)
+  logs/daily.log            — log de execuções
+```
+
+**Cadeia de fallback de modelos:** `claude-haiku-4-5` (primário para rotina diária, mais barato) → `claude-opus-4-8` (fallback) → resposta degradada
+
+**Rotina diária automatizada via launchd:**
+- Roda todo dia às 9h mesmo sem Claude Code aberto
+- Job: `com.thalita.rag-daily` em `~/Library/LaunchAgents/`
+- Gera relatório Markdown em `reports/` e envia notificação macOS
+- Lembrete no Google Calendar às 9h (evento recorrente diário)
+
+**Para rodar manualmente:**
+```bash
+cd "../rag-production"
+python update_daily.py
+```
+
+**Para adicionar documentos à base de conhecimento**, editar `knowledge_base.json`:
+```json
+[
+  {"text": "conteúdo do documento...", "meta": {"fonte": "entrevista"}}
+]
+```
+
+**Para verificar o launchd:**
+```bash
+launchctl list | grep com.thalita.rag-daily
+```

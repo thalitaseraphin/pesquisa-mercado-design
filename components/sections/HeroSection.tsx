@@ -17,7 +17,7 @@ export default function HeroSection() {
           ["71", "fontes com URL"],
           ["19", "seções de análise"],
           ["6", "personas mapeadas"],
-          ["19/06/2026", ""],
+          ["22/06/2026", ""],
         ].map(([val, label]) => (
           <span key={val} className="text-[12px] text-[#6B7480]">
             <strong className="text-[#1A1D24] font-bold">{val}</strong>

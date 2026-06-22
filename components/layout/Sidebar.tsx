@@ -61,10 +61,16 @@ const navGroups = [
 // Relatórios disponíveis — cada entrada representa um dia de pesquisa
 const reports = [
   {
+    date: "22/06/2026",
+    label: "22 Jun 2026",
+    summary: "Figma Aleph 2.0 no Weave · Canva + Claude Design · colapso do freelance mid-level · Figma Config 2026",
+    isLatest: true,
+  },
+  {
     date: "19/06/2026",
     label: "19 Jun 2026",
     summary: "23 seções · Estudos Sequoia/WGSN · Mercados Emergentes · Hooks com vídeos",
-    isLatest: true,
+    isLatest: false,
   },
   {
     date: "01/05/2026",
@@ -132,7 +138,7 @@ export default function Sidebar({ mobileOpen, onClose }: SidebarProps) {
           </div>
           <div className="flex items-center gap-2 mt-2.5 flex-wrap">
             <span className="text-[10px] font-bold text-black bg-white px-2.5 py-0.5 rounded-full">
-              Atualizado: 19/06/2026
+              Atualizado: 22/06/2026
             </span>
             {selectedDate && (
               <span className="text-[10px] font-bold text-[#2563EB] bg-[#E9F0FE] border border-[#CFE0FB] px-2 py-0.5 rounded-full flex items-center gap-1">

@@ -5,6 +5,46 @@ import SectionHeader from "./SectionHeader";
 
 const news = [
   {
+    href: "https://www.figma.com/blog/direct-every-frame-with-runway-aleph-2/",
+    tag: "Ferramenta",
+    tagClass: "bg-[#2563EB] text-white",
+    date: "18 Jun 2026",
+    reportDate: "22/06/2026",
+    title: "Figma Weave ganha Runway Aleph 2.0: direção criativa frame a frame",
+    desc: "Lançado em 18/06, o Aleph 2.0 traz controle de vídeo no canvas do Figma — trocar ângulo de câmera, inserir personagem ou transformar o cenário sem refilmagem. Direção de motion vira parte do design tool.",
+    source: "Figma Blog — Runway Aleph 2.0 in Weave",
+  },
+  {
+    href: "https://config.figma.com/",
+    tag: "Evento",
+    tagClass: "bg-[#E9F0FE] text-[#1E40AF] border border-[#CFE0FB]",
+    date: "23–25 Jun 2026",
+    reportDate: "22/06/2026",
+    title: "Figma Config 2026 começa amanhã (23–25/06) em San Francisco",
+    desc: "A maior conferência de design da Figma acontece esta semana no Moscone Center. Expectativa de anúncios de IA agêntica no canvas — a indústria toda acompanha para calibrar roadmap.",
+    source: "Figma Config 2026",
+  },
+  {
+    href: "https://dataconomy.com/2026/04/17/canva-ai-2-0-targets-adobe-and-figma-with-fully-editable-ai-outputs/",
+    tag: "IA · Ferramenta",
+    tagClass: "bg-[#2563EB] text-white",
+    date: "2026",
+    reportDate: "22/06/2026",
+    title: "Canva AI 2.0 e Claude Design miram Adobe e Figma com outputs editáveis",
+    desc: "Canva afirma ter co-desenvolvido o Claude Design com a Anthropic e adiciona botão 'export to Canva'. A diferença competitiva passou de gerar para gerar já editável e dentro do fluxo de marca.",
+    source: "Dataconomy — Canva AI 2.0",
+  },
+  {
+    href: "https://weandthecolor.com/freelance-designers-cant-compete-with-a-20-month-ai-subscription-heres-what-actually-works-now/209620",
+    tag: "Mercado",
+    tagClass: "bg-[#F6F8FB] text-[#434A57] border border-[#D2D9E4]",
+    date: "2026",
+    reportDate: "22/06/2026",
+    title: "O colapso do freelance mid-level por causa da IA",
+    desc: "Estudo Ramp 'Payrolls to Prompts' (fev/2026): gasto com plataformas de freelance caiu de 0,66% para 0,14% dos orçamentos, enquanto gasto com modelos de IA subiu de 0 para 2,85%. Originalidade e narrativa de marca viram o que ainda paga.",
+    source: "WeAndTheColor — Freelance Market & AI",
+  },
+  {
     href: "https://designerfund.com/blog/ai-in-design-2026",
     tag: "IA · Design",
     tagClass: "bg-[#2563EB] text-white",
@@ -101,7 +141,7 @@ export default function NovidadesSection() {
     <section id="novidades" className="mb-[84px] scroll-mt-[74px]">
       <SectionHeader
         icon="📰"
-        part="Leitura · atualizado 19/06/2026"
+        part="Leitura · atualizado 22/06/2026"
         title="Novidades & Notícias"
         description="IA no design gráfico, branding e ferramentas — para ler e acompanhar"
       />
@@ -119,7 +159,7 @@ export default function NovidadesSection() {
         <div className="bg-[#F6F8FB] border border-[#E2E7EF] rounded-xl px-6 py-10 text-center mb-5">
           <div className="text-[32px] mb-3">📭</div>
           <div className="text-[14px] font-bold text-[#1A1D24] mb-1">Nenhuma notícia registrada em {selectedDate}</div>
-          <div className="text-[13px] text-[#6B7480] mb-4">O conteúdo desta seção foi capturado em 19/06/2026.</div>
+          <div className="text-[13px] text-[#6B7480] mb-4">Selecione outra data no menu lateral para ver as notícias capturadas naquele dia.</div>
           <button onClick={() => setSelectedDate("")} className="text-[12px] font-bold text-[#2563EB] hover:underline">
             Ver todas as notícias →
           </button>

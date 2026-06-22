@@ -5,6 +5,26 @@ import SectionHeader from "./SectionHeader";
 
 const insights = [
   {
+    num: "INSIGHT 05 · NOVO",
+    title: "Direção de motion entra no design tool",
+    text: "Com o <strong>Runway Aleph 2.0 dentro do Figma Weave</strong> (18/06), dirigir vídeo frame a frame — trocar câmera, cenário e personagem sem refilmar — vira função nativa do design. Quem domina identidade <strong>+ motion no mesmo fluxo</strong> captura a margem que está migrando.",
+    source: "Figma Blog — Runway Aleph 2.0 in Weave",
+    sourceUrl: "https://www.figma.com/blog/direct-every-frame-with-runway-aleph-2/",
+    updated: "22 Jun 2026",
+    reportDate: "22/06/2026",
+    attention: false,
+  },
+  {
+    num: "⚠ PONTO DE ATENÇÃO 03 · NOVO",
+    title: 'Cliente quer só "ajustar o output da IA"',
+    text: "Estudo Ramp (fev/2026): gasto com freelance caiu de <strong>0,66% para 0,14%</strong> dos orçamentos enquanto IA subiu de 0 para 2,85%. O mid-level é comprimido — clientes geram algo mediano e pedem polimento barato. <strong>Reposicionar para estratégia, narrativa e sistema de marca</strong> é a saída.",
+    source: "WeAndTheColor + Ramp Payrolls to Prompts 2026",
+    sourceUrl: "https://weandthecolor.com/freelance-designers-cant-compete-with-a-20-month-ai-subscription-heres-what-actually-works-now/209620",
+    updated: "22 Jun 2026",
+    reportDate: "22/06/2026",
+    attention: true,
+  },
+  {
     num: "INSIGHT 01",
     title: "A IA virou pré-requisito, não diferencial",
     text: "Com <strong>91% dos designers usando IA semanalmente</strong> e vagas com skill de IA crescendo <strong>+144% a/a</strong>, dominar IA deixou de ser vantagem e passou a ser linha de base. O diferencial agora é direção criativa e pensamento sistêmico.",
@@ -92,7 +112,7 @@ export default function InsightsSection() {
         <div className="bg-[#F6F8FB] border border-[#E2E7EF] rounded-xl px-6 py-10 text-center">
           <div className="text-[32px] mb-3">📭</div>
           <div className="text-[14px] font-bold text-[#1A1D24] mb-1">Nenhum insight registrado em {selectedDate}</div>
-          <div className="text-[13px] text-[#6B7480] mb-4">Os insights atuais foram capturados em 19/06/2026.</div>
+          <div className="text-[13px] text-[#6B7480] mb-4">Selecione outra data no menu lateral para ver os insights daquele relatório.</div>
           <button onClick={() => setSelectedDate("")} className="text-[12px] font-bold text-[#2563EB] hover:underline">
             Ver todos os insights →
           </button>

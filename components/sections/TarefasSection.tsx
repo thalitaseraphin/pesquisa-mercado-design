@@ -6,7 +6,10 @@ const tasks = [
   { title: "Adotar 1 agente de IA de ponta a ponta num fluxo real", desc: "Escolher um pipeline (ex: variações de identidade, social kit) e rodar com agente de IA dentro da ferramenta que o time já usa diariamente — integração é o que cria hábito sustentável.", prio: "media", horizon: "30–60 dias" },
   { title: 'Criar oferta de “identidade viva” (motion-first)', desc: "Empacotar um serviço de sistema de marca dinâmico/kinético como produto, surfando a tendência 2026. Diferencia da concorrência ainda presa a logo estático.", prio: "media", horizon: "Trimestre" },
   { title: "Provar fluência em IA publicamente (conteúdo + cases)", desc: "Publicar bastidores de workflow com IA (LinkedIn, Instagram) para sinalizar fluência — o critério nº1 de contratação em 2026. Transformar processo em prova social.", prio: "media", horizon: "Contínuo" },
-  { title: 'Otimizar presença para “ser recomendado por IA”', desc: "Garantir dados de marca consistentes e descritivos (site, perfis, descrições) para que agentes de IA recomendem você. Posicionamento legível por máquina vira aquisição.", prio: "baixa", horizon: "Trimestre" },
+  { title: 'Otimizar presença para "ser recomendado por IA"', desc: "Garantir dados de marca consistentes e descritivos (site, perfis, descrições) para que agentes de IA recomendem você. Posicionamento legível por máquina vira aquisição.", prio: "baixa", horizon: "Trimestre" },
+  { title: 'Criar sistema de reactive marketing — ser a próxima marca no feed', desc: 'Mapear os 5–10 momentos culturais previsíveis do semestre (Copa, festivais, premiações) e preparar ativos visuais de antecipação. O caso Endrick/Knicks provou: velocidade + relevância supera patrocínio. 5 marcas mobilizadas por 1 momento não planejado.', prio: 'media', horizon: '30–60 dias' },
+  { title: `Estudar e replicar a estratégia Levi's de earned media zero-budget`, desc: 'Analisar o caso Copa 2026: marca proibida de exibir logo cobriu com pano, mudou o perfil do Instagram e virou a mais comentada sem investir em patrocínio. Encontrar o equivalente no contexto do cliente atual — restrição pode ser o brief.', prio: 'media', horizon: '30 dias' },
+  { title: 'Monitorar Cannes Lions BR para calibrar benchmarks de campanha', desc: "GUT São Paulo ganhou Grand Prix em Outdoor com 'Field Barcode' (Pacaembu em código de barras para Mercado Livre). Usar as noites do Cannes 2026 para mapear o padrão de trabalho BR premiado — linguagem, formato, estratégia — e incorporar no briefing das próximas identidades.", prio: 'baixa', horizon: 'Contínuo' },
 ];
 
 const prioStyle: Record<string, string> = {
@@ -52,7 +55,7 @@ export default function TarefasSection() {
         ))}
       </div>
       <div className="text-[11px] text-[#6B7480] pt-2.5 border-t border-[#E2E7EF] mt-3.5">
-        Tarefas derivadas dos insights acima e das recomendações de implementação 2026 (UX Tigers, Tommaso Ricci, Cflow). Revisadas a cada atualização.
+        Tarefas derivadas dos insights acima, posts em destaque das Vozes do Mercado e recomendações de implementação 2026 (UX Tigers, Tommaso Ricci, Cflow). Revisadas a cada atualização.
       </div>
     </section>
   );

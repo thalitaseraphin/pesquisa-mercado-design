@@ -14,8 +14,8 @@ export default function HeroSection() {
       </p>
       <div className="flex gap-[22px] mt-5 flex-wrap">
         {[
-          ["71", "fontes com URL"],
-          ["19", "seções de análise"],
+          ["77", "fontes com URL"],
+          ["22", "seções de análise"],
           ["6", "personas mapeadas"],
           ["23/06/2026", ""],
         ].map(([val, label]) => (

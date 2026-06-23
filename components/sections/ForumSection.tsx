@@ -199,8 +199,13 @@ export default function ForumSection() {
       {/* Cards atuais */}
       {showCurrent && (
         <>
-          <div className="grid grid-cols-2 gap-4 mb-[22px] max-md:grid-cols-1">
-            {hotCards.map((card) => (
+          {/* Fóruns & comunidades */}
+          <div className="flex items-center gap-2 mb-3 px-0.5">
+            <span className="text-[10px] font-extrabold uppercase tracking-[1px] text-[#6B7480]">Fóruns & Comunidades Globais</span>
+            <div className="flex-1 h-px bg-[#E2E7EF]" />
+          </div>
+          <div className="grid grid-cols-2 gap-4 mb-5 max-md:grid-cols-1">
+            {hotCards.slice(0, 4).map((card) => (
               <a
                 key={card.href}
                 href={card.href}
@@ -216,6 +221,32 @@ export default function ForumSection() {
                 <div className="text-[15.5px] font-extrabold text-[#1A1D24] mb-1.5 leading-[1.35]">{card.title}</div>
                 <div className="text-[13.5px] text-[#434A57] leading-[1.65]" dangerouslySetInnerHTML={{ __html: card.text }} />
                 <span className="text-[11.5px] text-[#2563EB] font-bold mt-[11px] inline-flex items-center gap-1">{card.go} <span>↗</span></span>
+              </a>
+            ))}
+          </div>
+
+          {/* Mídia criativa brasileira */}
+          <div className="flex items-center gap-2 mb-3 px-0.5">
+            <span className="text-[10px] font-extrabold uppercase tracking-[1px] text-[#6B7480]">Mídia Criativa Brasileira — B9 · Meio &amp; Mensagem</span>
+            <div className="flex-1 h-px bg-[#E2E7EF]" />
+          </div>
+          <div className="grid grid-cols-2 gap-4 mb-[22px] max-md:grid-cols-1">
+            {hotCards.slice(4).map((card) => (
+              <a
+                key={card.href}
+                href={card.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block bg-white border border-[#E2E7EF] rounded-xl p-5 no-underline shadow-[0_1px_2px_rgba(16,24,40,0.04)] transition-all duration-[180ms] hover:-translate-y-[3px] hover:shadow-[0_12px_28px_rgba(16,24,40,0.12)]"
+              >
+                <div className="flex items-center gap-2 mb-2.5 flex-wrap">
+                  <span className="text-[10px] font-extrabold uppercase tracking-[0.6px] px-2.5 py-0.5 rounded-[6px] bg-[#B45309] text-white">{card.src}</span>
+                  <span className="text-[10px] font-extrabold uppercase tracking-[0.6px] px-2.5 py-0.5 rounded-[6px] border border-[#D2D9E4] text-[#434A57]">{card.heat}</span>
+                  <span className="ml-auto text-[10px] text-[#6B7480] font-semibold">{card.updated}</span>
+                </div>
+                <div className="text-[15.5px] font-extrabold text-[#1A1D24] mb-1.5 leading-[1.35]">{card.title}</div>
+                <div className="text-[13.5px] text-[#434A57] leading-[1.65]" dangerouslySetInnerHTML={{ __html: card.text }} />
+                <span className="text-[11.5px] text-[#B45309] font-bold mt-[11px] inline-flex items-center gap-1">{card.go} <span>↗</span></span>
               </a>
             ))}
           </div>

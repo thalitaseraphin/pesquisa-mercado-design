@@ -53,7 +53,8 @@ const navGroups = [
     label: "Pesquisa",
     links: [
       { href: "#estudos", icon: "🔬", label: "Estudos & Sinais" },
-      { href: "#fontes", icon: "📋", label: "71 Fontes Validadas" },
+      { href: "#vozes", icon: "📱", label: "Vozes no Instagram" },
+      { href: "#fontes", icon: "📋", label: "77 Fontes Validadas" },
     ],
   },
 ];

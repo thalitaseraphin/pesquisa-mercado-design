@@ -44,6 +44,46 @@ const hotCards = [
     text: 'Forçados pelo professor a usar IA em tudo, alunos coordenaram entregar o output <strong>mais "cara de IA" possível</strong> — demonstrando exatamente o que se perde. Reacendeu o debate sobre o que a educação em design deveria ensinar.',
     go: "Ver o caso",
   },
+  {
+    href: "https://www.meioemensagem.com.br/cannes/como-a-ia-esta-inserida-nas-categorias-e-checagem-dos-cases",
+    src: "Meio & Mensagem",
+    heat: "🏆 Cannes 2026",
+    updated: "19 Jun 2026",
+    reportDate: "23/06/2026",
+    title: 'Cannes Lions institucionaliza IA: "AI Craft" entra em 5 categorias, incluindo Design',
+    text: 'Festival cria subcategoria focada no <strong>"sweet spot onde criatividade humana e IA geram algo que nenhum poderia criar sozinho"</strong>. Design, Film Craft, Digital Craft e Creative Data estão dentro. A IA saiu do tema e virou critério formal de julgamento.',
+    go: "Ver as mudanças nas categorias",
+  },
+  {
+    href: "https://www.meioemensagem.com.br/sxsw/conexao-austin/em-terra-de-ia-quem-e-craft-e-rei",
+    src: "Meio & Mensagem",
+    heat: "💬 Debate SXSW",
+    updated: "12 Mar 2026",
+    reportDate: "23/06/2026",
+    title: '"Em terra de IA, quem é craft é rei" — o argumento do estúdio brasileiro no SXSW',
+    text: 'Van Queiroz (Colletivo) defende que <strong>sem suar, errar e estressar linguagem não há entrega genuína</strong>. A "ginga" brasileira não é replicável por ferramenta. Ressalva: IA beneficia pequenos negócios sem recursos — o problema é a adoção desnecessária por quem tem.',
+    go: "Ler o argumento completo",
+  },
+  {
+    href: "https://www.b9.com.br/178161/canva-ia-briefing-campanha/",
+    src: "B9",
+    heat: "🤖 Plataformas",
+    updated: "16 Abr 2026",
+    reportDate: "23/06/2026",
+    title: "Canva IA 2.0: de briefing a campanha completa com um comando",
+    text: 'Sistema agêntico com 4 camadas — design conversacional, orquestração autônoma, memória ativa e edição por objeto. <strong>Brasil é o maior mercado global</strong>: 1,5 bilhão de designs em 12 meses, 1 em cada 9 internautas usando. Adobe simplifica o complexo; Canva sofistica o acessível — ambas disputam o mesmo workflow.',
+    go: "Ler a análise no B9",
+  },
+  {
+    href: "https://www.b9.com.br/shows/braincast/628-o-que-e-ser-uma-agencia-de-publicidade-em-2026/",
+    src: "B9 · Braincast",
+    heat: "💼 Mercado",
+    updated: "12 Abr 2026",
+    reportDate: "23/06/2026",
+    title: '"O que é ser uma agência de publicidade em 2026?" — Braincast #628',
+    text: 'IA virou infraestrutura (não diferencial), clientes estão internalizando entregas, consultorias avançando sobre território das agências. <strong>O formato "agência" pode não ser mais a categoria óbvia</strong> — o mercado está se reorganizando em torno de algo diferente.',
+    go: "Ouvir o Braincast",
+  },
 ];
 
 const trends = [
@@ -83,6 +123,17 @@ const history = [
     trends: ['Identidades "vivas" / motion-first', "Tipografia expressiva & kinética", "Maximalismo anti-IA", "Design como conhecimento executável"],
   },
   {
+    date: "Abr 2026",
+    reportDate: "01/04/2026",
+    snapshot: [
+      { src: "B9", heat: "🤖 Produto", title: "Canva IA 2.0 transforma briefing em campanha inteira — sistema agêntico com memória ativa lançado no Canva Create LA" },
+      { src: "B9 · Braincast", heat: "💬 Debate", title: 'Braincast #628: "O que é ser uma agência de publicidade em 2026?" — IA como infraestrutura, internalização e consultorias avançando' },
+      { src: "Meio & Mensagem", heat: "🎙️ SXSW", title: '"Em terra de IA, quem é craft é rei" — Van Queiroz (Colletivo) defende o processo humano como único diferencial real' },
+      { src: "TecMundo", heat: "🔧 Ferramentas", title: "Canva lança Affinity de graça para todos; Adobe anuncia IA generativa no Photoshop, Lightroom e Premiere" },
+    ],
+    trends: ["IA como infraestrutura (não diferencial)", "Craft e autenticidade humana", "Agências em transição de modelo", "Plataformas disputando workflow criativo completo"],
+  },
+  {
     date: "Mai 2026",
     reportDate: "01/05/2026",
     snapshot: [
@@ -111,7 +162,7 @@ export default function ForumSection() {
         icon="🔥"
         part="Comunidades · atualizado 23/06/2026"
         title="Em Alta nos Fóruns & Tendências"
-        description="O que está bombando nas comunidades de design (Reddit, Adobe, Figma, DEV) e as tendências do mercado"
+        description="O que está bombando nas comunidades de design (Reddit, Adobe, Figma, B9, Meio &amp; Mensagem, TecMundo) e as tendências do mercado"
       />
 
       {selectedDate && (

@@ -72,6 +72,12 @@ const sources: [number, string, string, string][] = [
   [69,"Blog Inter — Quanto ganha um designer no exterior","https://blog.inter.co/quanto-ganha-um-designer-no-exterior-e-como-encontrar-vagas/","Guia de carreira"],
   [70,"NomadGlobal — Designer gráfico no exterior","https://www.nomadglobal.com/conteudos/quanto-ganha-um-designer-grafico-no-exterior","Dados de carreira"],
   [71,"Arc.dev — Latin American Developers 2.2X Income via Remote Work","https://arc.dev/talent-blog/remote-software-developer-salary-report-latin-america-2022/","Pesquisa de salários"],
+  [72,"B9 — Criatividade como Cultura, Cultura como Negócio","https://www.b9.com.br/","Mídia setorial BR"],
+  [73,"Meio & Mensagem — Marketing, Publicidade e Comunicação","https://www.meioemensagem.com.br/","Mídia setorial BR"],
+  [74,"Publicitários Criativos — Cases, Design e Branding","https://www.publicitarioscriativos.com/","Mídia setorial BR"],
+  [75,"Forbes Brasil — Negócios, Empreendedorismo e Tendências","https://forbes.com.br/","Mídia de negócios BR"],
+  [76,"TecMundo — Tecnologia, IA e Ferramentas Digitais","https://www.tecmundo.com.br/","Mídia de tecnologia BR"],
+  [77,"Olhar Digital — O Futuro Passa Primeiro Aqui","https://olhardigital.com.br/","Mídia de tecnologia BR"],
 ];
 
 export default function FontesSection() {
@@ -80,7 +86,7 @@ export default function FontesSection() {
       <SectionHeader
         icon="📋"
         part="Referências"
-        title="71 Fontes Validadas"
+        title="77 Fontes Validadas"
         description="Todas as fontes utilizadas neste estudo, com URL direta"
       />
       <div className="bg-white border border-[#E2E7EF] rounded-xl overflow-hidden">

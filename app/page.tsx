@@ -27,6 +27,7 @@ import FerramentasSection from "@/components/sections/FerramentasSection";
 import InternacionalSection from "@/components/sections/InternacionalSection";
 import MercadosEmergentesSection from "@/components/sections/MercadosEmergentesSection";
 import EstudosMercadoSection from "@/components/sections/EstudosMercadoSection";
+import VozesSection from "@/components/sections/VozesSection";
 import FontesSection from "@/components/sections/FontesSection";
 
 export default function Home() {
@@ -64,6 +65,7 @@ export default function Home() {
             <InternacionalSection />
             <MercadosEmergentesSection />
             <EstudosMercadoSection />
+            <VozesSection />
             <FontesSection />
 
             <div className="py-6 text-[12px] text-[#6B7480] border-t border-[#E2E7EF]">

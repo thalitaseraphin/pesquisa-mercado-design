@@ -215,36 +215,35 @@ const categorias: Categoria[] = [
     desc: "Onde fica o conteúdo técnico de maior profundidade — aulas, tutoriais e análises longas",
     contas: [
       {
+        handle: "Q28a™ // Graphic Design",
+        nome: "Q28a™ // Graphic Design",
+        seguidores: "140K",
+        foco: "O maior canal brasileiro de design gráfico — critiques ao vivo, análises profissionais e debates sobre ferramentas. Comunidade de designers em formação",
+        badge: "Design Gráfico",
+        badgeColor: "bg-[#FEE2E2] text-[#991B1B]",
+        url: "https://www.youtube.com/@Q28a",
+      },
+      {
         handle: "Origamid",
         nome: "Origamid",
-        seguidores: "450K+",
-        foco: "Design gráfico, UI e front-end — um dos maiores canais de design do Brasil. Referência em identidade visual e web design com qualidade de curso",
+        seguidores: "60.1K",
+        foco: "Design gráfico, UI e front-end — plataforma de cursos com canal educacional de qualidade. Referência em identidade visual e web design",
         badge: "Design & Front-end",
         badgeColor: "bg-[#FEE2E2] text-[#991B1B]",
         url: "https://www.youtube.com/@origamid",
       },
       {
-        handle: "Aela School",
-        nome: "Aela School",
-        seguidores: "150K+",
-        foco: "UX/UI Design — aulas completas, mentorias e roadmaps de carreira. Principal canal de educação em UX em português",
+        handle: "Aela Brasil",
+        nome: "Aela Brasil",
+        foco: "UX/UI Design — conteúdo sobre portfólio, carreira e transição para design. Comunidade ativa de estudantes e profissionais de produto",
         badge: "UX/UI",
         badgeColor: "bg-[#FEE2E2] text-[#991B1B]",
-        url: "https://www.youtube.com/@aelaschool",
-      },
-      {
-        handle: "MX Cursos",
-        nome: "MX Cursos",
-        seguidores: "200K+",
-        foco: "Design e tecnologia — tutoriais de Photoshop, Illustrator, Figma e ferramentas criativas com foco prático",
-        badge: "Design & Ferramentas",
-        badgeColor: "bg-[#FEE2E2] text-[#991B1B]",
-        url: "https://www.youtube.com/@mxcursos",
+        url: "https://www.youtube.com/@AelaBrasil",
       },
       {
         handle: "B9 — Braincast",
         nome: "B9 (Braincast)",
-        foco: "Podcast em vídeo sobre criatividade, publicidade e cultura. Episódios como 'O que é ser uma agência em 2026?' e 'Desaprendendo na era digital'",
+        foco: "Podcast em vídeo sobre criatividade, publicidade e cultura. 'O que é ser uma agência em 2026?' (36.7K views) mostra o alcance do debate",
         badge: "Indústria criativa",
         badgeColor: "bg-[#FEE2E2] text-[#991B1B]",
         url: "https://www.youtube.com/@b9podcast",
@@ -330,6 +329,80 @@ const categorias: Categoria[] = [
         url: "https://www.reddit.com/r/graphic_design/",
       },
     ],
+  },
+];
+
+type VideoDestaque = {
+  titulo: string;
+  canal: string;
+  canalUrl: string;
+  views: string;
+  tema: string;
+  temaColor: string;
+  desc: string;
+  url: string;
+};
+
+const videosDestaque: VideoDestaque[] = [
+  {
+    titulo: "Refazendo Design Gráfico dos Inscritos #03",
+    canal: "Q28a™ // Graphic Design",
+    canalUrl: "https://www.youtube.com/@Q28a",
+    views: "251K",
+    tema: "Critique ao Vivo",
+    temaColor: "bg-[#DCFCE7] text-[#166534]",
+    desc: "Designer profissional analisa e refaz trabalhos da audiência em tempo real. O vídeo mais assistido do canal — mostra o apetite enorme por feedback honesto e crítica construtiva. O formato 'critique' é o que mais engaja no nicho de design BR.",
+    url: "https://www.youtube.com/watch?v=2nTSx8euF6Y",
+  },
+  {
+    titulo: "Criando Design Gráfico NÍVEL DE AGÊNCIA",
+    canal: "Q28a™ // Graphic Design",
+    canalUrl: "https://www.youtube.com/@Q28a",
+    views: "193K",
+    tema: "Qualidade Profissional",
+    temaColor: "bg-[#EDE9FE] text-[#6D28D9]",
+    desc: "Processo completo de identidade visual no padrão de grandes agências — evidencia o gap entre básico e profissional. 193K views indica que a audiência quer saber o que separa um designer mediano do nível de mercado.",
+    url: "https://www.youtube.com/watch?v=47xThXpee0k",
+  },
+  {
+    titulo: "Designer Gráfico Profissional SÓ COM CANVA? (Prova Cabal)",
+    canal: "Q28a™ // Graphic Design",
+    canalUrl: "https://www.youtube.com/@Q28a",
+    views: "187K",
+    tema: "Canva vs Profissional",
+    temaColor: "bg-[#FEF3C7] text-[#B45309]",
+    desc: "Teste definitivo: dá pra entregar trabalho de agência usando só o Canva? 187K views no debate mais quente do nicho — diretamente conectado à expansão do Canva com IA que domina 1 em cada 9 internautas brasileiros.",
+    url: "https://www.youtube.com/watch?v=6pDdZmcqnTA",
+  },
+  {
+    titulo: "O que é ser uma agência de publicidade em 2026? • BRAINCAST 628",
+    canal: "B9",
+    canalUrl: "https://www.youtube.com/@b9podcast",
+    views: "36.7K",
+    tema: "Mercado & Agências",
+    temaColor: "bg-[#DBEAFE] text-[#1D4ED8]",
+    desc: "IA virou infraestrutura (não diferencial), clientes internalizando entregas, consultorias avançando. Episódio mais assistido do Braincast em 2026 — o formato 'podcast de mercado' performa bem mesmo sem o volume visual do YouTube.",
+    url: "https://www.youtube.com/watch?v=xUagXkR-8SU",
+  },
+  {
+    titulo: "Curso de Adobe XD — Introdução Aula 1",
+    canal: "Origamid",
+    canalUrl: "https://www.youtube.com/@origamid",
+    views: "121K",
+    tema: "Ferramentas de UX",
+    temaColor: "bg-[#F1F5F9] text-[#475569]",
+    desc: "Mesmo com o Adobe XD descontinuado, continua com 121K views. Sinal claro: designers buscam fundamentos de UX, não só a ferramenta do momento. Demanda por base teórica é persistente e maior que por tutoriais de app específico.",
+    url: "https://www.youtube.com/watch?v=nl-Is79eyD8",
+  },
+  {
+    titulo: "A Copa 2026, o ceticismo e a publicidade • BRAINCAST 636",
+    canal: "B9",
+    canalUrl: "https://www.youtube.com/@b9podcast",
+    views: "6.8K",
+    tema: "Publicidade & Cultura",
+    temaColor: "bg-[#FEE2E2] text-[#991B1B]",
+    desc: "Debate sobre o papel da publicidade em eventos culturais de massa — Copa 2026 como laboratório. Ceticismo do brasileiro vs. otimismo das marcas. Contexto direto para campanhas e reactive marketing associados ao torneio.",
+    url: "https://www.youtube.com/watch?v=_kbmwcJNkBM",
   },
 ];
 
@@ -447,7 +520,8 @@ const destaques: Destaque[] = [
 
 export default function VozesSection() {
   const instagramCats = categorias.filter(c => c.plataforma === "Instagram");
-  const otherCats = categorias.filter(c => c.plataforma !== "Instagram");
+  const youtubeCat = categorias.find(c => c.plataforma === "YouTube");
+  const remainingCats = categorias.filter(c => c.plataforma !== "Instagram" && c.plataforma !== "YouTube");
 
   return (
     <section id="vozes" className="mb-[84px] scroll-mt-[74px]">
@@ -500,9 +574,84 @@ export default function VozesSection() {
         </div>
       </div>
 
-      {/* YouTube, LinkedIn, Comunidades */}
+      {/* YouTube — canais */}
+      {youtubeCat && (
+        <div className="mb-3">
+          <div className="flex items-center gap-2 mb-3 px-1">
+            <span className="text-[10px] font-extrabold uppercase tracking-[1px] text-[#6B7480]">YouTube</span>
+            <div className="flex-1 h-px bg-[#E2E7EF]" />
+          </div>
+          <div className="bg-white border border-[#E2E7EF] rounded-xl p-[22px] mb-3">
+            <div className="flex items-start gap-2 mb-4">
+              <span className="text-lg leading-none mt-0.5">{youtubeCat.icon}</span>
+              <div>
+                <h3 className="text-[13px] font-bold text-[#1A1D24] uppercase tracking-[0.5px]">{youtubeCat.titulo}</h3>
+                <p className="text-[12px] text-[#6B7480] mt-0.5">{youtubeCat.desc}</p>
+              </div>
+            </div>
+            <div className="grid grid-cols-2 gap-3 max-md:grid-cols-1">
+              {youtubeCat.contas.map((c) => (
+                <a
+                  key={c.handle}
+                  href={c.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex flex-col gap-1.5 border border-[#E2E7EF] rounded-lg p-4 hover:bg-[#F6F8FB] hover:border-[#2563EB]/30 transition-colors no-underline group"
+                >
+                  <div className="flex items-center justify-between gap-2">
+                    <span className="text-[13px] font-bold text-[#2563EB] group-hover:underline">{c.handle}</span>
+                    {c.seguidores && (
+                      <span className="text-[10.5px] font-bold text-[#434A57] bg-[#EEF1F6] px-2 py-0.5 rounded-full shrink-0">{c.seguidores} seg.</span>
+                    )}
+                  </div>
+                  <span className="text-[12px] font-semibold text-[#434A57]">{c.nome}</span>
+                  <p className="text-[12px] text-[#6B7480] leading-[1.55]">{c.foco}</p>
+                  <span className={`inline-flex self-start items-center px-2 py-0.5 rounded-full text-[10.5px] font-semibold mt-0.5 ${c.badgeColor}`}>{c.badge}</span>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* Vídeos em Destaque */}
+          <div className="bg-white border border-[#E2E7EF] rounded-xl p-[22px]">
+            <div className="flex items-start gap-2 mb-4">
+              <span className="text-lg leading-none mt-0.5">📊</span>
+              <div>
+                <h3 className="text-[13px] font-bold text-[#1A1D24] uppercase tracking-[0.5px]">Vídeos em Destaque — o que mais performa</h3>
+                <p className="text-[12px] text-[#6B7480] mt-0.5">Views coletados via YouTube · Jun 2026 · ordenados por relevância para o mercado de design</p>
+              </div>
+            </div>
+            <div className="grid grid-cols-2 gap-3 max-md:grid-cols-1">
+              {videosDestaque.map((v) => (
+                <a
+                  key={v.url}
+                  href={v.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex flex-col gap-2 border border-[#E2E7EF] rounded-lg p-4 hover:bg-[#F6F8FB] hover:border-[#2563EB]/30 transition-colors no-underline group"
+                >
+                  <div className="flex items-center justify-between gap-2 flex-wrap">
+                    <a href={v.canalUrl} target="_blank" rel="noopener noreferrer" onClick={e => e.stopPropagation()} className="text-[12px] font-bold text-[#2563EB] hover:underline">{v.canal}</a>
+                    <div className="flex items-center gap-1.5">
+                      <span className="text-[10.5px] font-bold text-white bg-[#991B1B] px-2 py-0.5 rounded-full">▶ {v.views} views</span>
+                    </div>
+                  </div>
+                  <p className="text-[13.5px] font-bold text-[#1A1D24] leading-[1.35] group-hover:text-[#2563EB]">{v.titulo}</p>
+                  <p className="text-[12px] text-[#434A57] leading-[1.6]">{v.desc}</p>
+                  <span className={`inline-flex self-start items-center px-2 py-0.5 rounded-full text-[10.5px] font-semibold ${v.temaColor}`}>{v.tema}</span>
+                </a>
+              ))}
+            </div>
+            <div className="text-[11px] text-[#6B7480] pt-3 border-t border-[#E2E7EF] mt-4">
+              Dados coletados via YouTube Search API · Jun 2026 · Views são cumulativos (não periódicos) · atualizar trimestralmente
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* LinkedIn, Comunidades */}
       <div className="space-y-3 mb-4">
-        {otherCats.map((cat) => (
+        {remainingCats.map((cat) => (
           <div key={cat.titulo}>
             <div className="flex items-center gap-2 mb-3 px-1">
               <span className="text-[10px] font-extrabold uppercase tracking-[1px] text-[#6B7480]">{cat.plataforma}</span>

@@ -5,6 +5,26 @@ import SectionHeader from "./SectionHeader";
 
 const insights = [
   {
+    num: "INSIGHT 06 · NOVO",
+    title: "Design skill virou a competência #1 em IA",
+    text: "Em meados de 2026 a habilidade de design <strong>lidera os anúncios de vaga em IA — à frente de código e cloud</strong>. UX/produto cresce ~16% até 2034 contra 2–3% do design gráfico. A leitura: <strong>IA substitui tarefas, não papéis</strong>; quem dá direção, posicionamento e ponto de vista captura o valor que sobra.",
+    source: "Humbl Design — Will AI Replace Designers 2026",
+    sourceUrl: "https://humbldesign.io/blog-posts/will-ai-replace-designers-2026",
+    updated: "23 Jun 2026",
+    reportDate: "23/06/2026",
+    attention: false,
+  },
+  {
+    num: "⚠ PONTO DE ATENÇÃO 04 · NOVO",
+    title: `Quando "good enough" vira o brief`,
+    text: "Cresce a substituição de design encomendado por <strong>gráficos gerados por IA</strong> em material promocional. O risco não é só de emprego: é <strong>queda de qualidade, perda de consistência de marca e corrida para o fundo</strong>. Defesa: provar ponto de vista, voz e acúmulo de marca ao longo do tempo — o que um prompt não entrega.",
+    source: "Clever Marketing — Graphic Design News Jun 2026",
+    sourceUrl: "https://www.clevermarketing.co.uk/graphic-design-news-june-2026/",
+    updated: "23 Jun 2026",
+    reportDate: "23/06/2026",
+    attention: true,
+  },
+  {
     num: "INSIGHT 05 · NOVO",
     title: "Direção de motion entra no design tool",
     text: "Com o <strong>Runway Aleph 2.0 dentro do Figma Weave</strong> (18/06), dirigir vídeo frame a frame — trocar câmera, cenário e personagem sem refilmar — vira função nativa do design. Quem domina identidade <strong>+ motion no mesmo fluxo</strong> captura a margem que está migrando.",

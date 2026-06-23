@@ -7,42 +7,42 @@ const hotCards = [
   {
     href: "https://config.figma.com/",
     src: "Figma Config",
-    heat: "🗓️ Esta semana",
-    updated: "22 Jun 2026",
-    reportDate: "22/06/2026",
-    title: "Figma Config 2026 (23–25/06): o que esperar de IA no canvas",
-    text: 'Comunidade em contagem regressiva para a conferência em SF. Apostas em <strong>agentes de IA agênticos no canvas</strong> e mais integrações de motion após o Aleph 2.0. Designers planejam ajustar workflow conforme os anúncios.',
+    heat: "🗓️ Abre hoje",
+    updated: "23 Jun 2026",
+    reportDate: "23/06/2026",
+    title: "Config 2026 dia 1: o que a comunidade espera do keynote",
+    text: 'A conferência abre hoje em SF com o keynote do Dylan Field amanhã. Comunidade aposta em <strong>design agent com web search</strong> e nova fase do Figma Make. Designers planejam recalibrar workflow conforme os anúncios.',
     go: "Ver agenda do Config 2026",
   },
   {
-    href: "https://weandthecolor.com/freelance-designers-cant-compete-with-a-20-month-ai-subscription-heres-what-actually-works-now/209620",
-    src: "WeAndTheColor",
-    heat: "🔥 Polêmico",
-    updated: "22 Jun 2026",
-    reportDate: "22/06/2026",
-    title: 'O colapso do freelance mid-level: "competir com assinatura de US$20/mês"',
-    text: 'Designers relatam clientes pedindo só para "ajustar o output da IA" por US$50. Dado Ramp: gasto com freelance caiu de <strong>0,66% para 0,14%</strong> dos orçamentos. Saída apontada: originalidade, narrativa e alinhamento de marca.',
-    go: "Ler análise do mercado",
-  },
-  {
-    href: "https://www.fastcompany.com/91538439/design-enters-its-frenemies-era",
+    href: "https://www.fastcompany.com/91545081/canva-gemini-integration",
     src: "Fast Company",
     heat: "💬 Muito comentado",
-    updated: "22 Jun 2026",
-    reportDate: "22/06/2026",
-    title: 'Claude Design vs. Adobe, Canva e Figma: a "era frenemies" do design',
-    text: 'Com Canva afirmando ter co-desenvolvido o <strong>Claude Design</strong> e todos lançando agentes, a discussão é sobre lock-in, interoperabilidade e quem controla o fluxo de marca de ponta a ponta.',
+    updated: "23 Jun 2026",
+    reportDate: "23/06/2026",
+    title: "Canva ubíquo via Gemini: o que ainda vale a expertise profissional?",
+    text: 'Com a Canva dentro de <strong>Claude, ChatGPT, Copilot e Gemini</strong>, fazer "design decente" sem treino virou trivial. O debate na comunidade: o valor migra para julgamento, estratégia e trabalho que conecta — não para apertar prompt.',
     go: "Ler o debate",
   },
   {
-    href: "https://www.itsnicethat.com/features/forward-thinking-graphic-trends-2026-graphic-design-120126",
-    src: "It's Nice That",
-    heat: "📈 Crescendo",
-    updated: "22 Jun 2026",
-    reportDate: "22/06/2026",
-    title: "Reação humana à IA: grão, colagem, zine e imperfeição em alta",
-    text: 'Contraponto à precisão da IA: <strong>texturas, scans, colagem e estética DIY</strong> voltam com força. "Imperfeito = humano" vira posicionamento de valor contra o output genérico.',
-    go: "Ver as tendências",
+    href: "https://www.clevermarketing.co.uk/graphic-design-news-june-2026/",
+    src: "Clever Marketing",
+    heat: "🔥 Polêmico",
+    updated: "23 Jun 2026",
+    reportDate: "23/06/2026",
+    title: 'Designers reagem a IA-graphics: quando "good enough" vira o brief',
+    text: 'Empresas trocam trabalho encomendado por gráficos de IA em material promocional. A reação é sobre <strong>qualidade, consistência de marca e corrida para o fundo</strong> — não só emprego. Ponto de vista e acúmulo de marca viram a defesa.',
+    go: "Ler a análise do mês",
+  },
+  {
+    href: "https://www.clevermarketing.co.uk/graphic-design-news-june-2026/",
+    src: "TwistedSifter",
+    heat: "📈 Viralizou",
+    updated: "23 Jun 2026",
+    reportDate: "23/06/2026",
+    title: "Estudantes fazem protesto silencioso contra IA obrigatória no curso",
+    text: 'Forçados pelo professor a usar IA em tudo, alunos coordenaram entregar o output <strong>mais "cara de IA" possível</strong> — demonstrando exatamente o que se perde. Reacendeu o debate sobre o que a educação em design deveria ensinar.',
+    go: "Ver o caso",
   },
 ];
 
@@ -60,6 +60,17 @@ const trends = [
 ];
 
 const history = [
+  {
+    date: "22 Jun 2026",
+    reportDate: "22/06/2026",
+    snapshot: [
+      { src: "Figma Config", heat: "🗓️ Esta semana", title: "Figma Config 2026 (23–25/06): o que esperar de IA no canvas" },
+      { src: "WeAndTheColor", heat: "🔥 Polêmico", title: 'O colapso do freelance mid-level: "competir com assinatura de US$20/mês"' },
+      { src: "Fast Company", heat: "💬 Muito comentado", title: 'Claude Design vs. Adobe, Canva e Figma: a "era frenemies" do design' },
+      { src: "It's Nice That", heat: "📈 Crescendo", title: "Reação humana à IA: grão, colagem, zine e imperfeição em alta" },
+    ],
+    trends: ['Identidades "vivas" / motion-first', "Direção de motion no design tool", "Maximalismo anti-IA", "Design como conhecimento executável"],
+  },
   {
     date: "19 Jun 2026",
     reportDate: "19/06/2026",
@@ -87,18 +98,18 @@ const history = [
 export default function ForumSection() {
   const { selectedDate, setSelectedDate } = useReportDate();
 
-  const showCurrent = !selectedDate || selectedDate === "22/06/2026";
+  const showCurrent = !selectedDate || selectedDate === "23/06/2026";
   const filteredHistory = selectedDate
     ? history.filter((h) => h.reportDate === selectedDate)
     : history;
 
-  const isHistoryOnlyView = !!selectedDate && selectedDate !== "22/06/2026";
+  const isHistoryOnlyView = !!selectedDate && selectedDate !== "23/06/2026";
 
   return (
     <section id="forum" className="mb-[84px] scroll-mt-[74px]">
       <SectionHeader
         icon="🔥"
-        part="Comunidades · atualizado 22/06/2026"
+        part="Comunidades · atualizado 23/06/2026"
         title="Em Alta nos Fóruns & Tendências"
         description="O que está bombando nas comunidades de design (Reddit, Adobe, Figma, DEV) e as tendências do mercado"
       />
@@ -159,7 +170,7 @@ export default function ForumSection() {
           </div>
 
           <div className="bg-white border border-[#E2E7EF] rounded-xl p-[22px] mb-3.5">
-            <h3 className="text-[13px] font-bold text-[#434A57] uppercase tracking-[0.5px] mb-3.5">Tendências de mercado em alta · 22/06/2026</h3>
+            <h3 className="text-[13px] font-bold text-[#434A57] uppercase tracking-[0.5px] mb-3.5">Tendências de mercado em alta · 23/06/2026</h3>
             <div className="flex flex-wrap gap-2.5">
               {trends.map((t) => (
                 <span key={t.label} className={`text-[12.5px] font-semibold px-3.5 py-1.5 border rounded-[24px] ${t.solid ? "bg-[#2563EB] text-white border-[#2563EB]" : "bg-[#F6F8FB] text-[#434A57] border-[#D2D9E4]"}`}>{t.label}</span>

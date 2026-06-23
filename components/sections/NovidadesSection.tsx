@@ -5,6 +5,56 @@ import SectionHeader from "./SectionHeader";
 
 const news = [
   {
+    href: "https://config.figma.com/",
+    tag: "Evento",
+    tagClass: "bg-[#E9F0FE] text-[#1E40AF] border border-[#CFE0FB]",
+    date: "23 Jun 2026",
+    reportDate: "23/06/2026",
+    title: "Figma Config 2026 abre HOJE em San Francisco — a edição mais focada em IA da história",
+    desc: "Começa hoje (23–25/06) no Moscone Center. Keynote do Dylan Field amanhã às 9h PDT. Agenda dominada por design agent, Figma Make e workflows de IA — a indústria toda acompanha para calibrar roadmap.",
+    source: "Figma Config 2026",
+  },
+  {
+    href: "https://www.figma.com/blog/config-speakers-looking-ahead-2026/",
+    tag: "Ferramenta",
+    tagClass: "bg-[#2563EB] text-white",
+    date: "23 Jun 2026",
+    reportDate: "23/06/2026",
+    title: "Figma Make e o design agent ganham web search e nova fase no Config",
+    desc: "O design agent passa a buscar contexto vivo na web (boas práticas e conteúdo real) sem sair do arquivo. O Figma Make — já a 60% de uso semanal entre os maiores clientes enterprise no Q1 — entra em nova fase com edição direta, anotações e criação de PR.",
+    source: "Figma Blog — Config 2026 Speakers",
+  },
+  {
+    href: "https://www.fastcompany.com/91545081/canva-gemini-integration",
+    tag: "IA · Ferramenta",
+    tagClass: "bg-[#2563EB] text-white",
+    date: "Jun 2026",
+    reportDate: "23/06/2026",
+    title: "Canva + Gemini torna o design gráfico por IA ubíquo",
+    desc: "Com a integração ao Google Gemini, a Canva fecha o ciclo: já está dentro de Claude, ChatGPT, Copilot e Gemini. Designs nascem na IA já dentro das regras do Brand Kit. Uso dos produtos de IA da Canva triplicou em um ano — produção de marca por IA vira padrão para qualquer um.",
+    source: "Fast Company — Canva × Gemini",
+  },
+  {
+    href: "https://www.clevermarketing.co.uk/graphic-design-news-june-2026/",
+    tag: "Mercado",
+    tagClass: "bg-[#F6F8FB] text-[#434A57] border border-[#D2D9E4]",
+    date: "Jun 2026",
+    reportDate: "23/06/2026",
+    title: "Empresas trocam design encomendado por IA-graphics — e designers acendem o alerta",
+    desc: 'Roundup de junho: cresce a substituição de trabalho criativo por gráficos gerados por IA em material promocional. A reação não é só sobre emprego — é sobre qualidade, consistência de marca e a "corrida para o fundo" quando "good enough" vira o brief.',
+    source: "Clever Marketing — Graphic Design News",
+  },
+  {
+    href: "https://humbldesign.io/blog-posts/will-ai-replace-designers-2026",
+    tag: "Carreira",
+    tagClass: "bg-[#E9F0FE] text-[#1E40AF] border border-[#CFE0FB]",
+    date: "2026",
+    reportDate: "23/06/2026",
+    title: "Design skill é agora a competência #1 em vagas de IA — à frente de código e cloud",
+    desc: "Análise de mercado em meados de 2026: IA substitui tarefas, não papéis. UX/produto cresce ~16% até 2034 contra 2–3% do design gráfico, e a habilidade de design lidera os anúncios de vaga em IA. O valor migra de executar para julgar, posicionar e dar ponto de vista.",
+    source: "Humbl Design — Will AI Replace Designers 2026",
+  },
+  {
     href: "https://www.figma.com/blog/direct-every-frame-with-runway-aleph-2/",
     tag: "Ferramenta",
     tagClass: "bg-[#2563EB] text-white",
@@ -141,7 +191,7 @@ export default function NovidadesSection() {
     <section id="novidades" className="mb-[84px] scroll-mt-[74px]">
       <SectionHeader
         icon="📰"
-        part="Leitura · atualizado 22/06/2026"
+        part="Leitura · atualizado 23/06/2026"
         title="Novidades & Notícias"
         description="IA no design gráfico, branding e ferramentas — para ler e acompanhar"
       />

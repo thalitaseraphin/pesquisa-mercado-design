@@ -16,9 +16,52 @@ export type ReportChange = {
 
 export const reportChanges: ReportChange[] = [
   {
+    date: "23/06/2026",
+    label: "23 Jun 2026",
+    isLatest: true,
+    summary: "Config 2026 abre hoje · Canva + Gemini ubíquo · alarme sobre IA-graphics · design skill #1 em vagas de IA",
+    changes: [
+      {
+        id: "novidades",
+        label: "Novidades & Notícias",
+        icon: "📰",
+        newCount: 5,
+        highlights: [
+          "Figma Config 2026 abre hoje em SF",
+          "Figma Make + design agent ganham web search",
+          "Canva + Gemini: IA-design vira ubíquo",
+          "Empresas trocam design por IA-graphics",
+          "Design skill é a #1 em vagas de IA",
+        ],
+      },
+      {
+        id: "forum",
+        label: "Em Alta nos Fóruns",
+        icon: "🔥",
+        newCount: 4,
+        highlights: [
+          "Config 2026 dia 1: o que esperar do keynote",
+          "Canva ubíquo: o que vale a expertise?",
+          "Designers reagem a IA-graphics 'good enough'",
+          "Protesto de estudantes contra IA obrigatória",
+        ],
+      },
+      {
+        id: "insights",
+        label: "Insights & Atenção",
+        icon: "💡",
+        newCount: 2,
+        highlights: [
+          "Design skill virou a competência #1 em IA",
+          "'Good enough' como brief: corrida para o fundo",
+        ],
+      },
+    ],
+  },
+  {
     date: "22/06/2026",
     label: "22 Jun 2026",
-    isLatest: true,
+    isLatest: false,
     summary: "Figma Config 2026 · Aleph 2.0 · colapso freelance · Canva + Claude",
     changes: [
       {

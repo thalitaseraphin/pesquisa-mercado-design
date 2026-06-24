@@ -5,6 +5,36 @@ import SectionHeader from "./SectionHeader";
 
 const news = [
   {
+    href: "https://releasebot.io/updates/adobe/firefly",
+    tag: "Ferramenta",
+    tagClass: "bg-[#2563EB] text-white",
+    date: "Jun 2026",
+    reportDate: "24/06/2026",
+    title: "Adobe Firefly vira hub multi-modelo: 25+ modelos de IA e workspace criativo unificado",
+    desc: "Atualização de junho/2026: o Firefly ganha um espaço único para gerar, editar e organizar conteúdo (imagem, vídeo, áudio, boards) e passa a hospedar 25+ modelos de parceiros — OpenAI (GPT Image), Google (Veo, Nano Banana 2), Black Forest Labs (Flux.2) e Runway. O Gen-4.5 da Runway roda dentro do app usando os créditos do Firefly Pro.",
+    source: "Adobe Firefly — Release Notes Jun 2026",
+  },
+  {
+    href: "https://news.adobe.com/news/2026/06/introducing-adobe-brand-visibility",
+    tag: "Branding",
+    tagClass: "bg-[#E9F0FE] text-[#1E40AF] border border-[#CFE0FB]",
+    date: "Jun 2026",
+    reportDate: "24/06/2026",
+    title: "Adobe lança Brand Visibility: marca precisa ser 'legível' para a busca por IA",
+    desc: "A Adobe apresenta uma solução unificada para a era da busca por IA: medir e melhorar como uma marca aparece em respostas de assistentes e mecanismos generativos. Sinal claro de que branding em 2026 inclui ser descoberto e recomendado por agentes — não só por humanos.",
+    source: "Adobe Newsroom — Brand Visibility",
+  },
+  {
+    href: "https://colorlib.com/wp/graphic-design-statistics/",
+    tag: "Mercado",
+    tagClass: "bg-[#F6F8FB] text-[#434A57] border border-[#D2D9E4]",
+    date: "2026",
+    reportDate: "24/06/2026",
+    title: "Mercado de design segue crescendo (US$45,8B → US$78,3B até 2032) e a barra de skill subiu",
+    desc: "Apesar do medo da IA, a indústria cresce: 75% dos designers já usam IA, mas 67% a tratam como complemento. Figma aparece em 67% das vagas (era 30% em 2021) e ferramentas de IA em 32% (era 3% em 2023). Freelancers mid-level cobram US$75–130/h — com identidade de marca e packaging no topo da faixa.",
+    source: "Colorlib — Graphic Design Statistics 2026",
+  },
+  {
     href: "https://www.figma.com/newsroom/",
     tag: "Pesquisa",
     tagClass: "bg-[#E9F0FE] text-[#1E40AF] border border-[#CFE0FB]",

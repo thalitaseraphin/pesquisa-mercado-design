@@ -5,6 +5,16 @@ import SectionHeader from "./SectionHeader";
 
 const insights = [
   {
+    num: "INSIGHT 08 · NOVO",
+    title: `Branding agora inclui ser "visível" para a IA`,
+    text: "Com o <strong>Adobe Brand Visibility</strong> e o Firefly virando hub de 25+ modelos, a disputa de marca migra para <strong>como ela aparece em respostas de IA</strong>. Posicionamento, dados estruturados e consistência viram ativo de descoberta — marca que a IA não 'enxerga' perde recomendação antes mesmo de chegar ao consumidor.",
+    source: "Adobe Newsroom — Brand Visibility 2026",
+    sourceUrl: "https://news.adobe.com/news/2026/06/introducing-adobe-brand-visibility",
+    updated: "24 Jun 2026",
+    reportDate: "24/06/2026",
+    attention: false,
+  },
+  {
     num: "INSIGHT 07 · NOVO",
     title: "IA já é base do fluxo — o diferencial é o julgamento",
     text: "O State of the Designer 2026 da Figma mostra <strong>72% usando IA generativa e 91% dizendo que ela melhora o output</strong>. Mas 67% a veem como complemento e só 18% das empresas cortaram designers por causa dela. A IA virou infraestrutura; <strong>o valor está em curadoria, direção e julgamento</strong> — não em operar a ferramenta.",

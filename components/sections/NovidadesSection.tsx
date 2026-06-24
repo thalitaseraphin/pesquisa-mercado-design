@@ -5,6 +5,46 @@ import SectionHeader from "./SectionHeader";
 
 const news = [
   {
+    href: "https://www.figma.com/newsroom/",
+    tag: "Pesquisa",
+    tagClass: "bg-[#E9F0FE] text-[#1E40AF] border border-[#CFE0FB]",
+    date: "Jun 2026",
+    reportDate: "24/06/2026",
+    title: "Figma State of the Designer 2026: 72% já usam IA generativa e 91% dizem que ela melhora o output",
+    desc: "O relatório anual da Figma mostra a IA consolidada no fluxo: 72% dos designers usam IA generativa e 91% afirmam que ela eleva a qualidade do trabalho. Ainda assim, 67% a veem como complemento — e só 18% das empresas dizem que ela reduziu a necessidade de designers.",
+    source: "Figma Newsroom — State of the Designer 2026",
+  },
+  {
+    href: "https://releasebot.io/updates/midjourney",
+    tag: "Ferramenta",
+    tagClass: "bg-[#2563EB] text-white",
+    date: "Jun 2026",
+    reportDate: "24/06/2026",
+    title: "Midjourney torna o V8.1 o modelo padrão e libera o Draft mode — 24 imagens rápidas por geração",
+    desc: "O modelo default passa de V7 para V8.1, com prompts mais inteligentes, melhor renderização de texto e saída HD (2x o tamanho e 4x a resolução do V7). O novo Draft mode gera 24 imagens em baixa resolução para iterar rápido; clicar em 'Vary' renderiza a escolhida em qualidade total.",
+    source: "Midjourney Release Notes — Jun 2026",
+  },
+  {
+    href: "https://rgd.ca/articles/2026-amplifying-creativity-with-ai-tools-for-designers-in-2026",
+    tag: "Carreira",
+    tagClass: "bg-[#E9F0FE] text-[#1E40AF] border border-[#CFE0FB]",
+    date: "2026",
+    reportDate: "24/06/2026",
+    title: "RGD: o foco de 2026 é IA responsável — amplificar criatividade sem terceirizar o julgamento",
+    desc: "A associação de designers do Canadá publica diretrizes para 2026: usar IA para acelerar exploração e tarefas repetitivas, mantendo curadoria humana, transparência com o cliente e responsabilidade sobre direitos e qualidade. O recado: a ferramenta amplia, não substitui o critério profissional.",
+    source: "RGD — AI Tools for Designers 2026",
+  },
+  {
+    href: "https://www.upwork.com/resources/will-ai-replace-graphic-designers",
+    tag: "Mercado",
+    tagClass: "bg-[#F6F8FB] text-[#434A57] border border-[#D2D9E4]",
+    date: "2026",
+    reportDate: "24/06/2026",
+    title: "Tier commodity (logo, social, branding básico) já é dominado por IA — valor migra para estratégia",
+    desc: "Levantamento de mercado: o trabalho que antes custava US$200–800 (logos, templates de social, branding básico) está quase todo capturado por Canva e Midjourney. Quem sobrevive vende pensamento estratégico e resultados de negócio documentados, não portfólio de execução.",
+    source: "Upwork — Will AI Replace Graphic Designers",
+  },
+  {
     href: "https://config.figma.com/",
     tag: "Evento",
     tagClass: "bg-[#E9F0FE] text-[#1E40AF] border border-[#CFE0FB]",
@@ -191,7 +231,7 @@ export default function NovidadesSection() {
     <section id="novidades" className="mb-[84px] scroll-mt-[74px]">
       <SectionHeader
         icon="📰"
-        part="Leitura · atualizado 23/06/2026"
+        part="Leitura · atualizado 24/06/2026"
         title="Novidades & Notícias"
         description="IA no design gráfico, branding e ferramentas — para ler e acompanhar"
       />

@@ -89,8 +89,8 @@ export default function Sidebar({ mobileOpen, onClose }: SidebarProps) {
     return () => observerRef.current?.disconnect();
   }, []);
 
-  // Badges: novidades da data mais recente (23/06/2026)
-  const newCounts = getNewCountBySectionForDate("23/06/2026");
+  // Badges: novidades da data mais recente (24/06/2026)
+  const newCounts = getNewCountBySectionForDate("24/06/2026");
 
   return (
     <>
@@ -116,7 +116,7 @@ export default function Sidebar({ mobileOpen, onClose }: SidebarProps) {
           </div>
           <div className="flex items-center gap-2 mt-2.5 flex-wrap">
             <span className="text-[10px] font-bold text-black bg-white px-2.5 py-0.5 rounded-full">
-              Atualizado: 23/06/2026
+              Atualizado: 24/06/2026
             </span>
             {selectedDate && (
               <span className="text-[10px] font-bold text-[#2563EB] bg-[#E9F0FE] border border-[#CFE0FB] px-2 py-0.5 rounded-full flex items-center gap-1">

@@ -5,6 +5,26 @@ import SectionHeader from "./SectionHeader";
 
 const insights = [
   {
+    num: "INSIGHT 07 · NOVO",
+    title: "IA já é base do fluxo — o diferencial é o julgamento",
+    text: "O State of the Designer 2026 da Figma mostra <strong>72% usando IA generativa e 91% dizendo que ela melhora o output</strong>. Mas 67% a veem como complemento e só 18% das empresas cortaram designers por causa dela. A IA virou infraestrutura; <strong>o valor está em curadoria, direção e julgamento</strong> — não em operar a ferramenta.",
+    source: "Figma — State of the Designer 2026",
+    sourceUrl: "https://www.figma.com/newsroom/",
+    updated: "24 Jun 2026",
+    reportDate: "24/06/2026",
+    attention: false,
+  },
+  {
+    num: "⚠ PONTO DE ATENÇÃO 05 · NOVO",
+    title: "O tier commodity já é da IA",
+    text: "Logos, templates de social e branding básico — o trabalho de <strong>US$200–800</strong> — estão quase totalmente capturados por Canva e Midjourney. Competir por execução barata é perder por definição. <strong>Reposicionar para estratégia, narrativa e resultado de negócio</strong> é o que ainda sustenta preço.",
+    source: "Upwork — Will AI Replace Graphic Designers 2026",
+    sourceUrl: "https://www.upwork.com/resources/will-ai-replace-graphic-designers",
+    updated: "24 Jun 2026",
+    reportDate: "24/06/2026",
+    attention: true,
+  },
+  {
     num: "INSIGHT 06 · NOVO",
     title: "Design skill virou a competência #1 em IA",
     text: "Em meados de 2026 a habilidade de design <strong>lidera os anúncios de vaga em IA — à frente de código e cloud</strong>. UX/produto cresce ~16% até 2034 contra 2–3% do design gráfico. A leitura: <strong>IA substitui tarefas, não papéis</strong>; quem dá direção, posicionamento e ponto de vista captura o valor que sobra.",

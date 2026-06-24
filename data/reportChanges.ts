@@ -16,9 +16,51 @@ export type ReportChange = {
 
 export const reportChanges: ReportChange[] = [
   {
+    date: "24/06/2026",
+    label: "24 Jun 2026",
+    isLatest: true,
+    summary: "State of the Designer 2026 (Figma): 91% dizem que IA melhora o output · Midjourney V8.1 vira padrão + Draft mode · tier commodity dominado por IA · RGD pede IA responsável",
+    changes: [
+      {
+        id: "novidades",
+        label: "Novidades & Notícias",
+        icon: "📰",
+        newCount: 4,
+        highlights: [
+          "Figma State of the Designer 2026: 91% aprovam IA",
+          "Midjourney V8.1 padrão + Draft mode (24 imgs)",
+          "RGD: diretrizes de IA responsável para 2026",
+          "Tier commodity de design dominado por IA",
+        ],
+      },
+      {
+        id: "forum",
+        label: "Em Alta nos Fóruns",
+        icon: "🔥",
+        newCount: 4,
+        highlights: [
+          "Debate sobre o State of the Designer 2026",
+          "Midjourney V8.1 + Draft mode na prática",
+          "'Trabalho humano vira o novo premium'",
+          "RGD e o uso responsável de IA",
+        ],
+      },
+      {
+        id: "insights",
+        label: "Insights & Atenção",
+        icon: "💡",
+        newCount: 2,
+        highlights: [
+          "IA é base do fluxo — diferencial é o julgamento",
+          "Tier commodity já é da IA: reposicionar urge",
+        ],
+      },
+    ],
+  },
+  {
     date: "23/06/2026",
     label: "23 Jun 2026",
-    isLatest: true,
+    isLatest: false,
     summary: "Config 2026 abre hoje · Canva + Gemini ubíquo · alarme sobre IA-graphics · design skill #1 em vagas de IA",
     changes: [
       {

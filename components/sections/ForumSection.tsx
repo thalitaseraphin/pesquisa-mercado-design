@@ -5,51 +5,51 @@ import SectionHeader from "./SectionHeader";
 
 const hotCards = [
   {
-    href: "https://config.figma.com/",
-    src: "Figma Config",
-    heat: "🗓️ Abre hoje",
-    updated: "23 Jun 2026",
-    reportDate: "23/06/2026",
-    title: "Config 2026 dia 1: o que a comunidade espera do keynote",
-    text: 'A conferência abre hoje em SF com o keynote do Dylan Field amanhã. Comunidade aposta em <strong>design agent com web search</strong> e nova fase do Figma Make. Designers planejam recalibrar workflow conforme os anúncios.',
-    go: "Ver agenda do Config 2026",
+    href: "https://www.figma.com/newsroom/",
+    src: "Figma",
+    heat: "📊 Relatório",
+    updated: "24 Jun 2026",
+    reportDate: "24/06/2026",
+    title: "State of the Designer 2026: 91% dizem que IA melhora o output — mas cresce o medo de virar 'operador'",
+    text: 'Os números (72% usando IA, 91% aprovando) reacenderam o debate: se todo mundo usa as mesmas ferramentas, <strong>o diferencial passa a ser gosto, julgamento e direção</strong>. A comunidade discute como provar isso num portfólio.',
+    go: "Ver o relatório",
   },
   {
-    href: "https://www.fastcompany.com/91545081/canva-gemini-integration",
-    src: "Fast Company",
-    heat: "💬 Muito comentado",
-    updated: "23 Jun 2026",
-    reportDate: "23/06/2026",
-    title: "Canva ubíquo via Gemini: o que ainda vale a expertise profissional?",
-    text: 'Com a Canva dentro de <strong>Claude, ChatGPT, Copilot e Gemini</strong>, fazer "design decente" sem treino virou trivial. O debate na comunidade: o valor migra para julgamento, estratégia e trabalho que conecta — não para apertar prompt.',
+    href: "https://releasebot.io/updates/midjourney",
+    src: "Midjourney",
+    heat: "🚀 Lançamento",
+    updated: "24 Jun 2026",
+    reportDate: "24/06/2026",
+    title: "V8.1 vira padrão e Draft mode acelera a iteração — 24 imagens por geração",
+    text: 'Designers testam o novo fluxo: gerar dezenas de rascunhos em baixa resolução e só renderizar em HD o que prestar. O debate: <strong>a velocidade de exploração dispara, mas a curadoria vira o gargalo</strong> — e o trabalho de verdade.',
+    go: "Ver as release notes",
+  },
+  {
+    href: "https://www.upwork.com/resources/will-ai-replace-graphic-designers",
+    src: "r/graphic_design",
+    heat: "🔥 Polêmico",
+    updated: "24 Jun 2026",
+    reportDate: "24/06/2026",
+    title: 'Tier commodity dominado por IA: "trabalho humano vira o novo premium"',
+    text: 'Com logo e social básico capturados por Canva/Midjourney, parte da comunidade aposta que o <strong>excesso de "genérico de IA" vai tornar o feito à mão desejável</strong> — como aconteceu com banco de imagens. Outros respondem: adapte-se ou saia.',
     go: "Ler o debate",
   },
   {
-    href: "https://www.clevermarketing.co.uk/graphic-design-news-june-2026/",
-    src: "Clever Marketing",
-    heat: "🔥 Polêmico",
-    updated: "23 Jun 2026",
-    reportDate: "23/06/2026",
-    title: 'Designers reagem a IA-graphics: quando "good enough" vira o brief',
-    text: 'Empresas trocam trabalho encomendado por gráficos de IA em material promocional. A reação é sobre <strong>qualidade, consistência de marca e corrida para o fundo</strong> — não só emprego. Ponto de vista e acúmulo de marca viram a defesa.',
-    go: "Ler a análise do mês",
-  },
-  {
-    href: "https://www.clevermarketing.co.uk/graphic-design-news-june-2026/",
-    src: "TwistedSifter",
-    heat: "📈 Viralizou",
-    updated: "23 Jun 2026",
-    reportDate: "23/06/2026",
-    title: "Estudantes fazem protesto silencioso contra IA obrigatória no curso",
-    text: 'Forçados pelo professor a usar IA em tudo, alunos coordenaram entregar o output <strong>mais "cara de IA" possível</strong> — demonstrando exatamente o que se perde. Reacendeu o debate sobre o que a educação em design deveria ensinar.',
-    go: "Ver o caso",
+    href: "https://rgd.ca/articles/2026-amplifying-creativity-with-ai-tools-for-designers-in-2026",
+    src: "RGD",
+    heat: "⚖️ Ético",
+    updated: "24 Jun 2026",
+    reportDate: "24/06/2026",
+    title: "IA responsável: associação publica diretrizes para usar sem terceirizar o julgamento",
+    text: 'A RGD (Canadá) defende transparência com o cliente, responsabilidade sobre direitos e <strong>curadoria humana obrigatória</strong>. O recado: a ferramenta amplia a criatividade, mas o critério profissional não se delega.',
+    go: "Ler as diretrizes",
   },
   {
     href: "https://www.meioemensagem.com.br/cannes/como-a-ia-esta-inserida-nas-categorias-e-checagem-dos-cases",
     src: "Meio & Mensagem",
     heat: "🏆 Cannes 2026",
     updated: "19 Jun 2026",
-    reportDate: "23/06/2026",
+    reportDate: "24/06/2026",
     title: 'Cannes Lions institucionaliza IA: "AI Craft" entra em 5 categorias, incluindo Design',
     text: 'Festival cria subcategoria focada no <strong>"sweet spot onde criatividade humana e IA geram algo que nenhum poderia criar sozinho"</strong>. Design, Film Craft, Digital Craft e Creative Data estão dentro. A IA saiu do tema e virou critério formal de julgamento.',
     go: "Ver as mudanças nas categorias",
@@ -59,7 +59,7 @@ const hotCards = [
     src: "Meio & Mensagem",
     heat: "💬 Debate SXSW",
     updated: "12 Mar 2026",
-    reportDate: "23/06/2026",
+    reportDate: "24/06/2026",
     title: '"Em terra de IA, quem é craft é rei" — o argumento do estúdio brasileiro no SXSW',
     text: 'Van Queiroz (Colletivo) defende que <strong>sem suar, errar e estressar linguagem não há entrega genuína</strong>. A "ginga" brasileira não é replicável por ferramenta. Ressalva: IA beneficia pequenos negócios sem recursos — o problema é a adoção desnecessária por quem tem.',
     go: "Ler o argumento completo",
@@ -69,7 +69,7 @@ const hotCards = [
     src: "B9",
     heat: "🤖 Plataformas",
     updated: "16 Abr 2026",
-    reportDate: "23/06/2026",
+    reportDate: "24/06/2026",
     title: "Canva IA 2.0: de briefing a campanha completa com um comando",
     text: 'Sistema agêntico com 4 camadas — design conversacional, orquestração autônoma, memória ativa e edição por objeto. <strong>Brasil é o maior mercado global</strong>: 1,5 bilhão de designs em 12 meses, 1 em cada 9 internautas usando. Adobe simplifica o complexo; Canva sofistica o acessível — ambas disputam o mesmo workflow.',
     go: "Ler a análise no B9",
@@ -79,7 +79,7 @@ const hotCards = [
     src: "B9 · Braincast",
     heat: "💼 Mercado",
     updated: "12 Abr 2026",
-    reportDate: "23/06/2026",
+    reportDate: "24/06/2026",
     title: '"O que é ser uma agência de publicidade em 2026?" — Braincast #628',
     text: 'IA virou infraestrutura (não diferencial), clientes estão internalizando entregas, consultorias avançando sobre território das agências. <strong>O formato "agência" pode não ser mais a categoria óbvia</strong> — o mercado está se reorganizando em torno de algo diferente.',
     go: "Ouvir o Braincast",
@@ -100,6 +100,17 @@ const trends = [
 ];
 
 const history = [
+  {
+    date: "23 Jun 2026",
+    reportDate: "23/06/2026",
+    snapshot: [
+      { src: "Figma Config", heat: "🗓️ Abre hoje", title: "Config 2026 dia 1: o que a comunidade espera do keynote" },
+      { src: "Fast Company", heat: "💬 Muito comentado", title: "Canva ubíquo via Gemini: o que ainda vale a expertise profissional?" },
+      { src: "Clever Marketing", heat: "🔥 Polêmico", title: 'Designers reagem a IA-graphics: quando "good enough" vira o brief' },
+      { src: "TwistedSifter", heat: "📈 Viralizou", title: "Estudantes protestam contra IA obrigatória no curso" },
+    ],
+    trends: ['Identidades "vivas" / motion-first', "Direção de motion no design tool", "Design como conhecimento executável", "Maximalismo anti-IA"],
+  },
   {
     date: "22 Jun 2026",
     reportDate: "22/06/2026",
@@ -149,18 +160,18 @@ const history = [
 export default function ForumSection() {
   const { selectedDate, setSelectedDate } = useReportDate();
 
-  const showCurrent = !selectedDate || selectedDate === "23/06/2026";
+  const showCurrent = !selectedDate || selectedDate === "24/06/2026";
   const filteredHistory = selectedDate
     ? history.filter((h) => h.reportDate === selectedDate)
     : history;
 
-  const isHistoryOnlyView = !!selectedDate && selectedDate !== "23/06/2026";
+  const isHistoryOnlyView = !!selectedDate && selectedDate !== "24/06/2026";
 
   return (
     <section id="forum" className="mb-[84px] scroll-mt-[74px]">
       <SectionHeader
         icon="🔥"
-        part="Comunidades · atualizado 23/06/2026"
+        part="Comunidades · atualizado 24/06/2026"
         title="Em Alta nos Fóruns & Tendências"
         description="O que está bombando nas comunidades de design (Reddit, Adobe, Figma, B9, Meio &amp; Mensagem, TecMundo) e as tendências do mercado"
       />
@@ -252,7 +263,7 @@ export default function ForumSection() {
           </div>
 
           <div className="bg-white border border-[#E2E7EF] rounded-xl p-[22px] mb-3.5">
-            <h3 className="text-[13px] font-bold text-[#434A57] uppercase tracking-[0.5px] mb-3.5">Tendências de mercado em alta · 23/06/2026</h3>
+            <h3 className="text-[13px] font-bold text-[#434A57] uppercase tracking-[0.5px] mb-3.5">Tendências de mercado em alta · 24/06/2026</h3>
             <div className="flex flex-wrap gap-2.5">
               {trends.map((t) => (
                 <span key={t.label} className={`text-[12.5px] font-semibold px-3.5 py-1.5 border rounded-[24px] ${t.solid ? "bg-[#2563EB] text-white border-[#2563EB]" : "bg-[#F6F8FB] text-[#434A57] border-[#D2D9E4]"}`}>{t.label}</span>

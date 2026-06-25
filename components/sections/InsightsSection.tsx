@@ -5,6 +5,36 @@ import SectionHeader from "./SectionHeader";
 
 const insights = [
   {
+    num: "INSIGHT 10 · NOVO",
+    title: "Código virou material de design — a fronteira se dissolve",
+    text: "No Config 2026, a Figma transformou qualquer camada em <strong>Code Layer</strong> editável (React + npm) direto no canvas. A leitura: <strong>design e engenharia passam a morar no mesmo arquivo</strong>. Quem entende sistema, componente e um pouco de código deixa de 'entregar tela' e passa a entregar produto — e captura a margem que o handoff antigo dissipava.",
+    source: "The Next Web — Figma Config 2026",
+    sourceUrl: "https://thenextweb.com/news/figma-config-code-layers-ai-skills-plugins-animations",
+    updated: "25 Jun 2026",
+    reportDate: "25/06/2026",
+    attention: false,
+  },
+  {
+    num: "INSIGHT 09 · NOVO",
+    title: "Motion deixou de ser especialidade à parte",
+    text: "Com o <strong>Figma Motion nativo</strong> (timeline, keyframes e export em CSS/React/MP4/SVG), animação entra no fluxo padrão de design — sem ferramenta separada. <strong>Identidade estática vira mínimo viável</strong>; o entregável esperado já inclui movimento. Quem só faz arte parada terá que reaprender o brief.",
+    source: "CMSWire — Figma Motion no Config 2026",
+    sourceUrl: "https://www.cmswire.com/digital-experience/figma-launches-code-layers-motion-at-config-2026/",
+    updated: "25 Jun 2026",
+    reportDate: "25/06/2026",
+    attention: false,
+  },
+  {
+    num: "⚠ PONTO DE ATENÇÃO 06 · NOVO",
+    title: "O freelance se partiu em dois — escolha o lado certo",
+    text: "Dados do Upwork (In-Demand Skills 2026): demanda por skills de IA <strong>+109% a/a</strong>, design básico encolhendo ~28% como categoria, e <strong>especialistas em IA cobrando 25–60% acima</strong> dos generalistas. Ficar no meio — execução genérica sem IA — é a posição que mais perde preço. A defesa é especializar: design + IA + resultado documentado.",
+    source: "Upwork — In-Demand Skills 2026",
+    sourceUrl: "https://investors.upwork.com/news-releases/news-release-details/upworks-demand-skills-2026-demand-top-ai-skills-more-doubles-ai",
+    updated: "25 Jun 2026",
+    reportDate: "25/06/2026",
+    attention: true,
+  },
+  {
     num: "INSIGHT 08 · NOVO",
     title: `Branding agora inclui ser "visível" para a IA`,
     text: "Com o <strong>Adobe Brand Visibility</strong> e o Firefly virando hub de 25+ modelos, a disputa de marca migra para <strong>como ela aparece em respostas de IA</strong>. Posicionamento, dados estruturados e consistência viram ativo de descoberta — marca que a IA não 'enxerga' perde recomendação antes mesmo de chegar ao consumidor.",

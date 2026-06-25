@@ -42,3 +42,8 @@ next-env.d.ts
 
 # Claude Code local agent state
 .claude/
+
+# logs do auto-push (launchd)
+scripts/*.log
+scripts/*.out.log
+scripts/*.err.log

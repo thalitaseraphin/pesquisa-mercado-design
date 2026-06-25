@@ -16,9 +16,53 @@ export type ReportChange = {
 
 export const reportChanges: ReportChange[] = [
   {
+    date: "25/06/2026",
+    label: "25 Jun 2026",
+    isLatest: true,
+    summary: "Figma Config 2026 encerra: Code Layers, Motion nativo e Weave entram no canvas · shaders GPU nos planos pagos · plugins de IA por prompt · freelance se bifurca (commodity −28%, especialista em IA +25–60%)",
+    changes: [
+      {
+        id: "novidades",
+        label: "Novidades & Notícias",
+        icon: "📰",
+        newCount: 5,
+        highlights: [
+          "Config 2026: Code Layers, Motion, Weave e shaders",
+          "Figma Motion nativo: timeline, keyframes e export",
+          "Code Layers — 'código é material de design'",
+          "Shaders GPU chegam aos planos pagos",
+          "Freelance se bifurca: commodity cai, IA paga +25–60%",
+        ],
+      },
+      {
+        id: "forum",
+        label: "Em Alta nos Fóruns",
+        icon: "🔥",
+        newCount: 4,
+        highlights: [
+          "Recap do Config 2026: o que muda no dia a dia",
+          "Code Layers desafia Cursor no fluxo design→código",
+          "Motion nativo: fim do motion como skill à parte?",
+          "Upwork: skills de IA dobram de demanda (+109%)",
+        ],
+      },
+      {
+        id: "insights",
+        label: "Insights & Atenção",
+        icon: "💡",
+        newCount: 3,
+        highlights: [
+          "Código vira material de design — fronteira se dissolve",
+          "Motion nativo no Figma redesenha a entrega",
+          "Bifurcação do freelance: especialista em IA premiado",
+        ],
+      },
+    ],
+  },
+  {
     date: "24/06/2026",
     label: "24 Jun 2026",
-    isLatest: true,
+    isLatest: false,
     summary: "State of the Designer 2026 (Figma): 91% dizem que IA melhora o output · Midjourney V8.1 vira padrão + Draft mode · tier commodity dominado por IA · RGD pede IA responsável",
     changes: [
       {

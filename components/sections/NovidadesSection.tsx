@@ -5,6 +5,56 @@ import SectionHeader from "./SectionHeader";
 
 const news = [
   {
+    href: "https://www.figma.com/blog/config-2026-recap/",
+    tag: "Evento",
+    tagClass: "bg-[#E9F0FE] text-[#1E40AF] border border-[#CFE0FB]",
+    date: "25 Jun 2026",
+    reportDate: "25/06/2026",
+    title: "Figma Config 2026 encerra: Code Layers, Motion, Weave e shaders chegam ao canvas",
+    desc: "Recap do Config (23–25/06): a Figma transforma o canvas num ambiente expressivo — <strong>Code Layers</strong> (código como material de design), <strong>Figma Motion</strong> nativo, ferramentas <strong>Weave</strong> de IA generativa (imagem/vídeo/motion), shaders GPU customizados, plugins generativos e um agente atualizado. Dylan Field: 'a IA baixou o piso, mas os designers elevam o teto'.",
+    source: "Figma Blog — Config 2026 Recap",
+  },
+  {
+    href: "https://www.cmswire.com/digital-experience/figma-launches-code-layers-motion-at-config-2026/",
+    tag: "Ferramenta",
+    tagClass: "bg-[#2563EB] text-white",
+    date: "25 Jun 2026",
+    reportDate: "25/06/2026",
+    title: "Figma Motion: timeline com keyframes e export em CSS, React, MP4, WebM e SVG animado",
+    desc: "Disponível agora em open beta em todos os planos, o <strong>Figma Motion</strong> traz timeline com keyframes e presets, e exporta para CSS, JSON, React, MP4, WebM, SVG animado e GIF. Animação deixa de exigir ferramenta à parte e passa a viver dentro do arquivo de design — motion vira parte nativa do fluxo.",
+    source: "CMSWire — Figma launches Code Layers & Motion",
+  },
+  {
+    href: "https://thenextweb.com/news/figma-config-code-layers-ai-skills-plugins-animations",
+    tag: "Ferramenta",
+    tagClass: "bg-[#2563EB] text-white",
+    date: "25 Jun 2026",
+    reportDate: "25/06/2026",
+    title: "'Código é material de design': Code Layers e plugins de IA por prompt no Config",
+    desc: "Qualquer camada vira uma <strong>camada de código interativa</strong> com um clique ou prompt — clonar repositório no canvas, converter componentes em código editável (React + npm, incluindo bibliotecas de motion e 3D) e ajustar via chat de IA. Acesso antecipado começa em julho. Usuários também criam <strong>plugins generativos por descrição</strong>, sem setup de dev.",
+    source: "The Next Web — Figma Config 2026",
+  },
+  {
+    href: "https://www.techtimes.com/articles/319041/20260625/figma-config-2026-code-layers-challenge-cursor-gpu-shaders-hit-paid-plans.htm",
+    tag: "Ferramenta",
+    tagClass: "bg-[#2563EB] text-white",
+    date: "25 Jun 2026",
+    reportDate: "25/06/2026",
+    title: "Shaders GPU (WebGPU) entram nos planos pagos e Code Layers mira o território do Cursor",
+    desc: "Os <strong>shader fills e effects via WebGPU</strong> — antes experimentais — passam a integrar os planos pagos, trazendo efeitos visuais avançados ao canvas. E o Code Layers posiciona a Figma diretamente contra editores como o Cursor no fluxo design→código, sinalizando a aposta de 'design e engenharia no mesmo arquivo'.",
+    source: "Tech Times — Config 2026: shaders & Code Layers",
+  },
+  {
+    href: "https://investors.upwork.com/news-releases/news-release-details/upworks-demand-skills-2026-demand-top-ai-skills-more-doubles-ai",
+    tag: "Mercado",
+    tagClass: "bg-[#F6F8FB] text-[#434A57] border border-[#D2D9E4]",
+    date: "2026",
+    reportDate: "25/06/2026",
+    title: "Upwork In-Demand Skills 2026: demanda por skills de IA cresce +109% e o freelance se bifurca",
+    desc: "A demanda por habilidades de IA <strong>mais que dobrou (+109% a/a)</strong> no Upwork. O design básico encolheu ~28% como categoria, enquanto freelancers <strong>especializados em IA cobram 25–60% acima</strong> dos generalistas no mesmo campo. O mercado se parte em dois: execução comoditizada de um lado, prêmio para quem combina design + IA do outro.",
+    source: "Upwork — In-Demand Skills 2026",
+  },
+  {
     href: "https://releasebot.io/updates/adobe/firefly",
     tag: "Ferramenta",
     tagClass: "bg-[#2563EB] text-white",
@@ -261,7 +311,7 @@ export default function NovidadesSection() {
     <section id="novidades" className="mb-[84px] scroll-mt-[74px]">
       <SectionHeader
         icon="📰"
-        part="Leitura · atualizado 24/06/2026"
+        part="Leitura · atualizado 25/06/2026"
         title="Novidades & Notícias"
         description="IA no design gráfico, branding e ferramentas — para ler e acompanhar"
       />

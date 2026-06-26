@@ -5,44 +5,44 @@ import SectionHeader from "./SectionHeader";
 
 const hotCards = [
   {
-    href: "https://www.figma.com/blog/config-2026-recap/",
-    src: "Figma Config",
-    heat: "🗓️ Recap",
-    updated: "25 Jun 2026",
-    reportDate: "25/06/2026",
-    title: "Config 2026 encerra: Code Layers, Motion e Weave dominam a conversa da comunidade",
-    text: 'O canvas ficou mais expressivo — <strong>código, motion, shaders GPU e IA generativa no mesmo arquivo</strong>. A comunidade digere o que isso muda no dia a dia: o handoff design→dev encolhe e a pergunta vira "até onde o designer precisa ir no código?".',
-    go: "Ver o recap",
+    href: "https://stratechery.com/2026/an-interview-with-figma-ceo-dylan-field-about-design-and-ai/",
+    src: "Stratechery / HN",
+    heat: "💬 Debate",
+    updated: "26 Jun 2026",
+    reportDate: "26/06/2026",
+    title: `"AI loser"? Comunidade debate a tese de Dylan Field: IA é tailwind, não headwind`,
+    text: 'A entrevista do CEO da Figma reacendeu a discussão sobre o futuro das ferramentas de design na era da IA. Field defende o canvas como <strong>interseção natural entre design e IA</strong>; críticos apontam a queda de market cap. O fio condutor do debate: quem organiza intenção visual ganha ou perde quando gerar fica trivial?',
+    go: "Ler a entrevista",
   },
   {
-    href: "https://thenextweb.com/news/figma-config-code-layers-ai-skills-plugins-animations",
-    src: "DEV / Hacker News",
+    href: "https://freshlybrewed.co/insights-news/brand-identity-in-2026-what-ai-cant-copy/",
+    src: "r/graphic_design",
     heat: "🔥 Polêmico",
-    updated: "25 Jun 2026",
-    reportDate: "25/06/2026",
-    title: "Code Layers desafia o Cursor: 'a Figma quer ser também o editor de código'",
-    text: 'Converter camada em código React editável no canvas reacendeu o debate <strong>design vs. engenharia</strong>. Uns veem o fim do handoff; outros temem designers obrigados a virar meio-devs. Acesso antecipado em julho — todos querem testar antes de opinar.',
-    go: "Ler o debate",
+    updated: "26 Jun 2026",
+    reportDate: "26/06/2026",
+    title: "Branding: o que a IA não copia? Convicção vs. logo gerado por prompt",
+    text: 'O artigo virou pauta nas comunidades de branding: a IA comoditizou logo, paleta e sistema visual, mas <strong>não a convicção, a disciplina e o julgamento</strong>. O debate gira em torno de como provar esse valor a clientes que já geram "algo" sozinhos.',
+    go: "Ver o debate",
   },
   {
-    href: "https://www.cmswire.com/digital-experience/figma-launches-code-layers-motion-at-config-2026/",
-    src: "r/motiondesign",
-    heat: "🚀 Lançamento",
-    updated: "25 Jun 2026",
-    reportDate: "25/06/2026",
-    title: "Motion nativo no Figma: 'fim do motion como especialidade à parte?'",
-    text: 'Com timeline, keyframes e export em CSS/React/MP4, o <strong>Figma Motion</strong> trouxe animação para dentro do fluxo padrão. Motion designers discutem se isso democratiza ou desvaloriza a especialidade — e como reposicionar para a camada de direção e narrativa.',
-    go: "Ver o lançamento",
+    href: "https://elements.envato.com/learn/logo-and-branding-trends",
+    src: "Creative community",
+    heat: "📈 Tendência",
+    updated: "26 Jun 2026",
+    reportDate: "26/06/2026",
+    title: "Logos kinéticos e identidade adaptativa viram expectativa — não diferencial",
+    text: 'A "morte do skin-deep" dominou as discussões: identidade <strong>estática e superficial sai de cena; sistemas que se movem e se ajustam por contexto entram</strong>. Designers trocam dicas de como entregar regras de marca vivas em vez de um arquivo final.',
+    go: "Ver as tendências",
   },
   {
-    href: "https://investors.upwork.com/news-releases/news-release-details/upworks-demand-skills-2026-demand-top-ai-skills-more-doubles-ai",
-    src: "Upwork / LinkedIn",
-    heat: "📊 Mercado",
-    updated: "25 Jun 2026",
-    reportDate: "25/06/2026",
-    title: "Skills de IA dobram de demanda (+109%) — e o design básico encolhe 28%",
-    text: 'O relatório do Upwork virou pauta: <strong>especialistas em IA cobram 25–60% acima dos generalistas</strong>, enquanto a execução comoditizada despenca. A leitura da comunidade: especializar (design + IA + resultado) deixou de ser opcional.',
-    go: "Ver os dados",
+    href: "https://medium.com/@sovannaro/10-best-ai-logo-generators-for-professional-brand-design-in-2026-4361243de404",
+    src: "LinkedIn / Medium",
+    heat: "🤖 Ferramentas",
+    updated: "26 Jun 2026",
+    reportDate: "26/06/2026",
+    title: "Ranking de geradores de logo por IA divide opiniões sobre o tier de entrada",
+    text: 'Listas de Looka, Brandmark & cia. reacenderam a discussão: ferramentas que tornam <strong>branding básico acessível a qualquer um</strong> ameaçam o trabalho de entrada — e empurram profissionais para estratégia, sistema e narrativa.',
+    go: "Ver o ranking",
   },
   {
     href: "https://www.meioemensagem.com.br/cannes/como-a-ia-esta-inserida-nas-categorias-e-checagem-dos-cases",
@@ -100,6 +100,17 @@ const trends = [
 ];
 
 const history = [
+  {
+    date: "25 Jun 2026",
+    reportDate: "25/06/2026",
+    snapshot: [
+      { src: "Figma Config", heat: "🗓️ Recap", title: "Config 2026 encerra: Code Layers, Motion e Weave entram no canvas" },
+      { src: "DEV / HN", heat: "🔥 Polêmico", title: "Code Layers desafia o Cursor — design vs. engenharia no mesmo arquivo" },
+      { src: "r/motiondesign", heat: "🚀 Lançamento", title: "Motion nativo no Figma: fim do motion como especialidade à parte?" },
+      { src: "Upwork", heat: "📊 Mercado", title: "Skills de IA dobram de demanda (+109%) e design básico encolhe 28%" },
+    ],
+    trends: ['Identidades "vivas" / motion-first', "Código como material de design", "Motion nativo no design tool", "Especialização design + IA"],
+  },
   {
     date: "24 Jun 2026",
     reportDate: "24/06/2026",
@@ -171,18 +182,18 @@ const history = [
 export default function ForumSection() {
   const { selectedDate, setSelectedDate } = useReportDate();
 
-  const showCurrent = !selectedDate || selectedDate === "25/06/2026";
+  const showCurrent = !selectedDate || selectedDate === "26/06/2026";
   const filteredHistory = selectedDate
     ? history.filter((h) => h.reportDate === selectedDate)
     : history;
 
-  const isHistoryOnlyView = !!selectedDate && selectedDate !== "25/06/2026";
+  const isHistoryOnlyView = !!selectedDate && selectedDate !== "26/06/2026";
 
   return (
     <section id="forum" className="mb-[84px] scroll-mt-[74px]">
       <SectionHeader
         icon="🔥"
-        part="Comunidades · atualizado 25/06/2026"
+        part="Comunidades · atualizado 26/06/2026"
         title="Em Alta nos Fóruns & Tendências"
         description="O que está bombando nas comunidades de design (Reddit, Adobe, Figma, B9, Meio &amp; Mensagem, TecMundo) e as tendências do mercado"
       />
@@ -274,7 +285,7 @@ export default function ForumSection() {
           </div>
 
           <div className="bg-white border border-[#E2E7EF] rounded-xl p-[22px] mb-3.5">
-            <h3 className="text-[13px] font-bold text-[#434A57] uppercase tracking-[0.5px] mb-3.5">Tendências de mercado em alta · 25/06/2026</h3>
+            <h3 className="text-[13px] font-bold text-[#434A57] uppercase tracking-[0.5px] mb-3.5">Tendências de mercado em alta · 26/06/2026</h3>
             <div className="flex flex-wrap gap-2.5">
               {trends.map((t) => (
                 <span key={t.label} className={`text-[12.5px] font-semibold px-3.5 py-1.5 border rounded-[24px] ${t.solid ? "bg-[#2563EB] text-white border-[#2563EB]" : "bg-[#F6F8FB] text-[#434A57] border-[#D2D9E4]"}`}>{t.label}</span>

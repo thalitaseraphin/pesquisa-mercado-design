@@ -5,6 +5,46 @@ import SectionHeader from "./SectionHeader";
 
 const news = [
   {
+    href: "https://stratechery.com/2026/an-interview-with-figma-ceo-dylan-field-about-design-and-ai/",
+    tag: "Mercado",
+    tagClass: "bg-[#F6F8FB] text-[#434A57] border border-[#D2D9E4]",
+    date: "26 Jun 2026",
+    reportDate: "26/06/2026",
+    title: `Dylan Field rebate o rótulo de "AI loser": para o CEO da Figma, IA é tailwind, não headwind`,
+    desc: "Em entrevista pós-Config, o fundador da Figma argumenta que o canvas é a <strong>interseção natural entre design e IA</strong> — e que a narrativa de mercado que tratou a empresa como perdedora da onda de IA erra o alvo. A leitura: a ferramenta que organiza intenção visual vira ainda mais central quando a geração fica barata.",
+    source: "Stratechery — Interview with Dylan Field",
+  },
+  {
+    href: "https://freshlybrewed.co/insights-news/brand-identity-in-2026-what-ai-cant-copy/",
+    tag: "Branding",
+    tagClass: "bg-[#E9F0FE] text-[#1E40AF] border border-[#CFE0FB]",
+    date: "Jun 2026",
+    reportDate: "26/06/2026",
+    title: "Branding 2026: a IA comoditizou logo, paleta e sistema visual — mas não a convicção",
+    desc: "A análise resume o que ainda não foi automatizado: <strong>convicção sobre o que a marca representa, disciplina sobre o que ela não é e julgamento para fazer ambos chegarem ao comprador</strong>. Ferramentas geram artefato; o diferencial humano é o ponto de vista que dá sentido a ele.",
+    source: "Freshly Brewed — What AI Can't Copy",
+  },
+  {
+    href: "https://elements.envato.com/learn/logo-and-branding-trends",
+    tag: "Brand Identity",
+    tagClass: "bg-[#E9F0FE] text-[#1E40AF] border border-[#CFE0FB]",
+    date: "2026",
+    reportDate: "26/06/2026",
+    title: `Tendências de logo 2026: logos kinéticos, "childlike anarchy" e a morte do skin-deep`,
+    desc: "O recado do levantamento de branding é que a identidade <strong>estática e superficial perde espaço para sistemas kinéticos, adaptativos e com personalidade</strong>. Logo deixa de ser um arquivo final e passa a ser um sistema que se move e se ajusta por contexto.",
+    source: "Envato Elements — Logo & Branding Trends 2026",
+  },
+  {
+    href: "https://medium.com/@sovannaro/10-best-ai-logo-generators-for-professional-brand-design-in-2026-4361243de404",
+    tag: "Ferramenta",
+    tagClass: "bg-[#2563EB] text-white",
+    date: "Jun 2026",
+    reportDate: "26/06/2026",
+    title: "Geradores de logo por IA (Looka, Brandmark) miram o tier de entrada do branding",
+    desc: "O ranking mostra ferramentas de machine learning entregando conceitos que rivalizam com a execução manual e tornam <strong>branding básico acessível a qualquer um</strong>. Para o profissional, o sinal é claro: o valor sai da entrega do logo e migra para estratégia, narrativa e sistema de marca.",
+    source: "Medium — 10 Best AI Logo Generators 2026",
+  },
+  {
     href: "https://www.figma.com/blog/config-2026-recap/",
     tag: "Evento",
     tagClass: "bg-[#E9F0FE] text-[#1E40AF] border border-[#CFE0FB]",
@@ -311,7 +351,7 @@ export default function NovidadesSection() {
     <section id="novidades" className="mb-[84px] scroll-mt-[74px]">
       <SectionHeader
         icon="📰"
-        part="Leitura · atualizado 25/06/2026"
+        part="Leitura · atualizado 26/06/2026"
         title="Novidades & Notícias"
         description="IA no design gráfico, branding e ferramentas — para ler e acompanhar"
       />

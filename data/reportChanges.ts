@@ -16,9 +16,52 @@ export type ReportChange = {
 
 export const reportChanges: ReportChange[] = [
   {
+    date: "26/06/2026",
+    label: "26 Jun 2026",
+    isLatest: true,
+    summary: "Pós-Config, o foco vira branding na era da IA: convicção e julgamento como o que a IA não copia · logos kinéticos e identidades adaptativas viram expectativa · geradores de logo por IA capturam o tier de entrada · Dylan Field (Figma): 'IA é tailwind, não headwind'",
+    changes: [
+      {
+        id: "novidades",
+        label: "Novidades & Notícias",
+        icon: "📰",
+        newCount: 4,
+        highlights: [
+          "Dylan Field (Figma): 'IA é tailwind, não headwind'",
+          "Branding 2026: o que a IA não consegue copiar",
+          "Logos kinéticos e a 'morte do skin-deep'",
+          "Geradores de logo por IA miram o tier de entrada",
+        ],
+      },
+      {
+        id: "forum",
+        label: "Em Alta nos Fóruns",
+        icon: "🔥",
+        newCount: 4,
+        highlights: [
+          "Comunidade debate o rótulo 'AI loser' da Figma",
+          "Branding: convicção vs. logo gerado por IA",
+          "Identidade adaptativa e motion-first como expectativa",
+          "Ranking de geradores de logo por IA divide opiniões",
+        ],
+      },
+      {
+        id: "insights",
+        label: "Insights & Atenção",
+        icon: "💡",
+        newCount: 3,
+        highlights: [
+          "A IA comoditizou o logo, não a convicção",
+          "Branding 2026 é motion-first e adaptativo",
+          "Tier de entrada do branding capturado por IA",
+        ],
+      },
+    ],
+  },
+  {
     date: "25/06/2026",
     label: "25 Jun 2026",
-    isLatest: true,
+    isLatest: false,
     summary: "Figma Config 2026 encerra: Code Layers, Motion nativo e Weave entram no canvas · shaders GPU nos planos pagos · plugins de IA por prompt · freelance se bifurca (commodity −28%, especialista em IA +25–60%)",
     changes: [
       {

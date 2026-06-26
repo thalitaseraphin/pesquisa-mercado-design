@@ -5,6 +5,36 @@ import SectionHeader from "./SectionHeader";
 
 const insights = [
   {
+    num: "INSIGHT 11 · NOVO",
+    title: "A IA comoditizou o logo — não a convicção",
+    text: "Com geradores de logo por IA (Looka, Brandmark) entregando o tier de entrada, o artefato virou barato. Mas <strong>convicção sobre o que a marca é, disciplina sobre o que ela não é e julgamento para vender ambos</strong> seguem humanos. O entregável que paga deixou de ser o arquivo e passou a ser o ponto de vista.",
+    source: "Freshly Brewed — Brand Identity 2026: What AI Can't Copy",
+    sourceUrl: "https://freshlybrewed.co/insights-news/brand-identity-in-2026-what-ai-cant-copy/",
+    updated: "26 Jun 2026",
+    reportDate: "26/06/2026",
+    attention: false,
+  },
+  {
+    num: "INSIGHT 12 · NOVO",
+    title: "Branding 2026 é motion-first e adaptativo",
+    text: "As tendências de identidade convergem para <strong>logos kinéticos, sistemas adaptativos e a 'morte do skin-deep'</strong>. Identidade estática vira mínimo viável; o esperado é um sistema que se move e se ajusta por contexto. Quem vende marca precisa entregar regras vivas — não um arquivo final.",
+    source: "Envato Elements — Logo & Branding Trends 2026",
+    sourceUrl: "https://elements.envato.com/learn/logo-and-branding-trends",
+    updated: "26 Jun 2026",
+    reportDate: "26/06/2026",
+    attention: false,
+  },
+  {
+    num: "⚠ PONTO DE ATENÇÃO 07 · NOVO",
+    title: "O tier de entrada do branding já é da IA",
+    text: "Geradores de logo por IA tornam <strong>branding básico acessível a qualquer um</strong>, comprimindo o trabalho de entrada que sustentava muitos iniciantes. Competir por 'fazer o logo' é perder por definição. A defesa é subir a oferta para <strong>posicionamento, sistema e resultado de negócio</strong> — o que um gerador não entrega.",
+    source: "Medium — 10 Best AI Logo Generators 2026",
+    sourceUrl: "https://medium.com/@sovannaro/10-best-ai-logo-generators-for-professional-brand-design-in-2026-4361243de404",
+    updated: "26 Jun 2026",
+    reportDate: "26/06/2026",
+    attention: true,
+  },
+  {
     num: "INSIGHT 10 · NOVO",
     title: "Código virou material de design — a fronteira se dissolve",
     text: "No Config 2026, a Figma transformou qualquer camada em <strong>Code Layer</strong> editável (React + npm) direto no canvas. A leitura: <strong>design e engenharia passam a morar no mesmo arquivo</strong>. Quem entende sistema, componente e um pouco de código deixa de 'entregar tela' e passa a entregar produto — e captura a margem que o handoff antigo dissipava.",

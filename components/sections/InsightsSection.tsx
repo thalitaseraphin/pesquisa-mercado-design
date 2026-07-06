@@ -5,6 +5,36 @@ import SectionHeader from "./SectionHeader";
 
 const insights = [
   {
+    num: "INSIGHT 13 · NOVO",
+    title: "O craft humano é a nova barreira competitiva",
+    text: "A Canva declara 2026 o ano do <strong>'Imperfect by Design'</strong>: 80% dos criadores querem 'retomar o controle criativo' e elementos feitos à mão geram <strong>67% mais engajamento</strong> que o output puramente de IA. A leitura para quem vende design: imperfeição deliberada, textura e presença humana viram <strong>diferencial vendável</strong> — exatamente o que o prompt não replica.",
+    source: "Canva — Imperfect by Design 2026",
+    sourceUrl: "https://www.canva.com/newsroom/news/design-trends-2026/",
+    updated: "06 Jul 2026",
+    reportDate: "06/07/2026",
+    attention: false,
+  },
+  {
+    num: "INSIGHT 14 · NOVO",
+    title: "A monocultura visual da IA é uma oportunidade",
+    text: "Modelos treinados nos mesmos dados convergem para a mesma estética — o logo 'swirl' que <strong>~62 mil startups reinventaram sozinhas</strong>. Quando tudo parece igual, <strong>ter ponto de vista vira escasso e valioso</strong>. Diferenciar por voz, textura e escolha humana deixa de ser gosto e passa a ser vantagem de mercado mensurável.",
+    source: "Creative Bloq — Tactile Rebellion 2026",
+    sourceUrl: "https://www.creativebloq.com/design/graphic-design/texture-warmth-and-tactile-rebellion-the-big-graphic-design-trends-for-2026",
+    updated: "06 Jul 2026",
+    reportDate: "06/07/2026",
+    attention: false,
+  },
+  {
+    num: "⚠ PONTO DE ATENÇÃO 08 · NOVO",
+    title: "A ferramenta virou commodity — não construa a oferta nela",
+    text: "Com <strong>Google Pics no Workspace</strong>, o Creative Agent da Adobe e o foundation model da Canva, gerar design ficou acessível em todo lugar. Vender 'acesso à ferramenta' ou 'sei usar o app X' perde valor a cada lançamento. A defesa é ancorar a oferta no que a plataforma não entrega: <strong>estratégia, ponto de vista e resultado de negócio</strong>.",
+    source: "The Next Web — Google Pics 2026",
+    sourceUrl: "https://thenextweb.com/news/google-pics-workspace-ai-image-generator-nano-banana-2",
+    updated: "06 Jul 2026",
+    reportDate: "06/07/2026",
+    attention: true,
+  },
+  {
     num: "INSIGHT 11 · NOVO",
     title: "A IA comoditizou o logo — não a convicção",
     text: "Com geradores de logo por IA (Looka, Brandmark) entregando o tier de entrada, o artefato virou barato. Mas <strong>convicção sobre o que a marca é, disciplina sobre o que ela não é e julgamento para vender ambos</strong> seguem humanos. O entregável que paga deixou de ser o arquivo e passou a ser o ponto de vista.",

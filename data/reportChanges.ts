@@ -16,9 +16,53 @@ export type ReportChange = {
 
 export const reportChanges: ReportChange[] = [
   {
+    date: "06/07/2026",
+    label: "06 Jul 2026",
+    isLatest: true,
+    summary: "O pêndulo vira para o lado humano: a Canva declara 2026 o ano do 'Imperfect by Design' · Anti-AI Crafting e serifas 'tortas' viram sinal de autenticidade contra a monocultura visual da IA · Google entra na disputa com o Pics no Workspace (Nano Banana 2) · Adobe expande o Creative Agent por toda a Creative Cloud",
+    changes: [
+      {
+        id: "novidades",
+        label: "Novidades & Notícias",
+        icon: "📰",
+        newCount: 5,
+        highlights: [
+          "Canva: 2026 é o ano do 'Imperfect by Design'",
+          "Monocultura visual da IA: craft humano gera +67% de engajamento",
+          "Google entra na disputa com o Pics no Workspace (Nano Banana 2)",
+          "Adobe expande o Creative Agent por Photoshop, Premiere e Firefly",
+          "State of AI in Design 2026: 91% usam IA toda semana",
+        ],
+      },
+      {
+        id: "forum",
+        label: "Em Alta nos Fóruns",
+        icon: "🔥",
+        newCount: 4,
+        highlights: [
+          "Comunidade abraça a imperfeição ('Imperfect by Design')",
+          "'62 mil startups, o mesmo logo swirl': o debate da monocultura",
+          "Google Pics: mais um gigante entrando no workflow",
+          "Serifas 'tortas' e handmade como assinatura humana",
+        ],
+      },
+      {
+        id: "insights",
+        label: "Insights & Atenção",
+        icon: "💡",
+        newCount: 3,
+        highlights: [
+          "O craft humano virou a defesa contra a commodity da IA",
+          "A monocultura visual da IA é uma oportunidade de diferenciação",
+          "A ferramenta virou commodity — não construa a oferta nela",
+        ],
+      },
+    ],
+  },
+  {
     date: "26/06/2026",
     label: "26 Jun 2026",
-    isLatest: true,
+    isLatest: false,
     summary: "Pós-Config, o foco vira branding na era da IA: convicção e julgamento como o que a IA não copia · logos kinéticos e identidades adaptativas viram expectativa · geradores de logo por IA capturam o tier de entrada · Dylan Field (Figma): 'IA é tailwind, não headwind'",
     changes: [
       {

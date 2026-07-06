@@ -5,44 +5,44 @@ import SectionHeader from "./SectionHeader";
 
 const hotCards = [
   {
-    href: "https://stratechery.com/2026/an-interview-with-figma-ceo-dylan-field-about-design-and-ai/",
-    src: "Stratechery / HN",
-    heat: "💬 Debate",
-    updated: "26 Jun 2026",
-    reportDate: "26/06/2026",
-    title: `"AI loser"? Comunidade debate a tese de Dylan Field: IA é tailwind, não headwind`,
-    text: 'A entrevista do CEO da Figma reacendeu a discussão sobre o futuro das ferramentas de design na era da IA. Field defende o canvas como <strong>interseção natural entre design e IA</strong>; críticos apontam a queda de market cap. O fio condutor do debate: quem organiza intenção visual ganha ou perde quando gerar fica trivial?',
-    go: "Ler a entrevista",
+    href: "https://www.canva.com/newsroom/news/design-trends-2026/",
+    src: "Canva / It's Nice That",
+    heat: "📈 Tendência",
+    updated: "06 Jul 2026",
+    reportDate: "06/07/2026",
+    title: "Comunidade abraça a imperfeição: 'Imperfect by Design' vira bandeira",
+    text: 'O relatório da Canva pegou as comunidades: 2026 é o ano de <strong>retomar o controle criativo sem rejeitar a IA</strong>. Designers trocam exemplos de textura, grão e handmade — e apontam que o feito à mão gera <strong>67% mais engajamento</strong> que o output puramente gerado.',
+    go: "Ver o relatório",
   },
   {
-    href: "https://freshlybrewed.co/insights-news/brand-identity-in-2026-what-ai-cant-copy/",
+    href: "https://www.creativebloq.com/design/graphic-design/texture-warmth-and-tactile-rebellion-the-big-graphic-design-trends-for-2026",
     src: "r/graphic_design",
     heat: "🔥 Polêmico",
-    updated: "26 Jun 2026",
-    reportDate: "26/06/2026",
-    title: "Branding: o que a IA não copia? Convicção vs. logo gerado por prompt",
-    text: 'O artigo virou pauta nas comunidades de branding: a IA comoditizou logo, paleta e sistema visual, mas <strong>não a convicção, a disciplina e o julgamento</strong>. O debate gira em torno de como provar esse valor a clientes que já geram "algo" sozinhos.',
+    updated: "06 Jul 2026",
+    reportDate: "06/07/2026",
+    title: "'62 mil startups, o mesmo logo swirl': o debate da monocultura visual da IA",
+    text: 'Vira pauta quente: quando todos usam os mesmos modelos, tudo converge para a mesma estética. A comunidade discute como <strong>ter ponto de vista virou o ativo escasso</strong> — e por que textura e "rebelião tátil" são a resposta à padronização.',
     go: "Ver o debate",
   },
   {
-    href: "https://elements.envato.com/learn/logo-and-branding-trends",
-    src: "Creative community",
-    heat: "📈 Tendência",
-    updated: "26 Jun 2026",
-    reportDate: "26/06/2026",
-    title: "Logos kinéticos e identidade adaptativa viram expectativa — não diferencial",
-    text: 'A "morte do skin-deep" dominou as discussões: identidade <strong>estática e superficial sai de cena; sistemas que se movem e se ajustam por contexto entram</strong>. Designers trocam dicas de como entregar regras de marca vivas em vez de um arquivo final.',
-    go: "Ver as tendências",
+    href: "https://thenextweb.com/news/google-pics-workspace-ai-image-generator-nano-banana-2",
+    src: "The Next Web / HN",
+    heat: "🤖 Ferramentas",
+    updated: "06 Jul 2026",
+    reportDate: "06/07/2026",
+    title: "Google Pics entra no workflow: mais um gigante na disputa do design",
+    text: 'Com o <strong>Pics no Workspace</strong> (Nano Banana 2), o Google mira Canva e Claude Design. A discussão nas comunidades: a geração ficou <strong>ubíqua e barata</strong> — o valor sai da ferramenta e migra para quem sabe o que pedir e por quê.',
+    go: "Ler sobre o Pics",
   },
   {
-    href: "https://medium.com/@sovannaro/10-best-ai-logo-generators-for-professional-brand-design-in-2026-4361243de404",
-    src: "LinkedIn / Medium",
-    heat: "🤖 Ferramentas",
-    updated: "26 Jun 2026",
-    reportDate: "26/06/2026",
-    title: "Ranking de geradores de logo por IA divide opiniões sobre o tier de entrada",
-    text: 'Listas de Looka, Brandmark & cia. reacenderam a discussão: ferramentas que tornam <strong>branding básico acessível a qualquer um</strong> ameaçam o trabalho de entrada — e empurram profissionais para estratégia, sistema e narrativa.',
-    go: "Ver o ranking",
+    href: "https://www.creativebloq.com/design/graphic-design/texture-warmth-and-tactile-rebellion-the-big-graphic-design-trends-for-2026",
+    src: "Creative community",
+    heat: "📈 Tendência",
+    updated: "06 Jul 2026",
+    reportDate: "06/07/2026",
+    title: "Serifas 'tortas' e handmade viram assinatura humana anti-IA",
+    text: 'A "rebelião tátil" domina o feed: <strong>serifas irregulares, colagem e imperfeição deliberada</strong> sinalizam que houve uma escolha humana — algo que a IA converge a não fazer. Designers usam isso como prova de autoria e refino.',
+    go: "Ver as tendências",
   },
   {
     href: "https://www.meioemensagem.com.br/cannes/como-a-ia-esta-inserida-nas-categorias-e-checagem-dos-cases",
@@ -91,7 +91,8 @@ const trends = [
   { label: "Tipografia expressiva & kinética", solid: true },
   { label: "Monospaced no branding", solid: false },
   { label: "Neo-minimalismo com textura", solid: false },
-  { label: "Maximalismo anti-IA", solid: false },
+  { label: "Craft & imperfeição (Imperfect by Design)", solid: true },
+  { label: "Maximalismo anti-IA", solid: true },
   { label: "Future Medieval", solid: false },
   { label: "Design como conhecimento executável", solid: true },
   { label: "Mixed-media & 3D", solid: false },
@@ -100,6 +101,17 @@ const trends = [
 ];
 
 const history = [
+  {
+    date: "26 Jun 2026",
+    reportDate: "26/06/2026",
+    snapshot: [
+      { src: "Stratechery / HN", heat: "💬 Debate", title: '"AI loser"? Dylan Field: IA é tailwind, não headwind' },
+      { src: "r/graphic_design", heat: "🔥 Polêmico", title: "Branding: o que a IA não copia? Convicção vs. logo por prompt" },
+      { src: "Creative community", heat: "📈 Tendência", title: "Logos kinéticos e identidade adaptativa viram expectativa" },
+      { src: "LinkedIn / Medium", heat: "🤖 Ferramentas", title: "Geradores de logo por IA capturam o tier de entrada" },
+    ],
+    trends: ["Convicção vs. logo gerado por IA", "Identidade adaptativa / motion-first", "Tier de entrada capturado por IA", "Ponto de vista como diferencial"],
+  },
   {
     date: "25 Jun 2026",
     reportDate: "25/06/2026",
@@ -182,18 +194,18 @@ const history = [
 export default function ForumSection() {
   const { selectedDate, setSelectedDate } = useReportDate();
 
-  const showCurrent = !selectedDate || selectedDate === "26/06/2026";
+  const showCurrent = !selectedDate || selectedDate === "06/07/2026";
   const filteredHistory = selectedDate
     ? history.filter((h) => h.reportDate === selectedDate)
     : history;
 
-  const isHistoryOnlyView = !!selectedDate && selectedDate !== "26/06/2026";
+  const isHistoryOnlyView = !!selectedDate && selectedDate !== "06/07/2026";
 
   return (
     <section id="forum" className="mb-[84px] scroll-mt-[74px]">
       <SectionHeader
         icon="🔥"
-        part="Comunidades · atualizado 26/06/2026"
+        part="Comunidades · atualizado 06/07/2026"
         title="Em Alta nos Fóruns & Tendências"
         description="O que está bombando nas comunidades de design (Reddit, Adobe, Figma, B9, Meio &amp; Mensagem, TecMundo) e as tendências do mercado"
       />
@@ -285,7 +297,7 @@ export default function ForumSection() {
           </div>
 
           <div className="bg-white border border-[#E2E7EF] rounded-xl p-[22px] mb-3.5">
-            <h3 className="text-[13px] font-bold text-[#434A57] uppercase tracking-[0.5px] mb-3.5">Tendências de mercado em alta · 26/06/2026</h3>
+            <h3 className="text-[13px] font-bold text-[#434A57] uppercase tracking-[0.5px] mb-3.5">Tendências de mercado em alta · 06/07/2026</h3>
             <div className="flex flex-wrap gap-2.5">
               {trends.map((t) => (
                 <span key={t.label} className={`text-[12.5px] font-semibold px-3.5 py-1.5 border rounded-[24px] ${t.solid ? "bg-[#2563EB] text-white border-[#2563EB]" : "bg-[#F6F8FB] text-[#434A57] border-[#D2D9E4]"}`}>{t.label}</span>

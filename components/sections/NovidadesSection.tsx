@@ -5,6 +5,56 @@ import SectionHeader from "./SectionHeader";
 
 const news = [
   {
+    href: "https://www.canva.com/newsroom/news/design-trends-2026/",
+    tag: "Branding",
+    tagClass: "bg-[#E9F0FE] text-[#1E40AF] border border-[#CFE0FB]",
+    date: "Jul 2026",
+    reportDate: "06/07/2026",
+    title: "Canva declara 2026 o ano do 'Imperfect by Design' — a era da imperfeição humana",
+    desc: "O relatório de tendências da Canva descreve uma <strong>rebelião criativa contra a estética hiperpolida da IA</strong>: 80% dos criadores dizem que 2026 é o ano de 'retomar o controle criativo' — não rejeitando a IA, mas usando-a nos próprios termos. Elementos feitos à mão e táteis geram <strong>67% mais engajamento</strong> que o output puramente gerado por IA.",
+    source: "Canva Newsroom — Imperfect by Design 2026",
+  },
+  {
+    href: "https://www.creativebloq.com/design/graphic-design/texture-warmth-and-tactile-rebellion-the-big-graphic-design-trends-for-2026",
+    tag: "Mercado",
+    tagClass: "bg-[#F6F8FB] text-[#434A57] border border-[#D2D9E4]",
+    date: "Jul 2026",
+    reportDate: "06/07/2026",
+    title: "A monocultura visual da IA vira o novo inimigo — e o craft, a resposta",
+    desc: "Quando todos usam os mesmos modelos treinados nos mesmos dados, tudo converge para a mesma estética — <strong>gradientes suaves e o logo 'swirl' abstrato que ~62 mil startups de IA reinventaram sozinhas</strong>. A reação de 2026 é textura, calor e 'rebelião tátil': grão, colagem, handmade e serifas 'tortas' como prova de presença humana.",
+    source: "Creative Bloq — Tactile Rebellion 2026",
+  },
+  {
+    href: "https://thenextweb.com/news/google-pics-workspace-ai-image-generator-nano-banana-2",
+    tag: "Ferramenta",
+    tagClass: "bg-[#2563EB] text-white",
+    date: "Jul 2026",
+    reportDate: "06/07/2026",
+    title: "Google entra na disputa do design com o Pics — IA nativa no Workspace",
+    desc: "No I/O 2026, o Google apresentou o <strong>Pics</strong>, app de design e geração de imagem embutido no Workspace, mirando Canva e Claude Design. Movido pelo <strong>Nano Banana 2</strong> (renderização de texto precisa e edição elemento a elemento via Gemini), ele nasce dentro de Docs e Slides. Rollout amplo para assinantes AI Ultra ainda neste verão (EUA).",
+    source: "The Next Web — Google Pics",
+  },
+  {
+    href: "https://news.adobe.com/news/2026/06/adobe-unveils-major-expansion",
+    tag: "Ferramenta",
+    tagClass: "bg-[#2563EB] text-white",
+    date: "Jun 2026",
+    reportDate: "06/07/2026",
+    title: "Adobe expande o Creative Agent por toda a Creative Cloud",
+    desc: "A Adobe leva o <strong>Creative Agent</strong> para Photoshop, Premiere e Firefly: o usuário descreve o resultado em linguagem natural e o agente <strong>orquestra e executa fluxos multi-etapa</strong> entre os apps. Com 41% de adoção corporativa do Firefly, a aposta é clara — a IA agêntica vira a camada padrão de trabalho na suíte.",
+    source: "Adobe Newsroom — Creative Agent Expansion",
+  },
+  {
+    href: "https://stateofaidesign.com/chapters/tools",
+    tag: "Pesquisa",
+    tagClass: "bg-[#E9F0FE] text-[#1E40AF] border border-[#CFE0FB]",
+    date: "2026",
+    reportDate: "06/07/2026",
+    title: "State of AI in Design 2026: 91% usam IA toda semana e 77% a chamam de 'parceira essencial'",
+    desc: "O levantamento consolida a IA como base do fluxo: <strong>91% dos designers usam IA generativa semanalmente</strong> (era 54% em 2025) e 77% a descrevem como 'parceira essencial'. Mas o mesmo relatório aponta o contramovimento — o valor humano migra para curadoria, ponto de vista e o que a máquina converge a não fazer.",
+    source: "State of AI in Design Report 2026",
+  },
+  {
     href: "https://stratechery.com/2026/an-interview-with-figma-ceo-dylan-field-about-design-and-ai/",
     tag: "Mercado",
     tagClass: "bg-[#F6F8FB] text-[#434A57] border border-[#D2D9E4]",
@@ -351,7 +401,7 @@ export default function NovidadesSection() {
     <section id="novidades" className="mb-[84px] scroll-mt-[74px]">
       <SectionHeader
         icon="📰"
-        part="Leitura · atualizado 26/06/2026"
+        part="Leitura · atualizado 06/07/2026"
         title="Novidades & Notícias"
         description="IA no design gráfico, branding e ferramentas — para ler e acompanhar"
       />

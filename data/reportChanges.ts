@@ -16,9 +16,29 @@ export type ReportChange = {
 
 export const reportChanges: ReportChange[] = [
   {
+    date: "23/07/2026",
+    label: "23 Jul 2026",
+    isLatest: true,
+    summary: "Adobe fecha acordo para adquirir a Topaz Labs (upscaling/restauração por IA) · Robert Half 2026: salário inicial de graphic designer nos EUA em US$52k–79,5k · Upwork: freelancers em projetos de IA cobram 44% mais por hora · State of AI Design 2026: designers trocam ChatGPT (88%→65%) por Claude (52%→78%)",
+    changes: [
+      {
+        id: "novidades",
+        label: "Novidades & Notícias",
+        icon: "📰",
+        newCount: 4,
+        highlights: [
+          "Adobe fecha acordo para adquirir a Topaz Labs",
+          "Robert Half 2026: designer júnior em US$52k–79,5k/ano nos EUA",
+          "Upwork: freelancers de IA cobram 44% mais por hora",
+          "Troca de ferramenta: ChatGPT cai, Claude sobe entre designers",
+        ],
+      },
+    ],
+  },
+  {
     date: "06/07/2026",
     label: "06 Jul 2026",
-    isLatest: true,
+    isLatest: false,
     summary: "O pêndulo vira para o lado humano: a Canva declara 2026 o ano do 'Imperfect by Design' · Anti-AI Crafting e serifas 'tortas' viram sinal de autenticidade contra a monocultura visual da IA · Google entra na disputa com o Pics no Workspace (Nano Banana 2) · Adobe expande o Creative Agent por toda a Creative Cloud",
     changes: [
       {

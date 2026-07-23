@@ -2,10 +2,10 @@
 ## Estudo Estratégico com Referencial Teórico e Fontes Validadas
 
 **Propósito:** Inovação e novos negócios · Agência com especialistas em UI/UX e Identidade Visual com IA
-**Última atualização:** 19/06/2026
+**Última atualização:** 23/07/2026
 **Metodologia:** Dados de mercado validados com fontes primárias + análise estratégica qualitativa
 
-> 🆕 **O que mudou hoje (19/06/2026):** Atualizados os números do mercado global de design gráfico (USD 59,29B em 2026, CAGR 7,6% até 2031) e de UI/UX (UX Design em USD 13,06B em 2026). Adicionados dados de 2026 sobre adoção de IA por designers (91% usam IA semanalmente) e demanda por skills de IA (+144% a/a nas vagas). Detalhes na seção "Histórico de Atualizações" ao final.
+> 🆕 **O que mudou hoje (23/07/2026):** Adicionada a aquisição da Topaz Labs pela Adobe (upscaling/restauração por IA). Novos dados de salário e freelance: faixa inicial de graphic designer nos EUA (US$52k–79,5k, Robert Half 2026) e prêmio de 44% na taxa/hora para freelancers em projetos de IA (Upwork). Registrada divergência entre duas publicações da Fortune Business Insights sobre o mercado de UX Services, e um novo dado sobre troca de ferramentas de IA entre designers (ChatGPT cai de 88%→65%, Claude sobe de 52%→78%). Detalhes na seção "Histórico de Atualizações" ao final.
 
 > ⚠️ **Legenda de confiabilidade:**
 > - ✅ Dado validado com fonte primária
@@ -1460,6 +1460,37 @@ Claude / ChatGPT / Gemini → copy, briefing, documentação, estratégia
 ---
 
 ## HISTÓRICO DE ATUALIZAÇÕES
+
+### Atualização — 23/07/2026
+
+✅ **Aquisição — Adobe compra Topaz Labs:** em 25/06/2026 a Adobe anunciou acordo definitivo para adquirir a Topaz Labs, especialista em upscaling e restauração de imagem/vídeo por IA (Topaz Photo, Topaz Video, Topaz Gigapixel). Fechamento previsto para o 2º semestre de 2026, sujeito a aprovações regulatórias. As ferramentas serão integradas ao Firefly e à Creative Cloud, mas devem continuar disponíveis como produtos standalone. *(Adobe Newsroom / TechCrunch)*
+
+✅ **Salários — Robert Half 2026 Salary Guide (Marketing & Creative):** salário inicial de graphic designer nos EUA entre **US$52.000 e US$79.500/ano**, variando por experiência e skills. **69% dos líderes de marketing/criativo** dizem que avanços em IA e automação estão remodelando as skills exigidas em suas equipes; metade aponta a falta de talento com skills de IA como principal barreira para adoção de novas tecnologias.
+
+🔶 **Taxas freelance (design gráfico, 2026):** estimativas variam por metodologia — média de mercado em torno de **US$65/hora** (faixa US$25–150/h conforme senioridade e especialização, com júnior em US$25–50/h, sênior US$85–125/h e especialistas em branding/estratégia US$125–200+/h), enquanto uma análise da própria Adobe sobre 1.000 perfis do Upwork encontrou média de **US$49,65/hora**. *(Freelancerprofit / Ruul / análise Adobe via Creativepool)*
+
+✅ **IA paga mais no freelance:** segundo o relatório "In-Demand Skills" da Upwork (fevereiro/2026), freelancers que atuam em projetos relacionados a IA ganham **44% mais por hora** do que os que atuam em projetos sem IA.
+
+🔶 **Divergência relevante — Mercado de serviços de UX (revisão Fortune Business Insights):** a mesma research house citada na Parte 1.2 deste documento (USD 2,59B em 2022 → USD 32,95B em 2030, CAGR 37,8%) publicou uma revisão com escopo/metodologia diferente, agora projetando o mercado de **UX Services em USD 8,80B (2026) → USD 77,18B (2034), CAGR 31,2%**. A divergência entre as duas publicações da mesma fonte não foi reconciliada — mantemos ambos os números registrados por transparência, sem sobrescrever o dado histórico.
+
+🔶 **Novo segmento mapeado — Mercado de software de design gráfico:** estimado em **USD 10,51B (2026) → USD 19,59B (2033), CAGR 9,3%** *(Business Research Insights)*, valor que complementa (mas não substitui) as estimativas de "design gráfico" e "software UI/UX" já mapeadas na Parte 1.1–1.2.
+
+✅ **Troca de ferramentas de IA entre designers (State of AI Design 2026 — dado adicional):** entre as ferramentas gerais de IA usadas no dia a dia, o ChatGPT caiu de 88% de adoção (2025) para 65% (2026), enquanto o Claude (Anthropic) subiu de 52% para 78% no mesmo período. O designer médio já usa **7 ferramentas de IA regularmente**, mais que o dobro do ano anterior (3). *(State of AI Design Report 2026 / Designer Fund)*
+
+💡 **Leitura do dia:** os dados de hoje reforçam duas tendências já mapeadas — (1) a "premiumização" de quem domina IA no freelance e no mercado de trabalho formal (prêmios de 44% em taxa/hora e crescimento de vagas com skills de IA) segue se acentuando; e (2) o mercado de fusões e aquisições em torno de capacidades de IA generativa para criativos (Adobe–Topaz, após Adobe–Firefly e outras movimentações) indica consolidação acelerada das grandes suítes, pressionando ainda mais o "tier de entrada" do design executório.
+
+**Fontes (23/07/2026):**
+- [Adobe Newsroom — Adobe to Acquire Topaz Labs](https://news.adobe.com/news/2026/06/adobe-to-acquire-topaz-labs)
+- [TechCrunch — Adobe acquires image and video enhancement tool maker Topaz Labs](https://techcrunch.com/2026/06/25/adobe-acquires-image-and-video-enhancement-tool-maker-topaz-labs/)
+- [Robert Half — Graphic design careers in 2026: Skills, salaries and industry trends](https://www.roberthalf.com/us/en/insights/career-development/hot-job-graphic-designer)
+- [Freelancerprofit — Freelance Graphic Design Rates: 2026 Pricing Guide](https://freelancerprofit.com/freelance-graphic-design-rates/)
+- [Ruul — Freelance Designer Rates: Complete Pricing Breakdown](https://ruul.io/blog/freelance-designer-rates)
+- [Upwork — In-Demand Skills Report (fev/2026), via bestjobsearchapps.com](https://bestjobsearchapps.com/articles/en/7-highdemand-freelance-skills-for-2026-gigs-on-upwork-and-fiverr)
+- [Fortune Business Insights — UX Services Market (2026–2034)](https://www.fortunebusinessinsights.com/ux-services-market-108780)
+- [Business Research Insights — Graphic Design Software Market](https://www.businessresearchinsights.com/market-reports/graphic-design-software-market-121479)
+- [State of AI Design Report 2026 — Tools chapter](https://stateofaidesign.com/chapters/tools)
+
+---
 
 ### Atualização — 19/06/2026
 

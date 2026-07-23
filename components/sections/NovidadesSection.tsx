@@ -5,6 +5,46 @@ import SectionHeader from "./SectionHeader";
 
 const news = [
   {
+    href: "https://news.adobe.com/news/2026/06/adobe-to-acquire-topaz-labs",
+    tag: "Ferramenta",
+    tagClass: "bg-[#2563EB] text-white",
+    date: "Jul 2026",
+    reportDate: "23/07/2026",
+    title: "Adobe fecha acordo para adquirir a Topaz Labs, especialista em upscaling e restauração por IA",
+    desc: "A Adobe anunciou acordo definitivo para adquirir a <strong>Topaz Labs</strong> (Topaz Photo, Video e Gigapixel), referência em upscaling, nitidez, estabilização e restauração de imagem/vídeo por IA. Fechamento previsto para o 2º semestre de 2026. As ferramentas devem ser integradas ao Firefly e à Creative Cloud, mas continuam disponíveis como produtos standalone.",
+    source: "Adobe Newsroom — Adobe to Acquire Topaz Labs",
+  },
+  {
+    href: "https://www.roberthalf.com/us/en/insights/career-development/hot-job-graphic-designer",
+    tag: "Mercado",
+    tagClass: "bg-[#F6F8FB] text-[#434A57] border border-[#D2D9E4]",
+    date: "2026",
+    reportDate: "23/07/2026",
+    title: "Robert Half 2026: salário inicial de graphic designer nos EUA vai de US$52k a US$79,5k",
+    desc: "O Salary Guide 2026 da Robert Half mostra faixa inicial entre <strong>US$52.000 e US$79.500/ano</strong> para graphic designers nos EUA, variando por experiência e skills. 69% dos líderes de marketing/criativo dizem que a IA está remodelando as skills exigidas em suas equipes — e metade aponta falta de talento com skills de IA como maior barreira de adoção.",
+    source: "Robert Half — Graphic Design Careers in 2026",
+  },
+  {
+    href: "https://bestjobsearchapps.com/articles/en/7-highdemand-freelance-skills-for-2026-gigs-on-upwork-and-fiverr",
+    tag: "Mercado",
+    tagClass: "bg-[#F6F8FB] text-[#434A57] border border-[#D2D9E4]",
+    date: "Fev 2026",
+    reportDate: "23/07/2026",
+    title: "Upwork: freelancers em projetos de IA ganham 44% mais por hora do que quem não trabalha com IA",
+    desc: "O relatório 'In-Demand Skills' da Upwork (fevereiro/2026) confirma o prêmio de mercado para quem domina IA: freelancers em projetos relacionados a IA cobram, em média, <strong>44% mais por hora</strong> do que os que atuam em projetos sem IA — reforçando a bifurcação entre execução comoditizada e especialização premium.",
+    source: "Upwork — In-Demand Skills Report 2026",
+  },
+  {
+    href: "https://stateofaidesign.com/chapters/tools",
+    tag: "Pesquisa",
+    tagClass: "bg-[#E9F0FE] text-[#1E40AF] border border-[#CFE0FB]",
+    date: "2026",
+    reportDate: "23/07/2026",
+    title: "Designers trocam de ferramenta de IA: ChatGPT cai de 88% para 65%, Claude sobe de 52% para 78%",
+    desc: "O capítulo 'Tools' do State of AI Design 2026 mostra rotatividade real no toolstack: entre ferramentas gerais de IA usadas por designers, o <strong>ChatGPT caiu de 88% (2025) para 65% (2026)</strong> de adoção, enquanto o <strong>Claude subiu de 52% para 78%</strong> no mesmo período. O designer médio já usa 7 ferramentas de IA regularmente — mais que o dobro do ano anterior (3).",
+    source: "State of AI Design Report 2026 — Tools",
+  },
+  {
     href: "https://www.canva.com/newsroom/news/design-trends-2026/",
     tag: "Branding",
     tagClass: "bg-[#E9F0FE] text-[#1E40AF] border border-[#CFE0FB]",
@@ -401,7 +441,7 @@ export default function NovidadesSection() {
     <section id="novidades" className="mb-[84px] scroll-mt-[74px]">
       <SectionHeader
         icon="📰"
-        part="Leitura · atualizado 06/07/2026"
+        part="Leitura · atualizado 23/07/2026"
         title="Novidades & Notícias"
         description="IA no design gráfico, branding e ferramentas — para ler e acompanhar"
       />

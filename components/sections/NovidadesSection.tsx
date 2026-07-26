@@ -5,6 +5,56 @@ import SectionHeader from "./SectionHeader";
 
 const news = [
   {
+    href: "https://clutch.co/resources/graphic-design-industry-2026",
+    tag: "Pesquisa",
+    tagClass: "bg-[#E9F0FE] text-[#1E40AF] border border-[#CFE0FB]",
+    date: "2026",
+    reportDate: "24/07/2026",
+    title: "Clutch.co: 88% das empresas usam IA no design, mas só 18% reduziram a contratação de designers",
+    desc: "Pesquisa com 403 profissionais nos EUA mostra que <strong>90% das empresas usam designers gráficos</strong> em alguma capacidade e 88% já usam ferramentas de IA — mas apenas 18% dizem que isso reduziu a necessidade de designers (32% dizem que a IA substituiu só tarefas simples). <strong>47% aumentaram o orçamento de design</strong> no último ano e 53% esperam aumentar nos próximos 12 meses. Criatividade lidera como critério de contratação (39%), muito à frente de velocidade e custo (7% cada).",
+    source: "Clutch.co — State of the Graphic Design Industry 2026",
+  },
+  {
+    href: "https://www.creativeboom.com/news/the-state-of-the-creative-industry-2026-what-our-survey-tells-us-about-money-burnout-and-ai/",
+    tag: "Pesquisa",
+    tagClass: "bg-[#E9F0FE] text-[#1E40AF] border border-[#CFE0FB]",
+    date: "Jun 2026",
+    reportDate: "24/07/2026",
+    title: "Creative Boom: 69% dos criativos relatam burnout e só 10% veem a IA como positiva para a indústria",
+    desc: "Pesquisa com 882 profissionais criativos (Reino Unido/EUA) revela o maior gap do levantamento: <strong>86% já usam IA no trabalho, mas só 10% avaliam seu efeito geral como positivo</strong> (58% dizem 'misto', 28% negativo). 47% dos criativos autônomos no Reino Unido ganham menos de £30.000/ano, e 'IA' foi a resposta disparada quando perguntados sobre a tendência de design da qual estão mais cansados.",
+    source: "Creative Boom — State of the Creative Industry 2026",
+  },
+  {
+    href: "https://www.mordorintelligence.com/industry-reports/user-experience-market",
+    tag: "Mercado",
+    tagClass: "bg-[#F6F8FB] text-[#434A57] border border-[#D2D9E4]",
+    date: "2026",
+    reportDate: "24/07/2026",
+    title: "Mordor Intelligence mapeia novo segmento: 'User Experience Market' em US$13,58 bilhões (2026)",
+    desc: "Categoria mais ampla que o 'UX Design Market' já registrado neste mapa: estimada em <strong>US$13,58 bilhões em 2026</strong>, com projeção de US$30,24B em 2031 (CAGR 17,38%). É um recorte metodológico distinto — não deve ser somado ao UX Design Market (US$13,06B em 2026) já mapeado na Parte 1.2.",
+    source: "Mordor Intelligence — User Experience Market",
+  },
+  {
+    href: "https://investor.figma.com/news-events/news/news-details/2026/Figma-Announces-First-Quarter-2026-Financial-Results/default.aspx",
+    tag: "Mercado",
+    tagClass: "bg-[#F6F8FB] text-[#434A57] border border-[#D2D9E4]",
+    date: "Mai 2026",
+    reportDate: "24/07/2026",
+    title: "Figma fecha o 1º trimestre fiscal de 2026 com receita de US$333,4M, alta de 46% ano a ano",
+    desc: "Resultado divulgado em 14/05/2026 supera a projeção de analistas (US$316M). O <strong>net dollar retention subiu para 139%</strong>, o maior nível em mais de dois anos, e o lucro por ação não-GAAP veio em US$0,10 vs. consenso de US$0,06 — sinal de saúde financeira forte da ferramenta central do setor de design.",
+    source: "Figma Investor Relations — Q1 FY2026 Results",
+  },
+  {
+    href: "https://www.businessresearchinsights.com/market-reports/graphic-design-market-117837",
+    tag: "Mercado",
+    tagClass: "bg-[#F6F8FB] text-[#434A57] border border-[#D2D9E4]",
+    date: "2026",
+    reportDate: "24/07/2026",
+    title: "Business Research Insights revisa o mercado de design gráfico: US$56,93B em 2026",
+    desc: "Nova estimativa: mercado geral de design gráfico em <strong>US$56,93B (2026) → US$62,18B (2035)</strong>, CAGR 5,4%; o segmento específico de serviços ('Graphic Design Services') em US$55,71B (2026) → US$73,36B (2035), CAGR 3,5%. Complementam, sem substituir, as estimativas já mapeadas na Parte 1.1 deste documento.",
+    source: "Business Research Insights — Graphic Design Market",
+  },
+  {
     href: "https://news.adobe.com/news/2026/06/adobe-to-acquire-topaz-labs",
     tag: "Ferramenta",
     tagClass: "bg-[#2563EB] text-white",
@@ -441,7 +491,7 @@ export default function NovidadesSection() {
     <section id="novidades" className="mb-[84px] scroll-mt-[74px]">
       <SectionHeader
         icon="📰"
-        part="Leitura · atualizado 23/07/2026"
+        part="Leitura · atualizado 24/07/2026"
         title="Novidades & Notícias"
         description="IA no design gráfico, branding e ferramentas — para ler e acompanhar"
       />

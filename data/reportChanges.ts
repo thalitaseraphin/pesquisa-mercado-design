@@ -16,9 +16,30 @@ export type ReportChange = {
 
 export const reportChanges: ReportChange[] = [
   {
+    date: "24/07/2026",
+    label: "24 Jul 2026",
+    isLatest: true,
+    summary: "Clutch.co: 88% das empresas usam IA no design, mas só 18% reduziram contratação de designers · Creative Boom: 69% dos criativos relatam burnout e só 10% veem a IA como positiva pra indústria · Mordor Intelligence mapeia o 'User Experience Market' (US$13,58B em 2026) · Figma fecha Q1 fiscal 2026 com receita +46% a/a",
+    changes: [
+      {
+        id: "novidades",
+        label: "Novidades & Notícias",
+        icon: "📰",
+        newCount: 5,
+        highlights: [
+          "Clutch: 47% das empresas aumentaram orçamento de design em 2026",
+          "Creative Boom: 69% dos criativos relatam burnout no último ano",
+          "Mordor Intelligence: novo segmento 'User Experience Market' (US$13,58B)",
+          "Figma: receita do Q1 fiscal 2026 cresce 46% a/a, NDR em 139%",
+          "Business Research Insights revisa mercado de design gráfico e serviços",
+        ],
+      },
+    ],
+  },
+  {
     date: "23/07/2026",
     label: "23 Jul 2026",
-    isLatest: true,
+    isLatest: false,
     summary: "Adobe fecha acordo para adquirir a Topaz Labs (upscaling/restauração por IA) · Robert Half 2026: salário inicial de graphic designer nos EUA em US$52k–79,5k · Upwork: freelancers em projetos de IA cobram 44% mais por hora · State of AI Design 2026: designers trocam ChatGPT (88%→65%) por Claude (52%→78%)",
     changes: [
       {

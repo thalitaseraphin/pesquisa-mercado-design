@@ -2,10 +2,10 @@
 ## Estudo Estratégico com Referencial Teórico e Fontes Validadas
 
 **Propósito:** Inovação e novos negócios · Agência com especialistas em UI/UX e Identidade Visual com IA
-**Última atualização:** 23/07/2026
+**Última atualização:** 24/07/2026
 **Metodologia:** Dados de mercado validados com fontes primárias + análise estratégica qualitativa
 
-> 🆕 **O que mudou hoje (23/07/2026):** Adicionada a aquisição da Topaz Labs pela Adobe (upscaling/restauração por IA). Novos dados de salário e freelance: faixa inicial de graphic designer nos EUA (US$52k–79,5k, Robert Half 2026) e prêmio de 44% na taxa/hora para freelancers em projetos de IA (Upwork). Registrada divergência entre duas publicações da Fortune Business Insights sobre o mercado de UX Services, e um novo dado sobre troca de ferramentas de IA entre designers (ChatGPT cai de 88%→65%, Claude sobe de 52%→78%). Detalhes na seção "Histórico de Atualizações" ao final.
+> 🆕 **O que mudou hoje (24/07/2026):** Duas pesquisas de opinião novas e independentes (Clutch.co e Creative Boom) confirmam com dados primários a tensão entre adoção de IA quase universal (86–88%) e baixa aprovação/alta insegurança financeira entre criativos — mas também que 47% das empresas aumentaram orçamento de design no último ano. Mapeados dois novos segmentos de mercado (Mordor Intelligence "User Experience Market" e revisões de "Graphic Design Market/Services" da Business Research Insights) e os resultados financeiros do 1º trimestre fiscal de 2026 da Figma (receita +46% a/a). Detalhes na seção "Histórico de Atualizações" ao final.
 
 > ⚠️ **Legenda de confiabilidade:**
 > - ✅ Dado validado com fonte primária
@@ -1460,6 +1460,33 @@ Claude / ChatGPT / Gemini → copy, briefing, documentação, estratégia
 ---
 
 ## HISTÓRICO DE ATUALIZAÇÕES
+
+### Atualização — 24/07/2026
+
+✅ **Pesquisa Clutch.co — "State of the Graphic Design Industry 2026"** (survey com 403 profissionais nos EUA, aplicado em 11/02/2026, publicado/atualizado em 10/03/2026): **90% das empresas** usam designers gráficos em alguma capacidade. **88%** já usam ferramentas de IA no design (Canva Magic Studio, Adobe Firefly, Midjourney, DALL·E), mas apenas **18%** dizem que isso reduziu a necessidade de designers — **32%** relatam que a IA substituiu somente tarefas simples, e **25%** dizem que a IA na verdade aumentou a demanda por output de design. **47%** das empresas aumentaram o orçamento de design no último ano (32% mantiveram, 12% reduziram) e **53%** esperam aumentá-lo nos próximos 12 meses. Criatividade é o critério nº1 na contratação de um designer (39%), muito à frente de velocidade (7%) e custo/afordabilidade (7%).
+
+✅ **Pesquisa Creative Boom — "State of the Creative Industry 2026"** (882 profissionais criativos, Reino Unido/EUA, pesquisa publicada em 29/06/2026): **69%** relatam burnout nos últimos 12 meses (77% entre profissionais de meio de carreira, 59% entre founders/líderes de estúdio). **86%** já usam ferramentas de IA no trabalho, mas só **10%** avaliam o efeito geral da IA na indústria como positivo (58% dizem "misto", 28% negativo) — o gap entre adoção quase universal e aprovação baixa é apontado como o achado mais relevante do levantamento. **47% dos criativos autônomos no Reino Unido ganham menos de £30.000/ano**; 38% consideram trocar de emprego e 7,5% planejam sair da indústria criativa. Quando perguntados sobre a tendência de design da qual estão mais cansados, "IA" foi a resposta disparada (70+ menções), à frente de gradientes (19) e minimalismo (10).
+
+🔶 **Novo segmento mapeado — Mordor Intelligence "User Experience Market"** (categoria mais ampla que o "UX Design Market" já citado na Parte 1.2 deste documento): estimado em **USD 13,58 bilhões em 2026**, com projeção de **USD 30,24B em 2031** a um CAGR de **17,38%**. Este é um recorte metodológico distinto do "UX Design Market" (USD 13,06B em 2026 → USD 25,69B em 2031) já registrado — os dois números não devem ser somados, pois vêm de relatórios diferentes da mesma consultoria.
+
+🔶 **Revisão — Mercado "UI/UX" (Mordor Intelligence):** a mesma pesquisa já citada na Parte 1.2 (USD 1,98B em 2025 → USD 11,66B em 2031, CAGR 32%) atualizou a estimativa para o ano corrente: **USD 2,91 bilhões em 2026**, mantendo a mesma projeção final (USD 11,66B em 2031) e o mesmo CAGR (32%).
+
+🔶 **Novos segmentos — mercado de design gráfico "geral" e "serviços" (Business Research Insights):** o mercado geral de design gráfico é estimado em **USD 56,93B (2026) → USD 62,18B (2035)**, CAGR 5,4%; o segmento específico de "Graphic Design Services" é estimado em **USD 55,71B (2026) → USD 73,36B (2035)**, CAGR 3,5%. Ambos complementam — sem substituir — as estimativas já mapeadas na Parte 1.1 (Cognitive Market Research, Fortune Business Insights, Figma, NextMSC).
+
+✅ **Figma — resultados financeiros do 1º trimestre fiscal de 2026** (divulgados em 14/05/2026): receita de **US$333,4 milhões, alta de 46% ano a ano**, superando a projeção de analistas de US$316M. O net dollar retention subiu para **139%**, o maior nível em mais de dois anos. Lucro por ação (não-GAAP) de US$0,10 vs. consenso de US$0,06. O dado é um sinal de saúde financeira forte da ferramenta central do setor (ver Parte 12), ainda que a ação tenha perdido boa parte do valor de pico nos meses seguintes ao resultado.
+
+💡 **Leitura do dia:** as duas pesquisas de opinião publicadas nas últimas semanas (Clutch e Creative Boom) confirmam, com dados primários, uma tensão que este documento já mapeava por sinais dispersos: adoção de IA é quase universal (86–88%), mas a aprovação é baixa e a insegurança financeira é alta — especialmente entre freelancers e profissionais de meio de carreira. Ao mesmo tempo, o dado da Clutch de que 47% das empresas aumentaram orçamento de design (e que criatividade segue sendo o critério nº1 de contratação, não velocidade ou preço) reforça a tese central deste mapa: a IA está comoditizando execução, não eliminando a demanda por direção criativa humana.
+
+**Fontes (24/07/2026):**
+- [Clutch.co — The State of the Graphic Design Industry in 2026: Growth, AI, and Hiring Trends](https://clutch.co/resources/graphic-design-industry-2026)
+- [Creative Boom — The State of the Creative Industry 2026: What Our Survey Tells Us About Pay, Burnout and AI](https://www.creativeboom.com/news/the-state-of-the-creative-industry-2026-what-our-survey-tells-us-about-money-burnout-and-ai/)
+- [Mordor Intelligence — User Experience Market](https://www.mordorintelligence.com/industry-reports/user-experience-market)
+- [Mordor Intelligence — UI/UX Market](https://www.mordorintelligence.com/industry-reports/ui-ux-market)
+- [Business Research Insights — Graphic Design Market](https://www.businessresearchinsights.com/market-reports/graphic-design-market-117837)
+- [Business Research Insights — Graphic Design Services Market](https://www.businessresearchinsights.com/market-reports/graphic-design-services-market-104122)
+- [Figma Investor Relations — Figma Announces First Quarter 2026 Financial Results](https://investor.figma.com/news-events/news/news-details/2026/Figma-Announces-First-Quarter-2026-Financial-Results/default.aspx)
+
+---
 
 ### Atualização — 23/07/2026
 

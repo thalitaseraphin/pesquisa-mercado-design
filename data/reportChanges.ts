@@ -16,9 +16,37 @@ export type ReportChange = {
 
 export const reportChanges: ReportChange[] = [
   {
+    date: "27/07/2026",
+    label: "27 Jul 2026",
+    isLatest: true,
+    summary: "Figma é certificada ISO/IEC 42001 (governança de IA) · Dado oficial CAGED/MTE: Designer Gráfico ganha em média R$3.725,30/mês, mercado de baixa demanda com saldo líquido positivo e gap racial de 19,9%",
+    changes: [
+      {
+        id: "novidades",
+        label: "Novidades & Notícias",
+        icon: "📰",
+        newCount: 1,
+        highlights: [
+          "Figma certificada ISO/IEC 42001 — governança de IA auditada (Schellman/ANAB)",
+        ],
+      },
+      {
+        id: "brasil",
+        label: "Mercado Brasileiro",
+        icon: "🇧🇷",
+        newCount: 1,
+        highlights: [
+          "CAGED/MTE: Designer Gráfico ganha R$3.725,30/mês em média (+4,1% a/a)",
+          "Mercado de baixa demanda, mas saldo líquido positivo de +484 vagas",
+          "Gap racial de 19,9% no salário mediano de admissão do cargo",
+        ],
+      },
+    ],
+  },
+  {
     date: "26/07/2026",
     label: "26 Jul 2026",
-    isLatest: true,
+    isLatest: false,
     summary: "Autodesk 2026 AI Jobs Report: vagas de IA em Design & Make +147% em 2 anos · PwC Global AI Jobs Barometer: prêmio salarial de skills de IA sobe pra 62% · UX Tools Survey 2026: Figma usado por 82,3% dos designers de UI · Canva atinge 265M usuários ativos mensais e US$4B em ARR",
     changes: [
       {

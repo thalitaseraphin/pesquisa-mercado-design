@@ -9,7 +9,7 @@ const progItems = [
 ];
 
 const tableData = [
-  ["Designer Gráfico", "R$3.700/mês", "USD 61.300", "USD 32k–88k"],
+  ["Designer Gráfico", "R$3.725/mês", "USD 61.300", "USD 32k–88k"],
   ["UX/UI Designer Sênior", "R$6k–18k/mês", "USD 85k–110k", "USD 85k–110k"],
   ["Diretor Criativo", "R$12k–25k/mês", "USD 138.000", "—"],
   ["Product Designer Sênior", "R$8k–20k/mês", "USD 92.000+", "USD 92k+"],
@@ -54,6 +54,10 @@ export default function BrasilSection() {
 
       <div className="bg-[#FFF7ED] border border-[#F5DCBE] border-l-[3px] border-l-[#B45309] rounded-[10px] px-[18px] py-[15px] text-[13.5px] text-[#434A57] mb-3.5 leading-[1.65]">
         <strong className="text-[#1A1D24]">Dado preocupante (CELACC/USP 2026):</strong> Designers gráficos e multimídia (186,9 mil profissionais) sofreram queda de dois dígitos na demanda por serviços desde a proliferação de IA generativa. A IA está criando uma bifurcação clara no mercado.
+      </div>
+
+      <div className="bg-[#F6F8FB] border border-[#E2E7EF] border-l-[3px] border-l-[#2563EB] rounded-[10px] px-[18px] py-[15px] text-[13.5px] text-[#434A57] mb-3.5 leading-[1.65]">
+        <strong className="text-[#1A1D24]">Novo dado oficial (Portal Salário / CAGED-MTE, atualizado 27/07/2026):</strong> o Designer Gráfico (CBO 2624-10) ganha em média <strong className="text-[#1A1D24]">R$3.725,30/mês</strong> (+4,1% vs. 2025), piso de R$2.401,20 e teto de R$7.018,66, numa amostra de 31.906 profissionais CLT. O mercado está com <strong>baixa demanda</strong>, mas saldo líquido positivo de +484 vagas no período — e rotatividade alta (49,2%). A pesquisa também mapeia um <strong>gap racial de 19,9%</strong> no salário mediano de admissão entre brancos e negros no mesmo cargo, persistente mesmo entre profissionais com a mesma escolaridade.
       </div>
 
       <div className="bg-white border border-[#E2E7EF] rounded-xl overflow-hidden">

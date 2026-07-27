@@ -5,6 +5,16 @@ import SectionHeader from "./SectionHeader";
 
 const news = [
   {
+    href: "https://www.figma.com/blog/figma-is-now-iso-42001-certified/",
+    tag: "Ferramenta",
+    tagClass: "bg-[#2563EB] text-white",
+    date: "Jul 2026",
+    reportDate: "27/07/2026",
+    title: "Figma é certificada ISO/IEC 42001 — o primeiro padrão internacional de governança de IA do setor",
+    desc: "Anunciada em 01/07/2026: a Figma obteve a certificação <strong>ISO/IEC 42001:2023</strong> (o equivalente, para IA, da ISO 27001), auditada pela Schellman, organismo acreditado pela ANAB. A auditoria avaliou <strong>38 controles em 9 domínios</strong> — avaliação de impacto, governança, risco específico de IA, supervisão humana e uso responsável — cobrindo Figma Design, Figma Make, FigJam, Dev Mode, Sites, Slides, Draw, Buzz e Weave. Sinal de maturidade regulatória para vender IA a clientes enterprise em setores regulados sob o AI Act europeu.",
+    source: "Figma Blog — Trust You Can Verify: Figma Is Now ISO 42001 Certified",
+  },
+  {
     href: "https://adsknews.autodesk.com/en/news/2026-ai-jobs-report/",
     tag: "Pesquisa",
     tagClass: "bg-[#E9F0FE] text-[#1E40AF] border border-[#CFE0FB]",
@@ -531,7 +541,7 @@ export default function NovidadesSection() {
     <section id="novidades" className="mb-[84px] scroll-mt-[74px]">
       <SectionHeader
         icon="📰"
-        part="Leitura · atualizado 26/07/2026"
+        part="Leitura · atualizado 27/07/2026"
         title="Novidades & Notícias"
         description="IA no design gráfico, branding e ferramentas — para ler e acompanhar"
       />

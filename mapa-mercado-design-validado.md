@@ -2,10 +2,10 @@
 ## Estudo Estratégico com Referencial Teórico e Fontes Validadas
 
 **Propósito:** Inovação e novos negócios · Agência com especialistas em UI/UX e Identidade Visual com IA
-**Última atualização:** 26/07/2026
+**Última atualização:** 27/07/2026
 **Metodologia:** Dados de mercado validados com fontes primárias + análise estratégica qualitativa
 
-> 🆕 **O que mudou hoje (26/07/2026):** Novo relatório anual da Autodesk (2026 AI Jobs Report) mostra vagas de IA em Design & Make crescendo 147% em dois anos, com desaceleração de +89%→+40% na América do Norte em 2026 — sinal de que a fase inicial de adoção está amadurecendo. O PwC Global AI Jobs Barometer (contexto de mercado de trabalho geral, não específico de design) mostra o prêmio salarial de skills de IA subindo de 25%→57%→62% entre 2024–2026. Atualizados dois números de concorrência de ferramentas: Figma dominando 82,3% dos designers de UI (UX Tools Survey 2026) e Canva batendo 265M de usuários ativos mensais e US$4B em ARR (atualiza o dado de 220M já registrado na Parte 1.4). Detalhes na seção "Histórico de Atualizações" ao final.
+> 🆕 **O que mudou hoje (27/07/2026):** Figma anunciou, no mesmo mês, duas movimentações relevantes: o pacote de IA generativa no canvas do Config 2026 (code layers, Figma Motion, shaders, generative plugins) e a certificação ISO/IEC 42001 de governança de IA — sinal de maturidade regulatória do setor. Do lado brasileiro, dados oficiais do CAGED/MTE (via Portal Salário) trazem o primeiro salário médio nacional granular para o Designer Gráfico (R$ 3.725,30/mês) com mercado de baixa demanda mas saldo líquido positivo de vagas, além de um gap racial de remuneração de 19,9% ainda não mapeado neste documento. Detalhes na seção "Histórico de Atualizações" ao final.
 
 > ⚠️ **Legenda de confiabilidade:**
 > - ✅ Dado validado com fonte primária
@@ -1460,6 +1460,23 @@ Claude / ChatGPT / Gemini → copy, briefing, documentação, estratégia
 ---
 
 ## HISTÓRICO DE ATUALIZAÇÕES
+
+### Atualização — 27/07/2026
+
+✅ **Figma — Config 2026 (recapitulação oficial, evento de 24/06/2026):** a Figma anunciou um pacote de novas ferramentas de IA generativa diretamente no canvas, ampliando o escopo do Figma agent (lançado para todos os usuários em 23/06/2026): **code layers** (transformar qualquer camada de design em uma camada de código interativo, com early access a partir de julho/2026), **Figma Motion** (timeline nativa com keyframes para animação, compatível com MCP e exportável em CSS/JSON/React), **shader fills and effects** (geração de shaders parametrizáveis via prompt ou imagem de referência) e **generative plugins** (criação de plugins/ferramentas customizadas sem código, a partir de descrição em linguagem natural). Este anúncio complementa — sem substituir — os dados já registrados na Parte 12 (Radar de Inovação) sobre o Figma agent e a hegemonia do Figma entre designers de UI (82,3%, UX Tools Survey 2026, já citado na atualização de 26/07/2026).
+
+✅ **Figma — certificação ISO/IEC 42001 (anunciada em 01/07/2026):** a Figma tornou-se certificada no padrão internacional ISO/IEC 42001:2023 para sistemas de gestão de IA (o equivalente, para IA, da ISO 27001), auditada pela Schellman (organismo certificador acreditado pela ANAB). A auditoria avaliou 38 controles organizados em 9 objetivos (incluindo avaliação de impacto de IA, governança, gestão de risco específica de IA, supervisão humana e uso responsável), cobrindo os recursos de IA do Figma Design, Figma Make, FigJam, Dev Mode, Sites, Slides, Draw, Buzz e Weave. É um sinal de maturidade regulatória do setor — especialmente relevante para clientes enterprise em setores regulados (bancário, saúde, seguros, setor público) sob o AI Act europeu e padrões de procurement de IA.
+
+✅ **Brasil — perfil salarial do Designer Gráfico (Portal Salário / CAGED-MTE, dados atualizados em 03/05/2026, período de referência 04/2025–03/2026):** salário médio de **R$ 3.725,30/mês** (+4,1% em relação a 2025), com piso de R$ 2.401,20 e teto de R$ 7.018,66, para uma amostra de **31.906 profissionais** admitidos/desligados em regime CLT no Brasil (CBO 2624-10). O mercado de trabalho está classificado como de **"baixa demanda"**, mas com **saldo líquido positivo de +484 vagas** no período (16.195 admissões vs. 15.711 desligamentos) e rotatividade alta de 49,2%. A pesquisa também mapeia um **gap racial de 19,9%** no salário mediano de admissão entre profissionais brancos e negros (pretos + pardos) no mesmo cargo — a maior disparidade é para homens pardos, que recebem 78% do salário mediano de homens brancos na mesma função, um gap que persiste mesmo controlando por nível de escolaridade. Este dado primário nacional complementa a Parte 2 deste documento (Mercado Brasileiro de Design), que até então não trazia dado salarial oficial (CAGED) segmentado por gênero/raça para a ocupação.
+
+💡 **Leitura do dia:** os dois anúncios da Figma no mesmo mês (Config 2026 e ISO 42001) mostram a ferramenta dominante do setor movendo-se em duas frentes simultâneas — expandir o que a IA pode fazer diretamente no canvas (code, motion, shaders, plugins) e, ao mesmo tempo, formalizar governança e compliance de IA para conseguir vender essas mesmas capacidades a clientes enterprise regulados. É a mesma tensão que este mapa já vinha registrando (adoção alta, confiança/aprovação mais baixa) sendo endereçada institucionalmente, não só no produto. Já o dado de CAGED sobre o designer gráfico brasileiro adiciona uma camada que faltava neste documento: evidência oficial e granular de que a "compressão do tier de execução" pela IA (tese já registrada na Parte 1.3) convive, no Brasil, com um mercado de baixa demanda mas ainda gerando vagas líquidas — e com uma disparidade racial de remuneração que nenhuma das fontes internacionais já citadas capturava.
+
+**Fontes (27/07/2026):**
+- [Figma Blog — Config 2026: New Materials, New Tools and a More Expressive Canvas](https://www.figma.com/blog/config-2026-recap/)
+- [Figma Blog — Trust You Can Verify: Figma Is Now ISO 42001 Certified](https://www.figma.com/blog/figma-is-now-iso-42001-certified/)
+- [Portal Salário — Desenhista Industrial Gráfico (Designer Gráfico), CBO 2624-10](https://www.salario.com.br/profissao/desenhista-industrial-grafico-designer-grafico-cbo-262410/)
+
+---
 
 ### Atualização — 26/07/2026
 

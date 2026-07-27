@@ -2,10 +2,10 @@
 ## Estudo Estratégico com Referencial Teórico e Fontes Validadas
 
 **Propósito:** Inovação e novos negócios · Agência com especialistas em UI/UX e Identidade Visual com IA
-**Última atualização:** 24/07/2026
+**Última atualização:** 26/07/2026
 **Metodologia:** Dados de mercado validados com fontes primárias + análise estratégica qualitativa
 
-> 🆕 **O que mudou hoje (24/07/2026):** Duas pesquisas de opinião novas e independentes (Clutch.co e Creative Boom) confirmam com dados primários a tensão entre adoção de IA quase universal (86–88%) e baixa aprovação/alta insegurança financeira entre criativos — mas também que 47% das empresas aumentaram orçamento de design no último ano. Mapeados dois novos segmentos de mercado (Mordor Intelligence "User Experience Market" e revisões de "Graphic Design Market/Services" da Business Research Insights) e os resultados financeiros do 1º trimestre fiscal de 2026 da Figma (receita +46% a/a). Detalhes na seção "Histórico de Atualizações" ao final.
+> 🆕 **O que mudou hoje (26/07/2026):** Novo relatório anual da Autodesk (2026 AI Jobs Report) mostra vagas de IA em Design & Make crescendo 147% em dois anos, com desaceleração de +89%→+40% na América do Norte em 2026 — sinal de que a fase inicial de adoção está amadurecendo. O PwC Global AI Jobs Barometer (contexto de mercado de trabalho geral, não específico de design) mostra o prêmio salarial de skills de IA subindo de 25%→57%→62% entre 2024–2026. Atualizados dois números de concorrência de ferramentas: Figma dominando 82,3% dos designers de UI (UX Tools Survey 2026) e Canva batendo 265M de usuários ativos mensais e US$4B em ARR (atualiza o dado de 220M já registrado na Parte 1.4). Detalhes na seção "Histórico de Atualizações" ao final.
 
 > ⚠️ **Legenda de confiabilidade:**
 > - ✅ Dado validado com fonte primária
@@ -1460,6 +1460,27 @@ Claude / ChatGPT / Gemini → copy, briefing, documentação, estratégia
 ---
 
 ## HISTÓRICO DE ATUALIZAÇÕES
+
+### Atualização — 26/07/2026
+
+✅ **Autodesk — 2026 AI Jobs Report** (segundo relatório anual da série, divulgado em 22/06/2026): vagas de IA nas áreas de Design & Make **mais que dobraram em dois anos (+147%)**, com +33% de crescimento apenas no último ano. Persiste um gap de skills relevante: **82% dos estudantes** se dizem confiantes com ferramentas de IA genéricas (ChatGPT, Claude), mas apenas **36%** com ferramentas de IA específicas da profissão; entre profissionais, o gap é de **80% vs. 49%**. A América do Norte segue líder, mas com desaceleração — cresceu **+40% em 2026**, ante **+89% em 2025** — sinal de que a fase de adoção mais acelerada já passou. Este relatório atualiza o "2025 AI Jobs Report" da mesma Autodesk, já citado na Parte 3 deste documento (menções a IA em vagas +56,1% em 2025, após +120,6% em 2024).
+
+🔶 **PwC — 2026 Global AI Jobs Barometer** (análise de mais de 1 bilhão de vagas de emprego em 27 países; **dado de mercado de trabalho geral, não específico do setor de design** — incluído aqui como contexto complementar): o prêmio salarial médio para quem tem skills de IA subiu de **25% (2024) → 57% (2025) → 62% (2026)**. Vagas que exigem skills específicas de IA crescem **8x mais rápido (69%)** que o mercado de vagas em geral (9%). O prêmio varia fortemente por setor — até 118% em consumer markets, apenas 16% no setor público. Não deve ser confundido com o prêmio de 44%/hora específico de freelancers de IA no design (Upwork, já registrado na atualização de 23/07/2026).
+
+✅ **UX Tools — Design Tools Survey 2026:** o Figma é usado por **82,3% dos designers de UI** pesquisados, com **82,6%** relatando uso semanal — uma proporção de 46:1 em relação ao Sketch. A pesquisa também aponta uma mudança no papel da ferramenta no fluxo de trabalho: parte dos designers já usa o Figma como ponto de partida para explorar direções antes de ir para código com IA, enquanto outros o usam como ferramenta de acabamento ("bisturi") em fluxos AI-first — prototipando primeiro em ambiente de desenvolvimento e voltando ao Figma só para refinamento de alta fidelidade.
+
+✅ **Canva — atualização de usuários e receita (fev/2026):** segundo o COO Cliff Obrecht, em declaração à TechCrunch, a Canva fechou 2025 com **mais de 265 milhões de usuários ativos mensais** (+20% a/a) e **US$4 bilhões em receita anual recorrente (ARR)**, com mais de 31 milhões de usuários pagantes. O segmento B2B (empresas com 25+ assentos) cresceu **100% a/a**, atingindo US$500 milhões em ARR. Este número **atualiza** (sem substituir o histórico) o dado de 220 milhões de usuários já registrado na Parte 1.4 deste mapa.
+
+💡 **Leitura do dia:** os números de hoje sugerem uma maturação em duas frentes que este mapa já vinha sinalizando. Na frente de contratação, o ritmo de crescimento de vagas de IA está desacelerando (Autodesk: +89%→+40% na América do Norte), o que pode indicar que o mercado está saindo da fase de "corrida inicial" para uma fase de consolidação — sem reverter a tendência estrutural. Na frente de ferramentas, a combinação de Figma dominando o desenho profissional (82,3%) e Canva dominando o volume de usuários (265M) reforça a segmentação já mapeada neste documento: Figma como ferramenta de profissionais/times, Canva como ferramenta de democratização e produção em massa — dois mercados adjacentes, não o mesmo mercado.
+
+**Fontes (26/07/2026):**
+- [Autodesk News — 2026 AI Jobs Report](https://adsknews.autodesk.com/en/news/2026-ai-jobs-report/)
+- [PwC — AI reshapes global labour market into two distinct paths: 2026 Global AI Jobs Barometer](https://www.pwc.com/gx/en/news-room/press-releases/2026/pwc-2026-ai-jobs-barometer.html)
+- [UX Tools — Design Tools Survey 2026 (Interface Design Trends)](https://www.uxtools.co/survey/interface-design/trends)
+- [TechBriefly — Canva hits 265 million active users and $4 billion in annual revenue](https://techbriefly.com/2026/02/19/canva-hits-265-million-active-users-and-4-billion-in-annual-revenue/)
+- [Music Ally — Canva now has 265m monthly active users – and 31m are paying](https://musically.com/2026/02/19/canva-now-has-265m-monthly-active-users-and-31m-are-paying/)
+
+---
 
 ### Atualização — 24/07/2026
 

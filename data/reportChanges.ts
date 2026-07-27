@@ -16,9 +16,29 @@ export type ReportChange = {
 
 export const reportChanges: ReportChange[] = [
   {
+    date: "26/07/2026",
+    label: "26 Jul 2026",
+    isLatest: true,
+    summary: "Autodesk 2026 AI Jobs Report: vagas de IA em Design & Make +147% em 2 anos · PwC Global AI Jobs Barometer: prêmio salarial de skills de IA sobe pra 62% · UX Tools Survey 2026: Figma usado por 82,3% dos designers de UI · Canva atinge 265M usuários ativos mensais e US$4B em ARR",
+    changes: [
+      {
+        id: "novidades",
+        label: "Novidades & Notícias",
+        icon: "📰",
+        newCount: 4,
+        highlights: [
+          "Autodesk: vagas de IA em Design & Make +147% em 2 anos",
+          "PwC: prêmio salarial de skills de IA sobe pra 62% (era 25% em 2024)",
+          "UX Tools Survey: Figma usado por 82,3% dos designers de UI",
+          "Canva: 265M usuários ativos mensais, US$4B em ARR",
+        ],
+      },
+    ],
+  },
+  {
     date: "24/07/2026",
     label: "24 Jul 2026",
-    isLatest: true,
+    isLatest: false,
     summary: "Clutch.co: 88% das empresas usam IA no design, mas só 18% reduziram contratação de designers · Creative Boom: 69% dos criativos relatam burnout e só 10% veem a IA como positiva pra indústria · Mordor Intelligence mapeia o 'User Experience Market' (US$13,58B em 2026) · Figma fecha Q1 fiscal 2026 com receita +46% a/a",
     changes: [
       {

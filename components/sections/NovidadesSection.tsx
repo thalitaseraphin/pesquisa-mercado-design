@@ -5,6 +5,46 @@ import SectionHeader from "./SectionHeader";
 
 const news = [
   {
+    href: "https://adsknews.autodesk.com/en/news/2026-ai-jobs-report/",
+    tag: "Pesquisa",
+    tagClass: "bg-[#E9F0FE] text-[#1E40AF] border border-[#CFE0FB]",
+    date: "Jun 2026",
+    reportDate: "26/07/2026",
+    title: "Autodesk 2026 AI Jobs Report: vagas de IA em Design & Make mais que dobram em 2 anos (+147%)",
+    desc: "Segundo relatório anual da Autodesk (divulgado em 22/06/2026): vagas de IA nas áreas de Design & Make cresceram <strong>147% em dois anos</strong>, com +33% só no último ano. O gap de skills persiste — 82% dos estudantes se dizem confiantes com IA genérica (ChatGPT/Claude), mas só 36% com ferramentas de IA específicas da profissão; entre profissionais, 80% vs. 49%. América do Norte cresceu +40% em 2026 (após +89% em 2025), sinal de desaceleração da fase inicial de adoção.",
+    source: "Autodesk News — 2026 AI Jobs Report",
+  },
+  {
+    href: "https://www.pwc.com/gx/en/news-room/press-releases/2026/pwc-2026-ai-jobs-barometer.html",
+    tag: "Pesquisa",
+    tagClass: "bg-[#E9F0FE] text-[#1E40AF] border border-[#CFE0FB]",
+    date: "Jul 2026",
+    reportDate: "26/07/2026",
+    title: "PwC Global AI Jobs Barometer 2026: prêmio salarial de skills de IA sobe para 62%",
+    desc: "Análise de mais de 1 bilhão de vagas em 27 países (não específico do setor de design, mas relevante como contexto de mercado de trabalho): o prêmio salarial para quem tem skills de IA subiu de <strong>25% (2024) → 57% (2025) → 62% (2026)</strong>. Vagas que exigem skills específicas de IA crescem 8x mais rápido (69%) que o mercado de vagas em geral (9%). Prêmio varia por setor: até 118% em consumer markets, 16% no setor público.",
+    source: "PwC — 2026 Global AI Jobs Barometer",
+  },
+  {
+    href: "https://www.uxtools.co/survey/interface-design/trends",
+    tag: "Ferramenta",
+    tagClass: "bg-[#2563EB] text-white",
+    date: "2026",
+    reportDate: "26/07/2026",
+    title: "UX Tools Survey 2026: Figma é usado por 82,3% dos designers de UI, 82,6% semanalmente",
+    desc: "Pesquisa anual do UX Tools mostra domínio ainda maior do Figma em 2026 — usado por <strong>82,3% dos designers de UI</strong> pesquisados, com 82,6% relatando uso semanal (proporção de 46:1 em relação ao Sketch). O papel do Figma no fluxo está mudando: parte dos designers usa a ferramenta como ponto de partida para IA (wireframe → IA → código), enquanto outros a usam como 'bisturi' de acabamento em fluxos AI-first, prototipando em ambiente de desenvolvimento antes de voltar ao Figma para refinamento de alta fidelidade.",
+    source: "UX Tools — Design Tools Survey 2026",
+  },
+  {
+    href: "https://techbriefly.com/2026/02/19/canva-hits-265-million-active-users-and-4-billion-in-annual-revenue/",
+    tag: "Mercado",
+    tagClass: "bg-[#F6F8FB] text-[#434A57] border border-[#D2D9E4]",
+    date: "Fev 2026",
+    reportDate: "26/07/2026",
+    title: "Canva atinge 265 milhões de usuários ativos mensais e US$4 bilhões em receita anual",
+    desc: "Segundo o COO Cliff Obrecht à TechCrunch: a Canva fechou 2025 com <strong>mais de 265 milhões de usuários ativos mensais</strong> (+20% a/a) e US$4 bilhões em ARR, com mais de 31 milhões de usuários pagantes. O segmento B2B (empresas com 25+ assentos) cresceu 100% a/a, atingindo US$500 milhões em ARR — atualiza o dado de 220M de usuários já registrado na Parte 1.4 deste mapa.",
+    source: "TechCrunch (via Cliff Obrecht, COO Canva) / Music Ally",
+  },
+  {
     href: "https://clutch.co/resources/graphic-design-industry-2026",
     tag: "Pesquisa",
     tagClass: "bg-[#E9F0FE] text-[#1E40AF] border border-[#CFE0FB]",
@@ -491,7 +531,7 @@ export default function NovidadesSection() {
     <section id="novidades" className="mb-[84px] scroll-mt-[74px]">
       <SectionHeader
         icon="📰"
-        part="Leitura · atualizado 24/07/2026"
+        part="Leitura · atualizado 26/07/2026"
         title="Novidades & Notícias"
         description="IA no design gráfico, branding e ferramentas — para ler e acompanhar"
       />

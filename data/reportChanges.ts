@@ -16,9 +16,29 @@ export type ReportChange = {
 
 export const reportChanges: ReportChange[] = [
   {
+    date: "28/07/2026",
+    label: "28 Jul 2026",
+    isLatest: true,
+    summary: "Figma Make ganha o modelo GPT-5.6 da OpenAI · Adobe e Disney Imagineering integram o Firefly Foundry ao design de parques temáticos · Nielsen Norman Group: 'UI não é mais um diferencial' no State of UX 2026 · Coinbase testa 'times de uma pessoa só' (design+engenharia+produto) em corte de vagas ligado a IA",
+    changes: [
+      {
+        id: "novidades",
+        label: "Novidades & Notícias",
+        icon: "📰",
+        newCount: 4,
+        highlights: [
+          "Figma Make ganha o modelo GPT-5.6 da OpenAI (9/07/2026)",
+          "Adobe e Disney Imagineering levam o Firefly Foundry ao design de parques temáticos",
+          "Nielsen Norman Group: 'UI não é mais um diferencial' — State of UX 2026",
+          "Coinbase testa 'times de uma pessoa só' (design+engenharia+produto) em corte ligado a IA",
+        ],
+      },
+    ],
+  },
+  {
     date: "27/07/2026",
     label: "27 Jul 2026",
-    isLatest: true,
+    isLatest: false,
     summary: "Figma é certificada ISO/IEC 42001 (governança de IA) · Dado oficial CAGED/MTE: Designer Gráfico ganha em média R$3.725,30/mês, mercado de baixa demanda com saldo líquido positivo e gap racial de 19,9%",
     changes: [
       {

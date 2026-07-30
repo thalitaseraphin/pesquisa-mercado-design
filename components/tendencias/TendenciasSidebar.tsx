@@ -1,74 +1,36 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { useReportDate } from "@/context/ReportDateContext";
-import { getNewCountBySectionForDate } from "@/data/reportChanges";
 import NicheSwitcher from "@/components/layout/NicheSwitcher";
-
-const navGroups = [
-  {
-    label: "Leitura",
-    links: [
-      { href: "#novidades", icon: "📰", label: "Novidades & Notícias" },
-      { href: "#identidade", icon: "🎨", label: "Identidade Visual & IA" },
-      { href: "#forum", icon: "🔥", label: "Em Alta nos Fóruns" },
-      { href: "#anuncios", icon: "📣", label: "Anúncios em Alta" },
-      { href: "#insights", icon: "💡", label: "Insights & Atenção" },
-      { href: "#tarefas", icon: "✅", label: "Tarefas — Aplicar Agora" },
-    ],
-  },
-  {
-    label: "Panorama",
-    links: [
-      { href: "#panorama", icon: "🌍", label: "Panorama Global" },
-      { href: "#brasil", icon: "🇧🇷", label: "Mercado Brasileiro" },
-      { href: "#remuneracao", icon: "💰", label: "Remuneração" },
-      { href: "#aprendizado", icon: "📚", label: "Como Estudam" },
-    ],
-  },
-  {
-    label: "Estratégia",
-    links: [
-      { href: "#personas", icon: "👥", label: "Personas" },
-      { href: "#oportunidades", icon: "🎯", label: "Oportunidades" },
-      { href: "#modelos", icon: "💼", label: "Modelos de Negócio" },
-    ],
-  },
-  {
-    label: "Growth",
-    links: [
-      { href: "#canais", icon: "📢", label: "Canais de Aquisição" },
-      { href: "#compra", icon: "🛒", label: "Comportamento de Compra" },
-      { href: "#competitivo", icon: "⚔️", label: "Cenário Competitivo" },
-    ],
-  },
-  {
-    label: "Inovação",
-    links: [
-      { href: "#ferramentas", icon: "🔧", label: "Radar de Ferramentas" },
-      { href: "#internacional", icon: "🌐", label: "Mercado Internacional" },
-      { href: "#emergentes", icon: "🌱", label: "Mercados Emergentes" },
-    ],
-  },
-  {
-    label: "Pesquisa",
-    links: [
-      { href: "#estudos", icon: "🔬", label: "Estudos & Sinais" },
-      { href: "#vozes", icon: "📱", label: "Vozes & Comunidades" },
-      { href: "#fontes", icon: "📋", label: "77 Fontes Validadas" },
-    ],
-  },
-];
+import { themes, LATEST_DATE } from "@/data/tendencias/content";
 
 interface SidebarProps {
   mobileOpen: boolean;
   onClose: () => void;
 }
 
-export default function Sidebar({ mobileOpen, onClose }: SidebarProps) {
-  const [activeId, setActiveId] = useState("panorama");
+// Sidebar do dashboard /tendencias. Nav por tema + seletor de nicho.
+export default function TendenciasSidebar({ mobileOpen, onClose }: SidebarProps) {
+  const [activeId, setActiveId] = useState("emalta");
   const observerRef = useRef<IntersectionObserver | null>(null);
-  const { selectedDate, setSelectedDate } = useReportDate();
+
+  const navGroups = [
+    {
+      label: "Hoje",
+      links: [
+        { href: "#emalta", icon: "📰", label: "Em Alta Hoje" },
+        { href: "#ideias", icon: "💡", label: "Ideias de Conteúdo" },
+      ],
+    },
+    {
+      label: "Temas",
+      links: themes.map((t) => ({ href: `#${t.id}`, icon: t.icon, label: t.label })),
+    },
+    {
+      label: "Base",
+      links: [{ href: "#fontes", icon: "📋", label: "Fontes" }],
+    },
+  ];
 
   useEffect(() => {
     const allIds = navGroups.flatMap((g) => g.links.map((l) => l.href.slice(1)));
@@ -88,10 +50,8 @@ export default function Sidebar({ mobileOpen, onClose }: SidebarProps) {
     });
 
     return () => observerRef.current?.disconnect();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  // Badges: novidades da data mais recente (28/07/2026)
-  const newCounts = getNewCountBySectionForDate("28/07/2026");
 
   return (
     <>
@@ -110,25 +70,15 @@ export default function Sidebar({ mobileOpen, onClose }: SidebarProps) {
         {/* Logo */}
         <div className="px-[22px] pt-6 pb-5 border-b border-white/10 flex-shrink-0">
           <div className="text-[15px] font-extrabold text-white tracking-[-0.4px]">
-            Mapa de Mercado
+            Tendências Geral
           </div>
           <div className="text-[11px] text-white/50 mt-1">
-            Mercado de Design · 2026
+            Radar de conteúdo · Willian Baldan
           </div>
           <div className="flex items-center gap-2 mt-2.5 flex-wrap">
             <span className="text-[10px] font-bold text-black bg-white px-2.5 py-0.5 rounded-full">
-              Atualizado: 28/07/2026
+              Atualizado: {LATEST_DATE}
             </span>
-            {selectedDate && (
-              <span className="text-[10px] font-bold text-[#2563EB] bg-[#E9F0FE] border border-[#CFE0FB] px-2 py-0.5 rounded-full flex items-center gap-1">
-                📅 {selectedDate}
-                <button
-                  onClick={() => setSelectedDate("")}
-                  className="ml-0.5 text-[#6B7480] hover:text-white font-extrabold leading-none cursor-pointer"
-                  title="Limpar filtro"
-                >×</button>
-              </span>
-            )}
           </div>
           <NicheSwitcher />
         </div>
@@ -144,12 +94,14 @@ export default function Sidebar({ mobileOpen, onClose }: SidebarProps) {
                   {group.links.map((link) => {
                     const id = link.href.slice(1);
                     const isActive = activeId === id;
-                    const count = newCounts[id];
                     return (
                       <a
                         key={link.href}
                         href={link.href}
-                        onClick={() => { setActiveId(id); onClose(); }}
+                        onClick={() => {
+                          setActiveId(id);
+                          onClose();
+                        }}
                         className={[
                           "flex items-center gap-2.5 px-[22px] py-2 text-[13px] no-underline",
                           "border-l-[3px] transition-all duration-150",
@@ -160,11 +112,6 @@ export default function Sidebar({ mobileOpen, onClose }: SidebarProps) {
                       >
                         <span className="text-[13px] w-4 flex-shrink-0 leading-none">{link.icon}</span>
                         <span className="flex-1 truncate min-w-0">{link.label}</span>
-                        {count ? (
-                          <span className="flex-shrink-0 text-[9px] font-bold text-[#1E40AF] bg-[#DBEAFE] px-1.5 py-px rounded-full">
-                            +{count}
-                          </span>
-                        ) : null}
                       </a>
                     );
                   })}
